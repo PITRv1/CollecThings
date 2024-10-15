@@ -48,7 +48,8 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_omi0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288659, 0.246116, 0.0235012)
-gravity = 10.0
+
+gravity = 16.0
 
 [node name="Env" type="Node" parent="."]
 
@@ -71,6 +72,37 @@ transform = Transform3D(0.733682, 0.679493, 0, -0.679493, 0.733682, 0, 0, 0, 1, 
 use_collision = true
 size = Vector3(0.001, 9, 2.9834)
 
+[node name="Platforms" type="Node" parent="Env"]
+
+[node name="Ground2" type="MeshInstance3D" parent="Env/Platforms"]
+transform = Transform3D(0.157963, 0, 0, 0, 0.000377673, 0, 0, 0, 0.0835359, 3.58931, 3.47792, -27.1229)
+mesh = SubResource("PlaneMesh_vuryc")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Platforms/Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Platforms/Ground2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0y6rd")
+
+[node name="Ground3" type="MeshInstance3D" parent="Env/Platforms"]
+transform = Transform3D(0.157963, 0, 0, 0, 0.000377673, 0, 0, 0, 0.0835359, 3.58931, 2.14139, -18.0242)
+mesh = SubResource("PlaneMesh_vuryc")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Platforms/Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Platforms/Ground3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0y6rd")
+
+[node name="Ground4" type="MeshInstance3D" parent="Env/Platforms"]
+transform = Transform3D(0.157963, 0, 0, 0, 0.000377673, 0, 0, 0, 0.0835359, 3.58931, 4.96643, -40.7469)
+mesh = SubResource("PlaneMesh_vuryc")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Platforms/Ground4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Platforms/Ground4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0y6rd")
 [node name="Spheres" type="Node" parent="."]
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Spheres"]

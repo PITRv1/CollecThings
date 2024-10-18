@@ -56,7 +56,7 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_omi0d")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288659, 0.246116, 0.0235012)
-gravity = 16.0
+gravity = 8.0
 
 [node name="entities" type="Node3D" parent="."]
 

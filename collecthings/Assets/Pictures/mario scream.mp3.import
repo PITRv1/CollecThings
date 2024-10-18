@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xf404nkejpi"
+path="res://.godot/imported/mario scream.mp3-8112fb71e886eb1bda5e8a5074656a8a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Pictures/mario scream.mp3"
+dest_files=["res://.godot/imported/mario scream.mp3-8112fb71e886eb1bda5e8a5074656a8a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

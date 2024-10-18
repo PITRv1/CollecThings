@@ -1,0 +1,14 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://chppnpfu2o4qc"]
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_o6qik"]
+resource_name = "Distortion"
+
+[resource]
+bus/1/name = &"Sus"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -9.2092
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectDistortion_o6qik")
+bus/1/effect/0/enabled = true

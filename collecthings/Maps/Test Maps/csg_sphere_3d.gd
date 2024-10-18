@@ -8,8 +8,6 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#look_at(player.position, position)
-	#position = position.move_toward(player.position, delta*6)
-	
-	
+func _process(delta: float) -> void:
+	look_at(player.position, position)
+	position = position.move_toward(player.position, delta*6)

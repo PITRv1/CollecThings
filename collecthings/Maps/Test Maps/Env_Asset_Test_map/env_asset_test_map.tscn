@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=17 format=3 uid="uid://bx6mee0g0jq65"]
 
-[ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Maps/Test Maps/test_island.glb" id="1_pen33"]
+[ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="PackedScene" uid="uid://d0asmxg51akhy" path="res://Assets/Models/Environment Models/Foilage/tree1.glb" id="3_8gg0q"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
+[ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -26,8 +27,8 @@ sky_horizon_color = Color(0.483006, 0.747435, 0.982709, 1)
 sky_curve = 0.0304596
 sky_cover = SubResource("NoiseTexture2D_rxou4")
 sky_cover_modulate = Color(0.815686, 1, 1, 1)
-ground_bottom_color = Color(0.00712609, 0.111507, 0.229088, 1)
-ground_horizon_color = Color(0.015757, 0.427778, 0.658744, 1)
+ground_bottom_color = Color(0.1995, 0.612275, 0.95, 1)
+ground_horizon_color = Color(0.2, 0.611765, 0.94902, 1)
 ground_curve = 0.171484
 
 [sub_resource type="Sky" id="Sky_4jqd3"]
@@ -38,6 +39,7 @@ background_mode = 2
 sky = SubResource("Sky_4jqd3")
 tonemap_mode = 2
 ssr_enabled = true
+sdfgi_enabled = true
 glow_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.557693, 0.59221, 0.646449, 1)
@@ -50,8 +52,8 @@ volumetric_fog_density = 0.0443
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.0196078, 0, 1)
 emission_enabled = true
-emission = Color(0.873333, 1, 0.24, 1)
-emission_energy_multiplier = 16.0
+emission = Color(0.0178102, 0.675025, 0.830285, 1)
+emission_energy_multiplier = 7.54
 
 [sub_resource type="TorusMesh" id="TorusMesh_abd0y"]
 material = SubResource("StandardMaterial3D_q62o1")
@@ -77,34 +79,40 @@ size = Vector2(5000, 5000)
 subdivide_width = 1000
 subdivide_depth = 1000
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_02vjf"]
+size = Vector3(458.802, 0.758789, 499.972)
+
 [node name="Env Asset Test Map" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fqgkm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.291273, 0.236429, -0.926964, -0.335225, 0.882312, 0.330377, 0.895982, 0.406971, -0.177737, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_tnp5y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, -2.12151, -2.86695)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.00104048, 0.121167, 0, -0.121167, -0.00104048, 0, 0, 0, 0.121172, -56.909, 10.033, -1.43479)
+transform = Transform3D(-0.00104048, 0.121167, 0, -0.121167, -0.00104048, 0, 0, 0, 0.121172, -50.7449, 9.98007, -1.43479)
 mesh = SubResource("TorusMesh_abd0y")
 
 [node name="test_island" parent="." instance=ExtResource("1_pen33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3282, -12.5338, 25.4648)
 
 [node name="tree1" parent="." instance=ExtResource("3_8gg0q")]
-transform = Transform3D(0.464828, 0, 0, 0, 0.464828, 0, 0, 0, 0.464828, 16.6509, -5.1106, 5.06258)
-
-[node name="tree2" parent="." instance=ExtResource("3_8gg0q")]
-transform = Transform3D(0.327609, 0, -0.329754, 0, 0.464828, 0, 0.329754, 0, 0.327609, 19.6618, -5.1106, 23.7339)
-
-[node name="tree3" parent="." instance=ExtResource("3_8gg0q")]
-transform = Transform3D(0.327609, 0, -0.329754, 0, 0.464828, 0, 0.329754, 0, 0.327609, 27.3583, -6.42655, 14.7853)
+transform = Transform3D(0.464828, 0, 0, 0, 0.464828, 0, 0, 0, 0.464828, 6.29667, -5.1106, -7.14948)
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -42.2884, 0)
 mesh = SubResource("PlaneMesh_362e4")
+
+[node name="Killbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -41.8458, 0)
+script = ExtResource("5_oa33d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
+shape = SubResource("BoxShape3D_02vjf")
+
+[connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3pvee8afbdtx"
-path.s3tc="res://.godot/imported/test_island_seamless_grass_n.png-826272c96df089aae6dff0c85d7a69c5.s3tc.ctex"
+uid="uid://da7fgu4qnv1nj"
+path.s3tc="res://.godot/imported/test_island_seamless_grass_leaves_n.png-1825f5ddeee91400d6436eb9178fd61c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ae7f4a609f58b31d033809a91b049d23"
+"md5": "0fb80eca7f7c398ecb7c476f156c28fe"
 }
 
 [deps]
 
-source_file="res://Maps/Test Maps/test_island_seamless_grass_n.png"
-dest_files=["res://.godot/imported/test_island_seamless_grass_n.png-826272c96df089aae6dff0c85d7a69c5.s3tc.ctex"]
+source_file="res://Assets/Models/Environment Models/Map Models/test_island_seamless_grass_leaves_n.png"
+dest_files=["res://.godot/imported/test_island_seamless_grass_leaves_n.png-1825f5ddeee91400d6436eb9178fd61c.s3tc.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Maps/Test Maps/test_island_seamless_grass_n.png"
+roughness/src_normal="res://Maps/Test Maps/test_island_seamless_grass_leaves_n.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

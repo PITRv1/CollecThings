@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5klw8p2no2p3"]
+
+[ext_resource type="PackedScene" uid="uid://mgpvfsju1fpg" path="res://Assets/Models/Misc. Models/tablet_placeholder.glb" id="1_fbbnh"]
+[ext_resource type="VideoStream" path="res://Assets/Models/Misc. Models/family_guy.ogv" id="2_8wqdj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ih6m"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6drtb"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6gsx"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_6drtb")
+
+[node name="Tablet" type="Node3D"]
+
+[node name="tablet_placeholder" parent="." instance=ExtResource("1_fbbnh")]
+transform = Transform3D(0.0321394, 0.0383022, 0, -0.0383022, 0.0321394, 0, 0, 0, 0.05, 0.00899698, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.26763e-08, 0.1, -5.24537e-09, 0, -4.37114e-09, -0.12, -0.29, -4.37114e-09, 2.29282e-16, 0.0225659, 0, 0.0067865)
+mesh = SubResource("PlaneMesh_1ih6m")
+surface_material_override/0 = SubResource("StandardMaterial3D_m6gsx")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(720, 360)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_8wqdj")
+autoplay = true
+loop = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=12 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
+[ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/Misc. Models/tablet.tscn" id="2_bxl8q"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/IdlePlayerState.gd" id="3_10uix"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/WalkingPlayerState.gd" id="4_fodp0"]
@@ -34,6 +35,9 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Head/CameraSmooth"]
 unique_name_in_owner = true
+
+[node name="Tablet" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("2_bxl8q")]
+transform = Transform3D(-0.395562, 0, -0.91844, 0.435337, 0.880527, -0.187495, 0.808711, -0.473996, -0.348303, 0.35, -0.246, -0.639)
 
 [node name="StairsAheadRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)

@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=15 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Maps/Test Maps/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="PackedScene" uid="uid://d0asmxg51akhy" path="res://Assets/Models/Environment Models/Foilage/tree1.glb" id="3_8gg0q"]
-[ext_resource type="PackedScene" uid="uid://mgpvfsju1fpg" path="res://Assets/Models/Misc. Models/tablet_placeholder.glb" id="4_cgiv2"]
+[ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -60,6 +60,23 @@ outer_radius = 224.769
 rings = 29
 ring_segments = 12
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52nbf"]
+render_priority = 0
+shader = ExtResource("4_5tgxb")
+shader_parameter/Ripple_Height_Speed = -0.009
+shader_parameter/Ripple_Height = 5.243
+shader_parameter/Water_Color = Color(0, 0.535823, 0.737412, 1)
+shader_parameter/ColorParameter = Color(0.0578568, 0.238741, 0.350693, 1)
+shader_parameter/DeepColor_cutoff = 32.857
+shader_parameter/Ripple_Speed = -0.009
+shader_parameter/Prox_fade_power = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_362e4"]
+material = SubResource("ShaderMaterial_52nbf")
+size = Vector2(5000, 5000)
+subdivide_width = 1000
+subdivide_depth = 1000
+
 [node name="Env Asset Test Map" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -88,5 +105,6 @@ transform = Transform3D(0.327609, 0, -0.329754, 0, 0.464828, 0, 0.329754, 0, 0.3
 [node name="tree3" parent="." instance=ExtResource("3_8gg0q")]
 transform = Transform3D(0.327609, 0, -0.329754, 0, 0.464828, 0, 0.329754, 0, 0.327609, 27.3583, -6.42655, 14.7853)
 
-[node name="tablet_placeholder" parent="." instance=ExtResource("4_cgiv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.52008, 8.67395, 14.5062)
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -42.2884, 0)
+mesh = SubResource("PlaneMesh_362e4")

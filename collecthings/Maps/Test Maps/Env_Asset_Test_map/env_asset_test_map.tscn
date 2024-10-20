@@ -76,8 +76,8 @@ shader_parameter/Prox_fade_power = 1.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_362e4"]
 material = SubResource("ShaderMaterial_52nbf")
 size = Vector2(5000, 5000)
-subdivide_width = 1000
-subdivide_depth = 1000
+subdivide_width = 100
+subdivide_depth = 100
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_02vjf"]
 size = Vector3(458.802, 0.758789, 499.972)

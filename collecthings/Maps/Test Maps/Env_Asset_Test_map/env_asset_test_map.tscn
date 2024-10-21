@@ -38,8 +38,6 @@ sky_material = SubResource("ProceduralSkyMaterial_ss61i")
 background_mode = 2
 sky = SubResource("Sky_4jqd3")
 tonemap_mode = 2
-ssr_enabled = true
-sdfgi_enabled = true
 glow_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.557693, 0.59221, 0.646449, 1)
@@ -66,12 +64,14 @@ ring_segments = 12
 render_priority = 0
 shader = ExtResource("4_5tgxb")
 shader_parameter/Ripple_Height_Speed = -0.009
-shader_parameter/Ripple_Height = 5.243
+shader_parameter/Ripple_Height = 22.679
 shader_parameter/Water_Color = Color(0, 0.535823, 0.737412, 1)
 shader_parameter/ColorParameter = Color(0.0578568, 0.238741, 0.350693, 1)
-shader_parameter/DeepColor_cutoff = 32.857
+shader_parameter/DeepColor_cutoff = 26.703
 shader_parameter/Ripple_Speed = -0.009
-shader_parameter/Prox_fade_power = 1.0
+shader_parameter/FloatParameter = 1.0
+shader_parameter/Metalic = 0.0
+shader_parameter/Roughness = 0.056
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_362e4"]
 material = SubResource("ShaderMaterial_52nbf")
@@ -94,8 +94,9 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_tnp5y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, -2.12151, -2.86695)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Onion" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.00104048, 0.121167, 0, -0.121167, -0.00104048, 0, 0, 0, 0.121172, -50.7449, 9.98007, -1.43479)
+visible = false
 mesh = SubResource("TorusMesh_abd0y")
 
 [node name="test_island" parent="." instance=ExtResource("1_pen33")]

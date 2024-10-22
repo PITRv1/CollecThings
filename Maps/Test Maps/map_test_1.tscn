@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://sfmn3ana23q1"]
+[gd_scene load_steps=9 format=3 uid="uid://jnbffgett6b3"]
 
 [ext_resource type="Texture2D" uid="uid://d3brf2y6jyic4" path="res://Assets/Test assets/Test Textures/Petha_1m x 1m Gray.png" id="1_xu7r7"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_omi0d"]

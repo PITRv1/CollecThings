@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://mgpvfsju1fpg"
-path="res://.godot/imported/tablet_placeholder.glb-c74da46c8e49d794ad0d66118452925a.scn"
+path="res://.godot/imported/tablet_placeholder.glb-0e6b76ab0cf313fe262645eb4c8bb1bd.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Misc. Models/tablet_placeholder.glb"
-dest_files=["res://.godot/imported/tablet_placeholder.glb-c74da46c8e49d794ad0d66118452925a.scn"]
+source_file="res://Assets/Models/Misc. Models/Tablet/tablet_placeholder.glb"
+dest_files=["res://.godot/imported/tablet_placeholder.glb-0e6b76ab0cf313fe262645eb4c8bb1bd.scn"]
 
 [params]
 

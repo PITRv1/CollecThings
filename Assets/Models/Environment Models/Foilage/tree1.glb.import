@@ -36,6 +36,9 @@ _subresources={
 "PATH:Cube": {
 "generate/physics": true,
 "physics/shape_type": 2
+},
+"PATH:Sphere": {
+"import/skip_import": true
 }
 }
 }

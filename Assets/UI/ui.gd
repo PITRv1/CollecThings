@@ -4,8 +4,9 @@ extends Control
 @onready var speedlabel: Label = $HBoxContainer/VBoxContainer/VBoxContainer2/speed
 @onready var player: Player = get_tree().current_scene.get_node("Player")
 @onready var timer: Timer = $Timer
+
 func _ready() -> void:
-	print(player)
+	timer.start()
 
 func _process(delta) -> void:
 	var posx: String = " x:"+str(int(player.position.x))
@@ -16,4 +17,4 @@ func _process(delta) -> void:
 
 func _on_timer_timeout():
 	speedlabel.text = "Speed:"+str(int(player.velocity.length()))
-	timer.start()
+	

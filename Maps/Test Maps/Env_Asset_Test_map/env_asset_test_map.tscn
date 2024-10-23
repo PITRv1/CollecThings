@@ -119,6 +119,7 @@ mesh = SubResource("PlaneMesh_362e4")
 
 [node name="Killbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -41.8458, 0)
+collision_mask = 3
 script = ExtResource("5_oa33d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]

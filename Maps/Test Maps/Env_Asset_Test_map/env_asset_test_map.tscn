@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=19 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/enemy_test.tscn" id="2_0va6j"]
@@ -6,7 +6,6 @@
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/sphere_tree.glb" id="6_nw6re"]
-[ext_resource type="PackedScene" uid="uid://cut7b0hsnu5x8" path="res://Assets/Models/HUD Models/Tablet/tablet.glb" id="7_vu8lj"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -148,8 +147,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6739, -2.55383, -14.5563)
 
 [node name="sphere_tree" parent="." instance=ExtResource("6_nw6re")]
 transform = Transform3D(0.699164, 0, -0.714961, 0, 1, 0, 0.714961, 0, 0.699164, -39.1841, -0.785208, 18.9964)
-
-[node name="tablet" parent="." instance=ExtResource("7_vu8lj")]
-transform = Transform3D(-7.34244, -3.80365e-09, 0.0870174, -0.0870174, 3.20948e-07, -7.34244, 0, -7.34295, -3.20971e-07, -14.4395, 2.4853, 16.9346)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5klw8p2no2p3"]
+
+[ext_resource type="PackedScene" uid="uid://cut7b0hsnu5x8" path="res://Assets/Models/HUD Models/Tablet/tablet.glb" id="1_7ftyy"]
+[ext_resource type="PackedScene" uid="uid://dn5rti2pymthj" path="res://Assets/UI/UI.tscn" id="2_mj0t2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_golsv"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oaqu1"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_golsv")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.2
+emission_operator = 1
+emission_on_uv2 = true
+
+[node name="Tablet" type="Node3D"]
+
+[node name="tablet" parent="." instance=ExtResource("1_7ftyy")]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.0265173, 0.123673, 0.0243016)
+
+[node name="Screen" parent="tablet" index="1"]
+transform = Transform3D(-1.75283e-08, 0, -0.696, 0, 0.031, 0, 0.401, 0, -3.04231e-08, -0.0108457, -0.0190978, 0.0299694)
+surface_material_override/0 = SubResource("StandardMaterial3D_oaqu1")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 512)
+
+[node name="Control" parent="SubViewport" instance=ExtResource("2_mj0t2")]
+
+[editable path="tablet"]

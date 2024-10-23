@@ -60,6 +60,7 @@ func _unhandled_input(event):
 
 func _ready():
 	Global.player = self
+	print(self)
 
 ########################################################
 

@@ -23,7 +23,6 @@ Global="*res://global.gd"
 folder_colors={
 "res://Assets/": "red",
 "res://Entities/": "green",
-"res://Global Scripts/": "yellow",
 "res://Maps/": "blue"
 }
 

@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn5rti2pymthj"]
+
+[ext_resource type="Script" path="res://Assets/UI/ui.gd" id="1_7tu56"]
+[ext_resource type="Theme" uid="uid://7exmkia6l8dc" path="res://Assets/UI/new_theme.tres" id="1_nkvdo"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 5.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tu56")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 507.0
+offset_bottom = 645.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_nkvdo")
+
+[node name="ver" type="Label" parent="HBoxContainer/VBoxContainer"]
+modulate = Color(1.2, 1.2, 1.2, 1)
+layout_mode = 2
+theme = ExtResource("1_nkvdo")
+theme_override_colors/font_outline_color = Color(1, 0.560784, 0, 1)
+text = "SHIT OS"
+
+[node name="pos" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_nkvdo")
+text = "Pos:"
+
+[node name="speed" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_nkvdo")
+theme_override_colors/font_outline_color = Color(0.558528, 0.765923, 0.576217, 1)
+text = "Speed:"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

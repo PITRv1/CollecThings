@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5klw8p2no2p3"]
 
 [ext_resource type="PackedScene" uid="uid://mgpvfsju1fpg" path="res://Assets/Models/Misc. Models/Tablet/tablet_placeholder.glb" id="1_fbbnh"]
+[ext_resource type="PackedScene" uid="uid://dn5rti2pymthj" path="res://Assets/UI/UI.tscn" id="2_075f7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1ih6m"]
 
@@ -11,26 +12,17 @@ viewport_path = NodePath("SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_6drtb")
 
-[sub_resource type="LabelSettings" id="LabelSettings_7a3s0"]
-font_size = 50
-font_color = Color(1, 0.6, 0, 1)
-
 [node name="Tablet" type="Node3D"]
 
 [node name="tablet_placeholder" parent="." instance=ExtResource("1_fbbnh")]
 transform = Transform3D(0.0321394, 0.0383022, 0, -0.0383022, 0.0321394, 0, 0, 0, 0.05, 0.00899698, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.10792e-08, 0.0999239, -0.00506981, 1.7077e-09, -0.00389986, -0.129901, -0.29, -1.07318e-08, -2.21609e-10, 0.0219026, 0, 0.0067865)
+transform = Transform3D(-3.10931e-08, 0.0999545, -0.00392242, 1.43317e-09, -0.00301726, -0.129941, -0.29, -1.07318e-08, -2.21609e-10, 0.0199113, 0, 0.0067865)
 mesh = SubResource("PlaneMesh_1ih6m")
 surface_material_override/0 = SubResource("StandardMaterial3D_m6gsx")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size_2d_override = Vector2i(512, 250)
-size_2d_override_stretch = true
+size = Vector2i(1024, 512)
 
-[node name="Label" type="Label" parent="SubViewport"]
-offset_right = 204.0
-offset_bottom = 69.0
-text = "Hello UI!"
-label_settings = SubResource("LabelSettings_7a3s0")
+[node name="Control" parent="SubViewport" instance=ExtResource("2_075f7")]

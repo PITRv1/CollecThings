@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5klw8p2no2p3"]
+[gd_scene load_steps=7 format=3 uid="uid://b5klw8p2no2p3"]
 
 [ext_resource type="PackedScene" uid="uid://mgpvfsju1fpg" path="res://Assets/Models/Misc. Models/Tablet/tablet_placeholder.glb" id="1_fbbnh"]
 [ext_resource type="PackedScene" uid="uid://dn5rti2pymthj" path="res://Assets/UI/UI.tscn" id="2_075f7"]
+[ext_resource type="PackedScene" uid="uid://cut7b0hsnu5x8" path="res://Assets/Models/HUD Models/Tablet/tablet.glb" id="3_al30d"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1ih6m"]
 
@@ -26,3 +27,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_m6gsx")
 size = Vector2i(1024, 512)
 
 [node name="Control" parent="SubViewport" instance=ExtResource("2_075f7")]
+
+[node name="tablet" parent="." instance=ExtResource("3_al30d")]
+transform = Transform3D(1.23452e-08, 0.959289, -0.282425, 4.19319e-08, -0.282425, -0.95929, -1, 0, -4.37114e-08, 0.0850196, 0.51286, 0.0243016)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1nt1633pri32"
-path="res://.godot/imported/sphere_tree.glb-0961efa218f5ac9884bf8e1dca0f7b53.scn"
+uid="uid://cut7b0hsnu5x8"
+path="res://.godot/imported/tablet.glb-9457d33a3526fbae7f79faab77db4abb.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/sphere_tree.glb"
-dest_files=["res://.godot/imported/sphere_tree.glb-0961efa218f5ac9884bf8e1dca0f7b53.scn"]
+source_file="res://Assets/Models/HUD Models/Tablet/tablet.glb"
+dest_files=["res://.godot/imported/tablet.glb-9457d33a3526fbae7f79faab77db4abb.scn"]
 
 [params]
 
@@ -31,15 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Cube_004": {
-"generate/physics": true
-},
-"PATH:Cube_007": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -28,4 +28,32 @@ size = Vector2i(1024, 512)
 
 [node name="Control" parent="SubViewport" instance=ExtResource("2_mj0t2")]
 
+[node name="RedLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0370701, -0.156519, 0.267406)
+light_color = Color(0.790825, 0, 0.131746, 1)
+light_energy = 1.35
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 0.0444084
+
+[node name="BlueLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029, -0.155, -0.055)
+light_color = Color(0, 0.258824, 0.690196, 1)
+light_energy = 0.345
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 0.036
+omni_range = 1.215
+omni_shadow_mode = 0
+
+[node name="OrangeLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480859, -0.156295, -0.187799)
+light_color = Color(0.980555, 0.444184, 0.115287, 1)
+light_energy = 0.532
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 0.127
+omni_range = 0.105
+omni_attenuation = 0.68
+
 [editable path="tablet"]

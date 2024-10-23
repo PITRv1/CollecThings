@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/enemy_test.tscn" id="2_0va6j"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
-[ext_resource type="PackedScene" uid="uid://d0asmxg51akhy" path="res://Assets/Models/Environment Models/Foilage/tree1.glb" id="3_8gg0q"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
+[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/sphere_tree.glb" id="6_nw6re"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -113,9 +113,6 @@ navigation_mesh = SubResource("NavigationMesh_li822")
 [node name="test_island" parent="NavigationRegion3D" instance=ExtResource("1_pen33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3282, -12.5338, 25.4648)
 
-[node name="tree1" parent="." instance=ExtResource("3_8gg0q")]
-transform = Transform3D(0.464828, 0, 0, 0, 0.464828, 0, 0, 0, 0.464828, 6.29667, -5.1106, -7.14948)
-
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -42.2884, 0)
 mesh = SubResource("PlaneMesh_362e4")
@@ -126,5 +123,29 @@ script = ExtResource("5_oa33d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
 shape = SubResource("BoxShape3D_02vjf")
+
+[node name="sphere_tree2" parent="." instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4577, -1.35837, 29.8595)
+
+[node name="sphere_tree2" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09531, -1.35837, -44.1153)
+
+[node name="sphere_tree" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.23608, -0.15366, -19.3531)
+
+[node name="sphere_tree3" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1509, -1.9282, -39.3627)
+
+[node name="sphere_tree4" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6987, -2.05468, 32.1176)
+
+[node name="sphere_tree5" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8204, -2.03036, 2.80719)
+
+[node name="sphere_tree6" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6739, -2.55383, -14.5563)
+
+[node name="sphere_tree" parent="." instance=ExtResource("6_nw6re")]
+transform = Transform3D(0.699164, 0, -0.714961, 0, 1, 0, 0.714961, 0, 0.699164, -39.1841, -0.785208, 18.9964)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

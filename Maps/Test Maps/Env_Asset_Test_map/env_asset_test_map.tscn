@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/enemy_test.tscn" id="2_0va6j"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
-[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/sphere_tree.glb" id="6_nw6re"]
+[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
+[ext_resource type="PackedScene" uid="uid://bcea415j13boa" path="res://Assets/Models/Environment Models/Foilage/Gear_Tree/gear_tree_1.tscn" id="7_1inco"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -126,29 +127,37 @@ script = ExtResource("5_oa33d")
 shape = SubResource("BoxShape3D_02vjf")
 
 [node name="Trees" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986599, 0, 0)
 
-[node name="sphere_tree" parent="Trees" instance=ExtResource("6_nw6re")]
+[node name="Sphere_Trees" type="Node3D" parent="Trees"]
+
+[node name="sphere_tree" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22162, -1.51203, 10.5064)
 
-[node name="sphere_tree1" parent="Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree2" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4577, -1.35837, 29.8595)
 
-[node name="sphere_tree2" parent="Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree3" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.553, -2.71674, -14.2558)
 
-[node name="sphere_tree3" parent="Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree4" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6086, -3.28657, -9.5032)
 
-[node name="sphere_tree4" parent="Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree5" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241, -3.41305, 61.9771)
 
-[node name="sphere_tree5" parent="Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree6" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3627, -3.38873, 32.6667)
 
-[node name="sphere_tree6" parent="Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree7" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, -3.9122, 15.3032)
 
-[node name="sphere_tree7" parent="Trees" instance=ExtResource("6_nw6re")]
-transform = Transform3D(0.699164, 0, -0.714961, 0, 1, 0, 0.714961, 0, 0.699164, -39.1841, -0.785208, 18.9964)
+[node name="Gear_Trees" type="Node3D" parent="Trees"]
+
+[node name="Gear_Tree_1" parent="Trees/Gear_Trees" instance=ExtResource("7_1inco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34659, 0.429396, -28.3626)
+
+[node name="Gear_Tree_2" parent="Trees/Gear_Trees" instance=ExtResource("7_1inco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0381, 2.697, -11.2786)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

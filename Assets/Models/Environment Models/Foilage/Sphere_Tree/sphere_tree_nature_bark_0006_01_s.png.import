@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b58ck0cwsh68q"
-path.s3tc="res://.godot/imported/sphere_tree_Lomb.png-4dd71ec012a39de313143a175b0054dd.s3tc.ctex"
+uid="uid://b12qm8yrxddhg"
+path.s3tc="res://.godot/imported/sphere_tree_nature_bark_0006_01_s.png-06cb396ac813c272c47ec5b98c7e05d6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f2a587a4a548aba03b4856fe7f6ffc85"
+"md5": "966187dd6d9a6e24112c6e5e129226e6"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/sphere_tree_Lomb.png"
-dest_files=["res://.godot/imported/sphere_tree_Lomb.png-4dd71ec012a39de313143a175b0054dd.s3tc.ctex"]
+source_file="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree_nature_bark_0006_01_s.png"
+dest_files=["res://.godot/imported/sphere_tree_nature_bark_0006_01_s.png-06cb396ac813c272c47ec5b98c7e05d6.s3tc.ctex"]
 
 [params]
 

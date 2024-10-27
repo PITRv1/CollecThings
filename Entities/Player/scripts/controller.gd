@@ -46,6 +46,11 @@ var _last_frame_was_on_floor = -INF
 var jump_buffer_running = false
 var look_sensitivity = captured_mouse_speed
 
+#Player stats
+var health = 150
+var energy = 100
+
+
 ########################################################
 func _input(event):
 	
@@ -63,6 +68,8 @@ func _input(event):
 		%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _ready():
+	health = health-10
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.player = self
 
@@ -220,6 +227,7 @@ func _physics_process(delta):
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
 	
 	cam_tilt_effect()
+	
 
 
 #Callables for the movement states
@@ -234,6 +242,7 @@ func update_input(delta):
 		_handle_ground_physics(delta)
 	else:
 		_handle_air_physics(delta)
+		
 
 func update_velocity(delta):
 	if not _snap_up_stairs_check(delta):

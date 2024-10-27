@@ -8,7 +8,7 @@
 [node name="Screen" type="Node3D" parent="."]
 transform = Transform3D(0.61, 0, 0, 0, 0.45, 0, 0, 0, 0.51, -0.0170283, 0.0876266, 0)
 
-[node name="GUI" parent="Screen" instance=ExtResource("2_kxrks")]
+[node name="plane_ui" parent="Screen" instance=ExtResource("2_kxrks")]
 
 [node name="Tablet" parent="." instance=ExtResource("2_klyjg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

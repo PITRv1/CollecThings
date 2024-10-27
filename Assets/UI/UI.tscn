@@ -1,69 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn5rti2pymthj"]
+[gd_scene load_steps=3 format=3 uid="uid://dhhhrlu68xx1a"]
 
-[ext_resource type="Script" path="res://Assets/UI/ui.gd" id="1_7tu56"]
-[ext_resource type="Theme" uid="uid://7exmkia6l8dc" path="res://Assets/UI/new_theme.tres" id="1_nkvdo"]
+[ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="2_klyjg"]
+[ext_resource type="PackedScene" uid="uid://c7b25yobm7o6q" path="res://Assets/UI/plane_ui.tscn" id="2_kxrks"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 5.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_7tu56")
+[node name="Ui" type="Node3D"]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 818.0
-grow_vertical = 2
+[node name="Screen" type="Node3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, 0.45, 0, 0, 0, 0.51, -0.0170283, 0.0876266, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_nkvdo")
-theme_override_constants/separation = 50
+[node name="GUI" parent="Screen" instance=ExtResource("2_kxrks")]
 
-[node name="ver" type="Label" parent="HBoxContainer/VBoxContainer"]
-modulate = Color(1.2, 1.2, 1.2, 1)
-layout_mode = 2
-theme = ExtResource("1_nkvdo")
-theme_override_colors/font_color = Color(0, 0, 0, 0)
-theme_override_colors/font_outline_color = Color(1, 0.560784, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 34
-text = "D.E.R. SMART TABLET"
+[node name="Tablet" parent="." instance=ExtResource("2_klyjg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="pos" type="Label" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("1_nkvdo")
-text = "Pos:"
-
-[node name="speed" type="Label" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("1_nkvdo")
-theme_override_colors/font_color = Color(0.556863, 0.764706, 0.576471, 1)
-text = "Speed:"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[editable path="Tablet"]
+[editable path="Tablet/tablet"]

@@ -125,28 +125,30 @@ script = ExtResource("5_oa33d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
 shape = SubResource("BoxShape3D_02vjf")
 
-[node name="sphere_tree2" parent="." instance=ExtResource("6_nw6re")]
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="sphere_tree" parent="Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22162, -1.51203, 10.5064)
+
+[node name="sphere_tree1" parent="Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4577, -1.35837, 29.8595)
 
-[node name="sphere_tree2" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09531, -1.35837, -44.1153)
+[node name="sphere_tree2" parent="Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.553, -2.71674, -14.2558)
 
-[node name="sphere_tree" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.23608, -0.15366, -19.3531)
+[node name="sphere_tree3" parent="Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6086, -3.28657, -9.5032)
 
-[node name="sphere_tree3" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1509, -1.9282, -39.3627)
+[node name="sphere_tree4" parent="Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241, -3.41305, 61.9771)
 
-[node name="sphere_tree4" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6987, -2.05468, 32.1176)
+[node name="sphere_tree5" parent="Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3627, -3.38873, 32.6667)
 
-[node name="sphere_tree5" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8204, -2.03036, 2.80719)
+[node name="sphere_tree6" parent="Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, -3.9122, 15.3032)
 
-[node name="sphere_tree6" parent="sphere_tree2" instance=ExtResource("6_nw6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6739, -2.55383, -14.5563)
-
-[node name="sphere_tree" parent="." instance=ExtResource("6_nw6re")]
+[node name="sphere_tree7" parent="Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(0.699164, 0, -0.714961, 0, 1, 0, 0.714961, 0, 0.699164, -39.1841, -0.785208, 18.9964)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

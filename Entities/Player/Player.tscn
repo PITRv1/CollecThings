@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
-[ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="2_bxl8q"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
 [ext_resource type="PackedScene" uid="uid://b030h6p4i236u" path="res://Assets/Models/HUD Models/Tablet/tablet3.0.glb" id="3_8ihjg"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/IdlePlayerState.gd" id="3_10uix"]
+[ext_resource type="PackedScene" uid="uid://dhhhrlu68xx1a" path="res://Assets/UI/UI.tscn" id="3_35l5b"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/WalkingPlayerState.gd" id="4_fodp0"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/JumpingPlayerState.gd" id="5_65duw"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/FallingPlayerState.gd" id="6_gvqp7"]
@@ -36,12 +36,12 @@ unique_name_in_owner = true
 [node name="Camera3D" type="Camera3D" parent="Head/CameraSmooth"]
 unique_name_in_owner = true
 
-[node name="Tablet" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("2_bxl8q")]
-transform = Transform3D(-0.358144, 0, -0.241571, 0, 0.395, 0, 0.241571, 0, -0.358144, 0.44, -0.21, -0.495)
-
 [node name="tablet3_0" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("3_8ihjg")]
 transform = Transform3D(0.300092, 0, -0.310755, 0, 0.395, 0, 0.310755, 0, 0.300092, -0.23, -0.545, -0.88)
 visible = false
+
+[node name="Ui" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("3_35l5b")]
+transform = Transform3D(0.902585, 0, -0.430511, 0, 1, 0, 0.430511, 0, 0.902585, 0.395, -0.29, -0.625)
 
 [node name="StairsAheadRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)

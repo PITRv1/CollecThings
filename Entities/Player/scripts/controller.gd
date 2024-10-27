@@ -2,10 +2,10 @@ class_name Player
 extends CharacterBody3D
 
 @export_category("Camera")
-@export var look_sensitivity : float = 0.003
 @onready var camera : Camera3D = %Camera3D
 @export var head_tilt_amount : float = 5.0
-
+@export var captured_mouse_speed : float = 0.003
+@export var released_mouse_speed : float = 0.001
 
 @export_category("Movement")
 @export var gravity := 9.8
@@ -44,21 +44,26 @@ var _last_frame_was_on_floor = -INF
 
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running = false
+var look_sensitivity = captured_mouse_speed
 
 ########################################################
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			rotate_y(-event.relative.x * look_sensitivity)
-			%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
-			%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+func _input(event):
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			look_sensitivity = released_mouse_speed
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			look_sensitivity = captured_mouse_speed
+	
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * look_sensitivity)
+		%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
+		%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.player = self
 
 ########################################################

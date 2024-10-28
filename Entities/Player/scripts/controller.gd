@@ -68,10 +68,9 @@ func _input(event):
 		%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _ready():
-	health = health-10
-	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.player = self
+	
 
 ########################################################
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
-[ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/enemy_test.tscn" id="2_0va6j"]
+[ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/among_us/enemy_test.tscn" id="2_0va6j"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
@@ -99,6 +99,7 @@ transform = Transform3D(-0.291273, 0.236429, -0.926964, -0.335225, 0.882312, 0.3
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_tnp5y")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, -2.12151, -2.86695)
 
 [node name="Onion" type="MeshInstance3D" parent="."]

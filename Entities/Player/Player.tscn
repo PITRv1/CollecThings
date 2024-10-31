@@ -42,6 +42,7 @@ visible = false
 
 [node name="Ui" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("3_35l5b")]
 transform = Transform3D(0.902585, 0, -0.430511, 0, 1, 0, 0.430511, 0, 0.902585, 0.395, -0.29, -0.625)
+visible = false
 
 [node name="StairsAheadRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)

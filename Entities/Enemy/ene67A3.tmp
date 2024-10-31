@@ -28,6 +28,4 @@ mesh = SubResource("CapsuleMesh_hf8fy")
 shape = SubResource("ConvexPolygonShape3D_ck8kb")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_max_distance = 1.01
-radius = 3.53
 debug_enabled = true

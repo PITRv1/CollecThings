@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://15w8mjcup4tw"
+uid="uid://brpmbc0u41qrm"
 path.s3tc="res://.godot/imported/tablet_scope material_normals.png-11c931dc032f830dd666c1f3fa798e32.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "f3b886c54d306ace41131d3321038dd2"
 }
 
 [deps]

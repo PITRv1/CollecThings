@@ -14,7 +14,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_d8ygf")
 head_tilt_amount = 1.5

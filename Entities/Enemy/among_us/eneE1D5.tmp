@@ -56,12 +56,12 @@ debug_enabled = true
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("inital_state") groups=["Player"]]
 script = ExtResource("2_af6h8")
-inital_state = NodePath("Falling")
+inital_state = NodePath("EnemyFalling")
 
-[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+[node name="EnemyIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("3_kmcap")
 enemy = NodePath("../..")
 
-[node name="Falling" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+[node name="EnemyFalling" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_308m6")
 enemy = NodePath("../..")

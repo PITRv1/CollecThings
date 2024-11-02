@@ -2,15 +2,21 @@ extends States
 class_name EnemyIdle
 
 @export var enemy : CharacterBody3D
-@export var move_speed := 10.0
+@export var move_speed := 5.0
 var player : CharacterBody3D
+@onready var ray: RayCast3D = %RayCast3D
 
+@onready var nav_agent: NavigationAgent3D = %nav_agent
+@onready var timer: Timer = %Timer
+
+var looking = true
 var move_direction : Vector3
 var wander_time : float
 
 func random_wander():
-	move_direction = Vector3(randf_range(-1, 1), 0.0, randf_range(-1, 1)).normalized()
-	wander_time = randf_range(1, 3)
+	wander_time = randf_range(6, 8)
+	move_direction = Vector3(randf_range(-4, 40), 0.0, randf_range(-4, 40))
+	nav_agent.set_target_position(enemy.global_position+move_direction)
 	
 func Enter():
 	random_wander()
@@ -19,17 +25,43 @@ func Enter():
 func Update(delta : float):
 	if wander_time > 0:
 		wander_time -= delta
-		
 	else:
 		random_wander()
 
 func Physics_Update(delta : float):
 	
-	var pos2d : Vector2 = Vector2(enemy.global_position.x, enemy.global_position.z)
-	var playerPos2d : Vector2 = Vector2(player.global_position.x, player.global_position.z)
-	var dir = -(pos2d - playerPos2d)
-	enemy.rotation.y = lerp_angle(enemy.rotation.y, atan2(dir.x, dir.y), delta / 10)
+	if looking:
+		var pos2d : Vector2 = Vector2(enemy.global_position.x, enemy.global_position.z)
+		var playerPos2d : Vector2 = Vector2(nav_agent.get_next_path_position().x, nav_agent.get_next_path_position().z)
+		var dir = -(pos2d - playerPos2d)
+		enemy.rotation.y = lerp_angle(enemy.rotation.y, atan2(dir.x, dir.y), 5 * delta)
+	#enemy.look_at(Vector3(player.global_position.x, enemy.global_position.y, player.global_position.z), Vector3.UP)
 	
-	if enemy:
-		enemy.velocity = move_direction * move_speed
+	var destination = nav_agent.get_next_path_position()
+	var new_velocity = (destination - enemy.position).normalized() * 2.0
+	enemy.velocity = enemy.velocity.move_toward(new_velocity, .25)
+	
+	var fps = Engine.get_frames_per_second()
+	print(fps)
+	if enemy.global_position.distance_to(player.global_position) < 50.0:
+		ray.look_at(player.global_position, Vector3.UP)
+		print(ray.get_collider())
+		var direction = enemy.global_position.direction_to(player.global_position)
+		var facing = enemy.global_transform.basis.tdotz(direction)
+		var fov = cos(deg_to_rad(60))
+		if facing > fov and ray.get_collider() != player:
+			print("I hate Ni...")
+			Transitioned.emit(self, "chase")
+		else:
 		
+			print("I kann nicht du sehen")
+func _on_nav_agemt_navigation_finished() -> void:
+	looking = false
+	timer.start()
+
+func _on_timer_timeout() -> void:
+	looking = true
+	random_wander()
+	
+func Exit():
+	pass

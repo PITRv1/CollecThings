@@ -11,7 +11,5 @@ func Enter():
 func Physics_Update(delta : float):
 	if not enemy.is_on_floor():
 		enemy.velocity.y += -gravity * delta
-		
 	else:
-		
-		Transitioned.emit(self, "idle")
+		Transitioned.emit(self, "test")

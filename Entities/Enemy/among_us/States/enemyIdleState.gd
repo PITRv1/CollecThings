@@ -18,7 +18,7 @@ func random_wander():
 	move_direction = Vector3(randf_range(-4, 40), 0.0, randf_range(-4, 40))
 	nav_agent.set_target_position(enemy.global_position+move_direction)
 	
-func Enter():
+func Enter(previous_state):
 	random_wander()
 	player = get_tree().get_first_node_in_group("Player")
 	
@@ -40,21 +40,18 @@ func Physics_Update(delta : float):
 	var destination = nav_agent.get_next_path_position()
 	var new_velocity = (destination - enemy.position).normalized() * 2.0
 	enemy.velocity = enemy.velocity.move_toward(new_velocity, .25)
-	
-	var fps = Engine.get_frames_per_second()
-	print(fps)
 	if enemy.global_position.distance_to(player.global_position) < 50.0:
+		ray.target_position.z = -enemy.global_position.distance_to(player.global_position)
 		ray.look_at(player.global_position, Vector3.UP)
-		print(ray.get_collider())
+		ray.force_raycast_update()
 		var direction = enemy.global_position.direction_to(player.global_position)
 		var facing = enemy.global_transform.basis.tdotz(direction)
-		var fov = cos(deg_to_rad(60))
-		if facing > fov and ray.get_collider() != player:
-			print("I hate Ni...")
+		var fov = cos(deg_to_rad(30))
+		if facing > fov and not ray.is_colliding():
 			Transitioned.emit(self, "chase")
-		else:
-		
-			print("I kann nicht du sehen")
+	if not enemy.is_on_floor():
+		Transitioned.emit(self, "falling")
+			
 func _on_nav_agemt_navigation_finished() -> void:
 	looking = false
 	timer.start()

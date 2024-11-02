@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://macmg6rjx2q2"]
+[gd_scene load_steps=16 format=3 uid="uid://macmg6rjx2q2"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/among_us/enemy_test.gd" id="1_06anw"]
 [ext_resource type="Script" path="res://Entities/Enemy/among_us/States/state_machine.gd" id="2_af6h8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Entities/Enemy/among_us/States/Test.gd" id="5_7ij5k"]
 [ext_resource type="PackedScene" uid="uid://c8xwbbvjtmdjm" path="res://Assets/Test assets/base_human.glb" id="5_jp32j"]
 [ext_resource type="Script" path="res://Entities/Enemy/among_us/States/Chase.gd" id="6_21b65"]
+[ext_resource type="AudioStream" uid="uid://cjcpnqxery0pg" path="res://Entities/Enemy/among_us/FE!N-Gazi.mp3" id="8_l4egs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spj0x"]
 albedo_color = Color(1, 0.145098, 0.160784, 1)
@@ -89,6 +90,13 @@ transform = Transform3D(1, 6.54836e-11, 9.31323e-10, 1.01863e-09, 1, 0, 9.31323e
 target_position = Vector3(0, 0, -50)
 debug_shape_custom_color = Color(0.98492, 0.143444, 0.628611, 1)
 debug_shape_thickness = 5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_l4egs")
+
+[node name="FallingTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 
 [connection signal="navigation_finished" from="nav_agent" to="State Machine/Idle" method="_on_nav_agemt_navigation_finished"]
 [connection signal="timeout" from="Timer" to="State Machine/Idle" method="_on_timer_timeout"]

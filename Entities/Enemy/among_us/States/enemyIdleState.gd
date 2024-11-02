@@ -1,5 +1,5 @@
 extends States
-class_name EnemyIdle
+class_name enemyIdle
 
 @export var enemy : CharacterBody3D
 @export var move_speed := 5.0

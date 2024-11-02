@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c8xwbbvjtmdjm" path="res://Assets/Test assets/base_human.glb" id="5_jp32j"]
 [ext_resource type="Script" path="res://Entities/Enemy/among_us/States/Chase.gd" id="6_21b65"]
 [ext_resource type="AudioStream" uid="uid://cjcpnqxery0pg" path="res://Entities/Enemy/among_us/FE!N-Gazi.mp3" id="8_l4egs"]
-[ext_resource type="PackedScene" uid="uid://dinjfid83mrwg" path="res://Entities/Enemy/baseball_bat.glb" id="9_0eeff"]
+[ext_resource type="PackedScene" uid="uid://4cy5tr8mim73" path="res://Entities/Enemy/baseball_bat.glb" id="9_0eeff"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spj0x"]
 albedo_color = Color(1, 0.145098, 0.160784, 1)
@@ -30,7 +30,7 @@ material = SubResource("StandardMaterial3D_xpotm")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3eire"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ms4e7"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_ufdtq"]
 
 [node name="enemy_test" type="CharacterBody3D"]
 transform = Transform3D(0.999837, -0.0161218, 0.00812445, 0.0160118, 0.999782, 0.0134291, -0.00833916, -0.0132969, 0.999877, 0, 0, 0)
@@ -106,11 +106,10 @@ debug_enabled = true
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 3.39387e-07, 2.08616e-07, 4.70638e-07, 1.00005, 2.91504e-07, 2.69152e-07, -9.31323e-08, 1.00005, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_ms4e7")
+shape = SubResource("SphereShape3D_ufdtq")
 
-[node name="Sketchfab_Scene" parent="Area3D" instance=ExtResource("9_0eeff")]
-transform = Transform3D(0.999837, 0.0160118, -0.00833917, -0.0161218, 0.999781, -0.0132968, 0.00812443, 0.0134292, 0.999877, -0.00712897, -0.0113671, 0.854772)
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("9_0eeff")]
+transform = Transform3D(0.477158, -0.0773487, -0.127819, -0.148631, -0.289126, -0.379889, -0.0151435, 0.40053, -0.29891, -0.376678, 0.537349, 0.667681)
 
 [connection signal="timeout" from="navigation/Timer" to="State Machine/Idle" method="_on_timer_timeout"]
 [connection signal="navigation_finished" from="navigation/nav_agent" to="State Machine/Idle" method="_on_nav_agemt_navigation_finished"]

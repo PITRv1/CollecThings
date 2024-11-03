@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=21 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/enemy_test.tscn" id="2_0va6j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://bcea415j13boa" path="res://Assets/Models/Environment Models/Foilage/Gear_Tree/gear_tree_1.tscn" id="7_1inco"]
+[ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -159,5 +160,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34659, 0.429396, -28.3626)
 
 [node name="Gear_Tree_2" parent="Trees/Gear_Trees" instance=ExtResource("7_1inco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0381, 2.697, -11.2786)
+
+[node name="rock1" parent="." instance=ExtResource("8_lguwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4091, 2.8695, 23.2756)
+
+[node name="rock3" parent="." instance=ExtResource("8_lguwc")]
+transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, -2.19034, 2.8695, 12.9994)
+
+[node name="rock4" parent="." instance=ExtResource("8_lguwc")]
+transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, 11.8348, 1.72502, 22.8651)
+
+[node name="rock2" parent="." instance=ExtResource("8_lguwc")]
+transform = Transform3D(0.284501, 0, -0.958676, 0, 1, 0, 0.958676, 0, 0.284501, 1.95845, 0.638242, 36.3226)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcdfmbo8p17lm"
+uid="uid://dihd7a7bpqddy"
 path.s3tc="res://.godot/imported/test_island_seamless_grass_leaves.png-203d13ee26307d4cadb2d7ed03930c7f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "072c31f2664c9b910534798e4b7c24f4"
 }
 
 [deps]

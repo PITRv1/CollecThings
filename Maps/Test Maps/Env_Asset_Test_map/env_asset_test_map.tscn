@@ -1,24 +1,13 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=21 format=3 uid="uid://bx6mee0g0jq65"]
-=======
-[gd_scene load_steps=22 format=3 uid="uid://bx6mee0g0jq65"]
->>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/enemy_test.tscn" id="2_0va6j"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://bcea415j13boa" path="res://Assets/Models/Environment Models/Foilage/Gear_Tree/gear_tree_1.tscn" id="7_1inco"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
-=======
-[ext_resource type="PackedScene" uid="uid://bslhpv0wt0jeu" path="res://Assets/Models/Environment Models/Foilage/Gear_Tree/Gear_Tree.glb" id="7_btf7o"]
-[ext_resource type="PackedScene" uid="uid://cmxhg86xaha73" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.tscn" id="7_ralfw"]
-[ext_resource type="PackedScene" uid="uid://b0tf26wvr0isg" path="res://Assets/Models/Environment Models/Foilage/Stones/stones (2).tscn" id="8_ucotl"]
-[ext_resource type="PackedScene" uid="uid://dsr1ofdgamovp" path="res://Cinematics/crash_animation.tscn" id="10_r8b6o"]
->>>>>>> Stashed changes
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -143,36 +132,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986599, 0, 0)
 
 [node name="Sphere_Trees" type="Node3D" parent="Trees"]
 
-[node name="sphere_tree" parent="Trees/Sphere_Trees" instance=ExtResource("7_ralfw")]
-transform = Transform3D(0.999402, 0, 0.0345681, 0, 1, 0, -0.0345681, 0, 0.999402, -7.03599, -1.21939, 12.3717)
+[node name="sphere_tree" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22162, -1.51203, 10.5064)
 
-[node name="sphere_tree2" parent="Trees/Sphere_Trees" instance=ExtResource("7_ralfw")]
-transform = Transform3D(0.86674, 0, -0.49876, 0, 1, 0, 0.49876, 0, 0.86674, -16.2771, -1.41286, 26.4073)
+[node name="sphere_tree2" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4577, -1.35837, 29.8595)
 
-[node name="sphere_tree3" parent="Trees/Sphere_Trees" instance=ExtResource("7_ralfw")]
-transform = Transform3D(0.826462, 0, 0.562992, 0, 1, 0, -0.562992, 0, 0.826462, -40.3023, -1.07046, 31.7961)
+[node name="sphere_tree3" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.553, -2.71674, -14.2558)
 
-[node name="sphere_tree4" parent="Trees/Sphere_Trees" instance=ExtResource("7_ralfw")]
-transform = Transform3D(0.973932, 0, -0.226838, 0, 1, 0, 0.226838, 0, 0.973932, -39.8836, -0.947994, 14.1026)
+[node name="sphere_tree4" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6086, -3.28657, -9.5032)
+
+[node name="sphere_tree5" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241, -3.41305, 61.9771)
+
+[node name="sphere_tree6" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3627, -3.38873, 32.6667)
+
+[node name="sphere_tree7" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, -3.9122, 15.3032)
 
 [node name="Gear_Trees" type="Node3D" parent="Trees"]
 
-[node name="Gear_Tree" parent="Trees/Gear_Trees" instance=ExtResource("7_btf7o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71804, -3.45467, 44.6468)
+[node name="Gear_Tree_1" parent="Trees/Gear_Trees" instance=ExtResource("7_1inco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34659, 0.429396, -28.3626)
 
-[node name="Stones" type="Node3D" parent="."]
-
-[node name="stone(small)" parent="Stones" instance=ExtResource("8_ucotl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1104, -3.23862, 22.4666)
-
-[node name="stone(small)2" parent="Stones" instance=ExtResource("8_ucotl")]
-transform = Transform3D(0.872573, 0, 0.488484, 0, 1, 0, -0.488484, 0, 0.872573, 21.0026, -2.99497, 24.4488)
-
-[node name="stone(small)3" parent="Stones" instance=ExtResource("8_ucotl")]
-transform = Transform3D(-0.39742, 0, 0.917637, 0, 1, 0, -0.917637, 0, -0.39742, 25.7797, -4.69097, 13.9914)
-
-[node name="Crash_animation" parent="." instance=ExtResource("10_r8b6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.45054, 0)
+[node name="Gear_Tree_2" parent="Trees/Gear_Trees" instance=ExtResource("7_1inco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0381, 2.697, -11.2786)
 
 [node name="rock1" parent="." instance=ExtResource("8_lguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4091, 2.8695, 23.2756)

@@ -1,12 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
-[ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/among_us/enemy_test.tscn" id="2_0va6j"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://bcea415j13boa" path="res://Assets/Models/Environment Models/Foilage/Gear_Tree/gear_tree_1.tscn" id="7_1inco"]
+[ext_resource type="PackedScene" uid="uid://busy37t7lsafv" path="res://Entities/Enemy/Test2/monger.tscn" id="8_3qt7i"]
 [ext_resource type="PackedScene" uid="uid://clj8qpwythdv4" path="res://Assets/Test assets/testStair.glb" id="8_ukgx2"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
@@ -114,8 +114,9 @@ mesh = SubResource("TorusMesh_abd0y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013957, 0.00725865, 0.00259495)
 navigation_mesh = SubResource("NavigationMesh_li822")
 
-[node name="enemy_test" parent="NavigationRegion3D" instance=ExtResource("2_0va6j")]
-transform = Transform3D(-0.0321021, -0.0129099, 0.999401, 0.0160118, 0.999782, 0.0134291, -0.999356, 0.0164333, -0.0318884, -3.93247, 0, 5.65586)
+[node name="monger" parent="NavigationRegion3D" instance=ExtResource("8_3qt7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6326, 8.23296, 9.99741)
+player_path = NodePath("../../Player")
 
 [node name="testStair" parent="NavigationRegion3D" instance=ExtResource("8_ukgx2")]
 transform = Transform3D(1.99917, 0, -0.0577625, 0, 2, 0, 0.0577625, 0, 1.99917, 7.80156, -2.6388, 3.84161)

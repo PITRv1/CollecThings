@@ -50,6 +50,11 @@ var look_sensitivity = captured_mouse_speed
 var health = 150
 var energy = 100
 
+# Only for testing
+
+func hit(dir):
+	velocity += dir * 400.0
+	velocity.y += 300.0
 
 ########################################################
 func _input(event):

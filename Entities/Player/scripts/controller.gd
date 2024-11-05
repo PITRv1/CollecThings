@@ -45,9 +45,8 @@ var jump_buffer_running = false
 var look_sensitivity = 0.003
 
 #Player stats
-var health = 150
-var energy = 100
-
+var health : int = 150
+var shield : int = 300
 
 ########################################################
 func _input(event):

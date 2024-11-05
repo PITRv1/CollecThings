@@ -54,7 +54,7 @@ var energy = 100
 
 func hit(dir):
 	velocity += dir * 400.0
-	velocity.y += 300.0
+	velocity.y += 10.0
 
 ########################################################
 func _input(event):

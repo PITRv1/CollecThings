@@ -1,11 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://dsr1ofdgamovp"]
+[gd_scene load_steps=37 format=3 uid="uid://b6numlndbfhf3"]
 
-[ext_resource type="Texture2D" uid="uid://d8hygl6sn87t" path="res://Assets/Models/Environment Models/panorama_image.png" id="1_jkc77"]
-[ext_resource type="PackedScene" uid="uid://gv3adek4k81y" path="res://Assets/Models/Space_ship.glb" id="1_qegrm"]
+[ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Space_ship.glb" id="1_qegrm"]
 [ext_resource type="Script" path="res://Cinematics/animation_player.gd" id="2_vos7h"]
+[ext_resource type="Script" path="res://Cinematics/flame_2.gd" id="2_yl1hm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ybvnx"]
-panorama = ExtResource("1_jkc77")
 energy_multiplier = 1.5
 
 [sub_resource type="Sky" id="Sky_qix8o"]
@@ -394,6 +393,7 @@ local_coords = true
 draw_order = 3
 process_material = SubResource("ParticleProcessMaterial_srfmt")
 draw_pass_1 = SubResource("QuadMesh_wbic4")
+script = ExtResource("2_yl1hm")
 
 [node name="engine_flame_left" type="GPUParticles3D" parent="Space_ship"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.26108, 3.65393, 5.41037)

@@ -176,7 +176,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8tiqg"]
 xfade_time = 0.2
-break_loop_at_end = true
 advance_mode = 2
 advance_condition = &"attack"
 
@@ -185,7 +184,6 @@ xfade_time = 0.2
 break_loop_at_end = true
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cvjbv"]
 advance_mode = 2

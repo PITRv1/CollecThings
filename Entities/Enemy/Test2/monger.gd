@@ -13,6 +13,7 @@ const ATTACK_RANGE = 2.5
 @onready var ray: RayCast3D = $RayCast3D
 @onready var chase_timer: Timer = $chaseTimer
 @onready var wander_timer: Timer = $wanderTimer
+var chase_dis = 50.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,10 +48,13 @@ func _physics_process(delta: float) -> void:
 				rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 5 * delta)
 			
 			# Movement
-			var destination = nav_agent.get_next_path_position()
-			var new_velocity = (destination - position).normalized() * 2.5
-			velocity = velocity.move_toward(new_velocity, .25)
-			
+			if nav_agent.distance_to_target() > 0.5:
+				var destination = nav_agent.get_next_path_position()
+				var new_velocity = (destination - position).normalized() * 2.5
+				velocity = velocity.move_toward(new_velocity, .25)
+			else:
+				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
+				
 		"chase":
 			# Rotation
 			var direction = global_position.direction_to(player.global_position + velocity)
@@ -67,16 +71,12 @@ func _physics_process(delta: float) -> void:
 			var direction = global_position.direction_to(player.global_position)
 			rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 20 * delta)
 	
-	
-	
-	
-	
 	#Conditions
 	anim_tree.set("parameters/conditions/fall_wand", is_on_floor())
 	anim_tree.set("parameters/conditions/falling", !is_on_floor())
 	anim_tree.set("parameters/conditions/wander", is_on_floor() and !_target_in_sight() and chase_timer.is_stopped())
-	anim_tree.set("parameters/conditions/attack", _target_in_range())
-	anim_tree.set("parameters/conditions/run", (_target_in_sight() and !_target_in_range() and is_on_floor()) or (!chase_timer.is_stopped() and !_target_in_range() and is_on_floor())) 
+	anim_tree.set("parameters/conditions/attack", _target_in_range() and _target_in_sight())
+	anim_tree.set("parameters/conditions/run", (_target_in_sight() or !chase_timer.is_stopped()) and !_target_in_range() and is_on_floor()) 
 	
 	anim_tree.get("parameters/playback")
 	
@@ -86,7 +86,7 @@ func _target_in_range():
 	return global_position.distance_to(player.global_position) < ATTACK_RANGE
 	
 func _target_in_sight():
-	if global_position.distance_to(player.global_position) < 3.0:
+	if global_position.distance_to(player.global_position) < 5.0:
 		ray.target_position.z = -global_position.distance_to(player.global_position)
 		ray.look_at(player.global_position, Vector3.UP)
 		ray.force_raycast_update()
@@ -107,4 +107,4 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	print(body)
 	if body == player:
 		var dir = global_position.direction_to(player.global_position)
-		#player.hit(dir)s
+		#player.hit(dir)

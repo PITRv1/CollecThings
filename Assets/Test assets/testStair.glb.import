@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://clj8qpwythdv4"
+uid="uid://bf2egoatqhbmy"
 path="res://.godot/imported/testStair.glb-055caff636830ddef66bf85c8273fc3f.scn"
 
 [deps]
@@ -31,12 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Cube_002": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

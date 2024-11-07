@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://busy37t7lsafv"]
+[gd_scene load_steps=35 format=3 uid="uid://busy37t7lsafv"]
 
 [ext_resource type="PackedScene" uid="uid://c8xwbbvjtmdjm" path="res://Assets/Test assets/base_human.glb" id="1_trcpp"]
 [ext_resource type="Script" path="res://Entities/Enemy/Test2/monger.gd" id="1_xu8m0"]
@@ -215,16 +215,27 @@ advance_condition = &"run"
 advance_mode = 2
 advance_condition = &"falling"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pmi0k"]
+advance_mode = 2
+advance_condition = &"falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pf0fn"]
+advance_mode = 2
+advance_condition = &"attack"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jh0iq"]
+states/End/position = Vector2(1081, 100)
+states/Start/position = Vector2(313, 100)
 states/attack/node = SubResource("AnimationNodeAnimation_81ham")
-states/attack/position = Vector2(795, 132)
+states/attack/position = Vector2(791, 100)
 states/chase/node = SubResource("AnimationNodeAnimation_n0lqh")
-states/chase/position = Vector2(496, 46)
+states/chase/position = Vector2(496, -12)
 states/falling/node = SubResource("AnimationNodeAnimation_1eunn")
-states/falling/position = Vector2(329, 100)
+states/falling/position = Vector2(496, 100)
 states/wander/node = SubResource("AnimationNodeAnimation_x1l3x")
-states/wander/position = Vector2(496, 165)
-transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5")]
+states/wander/position = Vector2(496, 220)
+transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5"), "attack", "falling", SubResource("AnimationNodeStateMachineTransition_pmi0k"), "falling", "attack", SubResource("AnimationNodeStateMachineTransition_pf0fn")]
+graph_offset = Vector2(9, -51)
 
 [node name="monger" type="CharacterBody3D"]
 script = ExtResource("1_xu8m0")
@@ -289,5 +300,13 @@ one_shot = true
 [node name="wanderTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="stair_check" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.724837, 0.415768)
+target_position = Vector3(0, 0, 0.3)
+
+[node name="stair_check2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.903069, 0.416)
+target_position = Vector3(0, 0, 0.3)
 
 [connection signal="body_entered" from="body/eyes/Area3D" to="." method="_on_area_3d_body_entered"]

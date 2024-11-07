@@ -22,12 +22,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-		#velocity.y += 5.0
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		velocity.y += 5.0
 		#player.velocity.y += 5.0
-	#elif Input.is_action_pressed("sprint"):
-		#velocity.y -= 50.0
+	elif Input.is_action_pressed("sprint"):
+		velocity.y -= 50.0
 		#player.velocity.y -= 50
 
 func _physics_process(delta: float) -> void:
@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 				velocity = velocity.move_toward(new_velocity, .25)
 			else:
 				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
+			pass
 				
 		"chase":
 			# Rotation
@@ -67,7 +68,7 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.move_toward(new_velocity, .25)
 			
 		"attack":
-			velocity = Vector3.ZERO
+			velocity = lerp(velocity, Vector3(0.0, 0.0, 0.0), .25)
 			var direction = global_position.direction_to(player.global_position)
 			rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 20 * delta)
 	
@@ -76,8 +77,7 @@ func _physics_process(delta: float) -> void:
 	anim_tree.set("parameters/conditions/falling", !is_on_floor())
 	anim_tree.set("parameters/conditions/wander", is_on_floor() and !_target_in_sight() and chase_timer.is_stopped())
 	anim_tree.set("parameters/conditions/attack", _target_in_range() and _target_in_sight())
-	anim_tree.set("parameters/conditions/run", (_target_in_sight() or !chase_timer.is_stopped()) and !_target_in_range() and is_on_floor()) 
-	
+	anim_tree.set("parameters/conditions/run", (_target_in_sight() or !chase_timer.is_stopped()) and !_target_in_range() and is_on_floor())
 	anim_tree.get("parameters/playback")
 	
 	move_and_slide()
@@ -86,7 +86,11 @@ func _target_in_range():
 	return global_position.distance_to(player.global_position) < ATTACK_RANGE
 	
 func _target_in_sight():
-	if global_position.distance_to(player.global_position) < 5.0:
+	if global_position.distance_to(player.global_position) < 1.5:
+		chase_timer.start()
+		return true
+	
+	elif global_position.distance_to(player.global_position) < 25.0:
 		ray.target_position.z = -global_position.distance_to(player.global_position)
 		ray.look_at(player.global_position, Vector3.UP)
 		ray.force_raycast_update()

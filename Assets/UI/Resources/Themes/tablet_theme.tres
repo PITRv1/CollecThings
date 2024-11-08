@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://nkt57yku5n0s"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://nkt57yku5n0s"]
 
 [ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="1_0uiyr"]
 
@@ -54,21 +54,6 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h00wy"]
-bg_color = Color(0.792157, 0.54902, 0, 0.411765)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.792157, 0.54902, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyndp"]
-bg_color = Color(0.792157, 0.54902, 0, 0.411765)
-
 [resource]
 Button/colors/font_color = Color(1, 0.643137, 0, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -97,8 +82,3 @@ Label/colors/font_color = Color(1, 1, 1, 1)
 Label/constants/line_spacing = 3
 Label/font_sizes/font_size = 30
 Label/fonts/font = ExtResource("1_0uiyr")
-ProgressBar/colors/font_color = Color(1, 0.643137, 0, 1)
-ProgressBar/font_sizes/font_size = 30
-ProgressBar/fonts/font = ExtResource("1_0uiyr")
-ProgressBar/styles/background = SubResource("StyleBoxFlat_h00wy")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_xyndp")

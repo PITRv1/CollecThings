@@ -4,8 +4,6 @@ extends CharacterBody3D
 @export_category("Camera")
 @onready var camera : Camera3D = %Camera3D
 @export var head_tilt_amount : float = 5.0
-@export var captured_mouse_speed : float = 0.003
-@export var released_mouse_speed : float = 0.001
 
 @export_category("Movement")
 @export var gravity := 9.8
@@ -44,7 +42,7 @@ var _last_frame_was_on_floor = -INF
 
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running = false
-var look_sensitivity = captured_mouse_speed
+var look_sensitivity = 0.003
 
 #Player stats
 var health = 150
@@ -58,15 +56,6 @@ func hit(dir):
 
 ########################################################
 func _input(event):
-	
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			look_sensitivity = released_mouse_speed
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			look_sensitivity = captured_mouse_speed
-	
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * look_sensitivity)
 		%Camera3D.rotate_x(-event.relative.y * look_sensitivity)

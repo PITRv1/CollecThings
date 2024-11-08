@@ -1,26 +1,27 @@
 extends Node3D
 
-@onready var display = $display
-@onready var viewport = $viewport
-@onready var area = $area
+@onready var display : MeshInstance3D = $display
+@onready var viewport : Viewport = $viewport
+@onready var area : Area3D = $area
 
-var mesh_size = Vector2()
+var mesh_size : Vector2 = Vector2()
 
-var mouse_entered = false
-var mouse_held = false
-var mouse_inside = false
+var mouse_entered : bool = false
+var mouse_held : bool = false
+var mouse_inside : bool = false
 
 var last_mouse_pos_3D = null
 var last_mouse_pos_2D = null
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	area.mouse_entered.connect(func(): mouse_entered = true)
 	viewport.set_process_input(true)
 	
 	
 func _unhandled_input(event):
-	var is_mouse_event = false
+	var is_mouse_event : bool = false
+	
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		is_mouse_event = true
 		
@@ -50,7 +51,7 @@ func handle_mouse(event):
 		mouse_pos3D = last_mouse_pos_3D
 		if mouse_pos3D == null:
 			mouse_pos3D = Vector3.ZERO
-	var mouse_pos2D = Vector2(mouse_pos3D.x, -mouse_pos3D.y)
+	var mouse_pos2D : Vector2 = Vector2(mouse_pos3D.x, -mouse_pos3D.y)
 	
 	#convert from -meshsize/2 to meshsize/2
 	mouse_pos2D.x += mesh_size.x / 2
@@ -77,28 +78,21 @@ func handle_mouse(event):
 	
 
 func find_mouse(pos:Vector2):
-	var camera = get_viewport().get_camera_3d()
+	var camera : Camera3D = get_viewport().get_camera_3d()
+	var dss : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var rayparam : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
+	var dis : int = 5
 	
-	var dss:PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
-	
-	var rayparam = PhysicsRayQueryParameters3D.new()
 	rayparam.from = camera.project_ray_origin(pos)
-	var dis = 5
 	rayparam.to = rayparam.from + camera.project_ray_normal(pos) * dis
 	rayparam.collide_with_bodies = false
 	rayparam.collide_with_areas = true
 	
 	var result = dss.intersect_ray(rayparam)
+	
 	if result.size() > 0:
 		return result.position
 	else:
 		return null
-	
-	
-	
-	
-	
-	
-
 	
 	

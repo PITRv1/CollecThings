@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhhhrlu68xx1a"]
+
+[ext_resource type="PackedScene" uid="uid://c7b25yobm7o6q" path="res://Assets/UI/Player Stat/stat_screen.tscn" id="1_e7er6"]
+[ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="2_juu3u"]
+
+[node name="Stat_tablet" type="Node3D"]
+
+[node name="Screen" type="Node3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, 0.45, 0, 0, 0, 0.51, -0.0170283, 0.0876266, 0)
+
+[node name="Node3D" parent="Screen" instance=ExtResource("1_e7er6")]
+
+[node name="Tablet" parent="." instance=ExtResource("2_juu3u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Screen" parent="Tablet/tablet" index="1"]
+visible = true
+
+[editable path="Tablet"]
+[editable path="Tablet/tablet"]

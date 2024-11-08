@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsb4yp3hpb3pv"]
+
+[ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="2_axsq4"]
+[ext_resource type="Theme" uid="uid://c887mfehapat7" path="res://Assets/UI/Resources/Themes/yellow_progressbar.tres" id="5_40sgg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="UI" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="Margin/UI"]
+layout_mode = 2
+theme = ExtResource("2_axsq4")
+theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
+text = "D.E.R SMART SYSTEMS © 2024"
+
+[node name="Line" type="ColorRect" parent="Margin/UI"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="WeaponMargin" type="MarginContainer" parent="Margin/UI"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+
+[node name="Weapon" type="VBoxContainer" parent="Margin/UI/WeaponMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Info" type="HBoxContainer" parent="Margin/UI/WeaponMargin/Weapon"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/UI/WeaponMargin/Weapon/Info"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_axsq4")
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Weapon:"
+
+[node name="Name" type="Label" parent="Margin/UI/WeaponMargin/Weapon/Info"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_axsq4")
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "None"
+
+[node name="Ammo" type="HBoxContainer" parent="Margin/UI/WeaponMargin/Weapon"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Label" type="Label" parent="Margin/UI/WeaponMargin/Weapon/Ammo"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_axsq4")
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Ammo"
+
+[node name="ProgressBar" type="ProgressBar" parent="Margin/UI/WeaponMargin/Weapon/Ammo"]
+texture_filter = 1
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+theme = ExtResource("5_40sgg")
+rounded = true
+
+[node name="Line3" type="ColorRect" parent="Margin/UI"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)

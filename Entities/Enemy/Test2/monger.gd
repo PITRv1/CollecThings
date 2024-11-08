@@ -50,11 +50,10 @@ func _physics_process(delta: float) -> void:
 			# Movement
 			if nav_agent.distance_to_target() > 0.5:
 				var destination = nav_agent.get_next_path_position()
-				var new_velocity = (destination - position).normalized() * 2.5
+				var new_velocity = (destination -global_position).normalized() * 2.5
 				velocity = velocity.move_toward(new_velocity, .25)
 			else:
 				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
-			pass
 				
 		"chase":
 			# Rotation
@@ -64,7 +63,7 @@ func _physics_process(delta: float) -> void:
 			# Movement
 			nav_agent.set_target_position(player.global_position)
 			var destination = nav_agent.get_next_path_position()
-			var new_velocity = (destination - position).normalized() * 5.0
+			var new_velocity = (destination -global_position).normalized() * 5.0
 			velocity = velocity.move_toward(new_velocity, .25)
 			
 		"attack":
@@ -111,4 +110,4 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	print(body)
 	if body == player:
 		var dir = global_position.direction_to(player.global_position)
-		#player.hit(dir)
+		player.hit(dir)

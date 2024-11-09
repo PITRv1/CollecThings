@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c2kuxyaxgc1wm" path="res://test_stair.tscn" id="4_dy8my"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
-[ext_resource type="PackedScene" uid="uid://bcea415j13boa" path="res://Assets/Models/Environment Models/Foilage/Gear_Tree/gear_tree_1.tscn" id="7_1inco"]
 [ext_resource type="PackedScene" uid="uid://busy37t7lsafv" path="res://Entities/Enemy/Test2/monger.tscn" id="8_3qt7i"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
@@ -167,13 +166,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3627, -3.38873, 32.6667)
 
 [node name="sphere_tree7" parent="Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, -3.9122, 15.3032)
-
-[node name="Gear_Trees" type="Node3D" parent="Trees"]
-
-[node name="Gear_Tree_1" parent="Trees/Gear_Trees" instance=ExtResource("7_1inco")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34659, 0.429396, -28.3626)
-
-[node name="Gear_Tree_2" parent="Trees/Gear_Trees" instance=ExtResource("7_1inco")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0381, 2.697, -11.2786)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

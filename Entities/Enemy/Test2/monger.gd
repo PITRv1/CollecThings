@@ -28,7 +28,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		#player.velocity.y += 5.0
 	elif Input.is_action_pressed("sprint"):
 		velocity.y -= 50.0
+		get_tree().reload_current_scene()
 		#player.velocity.y -= 50
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -110,4 +112,4 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	print(body)
 	if body == player:
 		var dir = global_position.direction_to(player.global_position)
-		player.hit(dir)
+		player.velocity += dir * 40.0

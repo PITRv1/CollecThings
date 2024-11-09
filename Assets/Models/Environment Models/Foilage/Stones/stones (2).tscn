@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0tf26wvr0isg"]
+
+[ext_resource type="PackedScene" uid="uid://c1hk5q5loqkcm" path="res://Assets/Models/Environment Models/Foilage/Stones/stone(small).glb" id="1_gfvs8"]
+
+[node name="stone(small)" instance=ExtResource("1_gfvs8")]
+
+[node name="Icosphere_002" parent="." index="0"]
+transform = Transform3D(0.42211, -0.36649, 0.0364887, 0.18606, 0.0918403, -0.478361, 0.42041, 0.327326, 0.175072, -2.15192, 0, -3.12003)
+
+[node name="stone(small)" parent="." index="1" instance=ExtResource("1_gfvs8")]
+transform = Transform3D(1.50766, -1.06466, 0.106823, 0.953928, 1.42069, 0.565578, -0.503799, -0.496037, 1.39058, -1.79823, 0.388528, -4.64816)
+
+[node name="stone(small)2" parent="." index="2" instance=ExtResource("1_gfvs8")]
+transform = Transform3D(0.797303, -0.576674, 0.1782, 0.563699, 0.816967, 0.121692, -0.21576, 0.00342596, 0.97644, 1.03273, -0.332565, -3.09424)
+
+[node name="stone(small)3" parent="." index="3" instance=ExtResource("1_gfvs8")]
+transform = Transform3D(1.52095, 0.533457, -1.77146, -1.5696, 1.86966, -0.0961398, 2.1912, 0.968994, 1.16074, 1.20304, 0, -5.20718)
+
+[node name="stone(small)4" parent="." index="4" instance=ExtResource("1_gfvs8")]
+transform = Transform3D(0.741736, 0.456926, -0.490965, -0.524491, 0.851416, 0, 0.418015, 0.257507, 0.87118, -0.461135, -0.747513, -3.06185)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0owaxkl6namu"]
+
+[ext_resource type="PackedScene" uid="uid://be11xn60pqexx" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/caveV2.glb" id="1_5xiq6"]
+[ext_resource type="Shader" uid="uid://d0lcqimitnx7v" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/cave_v2_shader.tres" id="2_mlock"]
+[ext_resource type="Texture2D" uid="uid://dcsfc1s85ognp" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/moss.png" id="3_ks876"]
+[ext_resource type="Texture2D" uid="uid://cwp1d07wc3ifi" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/moss_normals.png" id="4_4cqaa"]
+[ext_resource type="Texture2D" uid="uid://bs1r02mcllnxo" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/cracked_grey_rock_height.png" id="5_ijew2"]
+[ext_resource type="Texture2D" uid="uid://bb1bdlffux8rl" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/cracked_grey_rock.png" id="6_05xav"]
+[ext_resource type="Texture2D" uid="uid://cqq2720kyuifk" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/cracked_grey_rock_normals.png" id="7_sbiq4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ncf3c"]
+render_priority = 0
+shader = ExtResource("2_mlock")
+shader_parameter/TextureScaling = 10.0
+shader_parameter/Roughness = 1.0
+shader_parameter/Moss_Albedo = ExtResource("3_ks876")
+shader_parameter/Rock_albedo = ExtResource("6_05xav")
+shader_parameter/Moss_normal = ExtResource("4_4cqaa")
+shader_parameter/Rock_normal = ExtResource("7_sbiq4")
+shader_parameter/Rock_Height = ExtResource("5_ijew2")
+
+[node name="caveV2" instance=ExtResource("1_5xiq6")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.894824, 0, 0, 0, 0.894824, 0, 0, 0, 0.894824, 0, 0, 0)
+gi_mode = 2
+gi_lightmap_scale = 2
+surface_material_override/0 = SubResource("ShaderMaterial_ncf3c")

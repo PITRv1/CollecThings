@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6i3vav0ota7f"
-path.s3tc="res://.godot/imported/tablet_damadged plaster.jpg-f9cc7085569ee485b930d950d47dd51a.s3tc.ctex"
+path.s3tc="res://.godot/imported/tablet_damadged plaster.jpg-61a5a52e57dcf2679d30bfb6577095e9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/HUD Models/Tablet/tablet_damadged plaster.jpg"
-dest_files=["res://.godot/imported/tablet_damadged plaster.jpg-f9cc7085569ee485b930d950d47dd51a.s3tc.ctex"]
+source_file="res://Models/HUD Models/Tablet/tablet_damadged plaster.jpg"
+dest_files=["res://.godot/imported/tablet_damadged plaster.jpg-61a5a52e57dcf2679d30bfb6577095e9.s3tc.ctex"]
 
 [params]
 

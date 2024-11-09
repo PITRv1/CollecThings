@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b1h7taaevjcia"
-path="res://.godot/imported/Gear_Tree_Trunk.glb-aee84375683c2c24cc4d37593d057aa0.scn"
+path="res://.godot/imported/Gear_Tree_Trunk.glb-d07cf1851ec2def287277bf946e70849.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Gear_Tree/Gear_Tree_Trunk.glb"
-dest_files=["res://.godot/imported/Gear_Tree_Trunk.glb-aee84375683c2c24cc4d37593d057aa0.scn"]
+source_file="res://Models/Environment Models/Foilage/Gear_Tree/Gear_Tree_Trunk.glb"
+dest_files=["res://.godot/imported/Gear_Tree_Trunk.glb-d07cf1851ec2def287277bf946e70849.scn"]
 
 [params]
 

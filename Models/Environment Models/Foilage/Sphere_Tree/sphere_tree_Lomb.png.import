@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5hfu0lmpo24q"
-path.s3tc="res://.godot/imported/sphere_tree_Lomb.png-3ba56cc3d595215d50fe7f9c20cb1bfd.s3tc.ctex"
+path.s3tc="res://.godot/imported/sphere_tree_Lomb.png-abec4c87e565490dae18eac85bf70227.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree_Lomb.png"
-dest_files=["res://.godot/imported/sphere_tree_Lomb.png-3ba56cc3d595215d50fe7f9c20cb1bfd.s3tc.ctex"]
+source_file="res://Models/Environment Models/Foilage/Sphere_Tree/sphere_tree_Lomb.png"
+dest_files=["res://.godot/imported/sphere_tree_Lomb.png-abec4c87e565490dae18eac85bf70227.s3tc.ctex"]
 
 [params]
 

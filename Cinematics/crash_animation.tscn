@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dsr1ofdgamovp"]
+[gd_scene load_steps=37 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://d8hygl6sn87t" path="res://Assets/Models/Environment Models/panorama_image.png" id="1_jkc77"]
 [ext_resource type="PackedScene" uid="uid://gv3adek4k81y" path="res://Assets/Models/Space_ship.glb" id="1_qegrm"]

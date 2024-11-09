@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://44gm678qroft"
-path.s3tc="res://.godot/imported/Gear_Tree_Metal_material.jpg-65819a61ed7453ee00a7262134696f4e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Gear_Tree_Metal_material.jpg-e7acaa17e7020d8809e8c19644d93cf4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Gear_Tree/Gear_Tree_Metal_material.jpg"
-dest_files=["res://.godot/imported/Gear_Tree_Metal_material.jpg-65819a61ed7453ee00a7262134696f4e.s3tc.ctex"]
+source_file="res://Models/Environment Models/Foilage/Gear_Tree/Gear_Tree_Metal_material.jpg"
+dest_files=["res://.godot/imported/Gear_Tree_Metal_material.jpg-e7acaa17e7020d8809e8c19644d93cf4.s3tc.ctex"]
 
 [params]
 

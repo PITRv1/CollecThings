@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dihd7a7bpqddy"
-path.s3tc="res://.godot/imported/test_island_seamless_grass_leaves.png-203d13ee26307d4cadb2d7ed03930c7f.s3tc.ctex"
+path.s3tc="res://.godot/imported/test_island_seamless_grass_leaves.png-7cb75cc1ae9ce968d50f5a52dcf50f08.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Map Models/test_island_seamless_grass_leaves.png"
-dest_files=["res://.godot/imported/test_island_seamless_grass_leaves.png-203d13ee26307d4cadb2d7ed03930c7f.s3tc.ctex"]
+source_file="res://Models/Environment Models/Map Models/test_island_seamless_grass_leaves.png"
+dest_files=["res://.godot/imported/test_island_seamless_grass_leaves.png-7cb75cc1ae9ce968d50f5a52dcf50f08.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1nt1633pri32"
-path="res://.godot/imported/sphere_tree.glb-f7f4ea655ee29b9c10c2606f72d1a955.scn"
+path="res://.godot/imported/sphere_tree.glb-11361c5b6c7090a5d20c72ce529fea6a.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb"
-dest_files=["res://.godot/imported/sphere_tree.glb-f7f4ea655ee29b9c10c2606f72d1a955.scn"]
+source_file="res://Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb"
+dest_files=["res://.godot/imported/sphere_tree.glb-11361c5b6c7090a5d20c72ce529fea6a.scn"]
 
 [params]
 

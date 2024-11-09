@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b12qm8yrxddhg"
-path.s3tc="res://.godot/imported/sphere_tree_nature_bark_0006_01_s.png-06cb396ac813c272c47ec5b98c7e05d6.s3tc.ctex"
+path.s3tc="res://.godot/imported/sphere_tree_nature_bark_0006_01_s.png-c69ce37a3a8d282513c27a0d4381ddfd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree_nature_bark_0006_01_s.png"
-dest_files=["res://.godot/imported/sphere_tree_nature_bark_0006_01_s.png-06cb396ac813c272c47ec5b98c7e05d6.s3tc.ctex"]
+source_file="res://Models/Environment Models/Foilage/Sphere_Tree/sphere_tree_nature_bark_0006_01_s.png"
+dest_files=["res://.godot/imported/sphere_tree_nature_bark_0006_01_s.png-c69ce37a3a8d282513c27a0d4381ddfd.s3tc.ctex"]
 
 [params]
 

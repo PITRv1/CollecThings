@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cut7b0hsnu5x8"
-path="res://.godot/imported/tablet.glb-9457d33a3526fbae7f79faab77db4abb.scn"
+path="res://.godot/imported/tablet.glb-6493f6f712145e603e2eae2a281586f7.scn"
 
 [deps]
 
-source_file="res://Assets/Models/HUD Models/Tablet/tablet.glb"
-dest_files=["res://.godot/imported/tablet.glb-9457d33a3526fbae7f79faab77db4abb.scn"]
+source_file="res://Models/HUD Models/Tablet/tablet.glb"
+dest_files=["res://.godot/imported/tablet.glb-6493f6f712145e603e2eae2a281586f7.scn"]
 
 [params]
 

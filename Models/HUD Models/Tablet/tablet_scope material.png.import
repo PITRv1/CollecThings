@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmqudw4jnbs28"
-path.s3tc="res://.godot/imported/tablet_scope material.png-1f1c144ee7e55097b7492613154d755c.s3tc.ctex"
+path.s3tc="res://.godot/imported/tablet_scope material.png-5058b204247d1bf85e25293e0397ecb2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/HUD Models/Tablet/tablet_scope material.png"
-dest_files=["res://.godot/imported/tablet_scope material.png-1f1c144ee7e55097b7492613154d755c.s3tc.ctex"]
+source_file="res://Models/HUD Models/Tablet/tablet_scope material.png"
+dest_files=["res://.godot/imported/tablet_scope material.png-5058b204247d1bf85e25293e0397ecb2.s3tc.ctex"]
 
 [params]
 

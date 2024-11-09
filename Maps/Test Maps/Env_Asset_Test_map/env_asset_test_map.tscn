@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
-[ext_resource type="PackedScene" uid="uid://c2kuxyaxgc1wm" path="res://test_stair.tscn" id="4_dy8my"]
+[ext_resource type="PackedScene" path="res://test_stair.tscn" id="4_dy8my"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
-[ext_resource type="PackedScene" uid="uid://busy37t7lsafv" path="res://Entities/Enemy/Test2/monger.tscn" id="8_3qt7i"]
+[ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Test2/monger.tscn" id="8_3qt7i"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)

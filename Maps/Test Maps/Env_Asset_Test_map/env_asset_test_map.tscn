@@ -1,12 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=19 format=3 uid="uid://bx6mee0g0jq65"]
 
-[ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
+[ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
-[ext_resource type="PackedScene" path="res://test_stair.tscn" id="4_dy8my"]
+[ext_resource type="PackedScene" uid="uid://c2kuxyaxgc1wm" path="res://test_stair.tscn" id="4_dy8my"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
-[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
-[ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Test2/monger.tscn" id="8_3qt7i"]
+[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -115,16 +114,8 @@ mesh = SubResource("TorusMesh_abd0y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013957, 0.00725865, 0.00259495)
 navigation_mesh = SubResource("NavigationMesh_li822")
 
-[node name="monger" parent="NavigationRegion3D" instance=ExtResource("8_3qt7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6583, 8.23296, -15.7227)
-player_path = NodePath("../../Player")
-
 [node name="test_island" parent="NavigationRegion3D" instance=ExtResource("1_pen33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3282, -12.5338, 25.4648)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 21.4374)
-use_collision = true
 
 [node name="testStair2" parent="NavigationRegion3D" instance=ExtResource("4_dy8my")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 14.0491, -1.77282, -3.00259)

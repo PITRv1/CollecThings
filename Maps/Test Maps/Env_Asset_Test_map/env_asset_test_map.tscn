@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
-[ext_resource type="PackedScene" uid="uid://macmg6rjx2q2" path="res://Entities/Enemy/enemy_test.tscn" id="2_0va6j"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
@@ -109,8 +108,6 @@ mesh = SubResource("TorusMesh_abd0y")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_li822")
-
-[node name="enemy_test" parent="NavigationRegion3D" instance=ExtResource("2_0va6j")]
 
 [node name="test_island" parent="NavigationRegion3D" instance=ExtResource("1_pen33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3282, -12.5338, 25.4648)

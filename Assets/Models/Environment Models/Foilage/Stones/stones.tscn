@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://vpyrhy114wyc"]
+
+[ext_resource type="PackedScene" uid="uid://b0tf26wvr0isg" path="res://Assets/Models/Environment Models/Foilage/Stones/stones (2).tscn" id="1_0vgiv"]
+
+[node name="Stones" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986599, 0, -2.14747)
+
+[node name="stone(small)" parent="." instance=ExtResource("1_0vgiv")]
+transform = Transform3D(0.995949, -0.0899199, 0, 0.0899199, 0.995949, 0, 0, 0, 1, -1.84639, -3.49998, 65.9812)
+
+[node name="stone(small)2" parent="." instance=ExtResource("1_0vgiv")]
+transform = Transform3D(0.512445, -0.0899199, -0.853999, 0.0462664, 0.995949, -0.0771039, 0.857473, 0, 0.514529, -8.41119, -3.8067, 63.2638)
+
+[node name="stone(small)3" parent="." instance=ExtResource("1_0vgiv")]
+transform = Transform3D(0.857291, -0.0899199, -0.506919, 0.077401, 0.995949, -0.0457676, 0.508981, 0, 0.860778, -1.70194, -3.52351, 66.9183)

@@ -1,0 +1,212 @@
+[gd_scene load_steps=7 format=3 uid="uid://7ps155gax7qy"]
+
+[ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/tablet_theme.tres" id="1_4eh7b"]
+[ext_resource type="Script" path="res://Assets/UI/2d_ui.gd" id="1_6yig6"]
+[ext_resource type="Theme" uid="uid://bebm2mefdi5x0" path="res://Assets/UI/Resources/Themes/red_progressbar.tres" id="2_7y0eo"]
+[ext_resource type="Theme" uid="uid://bppmy05s882g4" path="res://Assets/UI/Resources/Themes/blue_progressbar.tres" id="2_88puu"]
+[ext_resource type="Theme" uid="uid://c887mfehapat7" path="res://Assets/UI/Resources/Themes/yellow_progressbar.tres" id="3_y7oao"]
+[ext_resource type="Texture2D" uid="uid://dn5orbqiyokuw" path="res://Assets/Test assets/Test Textures/Petha_1m x 1m Black.png" id="6_3cnji"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6yig6")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="UI" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="Margin/UI"]
+layout_mode = 2
+theme = ExtResource("1_4eh7b")
+theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
+text = "D.E.R SMART SYSTEMS © 2024"
+
+[node name="Line" type="ColorRect" parent="Margin/UI"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="PlayerStats" type="HBoxContainer" parent="Margin/UI"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Health" type="VBoxContainer" parent="Margin/UI/PlayerStats"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Margin/UI/PlayerStats/Health"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_4eh7b")
+theme_override_colors/font_color = Color(0.94902, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Health"
+
+[node name="ProgressBar" type="ProgressBar" parent="Margin/UI/PlayerStats/Health"]
+texture_filter = 1
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme = ExtResource("2_7y0eo")
+value = 50.0
+rounded = true
+
+[node name="Shield" type="VBoxContainer" parent="Margin/UI/PlayerStats"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Margin/UI/PlayerStats/Shield"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_4eh7b")
+theme_override_colors/font_color = Color(0, 0.611765, 0.87451, 1)
+theme_override_font_sizes/font_size = 45
+text = "Shield"
+
+[node name="ProgressBar" type="ProgressBar" parent="Margin/UI/PlayerStats/Shield"]
+texture_filter = 1
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme = ExtResource("2_88puu")
+value = 50.0
+rounded = true
+
+[node name="WeaponMargin" type="MarginContainer" parent="Margin/UI"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 45
+
+[node name="Weapon" type="VBoxContainer" parent="Margin/UI/WeaponMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Line2" type="ColorRect" parent="Margin/UI/WeaponMargin/Weapon"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="Info" type="HBoxContainer" parent="Margin/UI/WeaponMargin/Weapon"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/UI/WeaponMargin/Weapon/Info"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_4eh7b")
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Weapon:"
+
+[node name="Name" type="Label" parent="Margin/UI/WeaponMargin/Weapon/Info"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_4eh7b")
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "None"
+
+[node name="Ammo" type="HBoxContainer" parent="Margin/UI/WeaponMargin/Weapon"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Label" type="Label" parent="Margin/UI/WeaponMargin/Weapon/Ammo"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_4eh7b")
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Ammo"
+
+[node name="ProgressBar" type="ProgressBar" parent="Margin/UI/WeaponMargin/Weapon/Ammo"]
+texture_filter = 1
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+theme = ExtResource("3_y7oao")
+value = 50.0
+rounded = true
+
+[node name="Line3" type="ColorRect" parent="Margin/UI"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/UI"]
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="TextureRect" type="TextureRect" parent="Margin/UI/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("6_3cnji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Margin/UI/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("6_3cnji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="Margin/UI/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("6_3cnji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="Margin/UI/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("6_3cnji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="Margin/UI/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("6_3cnji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="Margin/UI/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("6_3cnji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="Margin/UI/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_4eh7b")
+text = "ZA WARUDO"
+
+[connection signal="pressed" from="Margin/UI/HBoxContainer/Button" to="." method="_on_button_pressed"]

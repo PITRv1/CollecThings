@@ -1,6 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://coair8lxktg3n"]
+[gd_scene load_steps=36 format=3 uid="uid://coair8lxktg3n"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/monger.gd" id="1_xu8m0"]
+[ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/HealthComponent.gd" id="2_jfa28"]
+[ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/HitboxComponent.gd" id="3_ivt3y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spj0x"]
 albedo_color = Color(1, 0.145098, 0.160784, 1)
@@ -271,12 +273,40 @@ shape = SubResource("CapsuleShape3D_0mjao")
 path_height_offset = 0.15
 debug_enabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="chaseTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="wanderTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="RayCasts" type="Node3D" parent="."]
+
+[node name="sight" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, 0, 0)
+
+[node name="stair_check" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.724837, 0.415768)
+target_position = Vector3(0, 0, 0.3)
+
+[node name="stair_check2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.903069, 0.416)
+target_position = Vector3(0, 0, 0.3)
+
+[node name="States and animation" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="States and animation"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_r255o")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="States and animation"]
+root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_jh0iq")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
@@ -285,24 +315,12 @@ parameters/conditions/falling = false
 parameters/conditions/run = false
 parameters/conditions/wander = false
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-target_position = Vector3(0, 0, 0)
+[node name="HealthComponent" type="Node3D" parent="."]
+script = ExtResource("2_jfa28")
+MAX_HEALTH = null
 
-[node name="chaseTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="wanderTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="stair_check" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.724837, 0.415768)
-target_position = Vector3(0, 0, 0.3)
-
-[node name="stair_check2" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.903069, 0.416)
-target_position = Vector3(0, 0, 0.3)
+[node name="HitboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_ivt3y")
+health_component = NodePath("../HealthComponent")
 
 [connection signal="body_entered" from="body/eyes/Area3D" to="." method="_on_area_3d_body_entered"]

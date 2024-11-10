@@ -10,7 +10,7 @@ const ATTACK_RANGE = 2.5
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var ray: RayCast3D = $RayCast3D
+@onready var ray: RayCast3D = $RayCasts/sight
 @onready var chase_timer: Timer = $chaseTimer
 @onready var wander_timer: Timer = $wanderTimer
 var chase_dis = 50.0

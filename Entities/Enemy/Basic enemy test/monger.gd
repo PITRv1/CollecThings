@@ -23,7 +23,8 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		velocity.y += 5.0
+		pass
+		#velocity.y += 5.0
 		#player.velocity.y += 5.0
 	elif Input.is_action_pressed("sprint"):
 		velocity.y -= 50.0

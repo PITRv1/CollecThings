@@ -214,7 +214,6 @@ func _physics_process(delta):
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
 	
 	cam_tilt_effect()
-	
 
 
 #Callables for the movement states

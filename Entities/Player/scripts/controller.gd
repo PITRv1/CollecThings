@@ -15,8 +15,6 @@ extends CharacterBody3D
 @export var ground_decel := 10.0
 @export var ground_friction := 6.0
 
-@export var weapon_controller : WeaponController
-
 ########################################################
 #Saved inputs and directions
 var input_dir := Vector2.ZERO

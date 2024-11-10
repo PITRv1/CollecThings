@@ -21,6 +21,9 @@ func update(delta):
 	
 	#if health_component.health <= 0:
 		#transition.emit("DeadPlayerState")
+	
+	#if Input.is_action_just_pressed("attack"):
+		#weapon.attack()
 
 func physics_update(delta):	
 	player.update_gravity(delta)
@@ -29,5 +32,5 @@ func physics_update(delta):
 	
 	player.headbob_effect(delta)
 	
-	weapon.sway_weapon(delta, false)
-	weapon.weapon_bob(delta, weapon_bob_speed, weapon_bob_h, weapon_bob_v)
+	#weapon.sway_weapon(delta, false)
+	#weapon.weapon_bob(delta, weapon_bob_speed, weapon_bob_h, weapon_bob_v)

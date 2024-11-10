@@ -27,5 +27,5 @@ func physics_update(delta):
 	
 	player.update_velocity(delta)
 #	
-	weapon.sway_weapon(delta, true)
+	#weapon.sway_weapon(delta, true)
 #

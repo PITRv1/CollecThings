@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cibepxlwryawy"]
-
-[ext_resource type="PackedScene" uid="uid://bf2egoatqhbmy" path="res://Assets/Test assets/testStair.glb" id="1_yfgsc"]
-
-[node name="testStair" instance=ExtResource("1_yfgsc")]

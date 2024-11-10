@@ -27,6 +27,8 @@ func _ready():
 	load_weapon(weapon_list["TPistol"])
 	
 func _input(event):
+	
+	
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 		
@@ -48,16 +50,16 @@ func load_weapon(weapon_scene_path: String) -> void:
 		
 		current_weapon_settings = current_weapon.weapon_settings
 		add_child(current_weapon)
-		apply_weapon_settings(current_weapon.weapon_settings)
+		apply_weapon_settings(current_weapon_settings)
 		
 	else:
 		print("Failed to load weapon scene: ", weapon_scene_path)
 	
 
 func apply_weapon_settings(weapon_settings):
-	#position = weapon_settings.position
-	#rotation_degrees = weapon_settings.rotation
-	#scale = weapon_settings.scale
+	position = weapon_settings.position
+	rotation_degrees = weapon_settings.rotation
+	scale = weapon_settings.scale
 	#
 	current_weapon_settings = weapon_settings
 	

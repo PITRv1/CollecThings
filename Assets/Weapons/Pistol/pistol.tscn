@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://behqer6qog0tr"]
+
+[ext_resource type="Script" path="res://Assets/Weapons/Pistol/pistol_main.gd" id="1_685ou"]
+[ext_resource type="Resource" uid="uid://ce34echwp4s4y" path="res://Assets/Weapons/Pistol/TPistol_settings.tres" id="2_tu58d"]
+
+[sub_resource type="Animation" id="Animation_atfyo"]
+resource_name = "pistol_fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0204055, -0.163039), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.573341, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l257r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lovvm"]
+_data = {
+"RESET": SubResource("Animation_l257r"),
+"pistol_fire": SubResource("Animation_atfyo")
+}
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uwili"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w3b5k"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.15
+
+[node name="Pistol" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
+script = ExtResource("1_685ou")
+weapon_settings = ExtResource("2_tu58d")
+animation_player = NodePath("Animation Player")
+projectile_origin = NodePath("Marker3D")
+cooldown_timer = NodePath("Cooldown timer")
+
+[node name="Animation Player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lovvm")
+}
+
+[node name="Cooldown timer" type="Timer" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.173378)
+
+[node name="Model" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.0697232)
+mesh = SubResource("CylinderMesh_uwili")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, -0.803525, 0.595272, 0, -0.595272, -0.803525, 0, -0.0543938, -0.0530876)
+mesh = SubResource("CylinderMesh_w3b5k")
+skeleton = NodePath("../..")

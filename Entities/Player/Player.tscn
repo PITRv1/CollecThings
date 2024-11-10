@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=14 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bneryy78blva3" path="res://Assets/UI/Pause Menu/pause_tablet.tscn" id="4_4dxjy"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/WalkingPlayerState.gd" id="4_fodp0"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/JumpingPlayerState.gd" id="5_65duw"]
+[ext_resource type="PackedScene" uid="uid://bnhrbxjun6ct3" path="res://Assets/Weapons/weapon.tscn" id="5_q5jdb"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/FallingPlayerState.gd" id="6_gvqp7"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/NoclippingPlayerState.gd" id="7_pwn5c"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
@@ -37,14 +38,22 @@ unique_name_in_owner = true
 [node name="Camera3D" type="Camera3D" parent="Head/CameraSmooth"]
 unique_name_in_owner = true
 
-[node name="Stat_tablet" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("3_35l5b")]
+[node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
+visible = false
+
+[node name="Stat_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("3_35l5b")]
 transform = Transform3D(0.878817, 0, 0.477159, 0, 1, 0, -0.477159, 0, 0.878817, -0.545, -0.41, -0.81)
 
-[node name="Weapon_tablet" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("2_eiimt")]
+[node name="Weapon_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("2_eiimt")]
 transform = Transform3D(0.878817, 0, -0.477159, 0, 1, 0, 0.477159, 0, 0.878817, 0.6, -0.41, -0.81)
 
-[node name="Pause tablet" parent="Head/CameraSmooth/Camera3D" instance=ExtResource("4_4dxjy")]
+[node name="Pause tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
 transform = Transform3D(1, 0, 0, 0, -3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0.6, -0.46)
+
+[node name="Weapon Rig" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
+
+[node name="Weapon" parent="Head/CameraSmooth/Camera3D/Weapon Rig" instance=ExtResource("5_q5jdb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.222, -0.135, -0.309)
 
 [node name="StairsAheadRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)

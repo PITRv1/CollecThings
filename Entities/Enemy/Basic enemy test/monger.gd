@@ -20,7 +20,6 @@ func _ready() -> void:
 	player = get_node(player_path)
 	state_machine = anim_tree.get("parameters/playback")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -28,7 +27,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		#player.velocity.y += 5.0
 	elif Input.is_action_pressed("sprint"):
 		velocity.y -= 50.0
-		get_tree().reload_current_scene()
 		#player.velocity.y -= 50
 	
 

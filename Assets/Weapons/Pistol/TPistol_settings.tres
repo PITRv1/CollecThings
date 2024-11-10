@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WeaponSettings" load_steps=2 format=3 uid="uid://ce34echwp4s4y"]
+
+[ext_resource type="Script" path="res://Assets/Weapons/weapon_settings.gd" id="1_qqe8l"]
+
+[resource]
+script = ExtResource("1_qqe8l")
+name = &"TPistol"
+damage = 0.0
+cooldown = 0.6
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.07
+sway_speed_rotation = 0.1
+sway_amount_position = 0.1
+sway_amount_rotation = 30.0
+idle_sway_adjustment = 10.0
+idle_sway_rotation_strength = 300.0
+random_sway_amount = 5.0

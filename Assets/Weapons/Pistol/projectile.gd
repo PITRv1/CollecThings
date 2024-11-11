@@ -7,7 +7,6 @@ var b_decal
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	b_decal = preload("res://Assets/Models/BulletDecal.tscn")
-	print("apple")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

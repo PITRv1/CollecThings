@@ -5,9 +5,85 @@ extends Node3D
 @export var projectile_origin: Marker3D
 @export var cooldown_timer: Timer
 
+var player : Player
+var length := 100.0
+
+var camera
+var mousepos
+var space_state
+var from
+var to
+var query
+var result
+var bloom
+
+const PROJECTILE = preload("res://Assets/Weapons/Pistol/Projectile.tscn")
+
+func _ready() -> void:
+	
+	player = get_tree().get_first_node_in_group("player")
+	
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
-	pass
+	
+	for i in range(weapon_settings.num_of_bullets):
+		
+		if weapon_settings.spread:
+			var x = randf_range(-35.0, 35.0)
+			var y = randf_range(-35.0, 35.0)
+			bloom = Vector2(x, y)
+		else:
+			bloom = Vector2.ZERO
+		# Get space, camera, mousepos
+		
+		space_state = get_world_3d().direct_space_state
+		camera = get_viewport().get_camera_3d()
+		mousepos = get_viewport().get_mouse_position()
+		
+		# Project ray
+		from = camera.project_ray_origin(mousepos)
+		
+		to = from + camera.project_ray_normal(mousepos + bloom) * length
+		query = PhysicsRayQueryParameters3D.create(from, to)
+		query.collide_with_areas = true
+		query.collide_with_bodies = false
+		
+		# This is a Dictionary, just select what you need from it, for example: position, collider, ect.
+		result = space_state.intersect_ray(query)
+		
+		player.velocity += camera.global_transform.basis.z * weapon_settings.knockback_force
+		
+		if result.size() == 0:
+		
+			query = PhysicsRayQueryParameters3D.create(from, to)
+			query.collide_with_bodies = true
+			
+			result = space_state.intersect_ray(query)
+			
+			if result.size() == 0: 
+				
+				var proj = PROJECTILE.instantiate()
+				proj.global_position = projectile_origin.global_position
+				add_child(proj)
+				proj.look_at(to, Vector3.UP)
+				continue
+			
+			var proj = PROJECTILE.instantiate()
+			proj.global_position = projectile_origin.global_position
+			add_child(proj)
+			proj.look_at(result["position"], Vector3.UP)
+		
+		else:
+		
+			if result["collider"].has_method("damage"):
+				
+				result["collider"].damage(weapon_settings)
+			
+			var proj = PROJECTILE.instantiate()
+			proj.global_position = projectile_origin.global_position
+			add_child(proj)
+			proj.look_at(result["position"], Vector3.UP)
+
 
 # Secondary fire function, can be overridden in derived weapons
 func secondary_fire():

@@ -5,6 +5,10 @@ class_name WeaponSettings extends Resource
 @export_category("Weapon Specs")
 @export var damage : float
 @export var cooldown : float
+@export var knockback_force: float
+@export var stun_time : float
+@export var spread : bool
+@export var num_of_bullets : int
 
 @export_category("Weapon Orientation")
 @export var position: Vector3

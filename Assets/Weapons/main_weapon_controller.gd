@@ -25,7 +25,7 @@ var weapon_bob_amount : Vector2 = Vector2(0,0)
 
 func _ready():
 	await owner.ready
-	load_weapon(weapon_list["TShotgun"])
+	load_weapon(weapon_list["TPistol"])
 	
 func _input(event):
 	

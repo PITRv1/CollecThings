@@ -5,8 +5,12 @@
 [resource]
 script = ExtResource("1_qqe8l")
 name = &"TPistol"
-damage = 0.0
+damage = 1.0
 cooldown = 0.6
+knockback_force = 0.0
+stun_time = 0.0
+spread = false
+num_of_bullets = 1
 position = Vector3(0.222, -0.135, -0.309)
 rotation = Vector3(0, -180, 0)
 scale = Vector3(1, 1, 1)

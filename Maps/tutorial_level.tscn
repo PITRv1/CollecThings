@@ -713,7 +713,7 @@ size = Vector2(100, 100)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cy3sr")
 
-[node name="Player" parent="." instance=ExtResource("2_iubha")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_iubha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.97821, -16.0632)
 
 [node name="Lighting" type="Node3D" parent="."]

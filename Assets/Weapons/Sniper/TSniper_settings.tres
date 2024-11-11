@@ -1,18 +1,18 @@
-[gd_resource type="Resource" script_class="WeaponSettings" load_steps=2 format=3 uid="uid://ce34echwp4s4y"]
+[gd_resource type="Resource" script_class="WeaponSettings" load_steps=2 format=3 uid="uid://b5e2nl8nddnqv"]
 
-[ext_resource type="Script" path="res://Assets/Weapons/weapon_settings.gd" id="1_qqe8l"]
+[ext_resource type="Script" path="res://Assets/Weapons/weapon_settings.gd" id="1_432p3"]
 
 [resource]
-script = ExtResource("1_qqe8l")
-name = &"TPistol"
-damage = 3.0
+script = ExtResource("1_432p3")
+name = &"TSniper"
+damage = 10.0
 cooldown = 0.6
-knockback_force = 5.0
+knockback_force = 100.0
 stun_time = 0.0
 spread = false
 num_of_bullets = 1
 hitscan = 1
-proj_speed = 50.0
+proj_speed = 500.0
 position = Vector3(0.222, -0.135, -0.309)
 rotation = Vector3(0, -180, 0)
 scale = Vector3(1, 1, 1)

@@ -13,10 +13,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func damage(attack: WeaponSettings):
 	health -= attack.damage
-	print(health)
 	
 	if health <= 0:
 		get_parent().queue_free()
 		
-	get_parent().velocity += (get_parent().global_position - attack.position).normalized() * attack.knockback_force
+	print(get_parent().global_position.direction_to(attack.global_pos) * attack.knockback_force)
+		
+	get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
 	

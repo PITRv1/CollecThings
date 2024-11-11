@@ -4,4 +4,3 @@
 
 [node name="HitboxComponent" type="Area3D"]
 script = ExtResource("1_7re5r")
-health_component = null

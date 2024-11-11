@@ -9,9 +9,12 @@ class_name WeaponSettings extends Resource
 @export var stun_time : float
 @export var spread : bool
 @export var num_of_bullets : int
+@export_enum("Hitscan", "Projectile") var hitscan: int = 0
+@export var proj_speed : float
 
 @export_category("Weapon Orientation")
 @export var position: Vector3
+var global_pos : Vector3
 @export var rotation: Vector3
 @export var scale: Vector3
 

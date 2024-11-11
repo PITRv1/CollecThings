@@ -10,3 +10,8 @@ noise = SubResource("FastNoiseLite_icpr2")
 [node name="Weapon" type="Node3D"]
 script = ExtResource("1_0tley")
 sway_noise = SubResource("NoiseTexture2D_4bcs5")
+weapon_list = {
+"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",
+"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn",
+"TSniper": "res://Assets/Weapons/Sniper/sniper.tscn"
+}

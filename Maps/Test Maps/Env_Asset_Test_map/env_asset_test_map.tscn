@@ -153,181 +153,145 @@ shape = SubResource("BoxShape3D_02vjf")
 [node name="Basic_enemy" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, 0)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy2" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, 1.91867)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy3" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, 0)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy4" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, 1.91867)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy5" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, 3.81064)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy6" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, 5.72931)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy7" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, 3.81064)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy8" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, 5.72931)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy9" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -1.97122, 3.81064)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy10" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -1.97122, 5.72931)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy11" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.433, -1.97122, 3.81064)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy12" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.433, -1.97122, 5.72931)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy13" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -1.97122, -0.18936)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy14" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -1.97122, 1.72931)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy15" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.433, -1.97122, -0.18936)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy16" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.433, -1.97122, 1.72931)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy17" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -1.97122, -4.18936)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy18" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -1.97122, -2.27069)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy19" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.433, -1.97122, -4.18936)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy20" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.433, -1.97122, -2.27069)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy21" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, -4.18936)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy22" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, -2.27069)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy23" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, -4.18936)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy24" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, -2.27069)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy25" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, -7.84113)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy26" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, -5.92246)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy27" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, -7.84113)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy28" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433, -1.97122, -5.92246)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy29" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.806, -1.97122, -7.84113)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy30" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.806, -1.97122, -5.92246)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy31" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2389, -1.97122, -7.84113)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy32" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2389, -1.97122, -5.92246)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy33" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3543, -1.97122, -2.03966)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy34" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3543, -1.97122, -0.120993)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy35" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7872, -1.97122, -2.03966)
 player_path = NodePath("../../Player")
-idle = false
 
 [node name="Basic_enemy36" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7872, -1.97122, -0.120993)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 20.7872, 10.8387, -0.120993)
 player_path = NodePath("../../Player")
-idle = false
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

@@ -1,4 +1,5 @@
 extends Node3D
+class_name BaseWeapon
 
 @export var weapon_settings : WeaponSettings
 @export var animation_player: AnimationPlayer
@@ -17,11 +18,12 @@ var query
 var result
 var bloom
 
-const PROJECTILE = preload("res://Assets/Weapons/Pistol/Projectile.tscn")
+const PROJECTILE = preload("res://Assets/Weapons/Projectile.tscn")
 
 func _ready() -> void:
 	
 	player = get_tree().get_first_node_in_group("player")
+	weapon_settings.global_pos = player.global_position
 	
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
@@ -50,8 +52,9 @@ func primary_fire():
 		
 		# This is a Dictionary, just select what you need from it, for example: position, collider, ect.
 		result = space_state.intersect_ray(query)
+		print(result)
 		
-		player.velocity += camera.global_transform.basis.z * weapon_settings.knockback_force
+		player.velocity += camera.global_transform.basis.z * weapon_settings.knockback_force/4
 		
 		if result.size() == 0:
 		
@@ -64,24 +67,27 @@ func primary_fire():
 				
 				var proj = PROJECTILE.instantiate()
 				proj.global_position = projectile_origin.global_position
-				add_child(proj)
+				proj.enter(weapon_settings)
+				get_tree().root.add_child(proj)
 				proj.look_at(to, Vector3.UP)
 				continue
 			
 			var proj = PROJECTILE.instantiate()
 			proj.global_position = projectile_origin.global_position
-			add_child(proj)
+			proj.enter(weapon_settings)
+			get_tree().root.add_child(proj)
 			proj.look_at(result["position"], Vector3.UP)
 		
 		else:
 		
-			if result["collider"].has_method("damage"):
+			if result["collider"].has_method("damage") and weapon_settings.hitscan == 0:
 				
 				result["collider"].damage(weapon_settings)
 			
 			var proj = PROJECTILE.instantiate()
 			proj.global_position = projectile_origin.global_position
-			add_child(proj)
+			proj.enter(weapon_settings)
+			get_tree().root.add_child(proj)
 			proj.look_at(result["position"], Vector3.UP)
 
 

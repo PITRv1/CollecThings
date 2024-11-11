@@ -6,3 +6,4 @@ extends "res://Assets/Weapons/base_weapon.gd"
 func _ready() -> void:
 	b_decal = preload("res://Assets/Models/BulletDecal.tscn")
 	player = get_tree().get_first_node_in_group("player")
+	

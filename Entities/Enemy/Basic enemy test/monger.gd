@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 		"idle":
 			velocity = Vector3.ZERO
 		"wander":
-			
 			# Navigation
 			if wander_timer.is_stopped():
 				nav_agent.set_target_position(global_position + Vector3(randf_range(-4, 4), 0.0, randf_range(-4, 4)))

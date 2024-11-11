@@ -28,8 +28,6 @@ func _ready():
 	load_weapon(weapon_list["TPistol"])
 	
 func _input(event):
-	
-	
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 		
@@ -38,7 +36,13 @@ func _input(event):
 	if event.is_action_pressed("secondary_fire"):
 		current_weapon.secondary_fire()
 		
-	
+		
+	#Slot change
+	if event.is_action_pressed("slot_1"):
+		load_weapon(weapon_list["TPistol"])
+	if event.is_action_pressed("slot_2"):
+		load_weapon(weapon_list["TShotgun"])
+
 func load_weapon(weapon_scene_path: String) -> void:
 	if current_weapon:
 		current_weapon.queue_free()

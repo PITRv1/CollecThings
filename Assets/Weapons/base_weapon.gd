@@ -31,8 +31,8 @@ func primary_fire():
 	for i in range(weapon_settings.num_of_bullets):
 		
 		if weapon_settings.spread:
-			var x = randf_range(-35.0, 35.0)
-			var y = randf_range(-35.0, 35.0)
+			var x = randf_range(-10.0 * weapon_settings.spread, 10.0 * weapon_settings.spread)
+			var y = randf_range(-10.0 * weapon_settings.spread, 10.0 * weapon_settings.spread)
 			bloom = Vector2(x, y)
 		else:
 			bloom = Vector2.ZERO

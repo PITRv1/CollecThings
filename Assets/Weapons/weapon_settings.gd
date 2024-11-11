@@ -7,7 +7,7 @@ class_name WeaponSettings extends Resource
 @export var cooldown : float
 @export var knockback_force: float
 @export var stun_time : float
-@export_range(0.0, 1.0) var spread = 0.1
+@export_range(0.0, 10.0, .1) var spread = 1.0
 @export var num_of_bullets : int
 @export_enum("Hitscan", "Projectile") var hitscan: int = 0
 @export var proj_speed : float

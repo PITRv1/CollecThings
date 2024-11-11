@@ -73,7 +73,7 @@ top_radius = 0.05
 bottom_radius = 0.05
 height = 0.15
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
+[node name="Sniper" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_b8gn7")
 weapon_settings = ExtResource("2_8jsy2")
 animation_player = NodePath("Animation Player")
@@ -88,7 +88,7 @@ libraries = {
 [node name="Cooldown timer" type="Timer" parent="."]
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.173378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.937714)
 
 [node name="Model" type="Node3D" parent="."]
 

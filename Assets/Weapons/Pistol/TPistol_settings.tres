@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_qqe8l")
 name = &"TPistol"
-damage = 3.0
+damage = 0.0
 cooldown = 0.6
-knockback_force = 5.0
+knockback_force = 51.355
 stun_time = 0.0
-spread = false
+spread = 1.0
 num_of_bullets = 1
 hitscan = 1
 proj_speed = 50.0

@@ -154,4 +154,52 @@ shape = SubResource("BoxShape3D_02vjf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, 0)
 player_path = NodePath("../../Player")
 
+[node name="Basic_enemy2" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.75524, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy3" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 4.6396, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy4" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 7.81262, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy5" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 11.325, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy6" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 14.9665, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy7" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 19.3755, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy8" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 23.8152, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy9" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 28.4181, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy10" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 33.7632, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy11" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 39.0875, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy12" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 44.4203, 0)
+player_path = NodePath("../../Player")
+
+[node name="Basic_enemy13" parent="Enemies" instance=ExtResource("7_hahxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 48.9208, 0)
+player_path = NodePath("../../Player")
+
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

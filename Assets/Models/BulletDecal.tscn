@@ -1,11 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://bykixwyrhdcxw"]
 
-[ext_resource type="Texture2D" uid="uid://cheq5i6m8t8bo" path="res://Assets/Models/bullet_hole.png" id="1_1ikof"]
 [ext_resource type="Script" path="res://Assets/Models/bullet_decal.gd" id="1_gyt1u"]
+[ext_resource type="Texture2D" uid="uid://ck078bthju1a2" path="res://Assets/When-the-imposter-is-sus-meme-10.jpg" id="2_x5sh8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa41g"]
 transparency = 1
-albedo_texture = ExtResource("1_1ikof")
+albedo_texture = ExtResource("2_x5sh8")
+albedo_texture_force_srgb = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_bctkj"]
 material = SubResource("StandardMaterial3D_pa41g")

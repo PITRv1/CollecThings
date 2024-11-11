@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2uys1rlpx60x"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/HitboxComponent.gd" id="1_7re5r"]
+
+[node name="HitboxComponent" type="Area3D"]
+script = ExtResource("1_7re5r")
+health_component = null

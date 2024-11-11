@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bykixwyrhdcxw"]
+
+[ext_resource type="Texture2D" uid="uid://cheq5i6m8t8bo" path="res://Assets/Models/bullet_hole.png" id="1_1ikof"]
+[ext_resource type="Script" path="res://Assets/Models/bullet_decal.gd" id="1_gyt1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa41g"]
+transparency = 1
+albedo_texture = ExtResource("1_1ikof")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bctkj"]
+material = SubResource("StandardMaterial3D_pa41g")
+size = Vector2(0.5, 0.5)
+
+[node name="BulletDecal" type="Node3D"]
+top_level = true
+script = ExtResource("1_gyt1u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, -0.02)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_bctkj")

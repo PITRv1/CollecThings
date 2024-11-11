@@ -242,3 +242,5 @@ func update_velocity(delta):
 
 func _on_jump_buffer_timer_timeout() -> void:
 	jump_buffer_running = false
+	
+# Peti kerlek ne szedd le a fejem

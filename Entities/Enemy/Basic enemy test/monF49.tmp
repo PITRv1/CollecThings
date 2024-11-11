@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://coair8lxktg3n"]
+[gd_scene load_steps=36 format=3 uid="uid://coair8lxktg3n"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/monger.gd" id="1_xu8m0"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="2_rnmx2"]
@@ -169,9 +169,6 @@ animation = &"chase"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1eunn"]
 animation = &"falling"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fix0"]
-animation = &"idle"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x1l3x"]
 animation = &"wander"
 
@@ -227,10 +224,6 @@ advance_condition = &"falling"
 advance_mode = 2
 advance_condition = &"attack"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wr45w"]
-advance_mode = 2
-advance_condition = &"idle"
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jh0iq"]
 states/End/position = Vector2(1081, 100)
 states/Start/position = Vector2(313, 100)
@@ -240,18 +233,13 @@ states/chase/node = SubResource("AnimationNodeAnimation_n0lqh")
 states/chase/position = Vector2(496, -12)
 states/falling/node = SubResource("AnimationNodeAnimation_1eunn")
 states/falling/position = Vector2(496, 100)
-states/idle/node = SubResource("AnimationNodeAnimation_3fix0")
-states/idle/position = Vector2(345, -7.8656)
 states/wander/node = SubResource("AnimationNodeAnimation_x1l3x")
 states/wander/position = Vector2(496, 220)
-transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5"), "attack", "falling", SubResource("AnimationNodeStateMachineTransition_pmi0k"), "falling", "attack", SubResource("AnimationNodeStateMachineTransition_pf0fn"), "falling", "idle", SubResource("AnimationNodeStateMachineTransition_wr45w")]
+transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5"), "attack", "falling", SubResource("AnimationNodeStateMachineTransition_pmi0k"), "falling", "attack", SubResource("AnimationNodeStateMachineTransition_pf0fn")]
 graph_offset = Vector2(9, -50.8656)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2klfr"]
-
-[node name="Basic_enemy" type="CharacterBody3D" groups=["Enemy"]]
+[node name="Basic_enemy" type="CharacterBody3D"]
 script = ExtResource("1_xu8m0")
-idle = true
 
 [node name="body" type="Node3D" parent="."]
 
@@ -324,19 +312,11 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
 parameters/conditions/fall_wand = false
 parameters/conditions/falling = false
-parameters/conditions/idle = false
 parameters/conditions/run = false
 parameters/conditions/wander = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_rnmx2")]
-MAX_HEALTH = 10.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_sekes")]
-collision_layer = 8
-collision_mask = 8
-health_component = NodePath("../HealthComponent")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
-shape = SubResource("CapsuleShape3D_2klfr")
+[node name="HitboxComponent" parent="." instance=ExtResource("3_sekes")]
 
 [connection signal="body_entered" from="body/eyes/Area3D" to="." method="_on_area_3d_body_entered"]

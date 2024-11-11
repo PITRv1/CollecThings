@@ -9,7 +9,8 @@ var current_weapon_settings
 @export var reset : bool = false
 
 @export var weapon_list: Dictionary = {
-	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn"
+	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",
+	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn"
 }
 
 var mouse_movement : Vector2
@@ -24,7 +25,7 @@ var weapon_bob_amount : Vector2 = Vector2(0,0)
 
 func _ready():
 	await owner.ready
-	load_weapon(weapon_list["TPistol"])
+	load_weapon(weapon_list["TShotgun"])
 	
 func _input(event):
 	

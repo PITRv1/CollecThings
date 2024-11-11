@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=15 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -15,6 +15,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_xqt5x"]
+size = Vector3(0.01, 0.01, 0.01)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller")]
 collision_layer = 2
@@ -54,7 +57,11 @@ transform = Transform3D(1, 0, 0, 0, -3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0.6
 [node name="Weapon Rig" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 
 [node name="Weapon" parent="Head/CameraSmooth/Camera3D/Weapon Rig" instance=ExtResource("5_q5jdb")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.222, -0.135, -0.309)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.222, -0.135, -0.309)
+
+[node name="Peti pls Dont kill me Crosshair" type="MeshInstance3D" parent="Head/CameraSmooth/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.674129)
+mesh = SubResource("BoxMesh_xqt5x")
 
 [node name="StairsAheadRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)

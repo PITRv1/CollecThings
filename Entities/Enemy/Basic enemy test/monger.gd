@@ -4,15 +4,16 @@ var player : CharacterBody3D = null
 var state_machine
 
 @export var player_path : NodePath
+@export var idle : bool
 
 const SPEED = 10.0
 const ATTACK_RANGE = 2.5
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var anim_tree: AnimationTree = $"States and animation/AnimationTree"
 @onready var ray: RayCast3D = $RayCasts/sight
-@onready var chase_timer: Timer = $chaseTimer
-@onready var wander_timer: Timer = $wanderTimer
+@onready var chase_timer: Timer = $Timers/chaseTimer
+@onready var wander_timer: Timer = $Timers/wanderTimer
 var chase_dis = 50.0
 
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +37,8 @@ func _physics_process(delta: float) -> void:
 	match state_machine.get_current_node():
 		"falling":
 			velocity += get_gravity() * delta
+		"idle":
+			velocity = Vector3.ZERO
 		"wander":
 			
 			# Navigation
@@ -75,10 +78,12 @@ func _physics_process(delta: float) -> void:
 	#Conditions
 	anim_tree.set("parameters/conditions/fall_wand", is_on_floor())
 	anim_tree.set("parameters/conditions/falling", !is_on_floor())
+	anim_tree.set("parameters/conditions/idle", idle and is_on_floor())
 	anim_tree.set("parameters/conditions/wander", is_on_floor() and !_target_in_sight() and chase_timer.is_stopped())
 	anim_tree.set("parameters/conditions/attack", _target_in_range() and _target_in_sight())
 	anim_tree.set("parameters/conditions/run", (_target_in_sight() or !chase_timer.is_stopped()) and !_target_in_range() and is_on_floor())
 	anim_tree.get("parameters/playback")
+	
 	
 	move_and_slide()
 	

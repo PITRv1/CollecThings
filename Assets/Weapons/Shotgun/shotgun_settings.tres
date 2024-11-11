@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_6t6et")
-name = &""
+name = &"TShotgun"
 damage = 0.0
 cooldown = 0.0
-position = Vector3(0, 0, 0)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0, 0, 0)
+position = Vector3(0.222, -0.135, -0.309)
+rotation = Vector3(0, 180, 0)
+scale = Vector3(1, 1, 1)
 sway_min = Vector2(-20, -20)
 sway_max = Vector2(20, 20)
 sway_speed_position = 0.07

@@ -19,12 +19,6 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 Global="*res://global.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
@@ -36,8 +30,14 @@ folder_colors={
 "res://Cinematics/": "purple",
 "res://Components/": "yellow",
 "res://Entities/": "green",
-"res://Maps/": "blue"
+"res://Maps/": "blue",
+"res://Scripts/": "pink"
 }
+
+[global_group]
+
+player="Please Peti I need this"
+Enemy=""
 
 [input]
 

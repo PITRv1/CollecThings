@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=19 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
+[ext_resource type="PackedScene" uid="uid://bvo3xke2n3jn3" path="res://Assets/Models/Test_rock.tscn" id="5_swl5k"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
@@ -81,7 +82,7 @@ environment = SubResource("Environment_fqgkm")
 transform = Transform3D(-0.291273, 0.236429, -0.926964, -0.335225, 0.882312, 0.330377, 0.895982, 0.406971, -0.177737, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_tnp5y")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_tnp5y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, -2.12151, -2.86695)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -117,6 +118,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3627, -3.38873, 32.6667)
 
 [node name="sphere_tree7" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, -3.9122, 15.3032)
+
+[node name="rock1" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("5_swl5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5879, -4.03821, 14.2176)
 
 [node name="Rocks" type="Node3D" parent="NavigationRegion3D/Environment"]
 

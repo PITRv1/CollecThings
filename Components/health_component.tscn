@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxo3gstx1krox"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/HealthComponent.gd" id="1_uvmxv"]
+
+[node name="HealthComponent" type="Node3D"]
+script = ExtResource("1_uvmxv")

@@ -73,7 +73,7 @@ top_radius = 0.05
 bottom_radius = 0.05
 height = 0.15
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
+[node name="Pistol" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_685ou")
 weapon_settings = ExtResource("2_tu58d")
 animation_player = NodePath("Animation Player")

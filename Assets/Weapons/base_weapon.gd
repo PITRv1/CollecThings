@@ -9,8 +9,8 @@ class_name BaseWeapon
 var player : Player
 var length := 100.0
 
-var camera
-var mousepos
+var camera : Camera3D
+var mousepos : Vector2
 var space_state
 var from
 var to
@@ -28,19 +28,20 @@ func _ready() -> void:
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
 	
+	#Basic firing mechanic
 	for i in range(weapon_settings.num_of_bullets):
-		
 		if weapon_settings.spread:
 			var x = randf_range(-10.0 * weapon_settings.spread, 10.0 * weapon_settings.spread)
 			var y = randf_range(-10.0 * weapon_settings.spread, 10.0 * weapon_settings.spread)
 			bloom = Vector2(x, y)
 		else:
 			bloom = Vector2.ZERO
+			
 		# Get space, camera, mousepos
-		
 		space_state = get_world_3d().direct_space_state
 		camera = get_viewport().get_camera_3d()
 		mousepos = get_viewport().get_mouse_position()
+		
 		
 		# Project ray
 		from = camera.project_ray_origin(mousepos)

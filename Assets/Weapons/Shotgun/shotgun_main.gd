@@ -1,4 +1,4 @@
-extends "res://Assets/Weapons/base_weapon.gd"
+extends BaseWeapon
 
 @onready var b_decal
 @onready var marker_3d: Marker3D = $Marker3D

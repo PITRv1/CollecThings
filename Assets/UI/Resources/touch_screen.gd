@@ -19,7 +19,7 @@ func _ready() -> void:
 	viewport.set_process_input(true)
 	
 	
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	var is_mouse_event : bool = false
 	
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
@@ -31,7 +31,7 @@ func _unhandled_input(event):
 		viewport.push_input(event,true)
 	
 	
-func handle_mouse(event):
+func handle_mouse(event) -> void:
 	if event is InputEventKey:
 		return
 	
@@ -77,7 +77,7 @@ func handle_mouse(event):
 	viewport.push_input(event)
 	
 
-func find_mouse(pos:Vector2):
+func find_mouse(pos: Vector2):
 	var camera : Camera3D = get_viewport().get_camera_3d()
 	var dss : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var rayparam : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()

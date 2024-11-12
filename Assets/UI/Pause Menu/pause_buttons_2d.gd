@@ -1,6 +1,6 @@
 extends Control
 
-@onready var pause_menu = get_tree().get_first_node_in_group("Pause_menu")
+@onready var pause_menu : Node3D = get_tree().get_first_node_in_group("Pause_menu")
 
 func _on_resume_pressed() -> void:
 	pause_menu.resume()

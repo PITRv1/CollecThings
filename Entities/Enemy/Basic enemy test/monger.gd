@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 		"falling":
 			velocity += get_gravity() * delta
 		"idle":
+			print("apfelen")
 			velocity = Vector3.ZERO
 		"wander":
 			# Navigation
@@ -59,6 +60,7 @@ func _physics_process(delta: float) -> void:
 				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
 				
 		"chase":
+			print("apfel")
 			# Rotation
 			var direction = global_position.direction_to(player.global_position + velocity)
 			rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 5 * delta)
@@ -75,12 +77,6 @@ func _physics_process(delta: float) -> void:
 			rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 20 * delta)
 	
 	#Conditions
-	anim_tree.set("parameters/conditions/fall_wand", is_on_floor())
-	anim_tree.set("parameters/conditions/falling", !is_on_floor())
-	anim_tree.set("parameters/conditions/idle", idle and is_on_floor())
-	anim_tree.set("parameters/conditions/wander", is_on_floor() and !_target_in_sight() and chase_timer.is_stopped())
-	anim_tree.set("parameters/conditions/attack", _target_in_range() and _target_in_sight())
-	anim_tree.set("parameters/conditions/run", (_target_in_sight() or !chase_timer.is_stopped()) and !_target_in_range() and is_on_floor())
 	anim_tree.get("parameters/playback")
 	
 	
@@ -108,11 +104,13 @@ func _target_in_sight():
 func _hit_finished():
 	pass
 	
+func _is_reachable():
+	if !nav_agent.is_target_reachable():
+		return true
 func _randomize_wander():
 	nav_agent.set_target_position(global_position + Vector3(randf_range(-4, 4), 0.0, randf_range(-4, 4)))
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(body)
 	if body == player:
 		var dir = global_position.direction_to(player.global_position)
 		player.velocity += dir * 40.0

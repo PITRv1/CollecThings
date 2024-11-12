@@ -201,23 +201,24 @@ advance_condition = &"fall_wand"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vh11f"]
 advance_mode = 2
-advance_condition = &"run"
+advance_expression = "_target_in_sight()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d5mwj"]
 advance_mode = 2
-advance_condition = &"wander"
+advance_expression = "player.global_position.y - global_position.y > 5"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x06ew"]
 advance_mode = 2
 advance_condition = &"falling"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pc6a7"]
+break_loop_at_end = true
 advance_mode = 2
-advance_condition = &"run"
+advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bhwk5"]
 advance_mode = 2
-advance_condition = &"falling"
+advance_expression = "!is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pmi0k"]
 advance_mode = 2
@@ -229,21 +230,21 @@ advance_condition = &"attack"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wr45w"]
 advance_mode = 2
-advance_condition = &"idlee"
+advance_expression = "idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jh0iq"]
 states/End/position = Vector2(1081, 100)
 states/Start/position = Vector2(313, 100)
 states/attack/node = SubResource("AnimationNodeAnimation_81ham")
-states/attack/position = Vector2(791, 100)
+states/attack/position = Vector2(893, 153)
 states/chase/node = SubResource("AnimationNodeAnimation_n0lqh")
-states/chase/position = Vector2(496, -12)
+states/chase/position = Vector2(496, -7.8656)
 states/falling/node = SubResource("AnimationNodeAnimation_1eunn")
-states/falling/position = Vector2(496, 100)
+states/falling/position = Vector2(496, 153)
 states/idle/node = SubResource("AnimationNodeAnimation_3fix0")
 states/idle/position = Vector2(345, -7.8656)
 states/wander/node = SubResource("AnimationNodeAnimation_x1l3x")
-states/wander/position = Vector2(496, 220)
+states/wander/position = Vector2(893, -7.8656)
 transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5"), "attack", "falling", SubResource("AnimationNodeStateMachineTransition_pmi0k"), "falling", "attack", SubResource("AnimationNodeStateMachineTransition_pf0fn"), "falling", "idle", SubResource("AnimationNodeStateMachineTransition_wr45w")]
 graph_offset = Vector2(9, -50.8656)
 
@@ -287,6 +288,8 @@ shape = SubResource("CapsuleShape3D_0mjao")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.15
+simplify_path = true
+debug_enabled = true
 
 [node name="Timers" type="Node" parent="."]
 
@@ -323,13 +326,12 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="States and animation"]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_jh0iq")
+advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
 parameters/conditions/fall_wand = false
 parameters/conditions/falling = false
-parameters/conditions/idlee = false
 parameters/conditions/run = false
-parameters/conditions/wander = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_1swf8")]
 MAX_HEALTH = 10.0

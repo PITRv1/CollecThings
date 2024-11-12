@@ -5,5 +5,4 @@ class_name HitboxComponent
 
 func damage(attack: WeaponSettings):
 	if health_component:
-		print("aple")
 		health_component.damage(attack)

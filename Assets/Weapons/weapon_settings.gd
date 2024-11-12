@@ -11,6 +11,7 @@ class_name WeaponSettings extends Resource
 @export var num_of_bullets : int
 @export_enum("Hitscan", "Projectile") var hitscan: int = 0
 @export var proj_speed : float
+@export var pierce : int
 
 @export_category("Weapon Orientation")
 @export var position: Vector3

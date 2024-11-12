@@ -53,7 +53,6 @@ func primary_fire():
 		
 		# This is a Dictionary, just select what you need from it, for example: position, collider, ect.
 		result = space_state.intersect_ray(query)
-		print(result)
 		
 		player.velocity += camera.global_transform.basis.z * weapon_settings.knockback_force/4
 		

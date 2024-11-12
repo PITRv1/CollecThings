@@ -1,13 +1,13 @@
 extends Control
 
-@onready var player = get_tree().current_scene.get_node("Player") 
+@onready var player : Player = get_tree().current_scene.get_node("Player") 
 @onready var health_bar : ProgressBar = $Margin/UI/PlayerStats/HealthPanel/Margin/VBox/ProgressBar
 @onready var shield_bar : ProgressBar = $Margin/UI/PlayerStats/ShieldPanel/Margin/VBox/ProgressBar
 
 
 func _ready() -> void:
-	var player_health = player.health
-	var player_shield = player.shield
+	var player_health : int = player.health
+	var player_shield : int = player.shield
 	
 	health_bar.max_value = player_health
 	health_bar.value = player_health

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxo24tx8rg6ub"]
+
+[ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="2_cioj0"]
+
+[node name="Placeholder_Tablet" type="Node3D"]
+
+[node name="Screen" type="Node3D" parent="."]
+transform = Transform3D(0.61, 0, 0, 0, 0.45, 0, 0, 0, 0.51, -0.0170283, 0.0876266, 0)
+
+[node name="Tablet" parent="." instance=ExtResource("2_cioj0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[editable path="Tablet"]
+[editable path="Tablet/tablet"]

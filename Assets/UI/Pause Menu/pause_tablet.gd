@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	pass # Replace with function body.

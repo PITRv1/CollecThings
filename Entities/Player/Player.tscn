@@ -43,13 +43,14 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
-visible = false
 
 [node name="Stat_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("3_35l5b")]
 transform = Transform3D(0.878817, 0, 0.477159, 0, 1, 0, -0.477159, 0, 0.878817, -0.545, -0.41, -0.81)
+visible = false
 
 [node name="Weapon_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("2_eiimt")]
 transform = Transform3D(0.878817, 0, -0.477159, 0, 1, 0, 0.477159, 0, 0.878817, 0.6, -0.41, -0.81)
+visible = false
 
 [node name="Pause tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
 transform = Transform3D(1, 0, 0, 0, -3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0.6, -0.46)

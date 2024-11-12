@@ -1,25 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Space_ship.glb" id="1_t8ga1"]
-[ext_resource type="PackedScene" uid="uid://cxo24tx8rg6ub" path="res://Assets/UI/Placeholder Tablet/placeholder_tablet.tscn" id="2_mtno3"]
-[ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Placeholder Tablet/placeholder_screen.tscn" id="3_355bm"]
+[ext_resource type="PackedScene" uid="uid://cxo24tx8rg6ub" path="res://Assets/UI/Tablet.tscn" id="2_mtno3"]
+[ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Main Menu/placeholder_screen.tscn" id="3_355bm"]
 
 [node name="MainMenu" type="Node3D"]
+process_mode = 3
 
 [node name="Space_ship" parent="." instance=ExtResource("1_t8ga1")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91, 3.115, -1.645)
 
-[node name="Placeholder_Tablet" parent="." instance=ExtResource("2_mtno3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.515, 2.749, -2.36)
-
-[node name="Screen" parent="Placeholder_Tablet/Screen" index="0" instance=ExtResource("3_355bm")]
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, 3.89, -4.717)
 omni_range = 3.573
 omni_attenuation = -0.212
+
+[node name="Placeholder_Tablet" parent="." instance=ExtResource("2_mtno3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53, 2.74, -2.37)
+
+[node name="Screen" parent="Placeholder_Tablet/Screen" index="0" instance=ExtResource("3_355bm")]
 
 [editable path="Placeholder_Tablet"]
 [editable path="Placeholder_Tablet/Tablet"]

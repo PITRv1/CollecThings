@@ -70,6 +70,13 @@ theme = ExtResource("1_6uop4")
 text = "Options
 "
 
+[node name="MainMenu" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+text = "Main Menu
+"
+
 [node name="Quit" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
@@ -78,4 +85,6 @@ text = "Quit"
 
 [connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

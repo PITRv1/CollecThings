@@ -27,7 +27,7 @@ func _ready():
 	"TSniper": "res://Assets/Weapons/Sniper/sniper.tscn"
 	}
 	await owner.ready
-	load_weapon(weapon_list["TSniper"])
+	load_weapon(weapon_list["TShotgun"])
 	
 func _input(event):
 	if event is InputEventMouseMotion:

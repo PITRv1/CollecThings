@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://btpmyjub568re"]
+[gd_scene load_steps=6 format=3 uid="uid://btpmyjub568re"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Shotgun/shotgun_main.gd" id="1_jsstv"]
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
+[ext_resource type="PackedScene" uid="uid://cktorru4v63el" path="res://Assets/Weapons/Shotgun/Shotgun.glb" id="3_wwjff"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pghlf"]
 top_radius = 0.05
@@ -29,6 +30,7 @@ cooldown_timer = NodePath("Timer")
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Model" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.03, 0, 0.07)
@@ -44,3 +46,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.03, 0, 0.07)
 mesh = SubResource("CylinderMesh_pghlf")
 skeleton = NodePath("../..")
+
+[node name="Shotgun" parent="." instance=ExtResource("3_wwjff")]
+transform = Transform3D(-0.179919, 0, -0.0229397, 0, 0.181376, 0, 0.0229397, 0, -0.179919, -0.324121, 0, 0.239976)

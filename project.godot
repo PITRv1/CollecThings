@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CollecThings"
-run/main_scene="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.tscn"
+run/main_scene="res://Maps/tutorial_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]

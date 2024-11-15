@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4oaiip05l464"]
 
-[ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Space_ship.glb" id="1_t8ga1"]
+[ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_t8ga1"]
 [ext_resource type="PackedScene" uid="uid://cxo24tx8rg6ub" path="res://Assets/UI/Tablet.tscn" id="2_mtno3"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Main Menu/placeholder_screen.tscn" id="3_355bm"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
+[ext_resource type="PackedScene" uid="uid://cdf0dpy3d18hb" path="res://Assets/Models/Vehicles/Space_shipV2.glb" id="10_vbf7h"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -305,5 +306,8 @@ player_path = NodePath("../../Player")
 [node name="Basic_enemy39" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 48.9208, 0)
 player_path = NodePath("../../Player")
+
+[node name="Space_shipV2" parent="." instance=ExtResource("10_vbf7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.334, -1.9479, 62.6106)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

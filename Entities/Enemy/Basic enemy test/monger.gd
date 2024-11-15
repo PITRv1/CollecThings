@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 		"falling":
 			velocity += get_gravity() * delta
 		"idle":
-			print("apfelen")
 			velocity = Vector3.ZERO
 		"wander":
 			# Navigation
@@ -60,7 +59,6 @@ func _physics_process(delta: float) -> void:
 				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
 				
 		"chase":
-			print("apfel")
 			# Rotation
 			var direction = global_position.direction_to(player.global_position + velocity)
 			rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 5 * delta)

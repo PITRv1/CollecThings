@@ -30,6 +30,9 @@ func primary_fire():
 	for i in range(weapon_settings.num_of_bullets):
 		spawn_bullet()
 
+	if Input.is_action_just_pressed("primary_fire"):
+		print("asdasdasd")
+		animation_player.play("knockback")
 
 # Secondary fire function, can be overridden in derived weapons
 func secondary_fire():

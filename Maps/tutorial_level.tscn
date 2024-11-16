@@ -765,7 +765,6 @@ directional_shadow_max_distance = 796.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 32.816, 146.864, -14.6965)
-visible = false
 light_color = Color(0.931506, 0.954802, 0.886945, 1)
 light_energy = 16.0
 light_indirect_energy = 7.101

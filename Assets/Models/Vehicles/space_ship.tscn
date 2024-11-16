@@ -1,62 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://v3uujc2tqga2"]
 
-[ext_resource type="PackedScene" uid="uid://cdf0dpy3d18hb" path="res://Assets/Models/Vehicles/Space_shipV2.glb" id="1_wst2t"]
+[ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_e0jjt"]
+
+[sub_resource type="Animation" id="Animation_wghkt"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_3lgr3"]
 resource_name = "take_off"
 length = 3.784
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Space_shipV2:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 3.76667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.326656, 0, 0.347754), Vector3(-0.326656, 29.4469, 0.347754), Vector3(-0.327, 54.389, 0.348)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Space_shipV2:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.366667, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_wghkt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Space_shipV2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.326656, 0, 0.347754)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Space_shipV2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wetl0"]
 _data = {
@@ -72,7 +24,5 @@ libraries = {
 }
 autoplay = "take_off"
 
-[node name="Space_shipV2" parent="." instance=ExtResource("1_wst2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.326656, 0, 0.347754)
-
-[editable path="Space_shipV2"]
+[node name="Space_ship" parent="." instance=ExtResource("1_e0jjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09426, 0, 2.55486)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://caahr0jcai50p"]
 
 [ext_resource type="Script" path="res://Assets/UI/Resources/touch_screen.gd" id="1_pacrd"]
-[ext_resource type="PackedScene" uid="uid://dee1xjnbe0hxf" path="res://Assets/UI/Pause Menu/pause_ui2d.tscn" id="1_sheha"]
+[ext_resource type="PackedScene" uid="uid://dee1xjnbe0hxf" path="res://Assets/UI/Tablets/Pause Menu/pause_ui2d.tscn" id="1_sheha"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n4skr"]
 viewport_path = NodePath("viewport")

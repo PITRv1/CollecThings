@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://rihycql4jch6"]
 
-[ext_resource type="PackedScene" uid="uid://dsb4yp3hpb3pv" path="res://Assets/UI/Weapon Stat/weapon_ui2d.tscn" id="2_krpkm"]
+[ext_resource type="PackedScene" uid="uid://dsb4yp3hpb3pv" path="res://Assets/UI/Tablets/Weapon Stat/weapon_ui2d.tscn" id="2_krpkm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n4skr"]
 viewport_path = NodePath("weapon_viewport")

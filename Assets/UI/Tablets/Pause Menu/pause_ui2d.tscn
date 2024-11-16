@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dee1xjnbe0hxf"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_6uop4"]
-[ext_resource type="Script" path="res://Assets/UI/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -38,6 +38,7 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="Title" type="Label" parent="Margin/UI"]
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
@@ -58,12 +59,14 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="Resume" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_6uop4")
 text = "Resume"
 
 [node name="Options" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_6uop4")
@@ -71,6 +74,7 @@ text = "Options
 "
 
 [node name="MainMenu" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_6uop4")
@@ -78,6 +82,7 @@ text = "Main Menu
 "
 
 [node name="Quit" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_6uop4")

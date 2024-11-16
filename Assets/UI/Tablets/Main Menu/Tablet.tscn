@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cl66cjsn37c0m"]
 
 [ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="1_aviu4"]
-[ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Main Menu/placeholder_screen.tscn" id="1_eucj2"]
+[ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Tablets/Main Menu/mainmenu_screen.tscn" id="1_eucj2"]
 
 [node name="Placeholder_Tablet" type="Node3D"]
 

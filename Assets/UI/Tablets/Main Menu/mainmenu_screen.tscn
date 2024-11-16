@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7b25yobm7o6q"]
+[gd_scene load_steps=7 format=3 uid="uid://bcgtyv4p3uhpc"]
 
-[ext_resource type="PackedScene" uid="uid://7ps155gax7qy" path="res://Assets/UI/Player Stat/playerstat_ui2d.tscn" id="2_3ioot"]
+[ext_resource type="Script" path="res://Assets/UI/Resources/touch_screen.gd" id="1_4pgd7"]
+[ext_resource type="PackedScene" uid="uid://dl6g5cco42d0p" path="res://Assets/UI/Tablets/Main Menu/mainmenu_2dui.tscn" id="1_h36x3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n4skr"]
-viewport_path = NodePath("playerstat_viewport")
+viewport_path = NodePath("viewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebjg2"]
 resource_local_to_scene = true
@@ -15,7 +16,8 @@ albedo_texture = SubResource("ViewportTexture_n4skr")
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nd05"]
 size = Vector3(1, 1, 0.0586203)
 
-[node name="Node3D" type="Node3D"]
+[node name="Screen" type="Node3D"]
+script = ExtResource("1_4pgd7")
 
 [node name="display" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ebjg2")
@@ -27,7 +29,7 @@ mesh = SubResource("QuadMesh_1fjye")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0193674)
 shape = SubResource("BoxShape3D_5nd05")
 
-[node name="playerstat_viewport" type="SubViewport" parent="."]
+[node name="viewport" type="SubViewport" parent="."]
 size = Vector2i(1152, 648)
 
-[node name="playerstat_ui2d" parent="playerstat_viewport" instance=ExtResource("2_3ioot")]
+[node name="Control" parent="viewport" instance=ExtResource("1_h36x3")]

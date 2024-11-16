@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmelsnyjtjtpn"]
 
-[ext_resource type="PackedScene" uid="uid://rihycql4jch6" path="res://Assets/UI/Weapon Stat/weapon_screen.tscn" id="1_vdspt"]
+[ext_resource type="PackedScene" uid="uid://rihycql4jch6" path="res://Assets/UI/Tablets/Weapon Stat/weapon_screen.tscn" id="1_vdspt"]
 [ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="2_xxw6i"]
 
 [node name="Weapon_tablet" type="Node3D"]

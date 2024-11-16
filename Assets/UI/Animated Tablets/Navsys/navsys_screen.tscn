@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcgtyv4p3uhpc"]
+[gd_scene load_steps=6 format=3 uid="uid://gnmmw7fj5qr7"]
 
-[ext_resource type="Script" path="res://Assets/UI/Resources/touch_screen.gd" id="1_4pgd7"]
-[ext_resource type="PackedScene" uid="uid://dl6g5cco42d0p" path="res://Assets/UI/Main Menu/mainmenu_2dui.tscn" id="1_h36x3"]
+[ext_resource type="PackedScene" uid="uid://cg1c07jyxqw1a" path="res://Assets/UI/Animated Tablets/Navsys/navsys_2d.tscn" id="1_t07jw"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n4skr"]
 viewport_path = NodePath("viewport")
@@ -17,7 +16,6 @@ albedo_texture = SubResource("ViewportTexture_n4skr")
 size = Vector3(1, 1, 0.0586203)
 
 [node name="Screen" type="Node3D"]
-script = ExtResource("1_4pgd7")
 
 [node name="display" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ebjg2")
@@ -32,4 +30,4 @@ shape = SubResource("BoxShape3D_5nd05")
 [node name="viewport" type="SubViewport" parent="."]
 size = Vector2i(1152, 648)
 
-[node name="Control" parent="viewport" instance=ExtResource("1_h36x3")]
+[node name="Node2D" parent="viewport" instance=ExtResource("1_t07jw")]

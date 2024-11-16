@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
-[ext_resource type="PackedScene" uid="uid://dmelsnyjtjtpn" path="res://Assets/UI/Weapon Stat/weapon_tablet.tscn" id="2_eiimt"]
+[ext_resource type="PackedScene" uid="uid://dmelsnyjtjtpn" path="res://Assets/UI/Tablets/Weapon Stat/weapon_tablet.tscn" id="2_eiimt"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/IdlePlayerState.gd" id="3_10uix"]
-[ext_resource type="PackedScene" uid="uid://dhhhrlu68xx1a" path="res://Assets/UI/Player Stat/Stat_tablet.tscn" id="3_35l5b"]
-[ext_resource type="PackedScene" uid="uid://bneryy78blva3" path="res://Assets/UI/Pause Menu/pause_tablet.tscn" id="4_4dxjy"]
+[ext_resource type="PackedScene" uid="uid://dhhhrlu68xx1a" path="res://Assets/UI/Tablets/Player Stat/Stat_tablet.tscn" id="3_35l5b"]
+[ext_resource type="PackedScene" uid="uid://bneryy78blva3" path="res://Assets/UI/Tablets/Pause Menu/pause_tablet.tscn" id="4_4dxjy"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/WalkingPlayerState.gd" id="4_fodp0"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/JumpingPlayerState.gd" id="5_65duw"]
 [ext_resource type="PackedScene" uid="uid://bnhrbxjun6ct3" path="res://Assets/Weapons/weapon.tscn" id="5_q5jdb"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://7ps155gax7qy"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_2lt2n"]
-[ext_resource type="Script" path="res://Assets/UI/Player Stat/playerstat_ui.gd" id="1_h1c4b"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Player Stat/playerstat_ui.gd" id="1_h1c4b"]
 [ext_resource type="Theme" uid="uid://bebm2mefdi5x0" path="res://Assets/UI/Resources/Themes/red_progressbar.tres" id="3_j2pj4"]
 [ext_resource type="Theme" uid="uid://bppmy05s882g4" path="res://Assets/UI/Resources/Themes/blue_progressbar.tres" id="4_sjopv"]
 [ext_resource type="StyleBox" uid="uid://cpc8efrj6ymh3" path="res://Assets/UI/Resources/Themes/Panel_border.tres" id="5_bbnp8"]
@@ -41,6 +41,7 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="Title" type="Label" parent="Margin/UI"]
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_2lt2n")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)

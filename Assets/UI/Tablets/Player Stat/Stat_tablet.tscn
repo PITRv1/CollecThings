@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhhhrlu68xx1a"]
 
-[ext_resource type="PackedScene" uid="uid://c7b25yobm7o6q" path="res://Assets/UI/Player Stat/stat_screen.tscn" id="1_e7er6"]
+[ext_resource type="PackedScene" uid="uid://c7b25yobm7o6q" path="res://Assets/UI/Tablets/Player Stat/stat_screen.tscn" id="1_e7er6"]
 [ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="2_juu3u"]
 
 [node name="Stat_tablet" type="Node3D"]

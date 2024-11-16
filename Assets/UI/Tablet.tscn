@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5klw8p2no2p3" path="res://Assets/Models/HUD Models/Tablet/tablet.tscn" id="2_cioj0"]
 
-[node name="Placeholder_Tablet" type="Node3D"]
+[node name="Tablet" type="Node3D"]
 
 [node name="Screen" type="Node3D" parent="."]
 transform = Transform3D(0.61, 0, 0, 0, 0.45, 0, 0, 0, 0.51, -0.0170283, 0.0876266, 0)

@@ -22,7 +22,7 @@ process_mode = 3
 [node name="Space_shipV2" parent="." instance=ExtResource("3_6t3s3")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91, 3.115, -1.645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705, 3.115, -3.575)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, 3.89, -2.397)
@@ -30,12 +30,12 @@ omni_range = 140.528
 omni_attenuation = 2.49
 
 [node name="Navsys" parent="." instance=ExtResource("2_mtno3")]
-transform = Transform3D(1.59, 0, 0, 0, 1.59, 0, 0, 0, 1.59, -1.28, 2.429, -4.575)
+transform = Transform3D(1.59, 0, 0, 0, 1.59, 0, 0, 0, 1.59, -1.47, 3.504, -5.695)
 
 [node name="Screen" parent="Navsys/Screen" index="0" instance=ExtResource("3_8g06c")]
 
 [node name="Tablet" parent="." instance=ExtResource("2_mtno3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53, 2.74, -2.37)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.305, 2.74, -4.285)
 
 [node name="Screen" parent="Tablet/Screen" index="0" instance=ExtResource("3_355bm")]
 

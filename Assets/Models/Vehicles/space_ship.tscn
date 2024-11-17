@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://v3uujc2tqga2"]
+[gd_scene load_steps=7 format=3 uid="uid://v3uujc2tqga2"]
 
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_e0jjt"]
+[ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="2_8wp8a"]
 
 [sub_resource type="Animation" id="Animation_wghkt"]
 length = 0.001
@@ -16,6 +17,18 @@ _data = {
 "take_off": SubResource("Animation_3lgr3")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0supp"]
+render_priority = 0
+shader = ExtResource("2_8wp8a")
+shader_parameter/Base_Color = Color(0.152941, 0.568627, 0.74902, 1)
+shader_parameter/FloatParameter = 355.856
+shader_parameter/FloatParameter2 = 43.83
+shader_parameter/Scan_lines_center_weight = 0.02
+shader_parameter/Proximity_Higlight = 0.3
+shader_parameter/Fresnel_Power = 1.93
+shader_parameter/ProximityFade_Alpha = 0.2
+shader_parameter/EmissionBrightness = 26.01
+
 [node name="Space_ship" type="Node3D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -26,3 +39,8 @@ autoplay = "take_off"
 
 [node name="Space_ship" parent="." instance=ExtResource("1_e0jjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09426, 0, 2.55486)
+
+[node name="Plane" parent="Space_ship" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_0supp")
+
+[editable path="Space_ship"]

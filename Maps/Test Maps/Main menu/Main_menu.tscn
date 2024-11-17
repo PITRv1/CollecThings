@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4oaiip05l464"]
 
+[ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_gjni7"]
 [ext_resource type="PackedScene" uid="uid://cxo24tx8rg6ub" path="res://Assets/UI/Tablet.tscn" id="2_mtno3"]
-[ext_resource type="PackedScene" uid="uid://cdf0dpy3d18hb" path="res://Assets/Models/Vehicles/Space_shipV2.glb" id="3_6t3s3"]
 [ext_resource type="PackedScene" uid="uid://gnmmw7fj5qr7" path="res://Assets/UI/Animated Tablets/Navsys/navsys_screen.tscn" id="3_8g06c"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Tablets/Main Menu/mainmenu_screen.tscn" id="3_355bm"]
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="4_bw0vj"]
@@ -19,33 +19,29 @@ sky = SubResource("Sky_xefy6")
 [node name="MainMenu" type="Node3D"]
 process_mode = 3
 
-[node name="Space_shipV2" parent="." instance=ExtResource("3_6t3s3")]
+[node name="Space_ship" parent="." instance=ExtResource("1_gjni7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705, 3.115, -3.575)
-fov = 89.0
+transform = Transform3D(0.869495, 0.084923, -0.486587, 0, 0.985109, 0.171929, 0.493942, -0.149491, 0.856548, -1.335, 3.585, -3.89)
+fov = 90.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, 3.89, -2.397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, 3.89, -4.07234)
 omni_range = 140.528
 omni_attenuation = 2.49
 
-[node name="Navsys" parent="." instance=ExtResource("2_mtno3")]
-transform = Transform3D(1.59, 0, 0, 0, 1.59, 0, 0, 0, 1.59, -1.47, 3.504, -5.695)
-
-[node name="Screen" parent="Navsys/Screen" index="0" instance=ExtResource("3_8g06c")]
+[node name="Navsys" parent="." instance=ExtResource("3_8g06c")]
+transform = Transform3D(0.923783, 0.180563, -0.0792251, 0, 0.715149, 0.044332, 0.837636, -0.199133, 0.0873731, 1.533, 2.8, -6.005)
 
 [node name="Tablet" parent="." instance=ExtResource("2_mtno3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.305, 2.74, -4.285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.615, 2.74, -5.37)
 
 [node name="Screen" parent="Tablet/Screen" index="0" instance=ExtResource("3_355bm")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0b0uo")
 
-[editable path="Navsys"]
-[editable path="Navsys/Tablet"]
-[editable path="Navsys/Tablet/tablet"]
 [editable path="Tablet"]
 [editable path="Tablet/Tablet"]
 [editable path="Tablet/Tablet/tablet"]

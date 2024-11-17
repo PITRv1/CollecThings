@@ -19,8 +19,6 @@ var query : PhysicsRayQueryParameters3D
 @export var PROJECTILE : PackedScene = preload("res://Assets/Weapons/Projectile.tscn")
 
 func _ready() -> void:
-	
-	
 	player = get_tree().get_first_node_in_group("player")
 
 # Primary fire function, can be overridden in derived weapons

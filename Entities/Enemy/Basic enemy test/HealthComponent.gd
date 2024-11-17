@@ -15,6 +15,5 @@ func damage(attack: WeaponSettings):
 	
 	if health <= 0:
 		get_parent().queue_free()
-		
-	get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
 	
+	get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force

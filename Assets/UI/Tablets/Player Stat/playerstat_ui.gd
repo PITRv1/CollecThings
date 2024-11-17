@@ -19,7 +19,3 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	health_bar.value = player.health
 	shield_bar.value = player.shield
-	
-	if Input.is_action_just_pressed("sprint"):
-		player.health -= 20
-		player.shield -= 20

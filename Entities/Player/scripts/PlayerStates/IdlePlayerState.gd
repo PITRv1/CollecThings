@@ -11,6 +11,9 @@ func update(_delta)->void:
 	
 	if player.velocity.y < -3:
 		transition.emit("FallingPlayerState")
+		
+	if Input.is_action_just_pressed("sprint") and not player.is_on_floor() or player._snapped_to_stairs_last_frame:
+		transition.emit("DashingPlayerState")
 
 	if Input.is_action_just_pressed("_noclip") and OS.has_feature("debug"):
 		transition.emit("NoclippingPlayerState")

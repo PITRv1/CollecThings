@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=17 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/NoclippingPlayerState.gd" id="7_pwn5c"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/SprintingPlayerState.gd" id="9_dh4us"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
+[ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DashingPlayerState.gd" id="12_u7dve"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
@@ -46,7 +47,6 @@ unique_name_in_owner = true
 
 [node name="Stat_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("3_35l5b")]
 transform = Transform3D(0.878817, 0, 0.477159, 0, 1, 0, -0.477159, 0, 0.878817, -0.545, -0.41, -0.81)
-visible = false
 
 [node name="Weapon_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("2_eiimt")]
 transform = Transform3D(0.878817, 0, -0.477159, 0, 1, 0, 0.477159, 0, 0.878817, 0.6, -0.41, -0.81)
@@ -95,6 +95,12 @@ jump_velocity = 8.0
 [node name="FallingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_gvqp7")
 
+[node name="DashingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("12_u7dve")
+
+[node name="DashTimer" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
+wait_time = 0.75
+
 [node name="NoclippingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_pwn5c")
 
@@ -102,3 +108,4 @@ script = ExtResource("7_pwn5c")
 script = ExtResource("10_mlly4")
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
+[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashTimer" to="PlayerStateMachine/DashingPlayerState" method="_on_dash_timer_timeout"]

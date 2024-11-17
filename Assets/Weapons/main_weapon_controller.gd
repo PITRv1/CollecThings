@@ -8,7 +8,10 @@ var current_weapon_settings
 @export var sway_speed : float = 1.2
 @export var reset : bool = false
 
-@export var weapon_list: Dictionary
+@export var weapon_list: Dictionary = {
+	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",
+	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn"
+}
 
 var mouse_movement : Vector2
 var random_sway_x
@@ -23,9 +26,9 @@ var weapon_bob_amount : Vector2 = Vector2(0,0)
 func _ready():
 	weapon_list = {
 	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",
-	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn",
-	"TSniper": "res://Assets/Weapons/Sniper/sniper.tscn"
+	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn"
 	}
+	
 	await owner.ready
 	load_weapon(weapon_list["TShotgun"])
 	
@@ -43,8 +46,6 @@ func _input(event):
 	if event.is_action_pressed("slot_1"):
 		load_weapon(weapon_list["TPistol"])
 	if event.is_action_pressed("slot_2"):
-		load_weapon(weapon_list["TSniper"])
-	if event.is_action_pressed("slot_3"):
 		load_weapon(weapon_list["TShotgun"])
 
 func load_weapon(weapon_scene_path: String) -> void:

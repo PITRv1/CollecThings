@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=16 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bnhrbxjun6ct3" path="res://Assets/Weapons/weapon.tscn" id="5_q5jdb"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/FallingPlayerState.gd" id="6_gvqp7"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/NoclippingPlayerState.gd" id="7_pwn5c"]
+[ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/SprintingPlayerState.gd" id="9_dh4us"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
@@ -19,12 +20,11 @@ height = 2.2
 [sub_resource type="BoxMesh" id="BoxMesh_xqt5x"]
 size = Vector3(0.01, 0.01, 0.01)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_d8ygf")
 head_tilt_amount = 1.5
 gravity = 12.0
-ground_friction = 5.0
 weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
@@ -83,6 +83,10 @@ script = ExtResource("3_10uix")
 
 [node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("4_fodp0")
+movement_speed = 7.0
+
+[node name="SprintingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("9_dh4us")
 
 [node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_65duw")

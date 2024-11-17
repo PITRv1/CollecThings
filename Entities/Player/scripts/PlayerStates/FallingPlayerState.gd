@@ -2,12 +2,7 @@ class_name FallingPlayerState
 
 extends PlayerMovementState
 
-var prev_state
-
-func enter(previous_state):
-	prev_state = previous_state
-
-func update(delta)->void:
+func update(_delta)->void:
 	if player.is_on_floor() or player._snapped_to_stairs_last_frame:
 		transition.emit("IdlePlayerState")
 

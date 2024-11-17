@@ -1,24 +1,21 @@
-class_name WalkingPlayerState
+class_name SprintingPlayerState
 
 extends PlayerMovementState
 
 @export_category("Movement Vars")
-@export var movement_speed : float = 9.0
+@export var movement_speed : float = 11.0
 @export var ground_accel := 14.0
 @export var ground_decel := 10.0
 @export var ground_friction := 6.0
 
 @export_category("Weapon Vars")
-@export var weapon_bob_speed : float = 6.0
+@export var weapon_bob_speed : float = 8.0
 @export var weapon_bob_h : float = 2.0
 @export var weapon_bob_v : float = 1.0
 
 func update(_delta):
-	if player.velocity.length() == 0.0 and player.is_on_floor() or player._snapped_to_stairs_last_frame:
-		transition.emit("IdlePlayerState")
-		
-	if Input.is_action_pressed("sprint") and player.is_on_floor() or player._snapped_to_stairs_last_frame:
-		transition.emit("SprintingPlayerState")
+	if not Input.is_action_pressed("sprint") and player.is_on_floor() or player._snapped_to_stairs_last_frame:
+		transition.emit("WalkingPlayerState")
 
 	if Input.is_action_just_pressed("jump") or player.jump_buffer_running:
 		transition.emit("JumpingPlayerState")

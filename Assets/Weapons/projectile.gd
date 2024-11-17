@@ -27,19 +27,18 @@ func _process(delta: float) -> void:
 	if is_colliding() and get_collider() != player:
 		
 		if weapon_settings.hitscan == 1:
-			
 			if get_collider().has_method("damage"):
-				
-				print("apple")
 				weapon_settings.global_pos = global_position
 				get_collider().damage(weapon_settings)
-				
-		var b = b_decal.instantiate()
-		get_collider().add_child(b)
-		b.global_position =  get_collision_point()
-		b.look_at(get_collision_point() + get_collision_normal(), Vector3.UP)
 		
-		if !get_collider().has_method("damage") or pierce <= 0:
+		if b_decal:
+			var b = b_decal.instantiate()
+			if b and get_collider() and not b.get_parent():
+				get_tree().root.add_child(b)
+				b.global_position = get_collision_point()
+				b.look_at(get_collision_point() + get_collision_normal(), Vector3.UP)
+		
+		if not get_collider().has_method("damage") or pierce <= 0:
 			queue_free()
 		else:
 			pierce -= 1

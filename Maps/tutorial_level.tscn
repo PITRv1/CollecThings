@@ -35,9 +35,10 @@ ssao_power = 1.17688
 ssil_enabled = true
 ssil_radius = 1.8
 ssil_intensity = 0.1
-sdfgi_enabled = true
 sdfgi_bounce_feedback = 1.0
 sdfgi_min_cell_size = 8.61406
+sdfgi_cascade0_distance = 551.3
+sdfgi_max_distance = 8820.8
 glow_enabled = true
 glow_levels/1 = 1.0
 glow_levels/2 = 1.0
@@ -777,7 +778,7 @@ spot_attenuation = 0.22
 spot_angle = 6.47
 
 [node name="Space_ship" parent="Lighting" instance=ExtResource("2_liksq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.3992, -2.02399, -15.5444)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.3992, -2.02399, -16.6518)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nfrqf")

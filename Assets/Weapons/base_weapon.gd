@@ -20,24 +20,18 @@ var query : PhysicsRayQueryParameters3D
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	weapon_settings.global_pos = player.global_position
-	
-	
+
 # Primary fire function, can be overridden in derived weapons
-func primary_fire():
-	
-	#Basic firing mechanic
+func primary_fire():	
 	for i in range(weapon_settings.num_of_bullets):
 		spawn_bullet()
 
-	if Input.is_action_just_pressed("primary_fire"):
-		print("asdasdasd")
+	if animation_player.has_animation("knockback"):
 		animation_player.play("knockback")
 
 # Secondary fire function, can be overridden in derived weapons
 func secondary_fire():
 	pass
-	
 	
 func spawn_bullet():
 	# Get space, camera, mousepos
@@ -97,7 +91,8 @@ func run_ray_test() -> Dictionary:
 
 func instantiate_projectile(target) -> void:
 	var proj = PROJECTILE.instantiate()
-	proj.global_position = projectile_origin.global_position
-	proj.enter(weapon_settings)
-	get_tree().root.add_child(proj)
-	proj.look_at(target, Vector3.UP)
+	if proj:
+		proj.global_position = projectile_origin.global_position 
+		proj.enter(weapon_settings)
+		get_tree().root.add_child(proj)
+		proj.look_at(target, Vector3.UP)

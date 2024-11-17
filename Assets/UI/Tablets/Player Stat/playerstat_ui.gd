@@ -16,7 +16,7 @@ func _ready() -> void:
 	shield_bar.value = player_shield
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	health_bar.value = player.health
 	shield_bar.value = player.shield
 	

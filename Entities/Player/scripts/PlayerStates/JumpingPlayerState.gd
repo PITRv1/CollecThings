@@ -4,10 +4,10 @@ extends PlayerMovementState
 
 @export var jump_velocity := 9.0
 
-func enter(previous_state):
+func enter(_previous_state):
 	player.velocity.y = jump_velocity
 
-func update(delta):
+func update(_delta):
 	if player.is_on_floor() or player._snapped_to_stairs_last_frame:
 		transition.emit("IdlePlayerState")
 		

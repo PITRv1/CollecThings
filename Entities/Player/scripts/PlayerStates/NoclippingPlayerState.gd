@@ -6,14 +6,14 @@ var noclip_speed_mult : float
 var cam_aligned_wish_dir : Vector3
 var input_dir : Vector2
 
-func enter(previous_state):
+func enter(_previous_state):
 	noclip_speed_mult = 3.0
 	%PlayerCollisionShape.disabled = true
 
 func exit():
 	%PlayerCollisionShape.disabled = false
 
-func update(delta):
+func update(_delta):
 	if Input.is_action_just_pressed("_noclip"):
 		transition.emit("IdlePlayerState")
 

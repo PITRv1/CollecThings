@@ -9,11 +9,8 @@ extends CharacterBody3D
 @export var gravity := 9.8
 
 @export var slide_speed := 11.0
-@export var walk_speed := 9.0
 
-@export var ground_accel := 14.0
-@export var ground_decel := 10.0
-@export var ground_friction := 6.0
+
 
 @export var weapon_controller : WeaponController
 
@@ -21,6 +18,12 @@ extends CharacterBody3D
 #Saved inputs and directions
 var input_dir := Vector2.ZERO
 var wish_dir := Vector3.ZERO
+
+var current_speed := 9.0
+var ground_accel := 14.0
+var ground_decel := 10.0
+var ground_friction := 6.0
+
 
 #Slide variable
 const SLIDE_TRANSLATE = 0.5
@@ -74,7 +77,7 @@ func _slide_camera_smooth_back_to_origin(delta):
 	if _saved_camera_global_pos == null: return
 	%CameraSmooth.global_position.y = _saved_camera_global_pos.y
 	%CameraSmooth.position.y = clampf(%CameraSmooth.position.y, -0.7,0.7) # Clamp incase teleported
-	var move_amount = max(self.velocity.length() * delta, walk_speed/2 * delta)
+	var move_amount = max(self.velocity.length() * delta, current_speed/2 * delta)
 	%CameraSmooth.position.y = move_toward(%CameraSmooth.position.y, 0.0, move_amount)
 	_saved_camera_global_pos = %CameraSmooth.global_position
 	if %CameraSmooth.position.y == 0:
@@ -189,21 +192,21 @@ func friction(target_speed, applied_friction, delta:float)->void:
 	self.velocity *= new_speed
 
 func _handle_ground_physics(delta: float) -> void:
-	var add_speed_till_cap = walk_speed - Vector3(self.velocity.x, 0, self.velocity.z).length()
+	var add_speed_till_cap = current_speed - Vector3(self.velocity.x, 0, self.velocity.z).length()
 	
 	if add_speed_till_cap > 0:
-		var accel_speed = ground_accel * delta * walk_speed
+		var accel_speed = ground_accel * delta * current_speed
 		self.velocity += accel_speed * wish_dir
 	
 	friction(0.0, ground_friction, delta)
 
 func _handle_air_physics(delta: float) -> void:
-	var add_speed_till_cap = (walk_speed/ 2) - Vector3(self.velocity.x, 0, self.velocity.z).length()
+	var add_speed_till_cap = (current_speed/ 2) - Vector3(self.velocity.x, 0, self.velocity.z).length()
 	var current_velocity_direction = Vector3(self.velocity.x, 0, self.velocity.z).normalized()
 
 	var dot_product = wish_dir.normalized().dot(current_velocity_direction)
 
-	var new_speed = (ground_accel / 7) * delta * walk_speed
+	var new_speed = (ground_accel / 7) * delta * current_speed
 
 	if add_speed_till_cap > 0 or dot_product < 0:
 		self.velocity += new_speed * wish_dir.normalized()
@@ -212,7 +215,7 @@ func _handle_air_physics(delta: float) -> void:
 
 
 #Updating always on functions
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
 	
 	cam_tilt_effect()

@@ -83,7 +83,7 @@ environment = SubResource("Environment_fqgkm")
 transform = Transform3D(-0.291273, 0.236429, -0.926964, -0.335225, 0.882312, 0.330377, 0.895982, 0.406971, -0.177737, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_tnp5y")]
+[node name="Player" parent="." instance=ExtResource("2_tnp5y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, -2.12151, -2.86695)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

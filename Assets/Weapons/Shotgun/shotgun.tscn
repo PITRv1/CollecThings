@@ -4,6 +4,45 @@
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
 [ext_resource type="PackedScene" uid="uid://cktorru4v63el" path="res://Assets/Weapons/Shotgun/Shotgun.glb" id="3_wwjff"]
 
+[sub_resource type="Animation" id="Animation_p58k5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shotgun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.98118, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shotgun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.26063, 0, 0.154068)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
 [sub_resource type="Animation" id="Animation_5ogp8"]
 resource_name = "knockback"
 length = 1.5
@@ -42,45 +81,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [5.0, 2.5, 2.5]
-}
-
-[sub_resource type="Animation" id="Animation_p58k5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shotgun:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -2.98118, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Shotgun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.26063, 0, 0.154068)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qq0v1"]
@@ -136,4 +136,4 @@ mesh = SubResource("CylinderMesh_pghlf")
 skeleton = NodePath("../..")
 
 [node name="Shotgun" parent="." instance=ExtResource("3_wwjff")]
-transform = Transform3D(-0.188824, 0, -0.0305525, 0, 0.19128, 0, 0.0305525, 0, -0.188824, -0.26063, 0, 0.154068)
+transform = Transform3D(-0.188824, 0, -0.0305523, 0, 0.19128, 0, 0.0305523, 0, -0.188824, -0.26063, 0, 0.154068)

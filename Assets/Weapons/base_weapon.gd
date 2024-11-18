@@ -28,6 +28,7 @@ func primary_fire():
 
 	if animation_player.has_animation("knockback"):
 		animation_player.play("knockback")
+	
 
 # Secondary fire function, can be overridden in derived weapons
 func secondary_fire():

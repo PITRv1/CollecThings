@@ -1,6 +1,6 @@
 extends RayCast3D
 
-var player
+var player : Player
 var b_decal
 var weapon_settings
 var proj_speed

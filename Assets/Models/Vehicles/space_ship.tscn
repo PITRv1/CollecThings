@@ -20,7 +20,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0supp"]
 render_priority = 0
 shader = ExtResource("2_8wp8a")
-shader_parameter/Base_Color = Color(1, 0.643137, 0, 1)
+shader_parameter/Base_Color = Color(0.395723, 0.243262, 3.85046e-07, 1)
 shader_parameter/Line_Amount = 90.0
 shader_parameter/Time_Multiply = 15.0
 shader_parameter/Scan_lines_center_weight = 0.02

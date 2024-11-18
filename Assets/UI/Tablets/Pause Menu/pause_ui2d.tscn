@@ -73,6 +73,14 @@ theme = ExtResource("1_6uop4")
 text = "Options
 "
 
+[node name="Reload" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+text = "Reload
+"
+
 [node name="MainMenu" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
@@ -90,6 +98,6 @@ text = "Quit"
 
 [connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

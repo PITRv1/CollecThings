@@ -60,7 +60,7 @@ transform = Transform3D(1, 0, 0, 0, -3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0.6
 [node name="Weapon" parent="Head/CameraSmooth/Camera3D/Weapon Rig" instance=ExtResource("5_q5jdb")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.135, -0.309)
 
-[node name="Peti pls Dont kill me Crosshair" type="MeshInstance3D" parent="Head/CameraSmooth/Camera3D"]
+[node name="Budget crosshair" type="MeshInstance3D" parent="Head/CameraSmooth/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.674129)
 mesh = SubResource("BoxMesh_xqt5x")
 
@@ -96,10 +96,16 @@ jump_velocity = 8.0
 script = ExtResource("6_gvqp7")
 
 [node name="DashingPlayerState" type="Node" parent="PlayerStateMachine"]
+unique_name_in_owner = true
 script = ExtResource("12_u7dve")
 
-[node name="DashTimer" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
+[node name="DashLengthTimer" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
+unique_name_in_owner = true
 wait_time = 0.75
+
+[node name="DashCooldown" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
+unique_name_in_owner = true
+wait_time = 5.0
 
 [node name="NoclippingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_pwn5c")
@@ -108,4 +114,5 @@ script = ExtResource("7_pwn5c")
 script = ExtResource("10_mlly4")
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
-[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashTimer" to="PlayerStateMachine/DashingPlayerState" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashCooldown" to="." method="_on_dash_cooldown_timeout"]

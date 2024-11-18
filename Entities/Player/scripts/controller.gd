@@ -246,9 +246,9 @@ func update_velocity(delta):
 
 func _on_jump_buffer_timer_timeout() -> void:
 	jump_buffer_running = false
-	
-# Peti kerlek ne szedd le a fejem
 
 
 func _on_dash_cooldown_timeout() -> void:
+	print("hey")
 	dashes_left = %DashingPlayerState.dashes_left
+	%DashingPlayerState.out_of_dashes = false

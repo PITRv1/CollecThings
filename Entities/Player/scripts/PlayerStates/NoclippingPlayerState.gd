@@ -7,6 +7,9 @@ var cam_aligned_wish_dir : Vector3
 var input_dir : Vector2
 
 func enter(_previous_state):
+	%DashLengthTimer.stop()
+	%DashCooldown.stop()
+	
 	noclip_speed_mult = 3.0
 	%PlayerCollisionShape.disabled = true
 

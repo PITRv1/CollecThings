@@ -102,10 +102,12 @@ script = ExtResource("12_u7dve")
 [node name="DashLengthTimer" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
 unique_name_in_owner = true
 wait_time = 0.75
+one_shot = true
 
 [node name="DashCooldown" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 3.0
+one_shot = true
 
 [node name="NoclippingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_pwn5c")
@@ -114,5 +116,5 @@ script = ExtResource("7_pwn5c")
 script = ExtResource("10_mlly4")
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
-[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="dash_finished"]
 [connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashCooldown" to="." method="_on_dash_cooldown_timeout"]

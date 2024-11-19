@@ -2,6 +2,8 @@ class_name IdlePlayerState
 
 extends PlayerMovementState
 
+@export var gravity := 12.0
+
 func update(_delta)->void:
 	if player.velocity.length() > 0.0 and player.is_on_floor() or player._snapped_to_stairs_last_frame:
 		transition.emit("WalkingPlayerState")
@@ -21,6 +23,8 @@ func update(_delta)->void:
 
 
 func physics_update(delta):
+	player.gravity = gravity
+	
 	player.update_gravity(delta)
 	player.update_input(delta)
 	

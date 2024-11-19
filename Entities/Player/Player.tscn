@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=20 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/SprintingPlayerState.gd" id="9_dh4us"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DashingPlayerState.gd" id="12_u7dve"]
+[ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="15_r3psd"]
+[ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="16_vqqka"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
@@ -21,12 +23,15 @@ height = 2.2
 [sub_resource type="BoxMesh" id="BoxMesh_xqt5x"]
 size = Vector3(0.01, 0.01, 0.01)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller") groups=["player"]]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtw6f"]
+height = 2.2
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_d8ygf")
 head_tilt_amount = 1.5
-gravity = 12.0
 weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
+health_component = NodePath("HealthComponent")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
@@ -114,6 +119,16 @@ script = ExtResource("7_pwn5c")
 
 [node name="DeadPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("10_mlly4")
+
+[node name="HealthComponent" parent="." instance=ExtResource("15_r3psd")]
+MAX_HEALTH = 20.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("16_vqqka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85581, 0)
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape3D_dtw6f")
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="dash_finished"]

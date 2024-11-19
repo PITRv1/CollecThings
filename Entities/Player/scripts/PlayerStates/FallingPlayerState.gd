@@ -2,6 +2,8 @@ class_name FallingPlayerState
 
 extends PlayerMovementState
 
+@export var gravity := 12.0
+
 func update(_delta)->void:
 	if player.is_on_floor() or player._snapped_to_stairs_last_frame:
 		transition.emit("IdlePlayerState")
@@ -27,6 +29,9 @@ func update(_delta)->void:
 		#weapon.attack()
 	
 func physics_update(delta):
+	player.gravity = gravity
+
+	
 	player.update_gravity(delta)
 	player.update_input(delta)
 	

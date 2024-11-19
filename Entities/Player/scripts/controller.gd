@@ -6,9 +6,11 @@ extends CharacterBody3D
 @export var head_tilt_amount : float = 5.0
 
 @export_category("Movement")
-@export var gravity := 9.8
 
+
+@export_category("Player Resources")
 @export var weapon_controller : WeaponController
+@export var health_component : HealthComponent
 
 ########################################################
 #Saved inputs and directions
@@ -16,6 +18,8 @@ var input_dir := Vector2.ZERO
 var wish_dir := Vector3.ZERO
 
 #Movement variables set by states
+var gravity := 12.0
+
 var current_speed := 9.0
 var ground_accel := 14.0
 var ground_decel := 10.0
@@ -44,6 +48,7 @@ var _last_frame_was_on_floor = -INF
 @onready var stairs_ahead_raycast: RayCast3D = $StairsAheadRayCast
 @onready var stairs_below_raycast: RayCast3D = $StairsBelowRayCast
 
+@onready var hitbox_component: HitboxComponent = $HitboxComponent
 
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running = false
@@ -219,6 +224,9 @@ func _handle_air_physics(delta: float) -> void:
 func _physics_process(_delta):
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
 	
+	if Input.is_action_just_pressed("slot_1"):
+		hitbox_component.damage(null, 10)
+	
 	cam_tilt_effect()
 
 
@@ -249,6 +257,5 @@ func _on_jump_buffer_timer_timeout() -> void:
 
 
 func _on_dash_cooldown_timeout() -> void:
-	print("hey")
 	dashes_left = %DashingPlayerState.dashes_left
 	%DashingPlayerState.out_of_dashes = false

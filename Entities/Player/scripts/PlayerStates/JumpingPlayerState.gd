@@ -2,7 +2,9 @@ class_name JumpingPlayerState
 
 extends PlayerMovementState
 
+@export var gravity := 12.0
 @export var jump_velocity := 9.0
+
 
 func enter(_previous_state):
 	player.velocity.y = jump_velocity
@@ -30,6 +32,8 @@ func update(_delta):
 		%JumpBufferTimer.start()
 	
 func physics_update(delta):
+	player.gravity = gravity
+	
 	player.update_gravity(delta)
 	player.update_input(delta)
 	

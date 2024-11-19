@@ -2,6 +2,8 @@ class_name DashingPlayerState
 
 extends PlayerMovementState
 
+@export var gravity := 12.0
+
 @export var dashes_left : int = 2
 @export var dash_speed : float = 25.0
 
@@ -50,6 +52,8 @@ func update(_delta)->void:
 
 	
 func physics_update(delta):
+	player.gravity = gravity
+	
 	player.update_input(delta)
 	
 	player.update_velocity(delta)

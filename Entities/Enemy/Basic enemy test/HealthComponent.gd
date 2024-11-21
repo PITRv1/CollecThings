@@ -19,7 +19,7 @@ func damage(attack: WeaponSettings = null, damage : float = 0.0):
 
 	elif damage:
 		health -= damage
-	
+
 	if health <= 0:
 		if get_parent() is Player:
 			died.emit()

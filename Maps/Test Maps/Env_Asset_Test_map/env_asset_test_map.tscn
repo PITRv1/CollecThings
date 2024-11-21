@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=21 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
 [ext_resource type="PackedScene" uid="uid://cdf0dpy3d18hb" path="res://Assets/Models/Vehicles/Space_shipV2.glb" id="10_vbf7h"]
+[ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="11_bbx8q"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -137,6 +138,10 @@ transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, 
 [node name="rock2" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(0.284501, 0, -0.958676, 0, 1, 0, 0.958676, 0, 0.284501, 1.95845, 0.638242, 36.3226)
 
+[node name="SpiderBot" parent="NavigationRegion3D" instance=ExtResource("11_bbx8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.559902, 1.62538, -2.67701)
+move_speed = 5.0
+
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -42.2884, 0)
 mesh = SubResource("PlaneMesh_362e4")
@@ -148,6 +153,9 @@ script = ExtResource("5_oa33d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
 shape = SubResource("BoxShape3D_02vjf")
+
+[node name="Space_shipV2" parent="." instance=ExtResource("10_vbf7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.334, -1.9479, 62.6106)
 
 [node name="Enemies" type="Node3D" parent="."]
 
@@ -307,7 +315,14 @@ player_path = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 48.9208, 0)
 player_path = NodePath("../../Player")
 
-[node name="Space_shipV2" parent="." instance=ExtResource("10_vbf7h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.334, -1.9479, 62.6106)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9516, 6.13091, 1.42728)
+use_collision = true
+size = Vector3(2.63184, 19.2369, 33.8546)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0806, 15.2578, 0.912842)
+use_collision = true
+size = Vector3(15.8691, 1, 30.145)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

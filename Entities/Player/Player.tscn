@@ -28,6 +28,7 @@ height = 2.2
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component") groups=["player"]]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_d8ygf")
 head_tilt_amount = 1.5
 weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")

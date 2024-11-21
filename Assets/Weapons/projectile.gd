@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		if b_decal:
 			var b = b_decal.instantiate()
 			if b and get_collider() and not b.get_parent():
-				get_tree().root.add_child(b)
+				get_collider().add_child(b)
 				b.global_position = get_collision_point()
 				b.look_at(get_collision_point() + get_collision_normal(), Vector3.UP)
 		

@@ -1,11 +1,10 @@
-[gd_scene load_steps=76 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=75 format=3 uid="uid://cvsbulx0h8dn7"]
 
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="2_liksq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="3_khbqc"]
 [ext_resource type="PackedScene" uid="uid://cginlc87oajiv" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/caveV2_stairs.glb" id="3_t563f"]
 [ext_resource type="PackedScene" uid="uid://d0owaxkl6namu" path="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/cave_v2.tscn" id="5_s5xyf"]
-[ext_resource type="PackedScene" uid="uid://ds2hjqixrrf5g" path="res://Entities/Enemy/Spider Enemy Test/spider_bot.tscn" id="6_45ec1"]
 
 [sub_resource type="Gradient" id="Gradient_v8j7d"]
 offsets = PackedFloat32Array(0, 0.205479, 0.844749, 1)
@@ -815,6 +814,3 @@ transform = Transform3D(0.140256, 0.205723, -0.161395, 0, 0.183147, 0.23345, 0.2
 
 [node name="rock4" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("3_khbqc")]
 transform = Transform3D(0.0924463, -0.0273994, -0.314145, 0.124825, 0.303807, 0.0102356, 0.289581, -0.12221, 0.0958764, -31.6853, -3.63074, -19.2744)
-
-[node name="spiderBot" parent="." instance=ExtResource("6_45ec1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0226, -3.39313, -17.4796)

@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=20 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
-[ext_resource type="PackedScene" uid="uid://dmelsnyjtjtpn" path="res://Assets/UI/Tablets/Weapon Stat/weapon_tablet.tscn" id="2_eiimt"]
+[ext_resource type="PackedScene" uid="uid://cxo24tx8rg6ub" path="res://Assets/UI/Tablet.tscn" id="2_xmbr8"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/IdlePlayerState.gd" id="3_10uix"]
-[ext_resource type="PackedScene" uid="uid://dhhhrlu68xx1a" path="res://Assets/UI/Tablets/Player Stat/Stat_tablet.tscn" id="3_35l5b"]
+[ext_resource type="PackedScene" uid="uid://c7b25yobm7o6q" path="res://Assets/UI/Tablets/Player Stat/stat_screen.tscn" id="3_d484f"]
 [ext_resource type="PackedScene" uid="uid://bneryy78blva3" path="res://Assets/UI/Tablets/Pause Menu/pause_tablet.tscn" id="4_4dxjy"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/WalkingPlayerState.gd" id="4_fodp0"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/JumpingPlayerState.gd" id="5_65duw"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/NoclippingPlayerState.gd" id="7_pwn5c"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/SprintingPlayerState.gd" id="9_dh4us"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
+[ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DashingPlayerState.gd" id="12_u7dve"]
+[ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="15_r3psd"]
+[ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="16_vqqka"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
@@ -20,13 +23,16 @@ height = 2.2
 [sub_resource type="BoxMesh" id="BoxMesh_xqt5x"]
 size = Vector3(0.01, 0.01, 0.01)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller") groups=["player"]]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtw6f"]
+height = 2.2
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component") groups=["player"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_d8ygf")
 head_tilt_amount = 1.5
-gravity = 12.0
 weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
+health_component = NodePath("HealthComponent")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
@@ -45,15 +51,12 @@ unique_name_in_owner = true
 
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 
-[node name="Stat_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("3_35l5b")]
+[node name="StatTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("2_xmbr8")]
 transform = Transform3D(0.878817, 0, 0.477159, 0, 1, 0, -0.477159, 0, 0.878817, -0.545, -0.41, -0.81)
-visible = false
 
-[node name="Weapon_tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("2_eiimt")]
-transform = Transform3D(0.878817, 0, -0.477159, 0, 1, 0, 0.477159, 0, 0.878817, 0.6, -0.41, -0.81)
-visible = false
+[node name="Node3D" parent="Head/CameraSmooth/Camera3D/Ui/StatTablet/Screen" index="0" instance=ExtResource("3_d484f")]
 
-[node name="Pause tablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
+[node name="PauseTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
 transform = Transform3D(1, 0, 0, 0, -3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0.6, -0.46)
 
 [node name="Weapon Rig" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
@@ -61,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, -3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0.6
 [node name="Weapon" parent="Head/CameraSmooth/Camera3D/Weapon Rig" instance=ExtResource("5_q5jdb")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.135, -0.309)
 
-[node name="Peti pls Dont kill me Crosshair" type="MeshInstance3D" parent="Head/CameraSmooth/Camera3D"]
+[node name="Budget crosshair" type="MeshInstance3D" parent="Head/CameraSmooth/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.674129)
 mesh = SubResource("BoxMesh_xqt5x")
 
@@ -96,10 +99,40 @@ jump_velocity = 8.0
 [node name="FallingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_gvqp7")
 
+[node name="DashingPlayerState" type="Node" parent="PlayerStateMachine"]
+unique_name_in_owner = true
+script = ExtResource("12_u7dve")
+
+[node name="DashLengthTimer" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
+unique_name_in_owner = true
+wait_time = 0.75
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
 [node name="NoclippingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_pwn5c")
 
 [node name="DeadPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("10_mlly4")
 
+[node name="HealthComponent" parent="." instance=ExtResource("15_r3psd")]
+MAX_HEALTH = 20.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("16_vqqka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85581, 0)
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape3D_dtw6f")
+
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
+[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="dash_finished"]
+[connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashCooldown" to="." method="_on_dash_cooldown_timeout"]
+
+[editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet"]
+[editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet"]
+[editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet/tablet"]

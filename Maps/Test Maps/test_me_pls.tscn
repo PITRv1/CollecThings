@@ -5,16 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="3_1bdfg"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="4_6y5q3"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yu4p2"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yi62l"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_wng1e"]
-sky_material = SubResource("ProceduralSkyMaterial_yu4p2")
+[sub_resource type="Sky" id="Sky_845aj"]
+sky_material = SubResource("ProceduralSkyMaterial_yi62l")
 
-[sub_resource type="Environment" id="Environment_dlsbs"]
+[sub_resource type="Environment" id="Environment_4818x"]
 background_mode = 2
-sky = SubResource("Sky_wng1e")
+sky = SubResource("Sky_845aj")
 tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
@@ -37,11 +37,11 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [node name="Test me pls" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4818x")
+
 [node name="Player" parent="." instance=ExtResource("1_lb8sp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591215, 18.8902, 0.112679)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_dlsbs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

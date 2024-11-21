@@ -3,6 +3,7 @@ class_name WalkingPlayerState
 extends PlayerMovementState
 
 @export_category("Movement Vars")
+@export var gravity := 12.0
 @export var movement_speed : float = 9.0
 @export var ground_accel := 14.0
 @export var ground_decel := 10.0
@@ -26,6 +27,9 @@ func update(_delta):
 	if player.velocity.y < -3:
 		transition.emit("FallingPlayerState")
 	
+	if Input.is_action_just_pressed("sprint") and not player.is_on_floor() or player._snapped_to_stairs_last_frame:
+		transition.emit("DashingPlayerState")
+	
 	if Input.is_action_just_pressed("_noclip") and OS.has_feature("debug"):
 		transition.emit("NoclippingPlayerState")
 	
@@ -34,7 +38,7 @@ func update(_delta):
 
 
 func physics_update(delta):
-	
+	player.gravity = gravity
 	player.current_speed = movement_speed
 	player.ground_accel = ground_accel
 	player.ground_decel = ground_decel

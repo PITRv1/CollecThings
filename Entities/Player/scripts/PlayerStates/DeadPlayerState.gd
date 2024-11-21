@@ -4,4 +4,4 @@ extends PlayerMovementState
 
 func enter(_previous_state):
 	print("died")
-	Global.player.queue_free()
+	Engine.time_scale = 0.0

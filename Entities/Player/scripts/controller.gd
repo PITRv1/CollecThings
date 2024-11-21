@@ -6,23 +6,27 @@ extends CharacterBody3D
 @export var head_tilt_amount : float = 5.0
 
 @export_category("Movement")
-@export var gravity := 9.8
-
-@export var slide_speed := 11.0
 
 
-
+@export_category("Player Resources")
 @export var weapon_controller : WeaponController
+@export var health_component : HealthComponent
 
 ########################################################
 #Saved inputs and directions
 var input_dir := Vector2.ZERO
 var wish_dir := Vector3.ZERO
 
+#Movement variables set by states
+var gravity := 12.0
+
 var current_speed := 9.0
 var ground_accel := 14.0
 var ground_decel := 10.0
 var ground_friction := 6.0
+
+var dashes_left := 2
+
 
 
 #Slide variable
@@ -44,6 +48,7 @@ var _last_frame_was_on_floor = -INF
 @onready var stairs_ahead_raycast: RayCast3D = $StairsAheadRayCast
 @onready var stairs_below_raycast: RayCast3D = $StairsBelowRayCast
 
+@onready var hitbox_component: HitboxComponent = $HitboxComponent
 
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running = false
@@ -63,6 +68,7 @@ func _input(event):
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.player = self
+	dashes_left = %DashingPlayerState.dashes_left
 	
 
 ########################################################
@@ -165,20 +171,20 @@ func _snap_up_stairs_check(delta) -> bool:
 	#%Head.position.y = move_toward(%Head.position.y, -SLIDE_TRANSLATE if sliding else 0.0, 6.0 * delta )
 	#$CollisionShape3D.shape.height = (_original_capsule_height - SLIDE_TRANSLATE) if sliding else _original_capsule_height
 	#$CollisionShape3D.position.y = $CollisionShape3D.shape.height / 2 
-	
-func save_player_orientation_for_slide()->void:
-	stand_to_slide = -self.transform.basis.z 
-	input_to_slide = self.global_transform.basis * Vector3(input_dir.x,0,input_dir.y)
-
-func slide_speed_change(direction:Vector3, delta: float)-> void:
-	var current_vel = self.velocity.length()
-	var add_speed_till_cap = slide_speed - current_vel
-	
-	if add_speed_till_cap > 0:
-		var accel_speed = ground_accel * delta * slide_speed
-		self.velocity += accel_speed * direction
-		
-	friction(slide_speed, 1.0, delta)
+	#
+#func save_player_orientation_for_slide()->void:
+	#stand_to_slide = -self.transform.basis.z 
+	#input_to_slide = self.global_transform.basis * Vector3(input_dir.x,0,input_dir.y)
+#
+#func slide_speed_change(direction:Vector3, delta: float)-> void:
+	#var current_vel = self.velocity.length()
+	#var add_speed_till_cap = slide_speed - current_vel
+	#
+	#if add_speed_till_cap > 0:
+		#var accel_speed = ground_accel * delta * slide_speed
+		#self.velocity += accel_speed * direction
+		#
+	#friction(slide_speed, 1.0, delta)
 #endregion
 
 ############-----Player PHYSICS-----###############
@@ -218,6 +224,9 @@ func _handle_air_physics(delta: float) -> void:
 func _physics_process(_delta):
 	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
 	
+	if Input.is_action_just_pressed("slot_1"):
+		hitbox_component.damage(null, 10)
+	
 	cam_tilt_effect()
 
 
@@ -245,5 +254,8 @@ func update_velocity(delta):
 
 func _on_jump_buffer_timer_timeout() -> void:
 	jump_buffer_running = false
-	
-# Peti kerlek ne szedd le a fejem
+
+
+func _on_dash_cooldown_timeout() -> void:
+	dashes_left = %DashingPlayerState.dashes_left
+	%DashingPlayerState.out_of_dashes = false

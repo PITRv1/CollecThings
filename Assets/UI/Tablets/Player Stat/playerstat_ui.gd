@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player : Player = get_tree().current_scene.get_node("Player") 
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 @onready var health_bar : ProgressBar = $Margin/UI/PlayerStats/HealthPanel/Margin/VBox/ProgressBar
 @onready var shield_bar : ProgressBar = $Margin/UI/PlayerStats/ShieldPanel/Margin/VBox/ProgressBar
 
@@ -19,7 +19,3 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	health_bar.value = player.health
 	shield_bar.value = player.shield
-	
-	if Input.is_action_just_pressed("sprint"):
-		player.health -= 20
-		player.shield -= 20

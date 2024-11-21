@@ -106,12 +106,10 @@ height = 0.15
 
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_685ou")
-b_decal = null
 weapon_settings = ExtResource("2_tu58d")
 animation_player = NodePath("Animation Player")
 projectile_origin = NodePath("Marker3D")
 cooldown_timer = NodePath("Cooldown timer")
-PROJECTILE = null
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]
 libraries = {

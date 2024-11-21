@@ -32,10 +32,10 @@ func primary_fire():
 			cooldown_timer.start()
 			for i in range(weapon_settings.num_of_bullets):
 				spawn_bullet()
+			clips -= 1
 
 			if animation_player.has_animation("knockback"):
 				animation_player.play("knockback")
-			clips -= 1
 	else:
 		if animation_player.has_animation("reload"):
 				animation_player.play("reload")
@@ -57,8 +57,7 @@ func spawn_bullet():
 	
 	# This is a Dictionary, just select what you need from it, for example: position, collider, ect.	
 	var result = run_ray_test()
-	
-	player.velocity += camera.global_transform.basis.z * weapon_settings.knockback_force/4
+	player.velocity += get_viewport().get_camera_3d().global_transform.basis.z * weapon_settings.knockback_force/4
 	if result.size() == 0:
 		query = PhysicsRayQueryParameters3D.create(from, to)
 		query.collide_with_bodies = true

@@ -6,7 +6,7 @@ class_name BaseWeapon
 @export var projectile_origin: Marker3D
 @export var cooldown_timer: Timer
 
-var player : Player
+var player : Node3D
 var length := 100.0
 
 var camera : Camera3D
@@ -15,24 +15,39 @@ var space_state : PhysicsDirectSpaceState3D
 var from : Vector3
 var to : Vector3
 var query : PhysicsRayQueryParameters3D
+var clips : int
 
 @export var PROJECTILE : PackedScene = preload("res://Assets/Weapons/Projectile.tscn")
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	print(player)
+	cooldown_timer.wait_time = weapon_settings.cooldown
+	clips = weapon_settings.mag_size
 
 # Primary fire function, can be overridden in derived weapons
-func primary_fire():	
-	for i in range(weapon_settings.num_of_bullets):
-		spawn_bullet()
+func primary_fire():
+	if clips > 0:
+		if cooldown_timer.is_stopped():
+			cooldown_timer.start()
+			for i in range(weapon_settings.num_of_bullets):
+				spawn_bullet()
 
-	if animation_player.has_animation("knockback"):
-		animation_player.play("knockback")
+			if animation_player.has_animation("knockback"):
+				animation_player.play("knockback")
+			clips -= 1
+	else:
+		if animation_player.has_animation("reload"):
+				animation_player.play("reload")
+		
 	
 
 # Secondary fire function, can be overridden in derived weapons
-func secondary_fire():
+func secondary_fire(_delta):
 	pass
+	
+func _reload():
+	clips = weapon_settings.mag_size
 	
 func spawn_bullet():
 	# Get space, camera, mousepos
@@ -44,8 +59,6 @@ func spawn_bullet():
 	var result = run_ray_test()
 	
 	player.velocity += camera.global_transform.basis.z * weapon_settings.knockback_force/4
-	
-	
 	if result.size() == 0:
 		query = PhysicsRayQueryParameters3D.create(from, to)
 		query.collide_with_bodies = true
@@ -61,7 +74,6 @@ func spawn_bullet():
 	else:
 		if result["collider"].has_method("damage") and weapon_settings.hitscan == 0:
 			result["collider"].damage(weapon_settings)
-		
 		instantiate_projectile(result["position"])
 
 func calculate_spread() -> Vector2:

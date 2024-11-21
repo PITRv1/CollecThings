@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://behqer6qog0tr"]
+[gd_scene load_steps=9 format=3 uid="uid://behqer6qog0tr"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Pistol/pistol_main.gd" id="1_685ou"]
 [ext_resource type="Resource" uid="uid://ce34echwp4s4y" path="res://Assets/Weapons/Pistol/TPistol_settings.tres" id="2_tu58d"]
@@ -57,10 +57,41 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.573341, 0, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_kgvx6"]
+resource_name = "reload"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.14159, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_reload"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lovvm"]
 _data = {
 "RESET": SubResource("Animation_l257r"),
-"pistol_fire": SubResource("Animation_atfyo")
+"pistol_fire": SubResource("Animation_atfyo"),
+"reload": SubResource("Animation_kgvx6")
 }
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_uwili"]
@@ -75,10 +106,12 @@ height = 0.15
 
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_685ou")
+b_decal = null
 weapon_settings = ExtResource("2_tu58d")
 animation_player = NodePath("Animation Player")
 projectile_origin = NodePath("Marker3D")
 cooldown_timer = NodePath("Cooldown timer")
+PROJECTILE = null
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]
 libraries = {
@@ -86,6 +119,7 @@ libraries = {
 }
 
 [node name="Cooldown timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.173378)
@@ -101,3 +135,5 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, -0.803525, 0.595272, 0, -0.595272, -0.803525, 0, -0.0543938, -0.0530876)
 mesh = SubResource("CylinderMesh_w3b5k")
 skeleton = NodePath("../..")
+
+[node name="Timer" type="Timer" parent="."]

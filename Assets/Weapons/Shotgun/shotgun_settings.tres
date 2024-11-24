@@ -6,7 +6,7 @@
 script = ExtResource("1_6t6et")
 name = &"TShotgun"
 damage = 5.0
-cooldown = 0.5
+cooldown = 0.0
 knockback_force = 5.0
 stun_time = 0.0
 spread = 3.0

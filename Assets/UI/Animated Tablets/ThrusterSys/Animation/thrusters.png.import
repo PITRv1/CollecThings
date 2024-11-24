@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dla55kvbv0ant"
-path="res://.godot/imported/thrusters2.png-3090d1f117f8ebe8601f4c864efcbca4.ctex"
+uid="uid://btn5e1523k80q"
+path="res://.godot/imported/thrusters.png-162b4ba704ab4b4355b441ca1632f5a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Animated Tablets/ThrusterSys/Animation/thrusters2.png"
-dest_files=["res://.godot/imported/thrusters2.png-3090d1f117f8ebe8601f4c864efcbca4.ctex"]
+source_file="res://Assets/UI/Animated Tablets/ThrusterSys/Animation/thrusters.png"
+dest_files=["res://.godot/imported/thrusters.png-162b4ba704ab4b4355b441ca1632f5a4.ctex"]
 
 [params]
 

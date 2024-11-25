@@ -36,6 +36,9 @@ func primary_fire():
 			if animation_player.has_animation("knockback"):
 				animation_player.play("knockback")
 			cooldown_timer.start(weapon_settings.cooldown)
+			if clips <= 0:
+				if animation_player.has_animation("reload"):
+					animation_player.play("reload")
 	else:
 		if animation_player.has_animation("reload"):
 				animation_player.play("reload")

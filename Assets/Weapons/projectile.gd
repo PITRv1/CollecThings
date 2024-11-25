@@ -24,7 +24,7 @@ func enter(weapon_setting):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += global_basis * Vector3.FORWARD * proj_speed * delta
-	target_position = Vector3.FORWARD * proj_speed * delta * 10.0
+	target_position = Vector3.FORWARD * proj_speed * delta * 5.0
 	
 	force_raycast_update()
 	

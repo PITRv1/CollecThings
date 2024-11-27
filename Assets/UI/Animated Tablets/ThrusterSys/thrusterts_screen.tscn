@@ -12,9 +12,7 @@ albedo_texture = SubResource("ViewportTexture_n4skr")
 
 [sub_resource type="QuadMesh" id="QuadMesh_1fjye"]
 
-[node name="Screen" type="Node3D"]
-
-[node name="display" type="MeshInstance3D" parent="."]
+[node name="display" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_ebjg2")
 mesh = SubResource("QuadMesh_1fjye")
 

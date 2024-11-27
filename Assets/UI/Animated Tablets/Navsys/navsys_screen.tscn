@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://gnmmw7fj5qr7"]
+[gd_scene load_steps=5 format=3 uid="uid://gnmmw7fj5qr7"]
 
 [ext_resource type="PackedScene" uid="uid://cg1c07jyxqw1a" path="res://Assets/UI/Animated Tablets/Navsys/navsys_2d.tscn" id="1_t07jw"]
 
@@ -12,20 +12,9 @@ albedo_texture = SubResource("ViewportTexture_n4skr")
 
 [sub_resource type="QuadMesh" id="QuadMesh_1fjye"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5nd05"]
-size = Vector3(1, 1, 0.0586203)
-
-[node name="Screen" type="Node3D"]
-
-[node name="display" type="MeshInstance3D" parent="."]
+[node name="display" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_ebjg2")
 mesh = SubResource("QuadMesh_1fjye")
-
-[node name="area" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0193674)
-shape = SubResource("BoxShape3D_5nd05")
 
 [node name="viewport" type="SubViewport" parent="."]
 size = Vector2i(1152, 648)

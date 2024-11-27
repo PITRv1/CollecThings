@@ -22,20 +22,23 @@ var clips : int
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	print(player)
-	cooldown_timer.wait_time = weapon_settings.cooldown
+	#cooldown_timer.wait_time = weapon_settings.cooldown
 	clips = weapon_settings.mag_size
 
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
 	if clips > 0:
 		if cooldown_timer.is_stopped():
-			cooldown_timer.start()
 			for i in range(weapon_settings.num_of_bullets):
 				spawn_bullet()
 			clips -= 1
 
 			if animation_player.has_animation("knockback"):
 				animation_player.play("knockback")
+			cooldown_timer.start(weapon_settings.cooldown)
+			if clips <= 0:
+				if animation_player.has_animation("reload"):
+					animation_player.play("reload")
 	else:
 		if animation_player.has_animation("reload"):
 				animation_player.play("reload")

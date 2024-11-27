@@ -38,8 +38,8 @@ func _input(event):
 		
 	if event.is_action_pressed("primary_fire"):
 		current_weapon.primary_fire()
-	#if event.is_action_pressed("secondary_fire"):
-		#current_weapon.secondary_fire()
+	if event.is_action_pressed("secondary_fire"):
+		current_weapon.secondary_fire()
 		
 		
 	#Slot change

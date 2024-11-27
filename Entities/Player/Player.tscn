@@ -50,7 +50,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
-visible = false
 
 [node name="StatTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("2_xmbr8")]
 transform = Transform3D(0.878817, 0, 0.477159, 0, 1, 0, -0.477159, 0, 0.878817, -0.545, -0.41, -0.81)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcgtyv4p3uhpc"]
 
 [ext_resource type="Script" path="res://Assets/UI/Resources/touch_screen.gd" id="1_4pgd7"]
-[ext_resource type="PackedScene" uid="uid://dl6g5cco42d0p" path="res://Assets/UI/Tablets/Main Menu/mainmenu_2dui.tscn" id="1_h36x3"]
+[ext_resource type="PackedScene" uid="uid://dl6g5cco42d0p" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_2dui.tscn" id="1_h36x3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rcgbk"]
 viewport_path = NodePath("viewport")
@@ -20,6 +20,12 @@ size = Vector3(1, 1, 0.0586203)
 [node name="Screen" type="Node3D"]
 script = ExtResource("1_4pgd7")
 
+[node name="viewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="Control" parent="viewport" instance=ExtResource("1_h36x3")]
+
 [node name="display" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_3xlm3")
 mesh = SubResource("QuadMesh_pydgu")
@@ -29,9 +35,3 @@ mesh = SubResource("QuadMesh_pydgu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0193674)
 shape = SubResource("BoxShape3D_5nd05")
-
-[node name="viewport" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(1152, 648)
-
-[node name="Control" parent="viewport" instance=ExtResource("1_h36x3")]

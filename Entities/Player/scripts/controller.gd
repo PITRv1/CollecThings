@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export_category("Player Resources")
 @export var weapon_controller : WeaponController
 @export var health_component : HealthComponent
+@export var shield_component : ShieldComponent
 
 @onready var camera : Camera3D = %Camera3D
 
@@ -51,10 +52,6 @@ var _last_frame_was_on_floor = -INF
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running = false
 var look_sensitivity = 0.003
-
-#Player stats
-var health : int = 150
-var shield : int = 300
 
 ########################################################
 func _input(event):
@@ -232,6 +229,7 @@ func _physics_process(delta):
 	
 	cam_tilt_effect()
 	fov_change(delta)
+	
 
 #Callables for the movement states
 func update_gravity(delta):

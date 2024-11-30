@@ -17,6 +17,7 @@ albedo_texture = SubResource("ViewportTexture_n4skr")
 size = Vector3(1, 1, 0.0586203)
 
 [node name="pause_screen" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_pacrd")
 
 [node name="display" type="MeshInstance3D" parent="."]
@@ -24,12 +25,14 @@ material_override = SubResource("StandardMaterial3D_ebjg2")
 mesh = SubResource("QuadMesh_1fjye")
 
 [node name="area" type="Area3D" parent="."]
+process_mode = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0193674)
 shape = SubResource("BoxShape3D_5nd05")
 
-[node name="viewport" type="SubViewport" parent="."]
+[node name="viewport" type="SubViewport" parent="." groups=["viewport"]]
 size = Vector2i(1152, 648)
 
 [node name="Control" parent="viewport" instance=ExtResource("1_sheha")]
+process_mode = 3

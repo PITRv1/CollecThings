@@ -9,7 +9,10 @@ func damage(attack: WeaponSettings = null, damage: float = 0.0):
 	if health_component:
 		if attack:
 			if shield_component != null:
-				shield_component.damage(attack)
+				if shield_component.shield > attack.damage:
+					shield_component.damage(attack)
+				else:
+					health_component.damage(attack)
 			else:
 				health_component.damage(attack)
 				

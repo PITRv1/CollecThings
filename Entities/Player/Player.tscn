@@ -1,14 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=28 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
-[ext_resource type="PackedScene" uid="uid://cxo24tx8rg6ub" path="res://Assets/UI/Tablet.tscn" id="2_xmbr8"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/IdlePlayerState.gd" id="3_10uix"]
-[ext_resource type="PackedScene" uid="uid://c7b25yobm7o6q" path="res://Assets/UI/Tablets/Player Stat/stat_screen.tscn" id="3_d484f"]
 [ext_resource type="PackedScene" uid="uid://bneryy78blva3" path="res://Assets/UI/Tablets/Pause Menu/pause_tablet.tscn" id="4_4dxjy"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/WalkingPlayerState.gd" id="4_fodp0"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/JumpingPlayerState.gd" id="5_65duw"]
+[ext_resource type="PackedScene" uid="uid://c672v1equ85l6" path="res://Assets/UI/Projected Screens/Shield/shield_screen.tscn" id="5_jyssl"]
 [ext_resource type="PackedScene" uid="uid://bnhrbxjun6ct3" path="res://Assets/Weapons/weapon.tscn" id="5_q5jdb"]
+[ext_resource type="PackedScene" uid="uid://ct2ntha4kwb88" path="res://Assets/UI/Projected Screens/Health/health_screen.tscn" id="5_u86tc"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/FallingPlayerState.gd" id="6_gvqp7"]
 [ext_resource type="Script" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="6_qhxil"]
 [ext_resource type="Script" path="res://addons/shaker/src/Vector3/ShakerReceiver3D.gd" id="7_jdf2q"]
@@ -16,11 +16,32 @@
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/SprintingPlayerState.gd" id="9_dh4us"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DashingPlayerState.gd" id="12_u7dve"]
+[ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/ShieldComponent.gd" id="15_k32b2"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="15_r3psd"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="16_vqqka"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dknrb"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6owdf"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_dknrb")
+texture_filter = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n1u7k"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1npsy"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_n1u7k")
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_xqt5x"]
 size = Vector3(0.01, 0.01, 0.01)
@@ -32,13 +53,14 @@ radius = 18.3116
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtw6f"]
 height = 2.2
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component", "shield_component") groups=["player"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_d8ygf")
 head_tilt_amount = 2.0
 weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
 health_component = NodePath("HealthComponent")
+shield_component = NodePath("ShieldComponent")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
@@ -57,14 +79,16 @@ unique_name_in_owner = true
 
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 
-[node name="StatTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("2_xmbr8")]
-transform = Transform3D(0.878817, 0, 0.477159, 0, 1, 0, -0.477159, 0, 0.878817, -0.545, -0.41, -0.81)
-visible = false
-
-[node name="Node3D" parent="Head/CameraSmooth/Camera3D/Ui/StatTablet/Screen" index="0" instance=ExtResource("3_d484f")]
-
 [node name="PauseTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, -0.46)
+
+[node name="HealthScreen" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("5_u86tc")]
+transform = Transform3D(0.333591, 0, 0.121417, 0, 0.355, 0, -0.121417, 0, 0.333591, -0.535, 0.245, -0.475)
+material_override = SubResource("StandardMaterial3D_6owdf")
+
+[node name="ShieldScreen" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("5_jyssl")]
+transform = Transform3D(0.333591, 0, -0.121417, 0, 0.355, 0, 0.121417, 0, 0.333591, 0.535, 0.245, -0.475)
+material_override = SubResource("StandardMaterial3D_1npsy")
 
 [node name="Weapon Rig" type="Node3D" parent="Head/CameraSmooth/Camera3D" groups=["player"]]
 
@@ -145,19 +169,20 @@ script = ExtResource("7_pwn5c")
 [node name="DeadPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("10_mlly4")
 
-[node name="HealthComponent" parent="." instance=ExtResource("15_r3psd")]
-MAX_HEALTH = 20.0
+[node name="ShieldComponent" type="Node3D" parent="."]
+script = ExtResource("15_k32b2")
+MAX_SHIELD = 1000.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("16_vqqka")]
+[node name="HealthComponent" parent="." instance=ExtResource("15_r3psd")]
+MAX_HEALTH = 1000.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "shield_component") instance=ExtResource("16_vqqka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85581, 0)
 health_component = NodePath("../HealthComponent")
+shield_component = NodePath("../ShieldComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape3D_dtw6f")
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="dash_finished"]
-
-[editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet"]
-[editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet"]
-[editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet/tablet"]

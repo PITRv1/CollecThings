@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://taol2jgfusod"]
+
+[ext_resource type="Texture2D" uid="uid://byrj0dqiktms6" path="res://Assets/UI/Resources/Icons/Shield/shield_empty.png" id="1_kdp66"]
+[ext_resource type="Script" path="res://Assets/UI/Projected Screens/Shield/shield.gd" id="1_segg1"]
+[ext_resource type="Texture2D" uid="uid://cgdr8aqd78pqw" path="res://Assets/UI/Resources/Icons/Shield/shield_full.png" id="2_fns0o"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.035
+anchor_bottom = 0.079
+offset_right = -0.32
+offset_bottom = -0.192001
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_segg1")
+
+[node name="Empty" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 51.0
+texture = ExtResource("1_kdp66")
+expand_mode = 1
+
+[node name="Full" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 51.0
+texture = ExtResource("2_fns0o")
+expand_mode = 1
+stretch_mode = 1

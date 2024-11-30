@@ -9,18 +9,19 @@ var mesh_size : Vector2 = Vector2()
 var mouse_entered : bool = false
 var mouse_held : bool = false
 var mouse_inside : bool = false
-
+var is_mouse_event : bool = false
+	
 var last_mouse_pos_3D = null
 var last_mouse_pos_2D = null
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	area.mouse_entered.connect(func(): mouse_entered = true)
 	viewport.set_process_input(true)
+	mesh_size = display.mesh.size
 	
-	
-func _unhandled_input(event) -> void:
-	var is_mouse_event : bool = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	viewport = $viewport
 	
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		is_mouse_event = true
@@ -30,14 +31,12 @@ func _unhandled_input(event) -> void:
 	elif not is_mouse_event:
 		viewport.push_input(event,true)
 	
-	
+
 func handle_mouse(event) -> void:
 	if event is InputEventKey:
 		return
 	
-	mesh_size = display.mesh.size
-	
-	if event is InputEventMouseButton or event is InputEventScreenTouch:
+	if event is InputEventMouseButton:
 		mouse_held = event.pressed
 	
 	var mouse_pos3D = find_mouse(event.global_position)
@@ -74,7 +73,8 @@ func handle_mouse(event) -> void:
 		
 	last_mouse_pos_2D = mouse_pos2D
 	
-	viewport.push_input(event)
+	if $viewport:
+		viewport.push_input(event, false)
 	
 
 func find_mouse(pos: Vector2):
@@ -94,5 +94,4 @@ func find_mouse(pos: Vector2):
 		return result.position
 	else:
 		return null
-	
 	

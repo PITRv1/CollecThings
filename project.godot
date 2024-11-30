@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="CollecThings"
-run/main_scene="res://Maps/Test Maps/Main menu/Main_menu.tscn"
+run/main_scene="res://Maps/Main menu/Main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/bg_color=Color(0.125073, 0.323961, 0.469407, 1)
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Assets/Images/logo.png"
+boot_splash/fullsize=false
 
 [autoload]
 

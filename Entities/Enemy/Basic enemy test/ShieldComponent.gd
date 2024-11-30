@@ -22,6 +22,9 @@ func damage(attack: WeaponSettings = null, damage : float = 0.0):
 		shield -= damage
 	
 	if shield <= 0:
-		queue_free()
+		if get_parent() is Player:
+			pass
+		else:
+			queue_free()
 		
 		

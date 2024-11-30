@@ -6,16 +6,13 @@ extends Control
 
 
 func _ready() -> void:
-	var player_health : int = player.health
-	var player_shield : int = player.shield
+	health_bar.max_value = player.health_component.MAX_HEALTH
+	health_bar.value = player.health_component.health
 	
-	health_bar.max_value = player_health
-	health_bar.value = player_health
-	
-	shield_bar.max_value = player_shield
-	shield_bar.value = player_shield
+	shield_bar.max_value = player.shield_component.MAX_SHIELD
+	shield_bar.value = player.shield_component.shield
 
 
 func _process(_delta: float) -> void:
-	health_bar.value = player.health
-	shield_bar.value = player.shield
+	health_bar.value = player.health_component.health
+	shield_bar.value = player.shield_component.shield

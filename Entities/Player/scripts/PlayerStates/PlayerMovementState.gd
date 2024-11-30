@@ -11,7 +11,7 @@ func _ready():
 	player = owner as Player
 	weapon = player.weapon_controller
 	healt_component = player.health_component
-	healt_component.died.connect(player_died)
-
-func player_died()->void:
-	print("my guy u literally dead")
+	#healt_component.died.connect(player_died)
+#
+#func player_died()->void:
+	#print("my guy u literally dead")

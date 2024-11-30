@@ -16,12 +16,11 @@ func damage(attack: WeaponSettings = null, damage : float = 0.0):
 	if attack:
 		shield -= attack.damage
 		get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
-		print("Shield: ", shield)
+		print("SHIELDCOMPONENT:","Shield: ", shield)
 
 	elif damage:
 		shield -= damage
-		
-
+	
 	if shield <= 0:
 		queue_free()
 		

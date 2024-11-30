@@ -2,15 +2,15 @@ class_name Player
 extends CharacterBody3D
 
 @export_category("Camera")
-@onready var camera : Camera3D = %Camera3D
-@export var head_tilt_amount : float = 5.0
-
-@export_category("Movement")
-
+@export var head_tilt_amount : float = 1.5
+@export var BASE_FOV := 80.0
+@export var FOV_CHANGE := 1.0
 
 @export_category("Player Resources")
 @export var weapon_controller : WeaponController
 @export var health_component : HealthComponent
+
+@onready var camera : Camera3D = %Camera3D
 
 ########################################################
 #Saved inputs and directions
@@ -26,8 +26,6 @@ var ground_decel := 10.0
 var ground_friction := 6.0
 
 var dashes_left := 2
-
-
 
 #Slide variable
 const SLIDE_TRANSLATE = 0.5
@@ -74,6 +72,11 @@ func _ready():
 ########################################################
 
 #region Camera effets ------ Smoothing ## Tilting ## Bobing
+func fov_change(delta):
+	var velocity_clamped = clamp(velocity.length(), 0.5, 20)
+	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
+	camera.fov = lerp(camera.fov, target_fov, delta * 5.0)
+
 var _saved_camera_global_pos = null
 func _save_camera_pos_for_smoothing():
 	if _saved_camera_global_pos == null:
@@ -162,7 +165,7 @@ func _snap_up_stairs_check(delta) -> bool:
 	#elif sliding and (not self.test_move(self.transform, Vector3(0, SLIDE_TRANSLATE, 0)) or %CrouchCollideRayCast.is_colliding()):
 		#sliding = false
 		#stand_to_slide = Vector3.ZERO 
-		#input_to_slide = Vector3.ZEROs
+		#input_to_slide = Vector3.ZERO
 #
 #
 	#if sliding:
@@ -198,6 +201,8 @@ func friction(target_speed, applied_friction, delta:float)->void:
 	self.velocity *= new_speed
 
 func _handle_ground_physics(delta: float) -> void:
+	dashes_left = %DashingPlayerState.dashes_left
+	
 	var add_speed_till_cap = current_speed - Vector3(self.velocity.x, 0, self.velocity.z).length()
 	
 	if add_speed_till_cap > 0:
@@ -221,14 +226,12 @@ func _handle_air_physics(delta: float) -> void:
 
 
 #Updating always on functions
-func _physics_process(_delta):
-	if is_on_floor(): _last_frame_was_on_floor = Engine.get_physics_frames()
-	
-	if Input.is_action_just_pressed("slot_1"):
-		hitbox_component.damage(null, 10)
+func _physics_process(delta):
+	if is_on_floor(): 
+		_last_frame_was_on_floor = Engine.get_physics_frames()
 	
 	cam_tilt_effect()
-
+	fov_change(delta)
 
 #Callables for the movement states
 func update_gravity(delta):
@@ -254,8 +257,3 @@ func update_velocity(delta):
 
 func _on_jump_buffer_timer_timeout() -> void:
 	jump_buffer_running = false
-
-
-func _on_dash_cooldown_timeout() -> void:
-	dashes_left = %DashingPlayerState.dashes_left
-	%DashingPlayerState.out_of_dashes = false

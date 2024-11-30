@@ -46,7 +46,7 @@ func primary_fire():
 	
 
 # Secondary fire function, can be overridden in derived weapons
-func secondary_fire(_delta):
+func secondary_fire():
 	pass
 	
 func _reload():

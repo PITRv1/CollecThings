@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=23 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/JumpingPlayerState.gd" id="5_65duw"]
 [ext_resource type="PackedScene" uid="uid://bnhrbxjun6ct3" path="res://Assets/Weapons/weapon.tscn" id="5_q5jdb"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/FallingPlayerState.gd" id="6_gvqp7"]
+[ext_resource type="Script" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="6_qhxil"]
+[ext_resource type="Script" path="res://addons/shaker/src/Vector3/ShakerReceiver3D.gd" id="7_jdf2q"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/NoclippingPlayerState.gd" id="7_pwn5c"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/SprintingPlayerState.gd" id="9_dh4us"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
@@ -22,6 +24,10 @@ height = 2.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_xqt5x"]
 size = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ogkxp"]
+height = 7.87751
+radius = 18.3116
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtw6f"]
 height = 2.2
@@ -68,6 +74,20 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.
 [node name="Budget crosshair" type="MeshInstance3D" parent="Head/CameraSmooth/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.674129)
 mesh = SubResource("BoxMesh_xqt5x")
+
+[node name="ShakerComponent3D" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
+script = ExtResource("6_qhxil")
+AutoPlay = true
+
+[node name="ShakerReceiver3D" type="Node3D" parent="Head/CameraSmooth/Camera3D/ShakerComponent3D"]
+script = ExtResource("7_jdf2q")
+
+[node name="Area3D" type="Area3D" parent="Head/CameraSmooth/Camera3D/ShakerComponent3D/ShakerReceiver3D"]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/CameraSmooth/Camera3D/ShakerComponent3D/ShakerReceiver3D/Area3D"]
+shape = SubResource("CylinderShape3D_ogkxp")
 
 [node name="StairsAheadRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)

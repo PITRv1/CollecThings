@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=53 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Cinematics/Planet.tscn" id="5_bnkwv"]
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Cinematics/Planet2.tscn" id="6_jldjv"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
+[ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="8_f65px"]
+[ext_resource type="Shader" uid="uid://crqb62fj4xmgm" path="res://Assets/Shaders/disolve.tres" id="9_m4ook"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ybvnx"]
 panorama = ExtResource("1_cut8p")
@@ -155,10 +157,10 @@ tracks/0/path = NodePath("Space_ship:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 11.1, 19.9),
+"times": PackedFloat32Array(0, 11.1, 20),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 199.694, 548.277), Vector3(0, 199.694, 200), Vector3(0, 135.853, 55.6719)]
+"values": [Vector3(0, 150, 548.277), Vector3(0, 150, 200), Vector3(4.91741, 41.2863, 93.625)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -167,7 +169,7 @@ tracks/1/path = NodePath("Space_ship:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 11.1, 19.9),
+"times": PackedFloat32Array(0, 11.1, 20),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
@@ -182,7 +184,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 5, 8.86667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-50.9548, 205.141, 529.074), Vector3(-50.955, 205.141, 450), Vector3(43.3637, 210.345, 327.839)]
+"values": [Vector3(-50.955, 150, 529.074), Vector3(-50.955, 150, 450), Vector3(43.364, 150, 327.839)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -194,31 +196,79 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.933333, 5.03333, 8.93333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -2.44069, 0), Vector3(0, -1.39626, 0), Vector3(0, 0.174533, 0)]
+"values": [Vector3(0, -2.44069, 0), Vector3(0, -1.39626, 0), Vector3(-0.436332, 0.174533, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D:scale")
-tracks/4/interp = 1
+tracks/4/path = NodePath("AnimationPlayer:speed_scale")
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3.8, 14.1333, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [0.5, 1.5, 1.5, 8.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimationPlayer:speed_scale")
-tracks/5/interp = 2
+tracks/5/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Disolve_Height")
+tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 3.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(6.66667),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.5, 1.5]
+"values": [-111.97]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Noise_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(6.66667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [532.765]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/noise_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(6.66667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Glow_ticcc")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(6.66667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18.86]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera3D:fov")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 8.93333, 10.5, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [60.0, 60.0, 85.0, 10.0]
 }
 
 [sub_resource type="Animation" id="Animation_a8re0"]
@@ -298,26 +348,62 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Camera3D:scale")
+tracks/6/path = NodePath("AnimationPlayer:speed_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [0.3]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("AnimationPlayer:speed_scale")
+tracks/7/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Disolve_Height")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.3]
+"values": [-111.97]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Noise_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [532.765]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/noise_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Glow_ticcc")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18.86]
 }
 
 [sub_resource type="Animation" id="Animation_y46a4"]
@@ -489,21 +575,33 @@ outer_radius = 0.733
 rings = 20
 ring_segments = 15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpwlk"]
-transparency = 1
-blend_mode = 3
-depth_draw_mode = 1
-shading_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.243137, 1, 1, 1)
-emission_enabled = true
-emission = Color(0.113725, 0, 1, 1)
-emission_energy_multiplier = 3.4
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o62kn"]
+render_priority = 0
+shader = ExtResource("8_f65px")
+shader_parameter/Base_Color = Color(0.415466, 0.437122, 0.679763, 1)
+shader_parameter/Line_Amount = 2.0
+shader_parameter/Time_Multiply = 4.0
+shader_parameter/Scan_lines_center_weight = 0.02
+shader_parameter/Proximity_Higlight = 0.3
+shader_parameter/Fresnel_Power = 2.0
+shader_parameter/ProximityFade_Alpha = 0.2
+shader_parameter/EmissionBrightness = 10.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_vasjj"]
-material = SubResource("StandardMaterial3D_hpwlk")
-height = 1.005
-rings = 39
+[sub_resource type="SphereMesh" id="SphereMesh_i1ntd"]
+material = SubResource("ShaderMaterial_o62kn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvl5p"]
+render_priority = 0
+shader = ExtResource("9_m4ook")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/Disolve_Height = -111.97
+shader_parameter/Noise_scale = 532.765
+shader_parameter/noise_size = 0.01
+shader_parameter/Glow_ticcc = 18.86
+shader_parameter/Edge_Color = Color(0.206, 0, 40.212, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ufi8i"]
+material = SubResource("ShaderMaterial_mvl5p")
 
 [node name="Crash_animation" type="Node3D"]
 
@@ -597,12 +695,16 @@ transform = Transform3D(0.474242, 0, -0.880395, -0.229376, 0.965464, -0.123558, 
 transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.0773795, -0.820754, 0.361096, -0.442688, 494.844, 36.2598, 971.145)
 
 [node name="test_island" parent="." instance=ExtResource("7_4agym")]
-transform = Transform3D(0.114999, 0, 0, 0, 0.114999, 0, 0, 0, 0.114999, 168.545, 77.1902, 66.7623)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(533.484, 0, 0, 0, 533.484, 0, 0, 0, 533.484, 32.092, 0, 39.8721)
-mesh = SubResource("SphereMesh_vasjj")
+transform = Transform3D(0.114999, 0, 0, 0, 0.114999, 0, 0, 0, 0.114999, 6.28857, 40.9362, 94.8264)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.44728, 14.6779)
 fov = 60.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0)
+mesh = SubResource("SphereMesh_i1ntd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 0, 0, 0)
+mesh = SubResource("SphereMesh_ufi8i")

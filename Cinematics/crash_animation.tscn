@@ -1,9 +1,12 @@
-[gd_scene load_steps=38 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=47 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
 [ext_resource type="Script" path="res://Cinematics/animation_player.gd" id="2_vos7h"]
 [ext_resource type="Script" path="res://Cinematics/flame_2.gd" id="2_yl1hm"]
+[ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Cinematics/Planet.tscn" id="5_bnkwv"]
+[ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Cinematics/Planet2.tscn" id="6_jldjv"]
+[ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ybvnx"]
 panorama = ExtResource("1_cut8p")
@@ -142,6 +145,34 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_c6ane"]
 material = SubResource("StandardMaterial3D_7q3no")
 
+[sub_resource type="Animation" id="Animation_eb5bk"]
+resource_name = "Crash"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 11.1, 19.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 199.694, 548.277), Vector3(0, 199.694, 200), Vector3(0, 135.853, 55.6719)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Space_ship:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 11.1, 19.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_a8re0"]
 length = 0.001
 tracks/0/type = "value"
@@ -207,22 +238,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CSGBox3D:visible")
+tracks/5/path = NodePath("Space_ship/Flame2:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Space_ship/Flame2:emitting")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -295,22 +314,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CSGBox3D:visible")
-tracks/5/interp = 2
-tracks/5/loop_wrap = false
+tracks/5/path = NodePath("Space_ship/Flame2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.6, 1.7, 1.8, 1.93333, 2.06667, 2.2, 2.3, 2.43333, 2.53333, 2.66667, 2.76667, 2.86667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, true, false, true, false, true, false, true, false, true, false, true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Space_ship/Flame2:emitting")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 2.86667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -319,6 +326,7 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4duxc"]
 _data = {
+"Crash": SubResource("Animation_eb5bk"),
 "RESET": SubResource("Animation_a8re0"),
 "Ship_crash": SubResource("Animation_y46a4")
 }
@@ -370,6 +378,44 @@ turbulence_enabled = true
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 0.0
 turbulence_influence_over_life = SubResource("CurveTexture_j6fge")
+
+[sub_resource type="Curve" id="Curve_45npn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.255738, 0.111695), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_b067e"]
+width = 150
+curve_y = SubResource("Curve_45npn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hh8uw"]
+emission_shape_scale = Vector3(1, 10, 1)
+direction = Vector3(0, 10, 0)
+initial_velocity_max = 3.39
+directional_velocity_min = -94.17
+directional_velocity_max = 12.66
+directional_velocity_curve = SubResource("CurveXYZTexture_b067e")
+gravity = Vector3(0, 1, 0)
+linear_accel_min = -1.34
+linear_accel_max = 21.1
+scale_min = 5.0
+scale_max = 20.0
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 5.0
+turbulence_noise_strength = 9.14
+turbulence_influence_max = 0.345
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 23.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qblok"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_n4n0b"]
+material = SubResource("StandardMaterial3D_qblok")
+inner_radius = 0.738
+outer_radius = 0.733
+rings = 20
+ring_segments = 15
 
 [node name="Crash_animation" type="Node3D"]
 
@@ -425,10 +471,6 @@ autoplay = "Ship_crash"
 speed_scale = 0.3
 script = ExtResource("2_vos7h")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815678, 25.9026, -29.764)
-size = Vector3(85.9093, 56.8052, 0.314331)
-
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.99916, 0.0409689, 0, -0.0409689, 0.99916, 0, 0, 0, 1, 0, 0, 0)
 amount = 300
@@ -455,3 +497,20 @@ local_coords = true
 draw_order = 3
 process_material = SubResource("ParticleProcessMaterial_ix1na")
 draw_pass_1 = SubResource("QuadMesh_wbic4")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.09977, 0, 0, 0, 1, -4.7978, 36.9615, -101.357)
+amount = 17
+lifetime = 0.46
+trail_lifetime = 1.29
+process_material = SubResource("ParticleProcessMaterial_hh8uw")
+draw_pass_1 = SubResource("TorusMesh_n4n0b")
+
+[node name="Planet" parent="." instance=ExtResource("5_bnkwv")]
+transform = Transform3D(0.474242, 0, -0.880395, -0.229376, 0.965464, -0.123558, 0.849989, 0.260538, 0.457863, -668.107, 118.684, -889.992)
+
+[node name="Planet2" parent="." instance=ExtResource("6_jldjv")]
+transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.0773795, -0.820754, 0.361096, -0.442688, 494.844, 36.2598, 971.145)
+
+[node name="test_island" parent="." instance=ExtResource("7_4agym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5244, 124.177, 34.8094)

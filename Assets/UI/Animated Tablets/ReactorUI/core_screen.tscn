@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg5egtuctip3u"]
+
+[ext_resource type="PackedScene" uid="uid://batb8noj04xf7" path="res://Assets/UI/Animated Tablets/ReactorUI/core_2d.tscn" id="1_7i82m"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n4skr"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebjg2"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_n4skr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_1fjye"]
+
+[node name="Core" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_ebjg2")
+mesh = SubResource("QuadMesh_1fjye")
+
+[node name="viewport" type="SubViewport" parent="."]
+size = Vector2i(1152, 648)
+
+[node name="Reactor2d" parent="viewport" instance=ExtResource("1_7i82m")]

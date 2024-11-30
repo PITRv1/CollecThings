@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4oaiip05l464"]
+[gd_scene load_steps=18 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_gjni7"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Main menu/node_3d.gd" id="2_dbhso"]
 [ext_resource type="PackedScene" uid="uid://gnmmw7fj5qr7" path="res://Assets/UI/Animated Tablets/Navsys/navsys_screen.tscn" id="3_8g06c"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Tablets/Main Menu/mainmenu_screen.tscn" id="3_355bm"]
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="4_bw0vj"]
+[ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="6_kcumm"]
+[ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="7_vrqq2"]
+[ext_resource type="AudioStream" uid="uid://beonrdacwwo3q" path="res://Assets/Musics/Lost in Fields of Nothing.mp3" id="8_rynck"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d7ayw"]
 panorama = ExtResource("4_bw0vj")
@@ -15,6 +18,30 @@ sky_material = SubResource("PanoramaSkyMaterial_d7ayw")
 [sub_resource type="Environment" id="Environment_0b0uo"]
 background_mode = 2
 sky = SubResource("Sky_xefy6")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_noa4f"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tdlb"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_noa4f")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ixs4s"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6t58"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ixs4s")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ljgob"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bmr1"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ljgob")
 
 [node name="MainMenu" type="Node3D"]
 process_mode = 3
@@ -28,6 +55,21 @@ script = ExtResource("2_dbhso")
 [node name="Space_ship" parent="Node3D" instance=ExtResource("1_gjni7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 
+[node name="Navsys" parent="Node3D/Space_ship" instance=ExtResource("3_8g06c")]
+transform = Transform3D(0.923783, 0.180563, -0.0792251, 0, 0.715149, 0.044332, 0.837636, -0.199133, 0.0873731, 0.448, 2.8, -3.48)
+material_override = SubResource("StandardMaterial3D_2tdlb")
+
+[node name="Core" parent="Node3D/Space_ship" instance=ExtResource("7_vrqq2")]
+transform = Transform3D(0.923783, -0.180563, 0.0792251, 0, 0.715149, 0.044332, -0.837636, -0.199133, 0.0873731, -2.70489, 2.79616, -3.48141)
+material_override = SubResource("StandardMaterial3D_i6t58")
+
+[node name="Main menu" parent="Node3D/Space_ship" instance=ExtResource("3_355bm")]
+transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 0, 0, 1.77, -1.085, 3.333, -3.68)
+
+[node name="Thrusters" parent="Node3D/Space_ship" instance=ExtResource("6_kcumm")]
+transform = Transform3D(1, 0, 0, 0, 0.551543, -0.707107, 0, 0.551543, 0.707107, -1.03555, 4.64446, -2.82047)
+material_override = SubResource("StandardMaterial3D_5bmr1")
+
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
 transform = Transform3D(0.869495, 0.0849228, -0.486587, 0, 0.985109, 0.171929, 0.493942, -0.149491, 0.856548, -1.335, 3.585, -3.89)
 fov = 90.0
@@ -37,8 +79,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, 3.89, -4.07234)
 omni_range = 140.528
 omni_attenuation = 2.49
 
-[node name="Navsys" parent="Node3D" instance=ExtResource("3_8g06c")]
-transform = Transform3D(0.923783, 0.180563, -0.0792251, 0, 0.715149, 0.044332, 0.837636, -0.199133, 0.0873731, 1.533, 2.8, -6.005)
-
-[node name="Screen" parent="Node3D" instance=ExtResource("3_355bm")]
-transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 0, 0, 1.77, 0, 3.333, -6.205)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rynck")
+volume_db = -1.0
+autoplay = true

@@ -38,8 +38,8 @@ func _input(event):
 		
 	if event.is_action_pressed("primary_fire"):
 		current_weapon.primary_fire()
-	#if event.is_action_pressed("secondary_fire"):
-		#current_weapon.secondary_fire()
+	if event.is_action_pressed("secondary_fire"):
+		current_weapon.secondary_fire()
 		
 		
 	#Slot change
@@ -48,9 +48,9 @@ func _input(event):
 	if event.is_action_pressed("slot_2"):
 		load_weapon(weapon_list["TShotgun"])
 		
-func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("secondary_fire"):
-		current_weapon.secondary_fire(delta)
+#func _physics_process(delta: float) -> void:
+	#if Input.is_action_pressed("secondary_fire"):
+		#current_weapon.secondary_fire(delta)
 
 func load_weapon(weapon_scene_path: String) -> void:
 	if current_weapon:

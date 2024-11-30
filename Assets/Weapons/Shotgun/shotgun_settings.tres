@@ -6,13 +6,13 @@
 script = ExtResource("1_6t6et")
 name = &"TShotgun"
 damage = 5.0
-cooldown = 0.5
-knockback_force = 5.0
+cooldown = 0.0
+knockback_force = 0.0
 stun_time = 0.0
 spread = 3.0
 num_of_bullets = 8
 hitscan = 1
-proj_speed = 100.0
+proj_speed = 10.0
 pierce = 0
 mag_size = 2
 position = Vector3(0, -0.135, -0.309)

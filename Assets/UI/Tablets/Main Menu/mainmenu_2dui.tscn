@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl6g5cco42d0p"]
+[gd_scene load_steps=3 format=3 uid="uid://dl6g5cco42d0p"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_pjc62"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Main Menu/mainmenu_ui.gd" id="1_rljj7"]
-[ext_resource type="PackedScene" uid="uid://bx6mee0g0jq65" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.tscn" id="2_o7exa"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rljj7")
-Scene_to_load = ExtResource("2_o7exa")
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -67,14 +65,23 @@ color = Color(1, 0.643137, 0, 1)
 layout_mode = 2
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="Margin/VBoxContainer/HBox"]
+[node name="TutorialButton" type="Button" parent="Margin/VBoxContainer/HBox"]
 texture_filter = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_pjc62")
 theme_override_font_sizes/font_size = 36
-text = "PLAY"
+text = "TUTORIAL"
+
+[node name="EnvButton" type="Button" parent="Margin/VBoxContainer/HBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_pjc62")
+theme_override_font_sizes/font_size = 36
+text = "MAP1"
 
 [node name="HBox2" type="HBoxContainer" parent="Margin/VBoxContainer"]
 layout_mode = 2
@@ -89,5 +96,6 @@ theme = ExtResource("1_pjc62")
 theme_override_font_sizes/font_size = 36
 text = "QUIT"
 
-[connection signal="pressed" from="Margin/VBoxContainer/HBox/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Margin/VBoxContainer/HBox/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Margin/VBoxContainer/HBox/EnvButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Margin/VBoxContainer/HBox2/QuitButton" to="." method="_on_quit_button_pressed"]

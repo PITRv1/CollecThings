@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://coair8lxktg3n"]
+[gd_scene load_steps=41 format=3 uid="uid://coair8lxktg3n"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/monger.gd" id="1_xu8m0"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="2_1swf8"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="3_7gx45"]
+[ext_resource type="PackedScene" uid="uid://4lg7g1d8f6ju" path="res://Components/shield_component.tscn" id="3_y5dm5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spj0x"]
 albedo_color = Color(1, 0.145098, 0.160784, 1)
@@ -211,7 +212,7 @@ advance_expression = "player.global_position.y - global_position.y > 5"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x06ew"]
 advance_mode = 2
-advance_condition = &"falling"
+advance_expression = "!is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pc6a7"]
 break_loop_at_end = true
@@ -260,7 +261,6 @@ graph_offset = Vector2(9, -50.8656)
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_xu8m0")
-idle = true
 
 [node name="body" type="Node3D" parent="."]
 
@@ -343,8 +343,11 @@ parameters/conditions/run = false
 [node name="HealthComponent" parent="." instance=ExtResource("2_1swf8")]
 MAX_HEALTH = 10.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_7gx45")]
+[node name="ShieldComponent" parent="." instance=ExtResource("3_y5dm5")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "shield_component") instance=ExtResource("3_7gx45")]
 health_component = NodePath("../HealthComponent")
+shield_component = NodePath("../ShieldComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape3D_cgksf")

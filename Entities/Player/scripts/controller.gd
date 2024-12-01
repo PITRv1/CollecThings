@@ -243,7 +243,6 @@ func update_input(delta):
 		_handle_ground_physics(delta)
 	else:
 		_handle_air_physics(delta)
-		
 
 func update_velocity(delta):
 	if not _snap_up_stairs_check(delta):

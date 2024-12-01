@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2ccpk0qlpd67"]
+
+[ext_resource type="Script" path="res://Assets/Weapons/Shotgun/rope_gen.gd" id="1_sbayx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kujsy"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_k2hb3"]
+
+[node name="RopeGen" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222776, 0.615679, 0.388021)
+top_level = true
+material_override = SubResource("StandardMaterial3D_kujsy")
+mesh = SubResource("ImmediateMesh_k2hb3")
+script = ExtResource("1_sbayx")
+isDrawing = true
+rope_width = 0.01
+
+[node name="burger" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28365, 0.20565, 1.1618)
+
+[node name="end" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.673, 1.09748, 0.759211)

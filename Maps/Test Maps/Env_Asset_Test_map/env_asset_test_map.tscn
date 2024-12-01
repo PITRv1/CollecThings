@@ -4,11 +4,11 @@
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
-[ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/Killbox.gd" id="5_oa33d"]
 [ext_resource type="PackedScene" uid="uid://bvo3xke2n3jn3" path="res://Assets/Models/Test_rock.tscn" id="5_swl5k"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
+[ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/killbox.tscn" id="9_xdoes"]
 [ext_resource type="PackedScene" uid="uid://cdf0dpy3d18hb" path="res://Assets/Models/Vehicles/Space_shipV2.glb" id="10_vbf7h"]
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="11_bbx8q"]
 
@@ -72,7 +72,7 @@ size = Vector2(5000, 5000)
 subdivide_width = 100
 subdivide_depth = 100
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_02vjf"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy5y5"]
 size = Vector3(458.802, 0.758789, 499.972)
 
 [node name="Env Asset Test Map" type="Node3D"]
@@ -146,13 +146,10 @@ move_speed = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -42.2884, 0)
 mesh = SubResource("PlaneMesh_362e4")
 
-[node name="Killbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -41.8458, 0)
-collision_mask = 3
-script = ExtResource("5_oa33d")
+[node name="Killbox" parent="." instance=ExtResource("9_xdoes")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
-shape = SubResource("BoxShape3D_02vjf")
+shape = SubResource("BoxShape3D_yy5y5")
 
 [node name="Space_shipV2" parent="." instance=ExtResource("10_vbf7h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.334, -1.9479, 62.6106)
@@ -324,5 +321,3 @@ size = Vector3(2.63184, 19.2369, 33.8546)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0806, 15.2578, 0.912842)
 use_collision = true
 size = Vector3(15.8691, 1, 30.145)
-
-[connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

@@ -18,7 +18,7 @@ var chase_dis = 50.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_node(player_path)
+	player = get_tree().get_first_node_in_group("player")
 	state_machine = anim_tree.get("parameters/playback")
 
 

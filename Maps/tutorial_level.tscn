@@ -1,11 +1,15 @@
-[gd_scene load_steps=77 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=87 format=3 uid="uid://cvsbulx0h8dn7"]
 
+[ext_resource type="Script" path="res://Maps/Tutorial Map/tutorial_level.gd" id="1_na3iy"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="2_liksq"]
 [ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/killbox.tscn" id="4_wf3cu"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="5_7qha2"]
 [ext_resource type="PackedScene" uid="uid://dammrvsguaa0a" path="res://Assets/Models/Environment Models/Map Models/tut_cave_v3/caveV3_BLOCKOUT.glb" id="6_o3yjm"]
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="6_q5jgl"]
+[ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="7_ve86l"]
+[ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="8_ie5dl"]
+[ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="9_p0oce"]
 
 [sub_resource type="Gradient" id="Gradient_v8j7d"]
 offsets = PackedFloat32Array(0, 0.205479, 0.844749, 1)
@@ -713,10 +717,58 @@ shader_parameter/Roughness = 0.2
 material = SubResource("ShaderMaterial_rrdd2")
 size = Vector2(100, 100)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kq1ej"]
+radius = 3.756
+height = 18.674
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o8l0s"]
+radius = 2.826
+height = 20.07
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_83ftw"]
 size = Vector3(458.802, 0.758789, 499.972)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga04m"]
+size = Vector3(19.0049, 8.89001, 5.91998)
+
+[sub_resource type="Animation" id="Animation_4ko2n"]
+resource_name = "Fight trigger"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jcjel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k184i"]
+_data = {
+"Fight trigger": SubResource("Animation_4ko2n"),
+"RESET": SubResource("Animation_jcjel")
+}
+
 [node name="Tutorial Level" type="Node3D"]
+script = ExtResource("1_na3iy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cy3sr")
@@ -858,7 +910,7 @@ navigation_mesh = SubResource("NavigationMesh_nfrqf")
 [node name="Environment" type="Node3D" parent="NavigationRegion3D"]
 
 [node name="Water" type="MeshInstance3D" parent="NavigationRegion3D/Environment"]
-transform = Transform3D(0.786834, 0, 0.0103277, 0, 0.786902, 0, -0.0103277, 0, 0.786834, 2.78912, -15.8088, 126.208)
+transform = Transform3D(0.786834, 0, 0.0103277, 0, 0.786902, 0, -0.0103277, 0, 0.786834, 2.78912, -14.5715, 126.208)
 mesh = SubResource("PlaneMesh_onrvh")
 
 [node name="caveV3_BLOCKOUT" parent="NavigationRegion3D/Environment" instance=ExtResource("6_o3yjm")]
@@ -903,6 +955,29 @@ transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1
 [node name="Iron Bars_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="35"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.33557, 4.44995, 0.182167)
 
+[node name="rock1" parent="NavigationRegion3D/Environment" instance=ExtResource("7_ve86l")]
+transform = Transform3D(-0.0251891, 0, 0.613393, 0, 0.287389, 0, -0.162393, 0, -0.0951445, -15.4805, 92.7624, 26.1262)
+
+[node name="HealthComponent" parent="NavigationRegion3D/Environment/rock1" instance=ExtResource("8_ie5dl")]
+MAX_HEALTH = 10.0
+
+[node name="HitboxComponent" parent="NavigationRegion3D/Environment/rock1" node_paths=PackedStringArray("health_component") instance=ExtResource("9_p0oce")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/rock1/HitboxComponent"]
+shape = SubResource("CapsuleShape3D_kq1ej")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(0.997168, 0.075205, 0, -0.075205, 0.997168, 0, 0, 0, 1, -14.6687, 120.14, 69.7437)
+freeze = true
+
+[node name="rock2" parent="NavigationRegion3D/Environment/RigidBody3D" instance=ExtResource("7_ve86l")]
+transform = Transform3D(0.819302, -3.72529e-09, 0, 3.72529e-09, 0.819302, 0, 0, 0, 0.819302, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/RigidBody3D"]
+transform = Transform3D(0.786543, -3.72529e-09, 0, 3.72529e-09, 0.786543, 0, 0, 0, 0.786543, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_o8l0s")
+
 [node name="Killbox" parent="." instance=ExtResource("4_wf3cu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20873, -36.0551, -36.5811)
 
@@ -916,6 +991,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4973, 94.4559, -6.35659)
 [node name="CharacterBody3D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_q5jgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4738, 97.736, -12.4657)
 player = NodePath("../Player")
+
+[node name="Enemy Trigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8883, 95.5789, 47.5047)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.223946, -2.26619)
+shape = SubResource("BoxShape3D_ga04m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k184i")
+}
+
+[connection signal="area_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
 
 [editable path="NavigationRegion3D/Environment/Space_ship"]
 [editable path="NavigationRegion3D/Environment/Space_ship/Space_ship"]

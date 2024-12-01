@@ -15,7 +15,8 @@ func _ready() -> void:
 func damage(attack: WeaponSettings = null, damage : float = 0.0):
 	if attack:
 		health -= attack.damage
-		get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
+		
+		#get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
 
 	elif damage:
 		health -= damage

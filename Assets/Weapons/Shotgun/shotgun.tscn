@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btpmyjub568re"]
+[gd_scene load_steps=9 format=3 uid="uid://btpmyjub568re"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Shotgun/shotgun_main.gd" id="1_jsstv"]
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
@@ -613,6 +613,8 @@ _data = {
 "reload": SubResource("Animation_rd7bb")
 }
 
+[sub_resource type="SphereMesh" id="SphereMesh_s3odt"]
+
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_jsstv")
 weapon_settings = ExtResource("2_54bu2")
@@ -646,5 +648,9 @@ transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2
 
 [node name="Ammo4" parent="Shotgun/Recharger" index="3"]
 transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2.93408e-09, 3.54326e-07, 1.13607e-06, 0.102245, -0.677994, -0.147965, 1.50727)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shotgun"]
+transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 0, -0.873, -1.239)
+mesh = SubResource("SphereMesh_s3odt")
 
 [editable path="Shotgun"]

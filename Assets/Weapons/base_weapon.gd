@@ -22,7 +22,6 @@ var clips : int
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	print(player)
-	#cooldown_timer.wait_time = weapon_settings.cooldown
 	clips = weapon_settings.mag_size
 
 # Primary fire function, can be overridden in derived weapons

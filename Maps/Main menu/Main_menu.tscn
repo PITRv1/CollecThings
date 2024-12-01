@@ -70,14 +70,14 @@ transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 0, 0, 1.77, -1.085, 3.333, -3.
 transform = Transform3D(1, 0, 0, 0, 0.551543, -0.707107, 0, 0.551543, 0.707107, -1.03555, 4.64446, -2.82047)
 material_override = SubResource("StandardMaterial3D_5bmr1")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.869495, 0.0849228, -0.486587, 0, 0.985109, 0.171929, 0.493942, -0.149491, 0.856548, -1.335, 3.585, -3.89)
-fov = 90.0
-
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, 3.89, -4.07234)
 omni_range = 140.528
 omni_attenuation = 2.49
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.869495, 0.0849228, -0.486587, 0, 0.985109, 0.171929, 0.493942, -0.149491, 0.856548, -1.335, 3.585, -3.89)
+fov = 90.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_rynck")

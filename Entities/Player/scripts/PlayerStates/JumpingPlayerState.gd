@@ -16,7 +16,7 @@ func update(_delta):
 	if player.velocity.y < -3:
 		transition.emit("FallingPlayerState")
 		
-	if Input.is_action_just_pressed("sprint"):
+	if Input.is_action_just_pressed("sprint") and not %DashTimeout.time_left:
 		transition.emit("DashingPlayerState")
 	
 	if Input.is_action_just_pressed("_noclip") and OS.has_feature("debug"):

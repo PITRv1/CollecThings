@@ -1,0 +1,51 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dammrvsguaa0a"
+path="res://.godot/imported/caveV3_BLOCKOUT.glb-ad7f7360e0ec7b91d04bf99c8fbb983b.scn"
+
+[deps]
+
+source_file="res://Assets/Models/Environment Models/Map Models/tut_cave_v3/caveV3_BLOCKOUT.glb"
+dest_files=["res://.godot/imported/caveV3_BLOCKOUT.glb-ad7f7360e0ec7b91d04bf99c8fbb983b.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Cube_008": {
+"generate/physics": true
+},
+"PATH:Cube_009": {
+"generate/physics": true
+},
+"PATH:Cube_010": {
+"generate/physics": true
+},
+"PATH:Plane_008": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

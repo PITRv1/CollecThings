@@ -4,17 +4,23 @@ extends PlayerMovementState
 
 
 @export_category("Movement Vars")
-@export var dashes_left : int = 2
-@export var dash_speed : float = 25.0
 
+@export_group("Dash")
+@export var dash_time_length := .3
+@export var dash_time_length_floor := 1
+@export var dashes_left := 2
+@export var dash_speed := 25.0
+
+@export_group("Regular")
 @export var ground_accel := 14.0
 @export var ground_decel := 10.0
-
 @export var ground_friction := 0.0
 
-var dash_cooldown_up : bool = false
+var dash_cooldown_up := false
 
 func enter(_previous_state)-> void:
+	%DashLengthTimer.wait_time = dash_time_length
+	
 	dash_cooldown_up = false
 	
 	if player.dashes_left < 1:
@@ -24,6 +30,9 @@ func enter(_previous_state)-> void:
 	if %DashLengthTimer.time_left:
 		%DashLengthTimer.stop()
 	else:
+		if player.is_on_floor():
+			%DashTimeout.wait_time = dash_time_length_floor
+			%DashTimeout.start()
 		%DashLengthTimer.start()
 
 	player.dashes_left -= 1
@@ -42,7 +51,7 @@ func enter(_previous_state)-> void:
 		player.velocity += dash_dir * dash_speed
 
 func update(_delta)->void:
-	if Input.is_action_just_pressed("sprint"):
+	if Input.is_action_just_pressed("sprint") and not %DashTimeout.time_left:
 		transition.emit("DashingPlayerState")
 		
 	if Input.is_action_just_pressed("jump") and player.is_on_floor() or player._snapped_to_stairs_last_frame:
@@ -68,7 +77,6 @@ func physics_update(delta):
 	player.update_velocity(delta)
 
 	weapon.sway_weapon(delta, false)
-
 
 func dash_finished() -> void:
 	dash_cooldown_up = true

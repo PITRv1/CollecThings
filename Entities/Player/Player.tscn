@@ -58,6 +58,7 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_d8ygf")
 head_tilt_amount = 2.0
+FOV_CHANGE = 0.7
 weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
 health_component = NodePath("HealthComponent")
 shield_component = NodePath("ShieldComponent")
@@ -66,6 +67,11 @@ shield_component = NodePath("ShieldComponent")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856085, 0)
 shape = SubResource("CapsuleShape3D_lrrek")
+
+[node name="StairsAheadRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)
+
+[node name="StairsBelowRayCast" type="RayCast3D" parent="."]
 
 [node name="Head" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -80,14 +86,13 @@ unique_name_in_owner = true
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 
 [node name="PauseTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, -0.46)
 
 [node name="HealthScreen" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("5_u86tc")]
-transform = Transform3D(0.333591, 0, 0.121417, 0, 0.355, 0, -0.121417, 0, 0.333591, -0.535, 0.245, -0.475)
+transform = Transform3D(0.333591, 0, 0.121417, 0, 0.355, 0, -0.121417, 0, 0.333591, -0.615, -0.315, -0.589)
 material_override = SubResource("StandardMaterial3D_6owdf")
 
 [node name="ShieldScreen" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("5_jyssl")]
-transform = Transform3D(0.333591, 0, -0.121417, 0, 0.355, 0, 0.121417, 0, 0.333591, 0.535, 0.245, -0.475)
+transform = Transform3D(0.333591, 0, -0.121417, 0, 0.355, 0, 0.121417, 0, 0.333591, 1.1, 0.561, -0.926)
 material_override = SubResource("StandardMaterial3D_1npsy")
 
 [node name="Weapon Rig" type="Node3D" parent="Head/CameraSmooth/Camera3D" groups=["player"]]
@@ -112,11 +117,6 @@ collision_mask = 512
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/CameraSmooth/Camera3D/ShakerComponent3D/ShakerReceiver3D/Area3D"]
 shape = SubResource("CylinderShape3D_ogkxp")
-
-[node name="StairsAheadRayCast" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.674925, -0.83246)
-
-[node name="StairsBelowRayCast" type="RayCast3D" parent="."]
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -143,12 +143,12 @@ gravity = 15.0
 
 [node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_65duw")
-gravity = 15.0
+gravity = 14.0
 jump_velocity = 8.0
 
 [node name="FallingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_gvqp7")
-gravity = 15.0
+gravity = 16.0
 
 [node name="DashingPlayerState" type="Node" parent="PlayerStateMachine"]
 unique_name_in_owner = true
@@ -161,6 +161,10 @@ ground_friction = 0.1
 [node name="DashLengthTimer" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
 unique_name_in_owner = true
 wait_time = 0.3
+one_shot = true
+
+[node name="DashTimeout" type="Timer" parent="PlayerStateMachine/DashingPlayerState"]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="NoclippingPlayerState" type="Node" parent="PlayerStateMachine"]

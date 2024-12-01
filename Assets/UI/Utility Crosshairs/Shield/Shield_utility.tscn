@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg5f2jb7xuehf"]
+
+[ext_resource type="Script" path="res://Assets/UI/Utility Crosshairs/Shield/shield_utility.gd" id="1_7g0hk"]
+
+[sub_resource type="Gradient" id="Gradient_atg63"]
+offsets = PackedFloat32Array(0, 0.003)
+colors = PackedColorArray(0.254902, 0.784314, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_np6ed"]
+gradient = SubResource("Gradient_atg63")
+width = 1000
+
+[node name="ShieldUtility" type="Node2D"]
+script = ExtResource("1_7g0hk")
+
+[node name="Crosshair" type="Polygon2D" parent="."]
+position = Vector2(-9.23706e-14, 9)
+rotation = 3.14159
+scale = Vector2(3.66667, 3.66667)
+texture = SubResource("GradientTexture1D_np6ed")
+texture_offset = Vector2(-5, 0)
+texture_rotation = 4.71239
+polygon = PackedVector2Array(0, -1, 2, -1, 3, 1, 3, 4, 2, 6, 0, 6, 0, 5, 1, 5, 2, 3, 2, 2, 1, 0, 0, 0)

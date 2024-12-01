@@ -3,22 +3,22 @@
 [ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="1_kdlrf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_taaai"]
-bg_color = Color(1, 0.8, 0, 0.411765)
+bg_color = Color(1, 1, 0, 0.411765)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(1, 0.8, 0, 1)
+border_color = Color(1, 1, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fx0d"]
-bg_color = Color(1, 0.8, 0, 0.411765)
+bg_color = Color(1, 1, 0, 0.411765)
 
 [resource]
-ProgressBar/colors/font_color = Color(1, 0.8, 0, 1)
+ProgressBar/colors/font_color = Color(1, 1, 0, 1)
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 8
 ProgressBar/font_sizes/font_size = 30

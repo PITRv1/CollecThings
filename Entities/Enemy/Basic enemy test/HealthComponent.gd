@@ -3,15 +3,21 @@ class_name HealthComponent
 
 @export var MAX_HEALTH : float
 var health : float
+var health_percent : float
 
 signal died
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	health = MAX_HEALTH
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	health_percent = health/MAX_HEALTH
+	
+
+
 func damage(attack: WeaponSettings = null, damage : float = 0.0):
 	if attack:
 		health -= attack.damage

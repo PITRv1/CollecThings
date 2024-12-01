@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ct2ntha4kwb88"]
 
-[ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="1_n3grn"]
-[ext_resource type="PackedScene" uid="uid://cmpf6hkbo0ga5" path="res://Assets/UI/Projected Screens/Health/health.tscn" id="2_pi85t"]
+[ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="1_sykht"]
+[ext_resource type="PackedScene" uid="uid://cmpf6hkbo0ga5" path="res://Assets/UI/Projected Screens/Gun/gun.tscn" id="2_a04nd"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rcgbk"]
 viewport_path = NodePath("viewport")
@@ -22,14 +22,14 @@ point_count = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1fey5"]
 render_priority = 0
-shader = ExtResource("1_n3grn")
-shader_parameter/Base_Color = Color(1, 0.234032, 0.375222, 1)
+shader = ExtResource("1_sykht")
+shader_parameter/Base_Color = Color(0.254902, 0.784314, 0.615686, 1)
 shader_parameter/Line_Amount = 500.0
 shader_parameter/Time_Multiply = 15.0
 shader_parameter/Scan_lines_center_weight = 0.02
-shader_parameter/Proximity_Higlight = 0.3
+shader_parameter/Proximity_Higlight = 0.0
 shader_parameter/Fresnel_Power = 2.0
-shader_parameter/ProximityFade_Alpha = 0.2
+shader_parameter/ProximityFade_Alpha = 0.0
 shader_parameter/EmissionBrightness = 10.0
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_p7iea"]
@@ -40,7 +40,7 @@ sections = 2
 section_length = 0.3
 curve = SubResource("Curve_rtjaq")
 
-[node name="HealthScreen" type="MeshInstance3D"]
+[node name="GunScreen" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_3xlm3")
 mesh = SubResource("QuadMesh_pydgu")
 
@@ -55,4 +55,4 @@ canvas_item_default_texture_filter = 0
 canvas_item_default_texture_repeat = 1
 size = Vector2i(40, 51)
 
-[node name="Control" parent="viewport" instance=ExtResource("2_pi85t")]
+[node name="Control" parent="viewport" instance=ExtResource("2_a04nd")]

@@ -354,7 +354,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.2534)
 curve = SubResource("Curve3D_rpuqm")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999778, 2.89417e-05, -0.00185156, -2.72788e-12, 0.999665, 0.0156271, 0.00185169, -0.0156264, 0.999704, -0.118484, 0, 31.7192)
+transform = Transform3D(0.999778, 2.89418e-05, -0.00185156, -2.72788e-12, 0.999665, 0.0156271, 0.00185169, -0.0156264, 0.999704, -0.118484, 0, 31.7192)
 
 [node name="Space_ship" parent="Path3D/PathFollow3D" instance=ExtResource("2_8h5s1")]
 transform = Transform3D(0.999952, 1.86252e-09, 0.0106766, -1.86265e-09, 1, 1.73473e-18, -0.0106766, -1.98864e-11, 0.999952, 0.152138, 5.00002, 25.1137)

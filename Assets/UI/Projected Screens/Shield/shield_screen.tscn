@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c672v1equ85l6"]
+[gd_scene load_steps=9 format=3 uid="uid://6fdwtlpnssnt"]
 
 [ext_resource type="PackedScene" uid="uid://taol2jgfusod" path="res://Assets/UI/Projected Screens/Shield/shield.tscn" id="2_73f7w"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="2_p53f0"]
@@ -27,9 +27,9 @@ shader_parameter/Base_Color = Color(0.262745, 0.611765, 0.815686, 1)
 shader_parameter/Line_Amount = 500.0
 shader_parameter/Time_Multiply = 15.0
 shader_parameter/Scan_lines_center_weight = 0.02
-shader_parameter/Proximity_Higlight = 0.3
+shader_parameter/Proximity_Higlight = 0.0
 shader_parameter/Fresnel_Power = 2.0
-shader_parameter/ProximityFade_Alpha = 0.2
+shader_parameter/ProximityFade_Alpha = 0.0
 shader_parameter/EmissionBrightness = 10.0
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_p7iea"]

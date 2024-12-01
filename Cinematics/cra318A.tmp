@@ -1,10 +1,9 @@
-[gd_scene load_steps=54 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=53 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
 [ext_resource type="Script" path="res://Cinematics/animation_player.gd" id="2_vos7h"]
 [ext_resource type="Script" path="res://Cinematics/flame_2.gd" id="2_yl1hm"]
-[ext_resource type="Script" path="res://Assets/Models/Vehicles/space_ship.gd" id="3_4jaat"]
 [ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Cinematics/Planet.tscn" id="5_bnkwv"]
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Cinematics/Planet2.tscn" id="6_jldjv"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
@@ -158,10 +157,10 @@ tracks/0/path = NodePath("Space_ship:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 13.4667, 14.9333, 20),
+"times": PackedFloat32Array(0, 11.1, 13, 20),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 150, 548.277), Vector3(0, 150, 200), Vector3(0, 150, 200), Vector3(4.737, 42.236, 93.515)]
+"values": [Vector3(0, 150, 548.277), Vector3(0, 150, 200), Vector3(0, 150, 200), Vector3(4.91741, 41.2863, 93.625)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -170,10 +169,10 @@ tracks/1/path = NodePath("Space_ship:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(4, 9.13333, 13.3333, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 11.1, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.0472, 0, 1.22173), Vector3(-0.301942, 0, 0.443314), Vector3(-0.214676, 0.319395, 0.319395)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -194,7 +193,7 @@ tracks/3/path = NodePath("Camera_High:rotation")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.533333, 4.4, 8.93333, 20),
+"times": PackedFloat32Array(0.933333, 5.03333, 8.93333, 20),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, -2.44069, 0), Vector3(0, -1.39626, 0), Vector3(-0.436332, 0.174533, 0), Vector3(-0.548033, 0.174533, 0)]
@@ -206,16 +205,16 @@ tracks/4/path = NodePath("AnimationPlayer:speed_scale")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 17, 20),
+"times": PackedFloat32Array(0, 3.8, 14.1333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [1.0, 1.5, 3.0]
+"values": [0.5, 1.5, 1.5]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Disolve_Height")
-tracks/5/interp = 2
+tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(7.93333, 16.1333, 19.7333),
@@ -227,7 +226,7 @@ tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Noise_scale")
-tracks/6/interp = 2
+tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(7.93333, 16.1333, 19.7333),
@@ -239,7 +238,7 @@ tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/noise_size")
-tracks/7/interp = 2
+tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(7.93333, 16.1333, 19.7333),
@@ -251,7 +250,7 @@ tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/path = NodePath("MeshInstance3D:mesh:material:shader_parameter/Glow_ticcc")
-tracks/8/interp = 2
+tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(7.93333, 16.1333, 19.7083),
@@ -306,47 +305,6 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.55676, -3.14159, 0), Vector3(0.668461, -3.14159, 0)]
-}
-tracks/13/type = "method"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("AnimationPlayer")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(12.2, 17),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"switch_camera"
-}, {
-"args": [],
-"method": &"switch_camera"
-}]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Space_ship/engine_flame_left:emitting")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Space_ship/engine_flame_right:emitting")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_a8re0"]
@@ -518,30 +476,6 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.55676, -3.14159, 0)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Space_ship/engine_flame_left:emitting")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Space_ship/engine_flame_right:emitting")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y46a4"]
@@ -752,7 +686,6 @@ shadow_enabled = true
 
 [node name="Space_ship" parent="." instance=ExtResource("1_qegrm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.903, 0)
-script = ExtResource("3_4jaat")
 
 [node name="Flame2" type="GPUParticles3D" parent="Space_ship"]
 transform = Transform3D(-0.543444, -0.627859, -0.557191, -0.692945, 0.710178, -0.124399, 0.47381, 0.318499, -0.821013, -1.40378, 5.28666, -1.38135)
@@ -836,20 +769,12 @@ transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.07
 [node name="test_island" parent="." instance=ExtResource("7_4agym")]
 transform = Transform3D(0.114999, 0, 0, 0, 0.114999, 0, 0, 0, 0.114999, 6.28857, 40.9362, 94.8264)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="test_island"]
-transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
-light_energy = 16.0
-light_indirect_energy = 0.0
-spot_range = 38.1845
-spot_attenuation = 0.55
-spot_angle = 39.6842
-
 [node name="Camera_High" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.44728, 14.6779)
 fov = 60.0
 
 [node name="Camera_Low" type="Camera3D" parent="."]
-transform = Transform3D(-1, -1.33969e-06, -2.1523e-06, 0, 0.848972, -0.528438, 2.53518e-06, -0.528438, -0.848972, 5.125, 43.838, 89.98)
+transform = Transform3D(-1, 4.61975e-08, 7.42195e-08, 0, 0.848972, -0.528438, -8.74228e-08, -0.528438, -0.848972, 5.125, 43.838, 89.98)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0)

@@ -794,7 +794,7 @@ omni_range = 14.922
 omni_attenuation = 1.094
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -38.257, 109.463, 157.661)
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -38.257, 109.463, 146.092)
 light_color = Color(1, 1, 0.92549, 1)
 light_energy = 0.249
 shadow_enabled = true

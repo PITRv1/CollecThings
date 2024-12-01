@@ -849,7 +849,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.44728, 14.6779)
 fov = 60.0
 
 [node name="Camera_Low" type="Camera3D" parent="."]
-transform = Transform3D(-1, 4.61975e-08, 7.42195e-08, 0, 0.848972, -0.528438, -8.74228e-08, -0.528438, -0.848972, 5.125, 43.838, 89.98)
+transform = Transform3D(-1, -1.33969e-06, -2.1523e-06, 0, 0.848972, -0.528438, 2.53518e-06, -0.528438, -0.848972, 5.125, 43.838, 89.98)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0)

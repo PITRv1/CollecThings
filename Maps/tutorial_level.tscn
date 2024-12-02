@@ -919,6 +919,9 @@ transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914
 [node name="Space_ship" parent="NavigationRegion3D/Environment" instance=ExtResource("2_liksq")]
 transform = Transform3D(0.762183, 0, -0.647362, 0, 1, 0, 0.647362, 0, 0.762183, -10.4443, 94.1957, 129.091)
 
+[node name="Plane" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="9"]
+surface_material_override/0 = null
+
 [node name="Cone_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="24"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.5967, 7.10589, -0.249695)
 

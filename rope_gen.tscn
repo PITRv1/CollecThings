@@ -11,6 +11,7 @@ top_level = true
 material_override = SubResource("StandardMaterial3D_kujsy")
 mesh = SubResource("ImmediateMesh_k2hb3")
 script = ExtResource("1_sbayx")
+isDrawing = true
 point_count = 10
 rope_width = 0.05
 

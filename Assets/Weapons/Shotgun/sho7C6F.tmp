@@ -618,13 +618,15 @@ _data = {
 
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_jsstv")
-grapple_type = 1
+b_decal = null
+GRAPPLE_RAY_MAX = null
 GRAPPLE_FORCE_MAX = 30.0
 bald_speed = 25.0
 weapon_settings = ExtResource("2_54bu2")
 animation_player = NodePath("AnimationPlayer")
 projectile_origin = NodePath("Marker3D")
 cooldown_timer = NodePath("Timer")
+PROJECTILE = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -659,10 +661,6 @@ transform = Transform3D(5.14674e-09, -0.117744, 1.02935e-08, -0.117744, -5.14674
 [node name="alma" type="MeshInstance3D" parent="Shotgun"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -0.858, -1.126)
 mesh = SubResource("SphereMesh_qfnc1")
-
-[node name="RayCast3D" type="RayCast3D" parent="Shotgun/alma"]
-target_position = Vector3(0, 0, -1)
-collision_mask = 9
 
 [node name="alma_pos" type="MeshInstance3D" parent="Shotgun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858, -1.126)

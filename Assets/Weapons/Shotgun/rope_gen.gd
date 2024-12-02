@@ -31,6 +31,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#SetGrappleHookPosition(grapple_hook_position)
+	#SetPlayerPosition(player_position)
 	
 	if isDrawing or dirty:
 		if firstTime:

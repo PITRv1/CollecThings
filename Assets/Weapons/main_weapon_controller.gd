@@ -10,7 +10,8 @@ var current_weapon_settings
 
 @export var weapon_list: Dictionary = {
 	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",
-	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn"
+	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn",
+	"Monger" : "res://Assets/Weapons/MongerGun/mongerPistol.tscn"
 }
 
 var mouse_movement : Vector2
@@ -26,7 +27,8 @@ var weapon_bob_amount : Vector2 = Vector2(0,0)
 func _ready():
 	weapon_list = {
 	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",
-	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn"
+	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn",
+	"Monger" : "res://Assets/Weapons/MongerGun/mongerPistol.tscn"
 	}
 	
 	await owner.ready
@@ -47,6 +49,8 @@ func _input(event):
 		load_weapon(weapon_list["TPistol"])
 	if event.is_action_pressed("slot_2"):
 		load_weapon(weapon_list["TShotgun"])
+	if event.is_action_pressed("slot_3"):
+		load_weapon(weapon_list["Monger"])
 		
 #func _physics_process(delta: float) -> void:
 	#if Input.is_action_pressed("secondary_fire"):

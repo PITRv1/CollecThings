@@ -4,6 +4,8 @@ extends  BaseWeapon
 @onready var kurbli: MeshInstance3D = $Shotgun/Kurbli
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var rope_gen: MeshInstance3D = $RopeGen
+@onready var alma: MeshInstance3D = $Shotgun/alma_pos
+@onready var alma_end: MeshInstance3D = $Shotgun/alma
 
 var charge : float
 var _camera : Camera3D
@@ -26,37 +28,46 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("secondary_fire"):
 		charge += delta
 		kurbli.rotation.x += -5 * delta
+		alma_end.global_position = alma.global_position
 	else:
+		ray = run_ray_test()
+		var pos
+		if ray.size() != 0:
+			pos = ray["position"]
+		else:
+			pos = player.global_rotation * 2.5
+		alma_end.global_position = alma_end.global_position.move_toward(pos, delta*25)
 		kurbli.rotation.x = lerp(kurbli.rotation.x, 0.0, delta*10)
 		
-func _physics_process(delta: float) -> void:
-	ray = run_ray_test()
-	if ray.size() == 0:
-		ray["collider"] = null
-
-	grapple_raycast_hit = ray["collider"]
-	if Input.is_action_just_pressed("secondary_fire"):
-		if grapple_raycast_hit:
-			grapple_hook_position = ray["position"]
-			is_grappling = true
-			rope_gen.SetPlayerPosition(player.global_position)
-			rope_gen.SetGrappleHookPosition(grapple_hook_position)
-			rope_gen.StartDrawing()
-			rope_gen.visible = true
-		else:
-			rope_gen.visible = false
-			is_grappling = false
-		
-	if is_grappling and Input.is_action_pressed("secondary_fire"):
-		print("alma")
-		rope_gen.SetPlayerPosition(global_position)
-		
-		var grapple_dir = (grapple_hook_position - player.position).normalized()
-		var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX
-			
-		var grapple_dif = (grapple_target_speed - player.velocity)
-			
-		player.velocity += grapple_dif * delta
+#func _physics_process(delta: float) -> void:
+	#ray = run_ray_test()
+	#if ray.size() == 0:
+		#ray["collider"] = null
+#
+	#grapple_raycast_hit = ray["collider"]
+	#if Input.is_action_just_pressed("secondary_fire"):
+		#if grapple_raycast_hit:
+			#grapple_hook_position = ray["position"]
+			#is_grappling = true
+			#rope_gen.SetPlayerPosition(alma.global_position)
+			#rope_gen.SetGrappleHookPosition(grapple_hook_position)
+			#rope_gen.StartDrawing()
+			#rope_gen.visible = true
+		#else:
+			#rope_gen.visible = false
+			#is_grappling = false
+		#
+	#if is_grappling and Input.is_action_pressed("secondary_fire"):
+		#rope_gen.SetPlayerPosition(alma.global_position)
+		#
+		#var grapple_dir = (grapple_hook_position - player.position).normalized()
+		#var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX
+			#
+		#var grapple_dif = (grapple_target_speed - player.velocity)
+			#
+		#player.velocity += grapple_dif * delta
+	#else:
+		#rope_gen.visible = false
 		
 func run_ray_test() -> Dictionary:
 	_space_state = get_world_3d().direct_space_state
@@ -65,7 +76,7 @@ func run_ray_test() -> Dictionary:
 	
 	# Project ray
 	_from = _camera.project_ray_origin(_mousepos)
-	_to = _from + _camera.project_ray_normal(_mousepos) * GRAPPLE_RAY_MAX
+	_to = _from + _camera.project_ray_normal(_mousepos) * GRAPPLE_RAY_MAX * charge
 	
 	_query = PhysicsRayQueryParameters3D.create(_from, _to)
 	

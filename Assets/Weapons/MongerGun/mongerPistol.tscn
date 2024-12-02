@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_4ya18"]
 script = ExtResource("2_bp7b1")
-name = &""
+name = &"monger"
 damage = 0.0
 cooldown = 0.0
 knockback_force = 0.0

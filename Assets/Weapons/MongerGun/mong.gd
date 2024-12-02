@@ -12,17 +12,17 @@ func _ready() -> void:
 	monger = preload("res://Entities/Enemy/Basic enemy test/monger.tscn")
 
 func primary_fire():
-	var from = camera.project_ray_origin(mousepos)
-	var to = from + camera.project_ray_normal(mousepos) * length
+	var _space_state = get_world_3d().direct_space_state
+	var _mousepos = get_viewport().get_mouse_position()
+	var _camera = get_viewport().get_camera_3d()
+	var _from = _camera.project_ray_origin(_mousepos)
+	var _to = _from + _camera.project_ray_normal(_mousepos) * 30
 	
-	var query = PhysicsRayQueryParameters3D.create(from, to)
+	var _query = PhysicsRayQueryParameters3D.create(_from, _to)
 	
-	query.collide_with_areas = true
-	query.collide_with_bodies = false
+	var _result = _space_state.intersect_ray(_query)
 	
-	var result = space_state.intersect_ray(query)
-	
-	if result:
+	if _result:
 		var mong = monger.instantiate()
-		get_tree().add_child(mong)
-		mong.global_position = result["position"]
+		get_tree().root.add_child(mong)
+		mong.global_position = _result["position"]

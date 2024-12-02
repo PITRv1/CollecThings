@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btpmyjub568re"]
+[gd_scene load_steps=10 format=3 uid="uid://btpmyjub568re"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Shotgun/shotgun_main.gd" id="1_jsstv"]
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
@@ -614,6 +614,8 @@ _data = {
 "reload": SubResource("Animation_rd7bb")
 }
 
+[sub_resource type="SphereMesh" id="SphereMesh_qfnc1"]
+
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_jsstv")
 GRAPPLE_FORCE_MAX = 30.0
@@ -652,8 +654,14 @@ transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2
 [node name="Kurbli" parent="Shotgun" index="10"]
 transform = Transform3D(5.14674e-09, -0.117744, 1.02935e-08, -0.117744, -5.14674e-09, 0, 4.49942e-16, -1.02935e-08, -0.117744, 0.617057, -0.0451915, 0.930737)
 
+[node name="alma" type="MeshInstance3D" parent="Shotgun"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -0.858, -1.126)
+mesh = SubResource("SphereMesh_qfnc1")
+
+[node name="alma_pos" type="MeshInstance3D" parent="Shotgun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858, -1.126)
+
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
-isDrawing = false
 firstTime = true
 
 [editable path="Shotgun"]

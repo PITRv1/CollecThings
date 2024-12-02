@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=74 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="8_f65px"]
 [ext_resource type="Shader" uid="uid://crqb62fj4xmgm" path="res://Assets/Shaders/disolve.tres" id="9_m4ook"]
+[ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="11_7pd81"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ybvnx"]
 panorama = ExtResource("1_cut8p")
@@ -150,7 +151,7 @@ material = SubResource("StandardMaterial3D_7q3no")
 
 [sub_resource type="Animation" id="Animation_eb5bk"]
 resource_name = "Crash"
-length = 20.0
+length = 21.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -314,7 +315,7 @@ tracks/13/path = NodePath("AnimationPlayer")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(12.2, 17),
+"times": PackedFloat32Array(12.2, 18),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -347,6 +348,114 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Space_ship/Flame2:emitting")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 17.1333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Space_ship/Flame3:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 17.1333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Space_ship/Flame4:emitting")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 17.1333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Space_ship/Flame2:amount")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(20),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [100]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Space_ship/Flame3:amount")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(20),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [100]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Space_ship/Flame4:amount")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(20),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [100]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Explosion/Boom:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 19.8667, 20.3667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Explosion/Fire:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 19.8667, 20.3667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Explosion/Smoke:emitting")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 19.8, 20.3667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_a8re0"]
@@ -543,6 +652,102 @@ tracks/15/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Space_ship/Flame3:emitting")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Space_ship/Flame4:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Space_ship/Flame2:amount")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1000]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Space_ship/Flame3:amount")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1000]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Space_ship/Flame4:amount")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1000]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Explosion/Boom:emitting")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Explosion/Fire:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Explosion/Smoke:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_y46a4"]
 resource_name = "Ship_crash"
@@ -731,15 +936,115 @@ material = SubResource("ShaderMaterial_o62kn")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mvl5p"]
 render_priority = 0
 shader = ExtResource("9_m4ook")
-shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/base_color = Color(0.1908, 0.126, 0.45, 0.784314)
 shader_parameter/Disolve_Height = -111.97
 shader_parameter/Noise_scale = 532.765
 shader_parameter/noise_size = 0.01
 shader_parameter/Glow_ticcc = 18.86
-shader_parameter/Edge_Color = Color(0.206, 0, 40.212, 1)
+shader_parameter/Edge_Color = Color(0, 0, 0.04, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ufi8i"]
 material = SubResource("ShaderMaterial_mvl5p")
+
+[sub_resource type="Curve" id="Curve_s1a0o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.698361, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tpv1o"]
+curve = SubResource("Curve_s1a0o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5b5vw"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_tpv1o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mprq"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.826667, 0.332322, 0.113751, 1)
+emission_enabled = true
+emission = Color(0.78248, 0.355231, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fsarf"]
+material = SubResource("StandardMaterial3D_2mprq")
+top_radius = 0.1
+bottom_radius = 0.0
+
+[sub_resource type="Gradient" id="Gradient_rrgkv"]
+colors = PackedColorArray(1, 0.913725, 0.156863, 1, 0.882353, 0.298039, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o26iw"]
+gradient = SubResource("Gradient_rrgkv")
+
+[sub_resource type="Curve" id="Curve_o645b"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 1.0092), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2l3aj"]
+curve = SubResource("Curve_o645b")
+
+[sub_resource type="Curve" id="Curve_mn0fc"]
+_data = [Vector2(0.00983606, 0.000657082), 0.0, 0.0, 0, 0, Vector2(0.262295, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fbn1a"]
+curve = SubResource("Curve_mn0fc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r0rme"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_fbn1a")
+color = Color(1, 1, 0.027451, 1)
+color_ramp = SubResource("GradientTexture1D_o26iw")
+emission_curve = SubResource("CurveTexture_2l3aj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22qxd"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_joq1j"]
+material = SubResource("StandardMaterial3D_22qxd")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_ngmvm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.64918, 0.812089), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nu6ce"]
+curve = SubResource("Curve_ngmvm")
+
+[sub_resource type="Curve" id="Curve_a6md3"]
+_data = [Vector2(0.00983606, 0.000657082), 0.0, 0.0, 0, 0, Vector2(0.262295, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wx62b"]
+curve = SubResource("Curve_a6md3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qw214"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_wx62b")
+color = Color(0.18359, 0.18359, 0.18359, 1)
+alpha_curve = SubResource("CurveTexture_nu6ce")
 
 [node name="Crash_animation" type="Node3D"]
 
@@ -748,6 +1053,7 @@ environment = SubResource("Environment_mpead")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_volumetric_fog_energy = 7.614
 shadow_enabled = true
 
 [node name="Space_ship" parent="." instance=ExtResource("1_qegrm")]
@@ -755,7 +1061,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.903, 0)
 script = ExtResource("3_4jaat")
 
 [node name="Flame2" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(-0.543444, -0.627859, -0.557191, -0.692945, 0.710178, -0.124399, 0.47381, 0.318499, -0.821013, -1.40378, 5.28666, -1.38135)
+transform = Transform3D(-0.163033, -0.188358, -0.167157, -0.207884, 0.213053, -0.0373198, 0.142143, 0.0955497, -0.246304, -1.40378, 5.28666, -1.38135)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_srfmt")
+draw_pass_1 = SubResource("QuadMesh_wbic4")
+script = ExtResource("2_yl1hm")
+
+[node name="Flame3" type="GPUParticles3D" parent="Space_ship"]
+transform = Transform3D(0.0484353, 0.0604635, -0.289824, -0.254425, 0.15868, -0.00941551, 0.1514, 0.247316, 0.0768971, 2.04436, 3.27266, 0.54187)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_srfmt")
+draw_pass_1 = SubResource("QuadMesh_wbic4")
+script = ExtResource("2_yl1hm")
+
+[node name="Flame4" type="GPUParticles3D" parent="Space_ship"]
+transform = Transform3D(-0.023506, 0.189413, -0.231453, -0.262241, -0.124678, -0.0753988, -0.143795, 0.196414, 0.175342, 1.11365, 1.69135, 0.54187)
 amount = 1000
 randomness = 1.0
 local_coords = true
@@ -765,7 +1091,7 @@ draw_pass_1 = SubResource("QuadMesh_wbic4")
 script = ExtResource("2_yl1hm")
 
 [node name="engine_flame_left" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.26108, 3.65393, 5.41037)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.44806, 5.05348, 1.05597)
 amount = 400
 lifetime = 0.7
 randomness = 1.0
@@ -775,7 +1101,7 @@ process_material = SubResource("ParticleProcessMaterial_5j008")
 draw_pass_1 = SubResource("QuadMesh_c6ane")
 
 [node name="engine_flame_right" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(1, 0, 0, 0, -0.00811572, -0.999967, 0, 0.999967, -0.00811572, 4.72518, 3.61174, 5.42914)
+transform = Transform3D(1, 0, 0, 0, -0.00811572, -0.999967, 0, 0.999967, -0.00811572, 5.52285, 4.98558, 1.07471)
 amount = 400
 lifetime = 0.7
 randomness = 1.0
@@ -794,6 +1120,7 @@ script = ExtResource("2_vos7h")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.99916, 0.0409689, 0, -0.0409689, 0.99916, 0, 0, 0, 1, 721.963, 0, 0)
+visible = false
 amount = 300
 lifetime = 0.7
 randomness = 1.0
@@ -804,6 +1131,7 @@ draw_pass_1 = SubResource("QuadMesh_c6ane")
 
 [node name="Flame" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 738.963, 0, 0)
+visible = false
 amount = 1000
 randomness = 1.0
 local_coords = true
@@ -813,6 +1141,7 @@ draw_pass_1 = SubResource("QuadMesh_wbic4")
 
 [node name="Flame2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 760.547, 0, 0)
+visible = false
 randomness = 1.0
 local_coords = true
 draw_order = 3
@@ -821,6 +1150,7 @@ draw_pass_1 = SubResource("QuadMesh_wbic4")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.09977, 0, 0, 0, 1, 717.165, 36.9615, -101.357)
+visible = false
 amount = 17
 lifetime = 0.46
 trail_lifetime = 1.29
@@ -831,7 +1161,7 @@ draw_pass_1 = SubResource("TorusMesh_n4n0b")
 transform = Transform3D(0.474242, 0, -0.880395, -0.229376, 0.965464, -0.123558, 0.849989, 0.260538, 0.457863, -668.107, 118.684, -889.992)
 
 [node name="Planet2" parent="." instance=ExtResource("6_jldjv")]
-transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.0773795, -0.820754, 0.361096, -0.442688, 494.844, 36.2598, 971.145)
+transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.0773795, -0.820754, 0.361096, -0.442688, 615.513, 36.2598, 971.145)
 
 [node name="test_island" parent="." instance=ExtResource("7_4agym")]
 transform = Transform3D(0.114999, 0, 0, 0, 0.114999, 0, 0, 0, 0.114999, 6.28857, 40.9362, 94.8264)
@@ -844,12 +1174,56 @@ spot_range = 38.1845
 spot_attenuation = 0.55
 spot_angle = 39.6842
 
+[node name="test_island2" parent="." instance=ExtResource("7_4agym")]
+transform = Transform3D(0.0735339, 0.0164121, -0.0868802, -0.010603, 0.113822, 0.0125274, 0.0877788, 0, 0.0742944, 65.0481, 19.8081, -37.4942)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="test_island2"]
+transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
+light_energy = 16.0
+light_indirect_energy = 0.0
+spot_range = 38.1845
+spot_attenuation = 0.55
+spot_angle = 39.6842
+
+[node name="test_island3" parent="." instance=ExtResource("7_4agym")]
+transform = Transform3D(0.113974, 0.0117049, -0.00988378, -0.010603, 0.113822, 0.0125274, 0.0110577, -0.0115044, 0.113887, -130.073, 19.8081, -15.5907)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="test_island3"]
+transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
+light_energy = 16.0
+light_indirect_energy = 0.0
+spot_range = 38.1845
+spot_attenuation = 0.55
+spot_angle = 39.6842
+
+[node name="test_island4" parent="." instance=ExtResource("7_4agym")]
+transform = Transform3D(0.102339, -0.00547786, -0.0521677, 0.00780163, 0.114688, 0.00326199, 0.0518711, -0.00644198, 0.102434, -31.3702, 54.8548, -45.3319)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="test_island4"]
+transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
+light_energy = 16.0
+light_indirect_energy = 0.0
+spot_range = 38.1845
+spot_attenuation = 0.55
+spot_angle = 39.6842
+
+[node name="test_island5" parent="." instance=ExtResource("7_4agym")]
+transform = Transform3D(0.109778, 0.00172238, -0.0342135, 0.00793962, 0.110447, 0.0310353, 0.0333242, -0.0319884, 0.105314, 56.7202, 78.2948, 25.3891)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="test_island5"]
+transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
+light_energy = 16.0
+light_indirect_energy = 0.0
+spot_range = 38.1845
+spot_attenuation = 0.55
+spot_angle = 39.6842
+
 [node name="Camera_High" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.44728, 14.6779)
 fov = 60.0
 
 [node name="Camera_Low" type="Camera3D" parent="."]
-transform = Transform3D(-1, -1.33969e-06, -2.1523e-06, 0, 0.848972, -0.528438, 2.53518e-06, -0.528438, -0.848972, 5.125, 43.838, 89.98)
+transform = Transform3D(-1, -1.33969e-06, -2.1523e-06, 0, 0.848972, -0.528438, 2.53518e-06, -0.528438, -0.848972, 5.125, 46.713, 89.98)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0)
@@ -858,3 +1232,45 @@ mesh = SubResource("SphereMesh_i1ntd")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 0, 0, 0)
 mesh = SubResource("SphereMesh_ufi8i")
+
+[node name="rock1" parent="." instance=ExtResource("11_7pd81")]
+transform = Transform3D(0.299791, 0, -0.400156, 0, 0.5, 0, 0.400156, 0, 0.299791, 4.04101, 41.9289, 90.3812)
+
+[node name="rock2" parent="." instance=ExtResource("11_7pd81")]
+transform = Transform3D(0.205873, -0.363461, -0.274795, 0.217925, 0.34336, -0.290883, 0.400156, 0, 0.299791, 3.66515, 41.9289, 90.3812)
+
+[node name="rock3" parent="." instance=ExtResource("11_7pd81")]
+transform = Transform3D(-0.423493, 0.265784, -0.00354135, 0.217925, 0.34336, -0.290883, -0.152192, -0.247917, -0.406663, 6.98415, 41.9289, 90.3812)
+
+[node name="rock4" parent="." instance=ExtResource("11_7pd81")]
+transform = Transform3D(-0.423493, 0.265784, -0.00354135, 0.217925, 0.34336, -0.290883, -0.152192, -0.247917, -0.406663, 12.1898, 40.0196, 100.519)
+
+[node name="Explosion" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53869, 42.3538, 93.179)
+
+[node name="Boom" type="GPUParticles3D" parent="Explosion"]
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5b5vw")
+draw_pass_1 = SubResource("CylinderMesh_fsarf")
+
+[node name="Fire" type="GPUParticles3D" parent="Explosion"]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_r0rme")
+draw_pass_1 = SubResource("SphereMesh_joq1j")
+
+[node name="Smoke" type="GPUParticles3D" parent="Explosion"]
+amount = 12
+lifetime = 2.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_qw214")
+draw_pass_1 = SubResource("SphereMesh_joq1j")

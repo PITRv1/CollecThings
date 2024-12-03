@@ -31,6 +31,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	rope_gen.visible = false
 	alma_end.global_position = alma.global_position
+	clips = weapon_settings.mag_size
 	ini_rot = self.rotation
 	
 

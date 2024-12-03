@@ -13,6 +13,7 @@ mesh = SubResource("ImmediateMesh_k2hb3")
 script = ExtResource("1_sbayx")
 isDrawing = true
 point_count = 10
+firstTime = true
 rope_width = 0.05
 
 [node name="burger" type="Node3D" parent="."]

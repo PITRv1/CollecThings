@@ -12,10 +12,7 @@ var anim_time = null
 
 func _ready():
 	current_camera = camera_high
-
 	
-	
-		
 	
 func switch_camera():
 	

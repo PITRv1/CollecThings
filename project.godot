@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CollecThings"
-run/main_scene="res://Maps/Main menu/Main_menu.tscn"
+run/main_scene="res://Cinematics/2D intros/game_intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Assets/Images/logo.png"
@@ -21,6 +21,7 @@ boot_splash/fullsize=false
 
 Global="*res://global.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
+AudioPlayer="*res://Assets/AudioPlayer/AudioPlayer.tscn"
 
 [display]
 

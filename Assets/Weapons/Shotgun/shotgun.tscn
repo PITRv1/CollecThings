@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btpmyjub568re"]
+[gd_scene load_steps=11 format=3 uid="uid://btpmyjub568re"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Shotgun/shotgun_main.gd" id="1_jsstv"]
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
@@ -616,11 +616,13 @@ _data = {
 
 [sub_resource type="SphereMesh" id="SphereMesh_qfnc1"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_6aue5"]
+
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_jsstv")
 grapple_type = 1
 GRAPPLE_FORCE_MAX = 30.0
-alma_speed = 15.0
+alma_speed = 150.0
 bald_speed = 25.0
 weapon_settings = ExtResource("2_54bu2")
 animation_player = NodePath("AnimationPlayer")
@@ -662,8 +664,14 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -0.85
 mesh = SubResource("SphereMesh_qfnc1")
 
 [node name="RayCast3D" type="RayCast3D" parent="Shotgun/alma"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.197476, 0, 0.779523)
 target_position = Vector3(0, 0, -1)
 collision_mask = 9
+hit_from_inside = true
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Shotgun/alma"]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0.997596, 0)
+shape = SubResource("SphereShape3D_6aue5")
 
 [node name="alma_pos" type="MeshInstance3D" parent="Shotgun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858, -1.126)

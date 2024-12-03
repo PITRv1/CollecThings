@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=75 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
@@ -14,7 +14,6 @@
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ybvnx"]
 panorama = ExtResource("1_cut8p")
-energy_multiplier = 1.5
 
 [sub_resource type="Sky" id="Sky_qix8o"]
 sky_material = SubResource("PanoramaSkyMaterial_ybvnx")
@@ -457,6 +456,18 @@ tracks/24/keys = {
 "update": 1,
 "values": [false, false, true]
 }
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("WorldEnvironment:environment:sky:sky_material:energy_multiplier")
+tracks/25/interp = 1
+tracks/25/loop_wrap = false
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_a8re0"]
 length = 0.001
@@ -748,6 +759,18 @@ tracks/23/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("WorldEnvironment:environment:sky:sky_material:energy_multiplier")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_y46a4"]
 resource_name = "Ship_crash"
@@ -825,11 +848,29 @@ tracks/5/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_nqwil"]
+resource_name = "stars"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:sky:sky_material:energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 2.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4duxc"]
 _data = {
 "Crash": SubResource("Animation_eb5bk"),
 "RESET": SubResource("Animation_a8re0"),
-"Ship_crash": SubResource("Animation_y46a4")
+"Ship_crash": SubResource("Animation_y46a4"),
+"stars": SubResource("Animation_nqwil")
 }
 
 [sub_resource type="Curve" id="Curve_erukg"]

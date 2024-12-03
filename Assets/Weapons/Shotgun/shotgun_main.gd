@@ -11,7 +11,9 @@ extends  BaseWeapon
 @export_enum("Pulls player", "Constant distance") var grapple_type: int = 0
 @export var GRAPPLE_RAY_MAX : float = 30.0
 @export var GRAPPLE_FORCE_MAX : float = 20.0
+@export var alma_speed := 30.0
 var ray
+var t
 var grapple_raycast_hit
 var grapple_hook_position
 var is_grappling : bool
@@ -30,7 +32,83 @@ func _ready() -> void:
 	ini_rot = self.rotation
 	
 
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
+	#if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go:
+		#
+		#charge += delta
+		#kurbli.rotation.x += -5 * delta
+			#
+	#elif Input.is_action_just_released("secondary_fire") and not rope_go:
+		#var camera = get_viewport().get_camera_3d()
+		#pos = camera.global_position + camera.global_transform.basis.z * -GRAPPLE_RAY_MAX * charge
+		#if not rope_go and not rope_go_back and not is_grappling:
+			#roycast.look_at(pos)
+			#rope_gen.SetPlayerPosition(player.global_position)
+			#rope_gen.SetGrappleHookPosition(alma_end.global_position)
+			#rope_gen.StartDrawing()
+			#rope_go = true
+		#else:
+			#remote_transform.queue_free()
+			#remote_transform = RemoteTransform3D.new()
+			#is_grappling = false
+			#rope_go = false
+			#rope_go_back = true
+	#if rope_go:
+		#alma_end.top_level = true
+		#t = get_tree().create_tween()
+		#t.tween_property(alma_end, "global_position", pos, alma_end.global_position.distance_to(pos)/alma_speed)
+		#self.look_at(alma_end.global_position)
+		#rope_gen.visible = true
+		#rope_gen.SetPlayerPosition(alma.global_position)
+		#rope_gen.SetGrappleHookPosition(alma_end.global_position)
+		#roycast.force_raycast_update()
+		#if roycast.is_colliding():
+			#t.kill()
+			#print("apple")
+			#print(t)
+			#helper = alma_end.global_position
+			#is_grappling = true
+			#rope_go = false
+		#elif alma_end.global_position == pos:
+			#rope_go = false
+			#rope_go_back = true
+		#
+	#if is_grappling:
+		#if roycast.is_colliding():
+			#alma_end.top_level = true
+			#roycast.get_collider().add_child(remote_transform)
+			#remote_transform.global_transform = alma_end.global_transform
+			#remote_transform.remote_path = remote_transform.get_path_to(alma_end)
+		#alma_end.top_level = true
+		#rope_go = false
+		#rope_go_back = false
+		#self.look_at(alma_end.global_position)
+		#rope_gen.SetPlayerPosition(alma.global_position)
+		#rope_gen.SetGrappleHookPosition(alma_end.global_position)
+		#if grapple_type == 0:
+			#var grapple_dir = (alma_end.global_position - player.global_position).normalized()
+			#var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX * 5
+				#
+			#var grapple_dif = (grapple_target_speed - player.velocity)
+				#
+			#player.velocity += grapple_dif * delta
+		#if player.global_position.distance_to(alma_end.global_position) < 3:
+			#is_grappling = false
+			#rope_go_back = true
+#
+	#if rope_go_back:
+		#alma_end.top_level = true
+		#rope_gen.visible = true
+		#self.rotation = ini_rot
+		#rope_gen.SetPlayerPosition(alma.global_position)
+		#rope_gen.SetGrappleHookPosition(alma_end.global_position)
+		#alma_end.global_position = alma_end.global_position.move_toward(alma.global_position, delta*10)
+		#if alma_end.global_position == alma.global_position:
+			#alma_end.top_level = false
+			#charge = 0.0
+			#rope_go_back = false
+		
+func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go:
 		
 		charge += delta
@@ -53,17 +131,27 @@ func _process(delta: float) -> void:
 			rope_go_back = true
 	if rope_go:
 		alma_end.top_level = true
-		alma_end.global_position = alma_end.global_position.move_toward(pos, delta*10)
+		if not t:
+			t = get_tree().create_tween()
+			t.tween_property(alma_end, "global_position", pos, alma_end.global_position.distance_to(pos)/alma_speed)
 		self.look_at(alma_end.global_position)
 		rope_gen.visible = true
 		rope_gen.SetPlayerPosition(alma.global_position)
 		rope_gen.SetGrappleHookPosition(alma_end.global_position)
 		roycast.force_raycast_update()
 		if roycast.is_colliding():
+			t.stop()
+			t.kill()
+			t = null
+			print("apple")
+			print(t)
 			helper = alma_end.global_position
 			is_grappling = true
 			rope_go = false
 		elif alma_end.global_position == pos:
+			t.stop()
+			t.kill()
+			t = null
 			rope_go = false
 			rope_go_back = true
 		
@@ -76,7 +164,6 @@ func _process(delta: float) -> void:
 		alma_end.top_level = true
 		rope_go = false
 		rope_go_back = false
-		self.look_at(alma_end.global_position)
 		rope_gen.SetPlayerPosition(alma.global_position)
 		rope_gen.SetGrappleHookPosition(alma_end.global_position)
 		if grapple_type == 0:
@@ -93,16 +180,14 @@ func _process(delta: float) -> void:
 	if rope_go_back:
 		alma_end.top_level = true
 		rope_gen.visible = true
-		self.rotation = ini_rot
 		rope_gen.SetPlayerPosition(alma.global_position)
 		rope_gen.SetGrappleHookPosition(alma_end.global_position)
-		alma_end.global_position = alma_end.global_position.move_toward(alma.global_position, delta*10)
+		alma_end.global_position = alma_end.global_position.move_toward(alma.global_position, delta*alma_speed*2)
 		if alma_end.global_position == alma.global_position:
 			alma_end.top_level = false
 			charge = 0.0
+			is_grappling = false
 			rope_go_back = false
-		
-func _physics_process(delta: float) -> void:
 		
 	 #If not pulling
 	if is_grappling and grapple_type == 1:

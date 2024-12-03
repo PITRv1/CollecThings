@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://dummevp0yxccs"]
+
+[ext_resource type="Texture2D" uid="uid://bop4cgo85b7vp" path="res://Assets/Images/undefined.png" id="1_gvusa"]
+[ext_resource type="Script" path="res://Cinematics/2D intros/team_intro.gd" id="1_p75rk"]
+[ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="2_u48ve"]
+
+[sub_resource type="Animation" id="Animation_l3pas"]
+resource_name = "fade_in_out"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.33333, 4.2, 5.9),
+"transitions": PackedFloat32Array(5.65685, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 3.73333),
+"transitions": PackedFloat32Array(0.615573, 0.277392),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_f2t5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2u3o6"]
+_data = {
+"RESET": SubResource("Animation_f2t5c"),
+"fade_in_out": SubResource("Animation_l3pas")
+}
+
+[node name="TeamIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p75rk")
+metadata/_edit_use_anchors_ = true
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -362.5
+offset_top = -123.0
+offset_right = 362.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_gvusa")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -5.0
+offset_right = 123.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_u48ve")
+theme_override_font_sizes/font_size = 41
+text = "Csapat"
+
+[node name="fg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2u3o6")
+}
+autoplay = "fade_in_out"

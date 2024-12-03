@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://b0jubqqbdp1yb"]
+[gd_scene load_steps=36 format=3 uid="uid://b0jubqqbdp1yb"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_4ngx7"]
+[ext_resource type="Script" path="res://Cinematics/intro.gd" id="1_t1jb2"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="2_8h5s1"]
 [ext_resource type="Script" path="res://Cinematics/flame_2.gd" id="3_ihei3"]
 [ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Cinematics/Planet.tscn" id="4_ntj0n"]
@@ -114,7 +115,7 @@ tracks/1/path = NodePath("Camera_back:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.175, 5.9, 8.76667, 11.0333),
+"times": PackedFloat32Array(1.175, 6.53333, 9.36667, 14.4667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(6.48499e-05, 10.854, 98.3901), Vector3(-41, 10, 0), Vector3(36.5, 10.854, -55.4), Vector3(250.367, 8.54, -57.357)]
@@ -126,7 +127,7 @@ tracks/2/path = NodePath("Camera_back:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.15833, 5.93333, 8.76667, 11.1),
+"times": PackedFloat32Array(1.15833, 5.93333, 10.1, 14.9333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.0472, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.74707, 0)]
@@ -326,6 +327,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_l8n3b")
 
 [node name="Intro" type="Node3D"]
+script = ExtResource("1_t1jb2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.374607, -0.348829, 0.859062, 0, 0.926529, 0.376224, -0.927184, 0.140936, -0.347084, 0, 0, 0)
@@ -354,7 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.2534)
 curve = SubResource("Curve3D_rpuqm")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999772, 2.89417e-05, -0.00185155, -2.72787e-12, 0.999665, 0.015627, 0.00185168, -0.0156264, 0.999702, -0.118484, 0, 31.7192)
+transform = Transform3D(0.999771, 2.89417e-05, -0.00185155, -2.72786e-12, 0.999665, 0.015627, 0.00185168, -0.0156264, 0.999702, -0.118484, 0, 31.7192)
 
 [node name="Space_ship" parent="Path3D/PathFollow3D" instance=ExtResource("2_8h5s1")]
 transform = Transform3D(0.999952, 1.86252e-09, 0.0106766, -1.86265e-09, 1, 1.73473e-18, -0.0106766, -1.98864e-11, 0.999952, 0.152138, 5.00002, 25.1137)

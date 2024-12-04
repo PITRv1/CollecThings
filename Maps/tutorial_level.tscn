@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=88 format=3 uid="uid://cvsbulx0h8dn7"]
 
 [ext_resource type="Script" path="res://Maps/Tutorial Map/tutorial_level.gd" id="1_na3iy"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
@@ -767,6 +767,9 @@ _data = {
 "RESET": SubResource("Animation_jcjel")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xubbt"]
+size = Vector3(12.731, 9.05188, 13.4436)
+
 [node name="Tutorial Level" type="Node3D"]
 script = ExtResource("1_na3iy")
 
@@ -1008,7 +1011,14 @@ libraries = {
 "": SubResource("AnimationLibrary_k184i")
 }
 
+[node name="TEMP_load_next_level" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TEMP_load_next_level"]
+transform = Transform3D(0.723196, 0, 0.690643, 0, 1, 0, -0.690643, 0, 0.723196, -12.94, 96.4562, 130.342)
+shape = SubResource("BoxShape3D_xubbt")
+
 [connection signal="area_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
+[connection signal="area_entered" from="TEMP_load_next_level" to="." method="_on_temp_load_next_level_area_entered"]
 
 [editable path="NavigationRegion3D/Environment/Space_ship"]
 [editable path="NavigationRegion3D/Environment/Space_ship/Space_ship"]

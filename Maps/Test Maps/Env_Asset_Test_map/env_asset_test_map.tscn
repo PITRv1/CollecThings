@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=42 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
 [ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/killbox.tscn" id="9_xdoes"]
-[ext_resource type="PackedScene" uid="uid://cdf0dpy3d18hb" path="res://Assets/Models/Vehicles/Space_shipV2.glb" id="10_vbf7h"]
+[ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="11_5jvmd"]
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="11_bbx8q"]
+[ext_resource type="Script" path="res://Cinematics/flame_2.gd" id="12_nenbi"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -74,6 +75,129 @@ subdivide_depth = 100
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yy5y5"]
 size = Vector3(458.802, 0.758789, 499.972)
+
+[sub_resource type="Curve" id="Curve_wi0tu"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.428571, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lwkiv"]
+curve = SubResource("Curve_wi0tu")
+
+[sub_resource type="Curve" id="Curve_bci4g"]
+_data = [Vector2(0, 0.102641), 0.0, 0.0, 0, 0, Vector2(0.243161, 1), 0.0, 0.0, 0, 0, Vector2(0.984802, 0.508403), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k6iak"]
+curve = SubResource("Curve_bci4g")
+
+[sub_resource type="Curve" id="Curve_lf44u"]
+_data = [Vector2(0.00293256, 0.0500575), 0.0, 0.0, 0, 0, Vector2(0.486804, 0.364212), 0.0, 0.0, 0, 0, Vector2(0.753666, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5yrv0"]
+curve = SubResource("Curve_lf44u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ndpu8"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+angle_curve = SubResource("CurveTexture_lwkiv")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 3.99998
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.0
+radial_velocity_min = 0.999978
+radial_velocity_max = 2.99998
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 5.0
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_k6iak")
+turbulence_enabled = true
+turbulence_noise_strength = 1.9
+turbulence_influence_over_life = SubResource("CurveTexture_5yrv0")
+
+[sub_resource type="Gradient" id="Gradient_vum4l"]
+offsets = PackedFloat32Array(0, 0.386885, 0.934426)
+colors = PackedColorArray(0.651184, 0, 0.0461743, 1, 0.998252, 0.621656, 0.502061, 1, 0.904799, 0.473779, 9.62615e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s3ap2"]
+gradient = SubResource("Gradient_vum4l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g66pw"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture1D_s3ap2")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_08j0h"]
+material = SubResource("StandardMaterial3D_g66pw")
+
+[sub_resource type="Gradient" id="Gradient_cjm8m"]
+offsets = PackedFloat32Array(0.0299003, 1)
+colors = PackedColorArray(0.263827, 0.472193, 0.999055, 1, 0.959988, 0.513522, 0.416603, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xkgqe"]
+gradient = SubResource("Gradient_cjm8m")
+
+[sub_resource type="Curve" id="Curve_w54ae"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.319149, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.570828), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g638f"]
+curve = SubResource("Curve_w54ae")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ijo5j"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 5.0
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_g638f")
+color_initial_ramp = SubResource("GradientTexture1D_xkgqe")
+turbulence_noise_scale = 10.0
+turbulence_noise_speed_random = 0.4
+turbulence_initial_displacement_min = 0.100001
+turbulence_initial_displacement_max = 0.100001
+
+[sub_resource type="Gradient" id="Gradient_ijpyx"]
+offsets = PackedFloat32Array(0, 0.337705, 1)
+colors = PackedColorArray(3.56168e-06, 0, 0.773407, 1, 0.146962, 0.0337854, 0.606047, 1, 0.329195, 0.390752, 0.980416, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0cswc"]
+gradient = SubResource("Gradient_ijpyx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7q3no"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture1D_0cswc")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_x8xfv"]
+material = SubResource("StandardMaterial3D_7q3no")
 
 [node name="Env Asset Test Map" type="Node3D"]
 
@@ -139,7 +263,7 @@ transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, 
 transform = Transform3D(0.284501, 0, -0.958676, 0, 1, 0, 0.958676, 0, 0.284501, 1.95845, 0.638242, 36.3226)
 
 [node name="SpiderBot" parent="NavigationRegion3D" instance=ExtResource("11_bbx8q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.559902, 1.62538, -2.67701)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98, 1.515, -2.677)
 move_speed = 5.0
 
 [node name="Water" type="MeshInstance3D" parent="."]
@@ -151,9 +275,6 @@ mesh = SubResource("PlaneMesh_362e4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
 shape = SubResource("BoxShape3D_yy5y5")
 
-[node name="Space_shipV2" parent="." instance=ExtResource("10_vbf7h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.334, -1.9479, 62.6106)
-
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Basic_enemy" parent="Enemies" instance=ExtResource("7_hahxq")]
@@ -161,155 +282,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, 0)
 player_path = NodePath("../../Player")
 
 [node name="Basic_enemy2" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.75524, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0921, -1.79157, -0.817566)
 player_path = NodePath("../../Player")
 
 [node name="Basic_enemy3" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 4.6396, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.33706, -1.95461, -1.72128)
 player_path = NodePath("../../Player")
 
 [node name="Basic_enemy4" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 7.81262, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87443, -2.43819, -2.68989)
 player_path = NodePath("../../Player")
 
 [node name="Basic_enemy5" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 11.325, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy6" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 14.9665, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy7" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 19.3755, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy8" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 23.8152, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy9" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 28.4181, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy10" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 33.7632, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy11" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 39.0875, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy12" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 44.4203, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy13" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 48.9208, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy14" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, -1.97122, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy15" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 1.75524, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy16" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 4.6396, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy17" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 7.81262, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy18" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 11.325, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy19" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 14.9665, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy20" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 19.3755, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy21" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 23.8152, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy22" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 28.4181, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy23" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 33.7632, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy24" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 39.0875, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy25" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 44.4203, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy26" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7309, 48.9208, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy27" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, -1.97122, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy28" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 1.75524, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy29" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 4.6396, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy30" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 7.81262, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy31" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 11.325, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy32" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 14.9665, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy33" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 19.3755, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy34" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 23.8152, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy35" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 28.4181, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy36" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 33.7632, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy37" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 39.0875, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy38" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 44.4203, 0)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy39" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34141, 48.9208, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.294, -1.8676, -2.2137)
 player_path = NodePath("../../Player")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -321,3 +306,56 @@ size = Vector3(2.63184, 19.2369, 33.8546)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0806, 15.2578, 0.912842)
 use_collision = true
 size = Vector3(15.8691, 1, 30.145)
+
+[node name="Space_ship" parent="." instance=ExtResource("11_5jvmd")]
+transform = Transform3D(0.943701, -0.308491, 0.119423, 0.281592, 0.938594, 0.199368, -0.173593, -0.154515, 0.97262, 9.356, -3.0843, 40.231)
+
+[node name="Flame" type="GPUParticles3D" parent="Space_ship"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.652098, -0.758134, 0, 0.758134, 0.652098, 4.01284, 4.45555, 6.292)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="Flame2" type="GPUParticles3D" parent="Space_ship"]
+transform = Transform3D(2.565, -1.67638e-08, 0, -8.9407e-08, 0.999999, -5.96046e-08, 0, -1.49012e-08, 2.565, -5.08201, 1.81502, 5.999)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="Flame3" type="GPUParticles3D" parent="Space_ship"]
+transform = Transform3D(2.565, -3.53903e-08, 5.96046e-08, -3.8743e-07, 0.999999, -8.9407e-08, -5.96046e-08, 1.49012e-08, 2.565, 0.288672, -1.78669, 5.85553)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="Flame4" type="GPUParticles3D" parent="Space_ship"]
+transform = Transform3D(2.565, -3.53903e-08, 5.96046e-08, -3.8743e-07, 0.999999, -8.9407e-08, -5.96046e-08, 1.49012e-08, 2.565, -0.779178, 0.509292, -3.44534)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="BlueFlame" type="GPUParticles3D" parent="Space_ship"]
+transform = Transform3D(6.67, -1.04308e-07, 1.11759e-08, -8.9407e-07, 3.425, -1.11759e-08, -5.96046e-07, 0, 0.27, 4.79228, 5.08486, 0.218754)
+amount = 400
+lifetime = 0.7
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ijo5j")
+draw_pass_1 = SubResource("QuadMesh_x8xfv")

@@ -216,8 +216,8 @@ custom_minimum_size = Vector2(11, 11)
 layout_mode = 2
 
 [node name="GunUtility" parent="CenterContainer/HBoxContainer" instance=ExtResource("21_tnftj")]
-position = Vector2(13, 6)
-scale = Vector2(1.5, 1.5)
+position = Vector2(13, 5.75)
+scale = Vector2(1.53, 1.5)
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="dash_finished"]

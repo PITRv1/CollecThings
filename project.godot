@@ -25,6 +25,7 @@ AudioPlayer="*res://Assets/AudioPlayer/AudioPlayer.tscn"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

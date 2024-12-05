@@ -624,6 +624,8 @@ grapple_type = 1
 GRAPPLE_FORCE_MAX = 30.0
 alma_speed = 75.0
 bald_speed = 25.0
+rest_length = 10.0
+stiffness = 15.0
 weapon_settings = ExtResource("2_54bu2")
 animation_player = NodePath("AnimationPlayer")
 projectile_origin = NodePath("Marker3D")
@@ -677,5 +679,6 @@ shape = SubResource("SphereShape3D_6aue5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858, -1.126)
 
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
+firstTime = false
 
 [editable path="Shotgun"]

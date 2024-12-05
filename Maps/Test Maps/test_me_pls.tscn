@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctmmmanb706ft"]
+[gd_scene load_steps=15 format=3 uid="uid://ctmmmanb706ft"]
 
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="1_lb8sp"]
 [ext_resource type="Texture2D" uid="uid://dee3kggjavdua" path="res://Assets/Test assets/Test Textures/Petha_1m x 1m Dark Gary.png" id="2_o8fry"]
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="3_1bdfg"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="4_6y5q3"]
+[ext_resource type="Script" path="res://Maps/Test Maps/pin_joint_3d.gd" id="5_p336p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yi62l"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,17 +29,33 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 albedo_texture = ExtResource("2_o8fry")
 uv1_triplanar = true
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ixw74"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_710ao"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nv4fl"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1xt3j"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
 [node name="Test me pls" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4818x")
 
 [node name="Player" parent="." instance=ExtResource("1_lb8sp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591215, -4.8152, 0.112679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591215, 0.1848, 0.112679)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+
+[node name="PinJoint3D" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4894, -2)
+node_a = NodePath("../RigidBody3D")
+params/impulse_clamp = 1.0
+script = ExtResource("5_p336p")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7754, 2.97404, -71.3207)
@@ -78,3 +95,23 @@ size = Vector3(2.86, 1.62, 3.61)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.41613, -6.19855, -3.90688)
 use_collision = true
 size = Vector3(2.86, 1.62, 3.61)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5457, 14.6698, -4.33056)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("CapsuleMesh_ixw74")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_710ao")
+disabled = true
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+mesh = SubResource("CapsuleMesh_nv4fl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+shape = SubResource("ConvexPolygonShape3D_1xt3j")

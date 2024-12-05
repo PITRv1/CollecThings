@@ -8,10 +8,13 @@ extends  BaseWeapon
 @onready var alma_end: MeshInstance3D = $Shotgun/alma
 @onready var roycast: RayCast3D = $Shotgun/alma/RayCast3D
 @onready var remote_transform := RemoteTransform3D.new()
+@onready var joint: Generic6DOFJoint3D = $Generic6DOFJoint3D
 @export_enum("Pulls player", "Constant distance") var grapple_type: int = 0
 @export var GRAPPLE_RAY_MAX : float = 30.0
 @export var GRAPPLE_FORCE_MAX : float = 20.0
 @export var alma_speed := 30.0
+@onready var prev_pos
+var grapple_anchor
 var ray
 var is_enemy_grapple := false
 var t
@@ -28,12 +31,17 @@ var start := false
 @export var is_enemy_grapple_enabled := false
 @export var bald_speed : float = 5
 
+@export var rest_length := 2.0
+@export var stiffness = 10.0
+@export var dampning = 1.0
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	rope_gen.visible = false
 	alma_end.global_position = alma.global_position
 	clips = weapon_settings.mag_size
 	ini_rot = self.rotation
+	prev_pos = player.transform.origin
 	
 
 #func _process(delta: float) -> void:
@@ -118,7 +126,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go and charge <= 5:
 		
 		print(charge)
-		charge += delta
+		charge += delta * 2
 		kurbli.rotation.x += -5 * delta
 		
 	if Input.is_action_just_pressed("slot_2"):
@@ -145,6 +153,7 @@ func _physics_process(delta: float) -> void:
 			is_grappling = false
 			rope_go = false
 			rope_go_back = true
+			start = false
 	if rope_go:
 		alma_end.top_level = true
 		alma_end.look_at(pos)
@@ -159,15 +168,16 @@ func _physics_process(delta: float) -> void:
 		if roycast.is_colliding():
 			alma_end.global_position = roycast.get_collision_point()
 			print("apple")
-			helper = alma_end.global_position
+			helper = player.global_position
 			if roycast.get_collider().is_in_group("enemy") and is_enemy_grapple_enabled:
 				is_enemy_grapple = true
 				rope_go = false
 				start = false
 			else:
+				start = true
 				is_grappling = true
-				start = false
 				rope_go = false
+				rest_length = player.global_position.distance_to(alma_end.global_position)
 		elif alma_end.global_position.distance_to(pos) <= 2:
 			rope_go = false
 			rope_go_back = true
@@ -196,7 +206,7 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.distance_to(alma_end.global_position) < 3:
 			is_enemy_grapple = false
 			rope_go_back = true
-		
+			
 	if is_grappling:
 		if roycast.is_colliding():
 			alma_end.top_level = true
@@ -234,11 +244,30 @@ func _physics_process(delta: float) -> void:
 		
 	 #If not pulling
 	if is_grappling and grapple_type == 1:
-		var rope_vector = player.global_position - alma_end.global_position
-		var rope_distance = rope_vector.length()
-		if rope_distance > helper.distance_to(alma_end.global_position):
-			var rope_force = 50 * (rope_distance - helper.distance_to(alma_end.global_position)/2)
-			player.velocity += rope_vector.normalized() * -rope_force * delta / 20	
+		
+		var target_dir = player.global_position.direction_to(alma_end.global_position)
+		var target_dist = player.global_position.distance_to(alma_end.global_position)
+		
+		var displacement = target_dist - rest_length
+		
+		var input_dir = Input.get_vector("left", "right", "up", "down").normalized()
+		
+		var force = Vector3.ZERO
+		
+		if displacement > 0:
+			var spring_force_magnitude = stiffness * displacement
+			var spring_force = target_dir * spring_force_magnitude
+			
+			var vel_dot = player.velocity.dot(target_dir)
+			var damping = -dampning * vel_dot * target_dir
+			
+			force = spring_force + damping
+		
+		if input_dir.y == -1:
+			force += Vector3.FORWARD * 1
+			
+		player.velocity += force * delta
+
 		
 	#rope_gen.SetGrappleHookPosition(alma_end.global_position)
 	#if is_grappling and Input.is_action_pressed("secondary_fire"):

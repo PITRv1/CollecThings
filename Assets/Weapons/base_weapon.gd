@@ -6,7 +6,7 @@ class_name BaseWeapon
 @export var projectile_origin: Marker3D
 @export var cooldown_timer: Timer
 
-var player : Node3D
+var player : CharacterBody3D
 var length := 100.0
 
 var camera : Camera3D

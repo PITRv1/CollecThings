@@ -1486,6 +1486,9 @@ transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2
 [node name="Ammo4" parent="Shotgun/Recharger" index="3"]
 transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2.93408e-09, 3.54326e-07, 1.13607e-06, 0.102245, -0.677994, -0.147965, 1.50727)
 
+[node name="Barometer" parent="Shotgun" index="9"]
+transform = Transform3D(6.2768e-09, 0.000134237, 0.0287182, 0.0263268, 4.95642e-10, -6.85344e-09, -7.846e-10, 0.0177049, -0.000217739, -0.634738, 0.285617, 0.199968)
+
 [node name="Kurbli" parent="Shotgun" index="10"]
 transform = Transform3D(5.14674e-09, -0.117744, 1.02935e-08, -0.117744, -5.14674e-09, 0, 4.49942e-16, -1.02935e-08, -0.117744, 0.617057, -0.0451915, 0.930737)
 
@@ -1507,5 +1510,6 @@ shape = SubResource("SphereShape3D_6aue5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858, -1.126)
 
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
+firstTime = true
 
 [editable path="Shotgun"]

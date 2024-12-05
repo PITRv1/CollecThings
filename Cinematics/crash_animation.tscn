@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=76 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Cinematics/Planet2.tscn" id="6_jldjv"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="8_f65px"]
+[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="9_fjdk2"]
 [ext_resource type="Shader" uid="uid://crqb62fj4xmgm" path="res://Assets/Shaders/disolve.tres" id="9_m4ook"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="11_7pd81"]
 
@@ -1207,6 +1208,12 @@ transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.07
 [node name="test_island" parent="." instance=ExtResource("7_4agym")]
 transform = Transform3D(0.114999, 0, 0, 0, 0.114999, 0, 0, 0, 0.114999, 6.28857, 40.9362, 94.8264)
 
+[node name="sphere_tree" parent="test_island" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(2.52561, 0, 0, 0, 2.52561, 0, 0, 0, 2.52561, 36.2135, 8.87915, 12.7122)
+
+[node name="sphere_tree2" parent="test_island" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(2.52561, 0, 0, 0, 2.52561, 0, 0, 0, 2.52561, -78.3994, 8.24408, -18.6407)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="test_island"]
 transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
 light_energy = 16.0
@@ -1217,6 +1224,15 @@ spot_angle = 39.6842
 
 [node name="test_island2" parent="." instance=ExtResource("7_4agym")]
 transform = Transform3D(0.0735339, 0.0164121, -0.0868802, -0.010603, 0.113822, 0.0125274, 0.0877788, 0, 0.0742944, 65.0481, 19.8081, -37.4942)
+
+[node name="sphere_tree" parent="test_island2" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(0.961046, -3.58953e-08, -1.19209e-07, 3.32846e-08, 1.41817, -5.08866e-08, 1.19209e-07, -2.86792e-09, 1.04602, -28.2932, 2.66203, 33.4285)
+
+[node name="sphere_tree3" parent="test_island2" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(1.68536, -1.06968e-07, -2.38419e-07, 1.85358e-07, 1.94298, -7.25625e-08, 2.38419e-07, -7.99654e-09, 0.707515, 32.9976, 9.00604, 27.6635)
+
+[node name="sphere_tree2" parent="test_island2" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(2.06281, -7.66968e-08, 1.19209e-07, 6.96331e-08, 2.06281, -1.64537e-07, 2.38419e-07, -2.47895e-08, 2.06281, -34.0824, 10.3082, -26.8995)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="test_island2"]
 transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
@@ -1229,6 +1245,15 @@ spot_angle = 39.6842
 [node name="test_island3" parent="." instance=ExtResource("7_4agym")]
 transform = Transform3D(0.113974, 0.0117049, -0.00988378, -0.010603, 0.113822, 0.0125274, 0.0110577, -0.0115044, 0.113887, -130.073, 19.8081, -15.5907)
 
+[node name="sphere_tree" parent="test_island3" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(1, -1.21072e-08, 0, 0, 1, 1.49012e-08, 0, 0, 1, -0.833618, 8.95082, 0.98513)
+
+[node name="sphere_tree2" parent="test_island3" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(1, -1.21072e-08, 7.45058e-09, 0, 1, 3.72529e-08, 0, 0, 1, -29.9169, 7.60308, -21.017)
+
+[node name="sphere_tree3" parent="test_island3" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(1, -1.21072e-08, 1.49012e-08, 0, 1, 3.72529e-08, 0, 0, 0.999999, -80.2919, 7.01549, -32.3386)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="test_island3"]
 transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
 light_energy = 16.0
@@ -1240,6 +1265,9 @@ spot_angle = 39.6842
 [node name="test_island4" parent="." instance=ExtResource("7_4agym")]
 transform = Transform3D(0.102339, -0.00547786, -0.0521677, 0.00780163, 0.114688, 0.00326199, 0.0518711, -0.00644198, 0.102434, -31.3702, 54.8548, -45.3319)
 
+[node name="sphere_tree" parent="test_island4" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(1, 7.45058e-09, 0, 3.72529e-09, 1, 0, 5.96046e-08, -7.45058e-09, 1, 0.445496, 6.54926, 0.186279)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="test_island4"]
 transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)
 light_energy = 16.0
@@ -1250,6 +1278,9 @@ spot_angle = 39.6842
 
 [node name="test_island5" parent="." instance=ExtResource("7_4agym")]
 transform = Transform3D(0.109778, 0.00172238, -0.0342135, 0.00793962, 0.110447, 0.0310353, 0.0333242, -0.0319884, 0.105314, 56.7202, 78.2948, 25.3891)
+
+[node name="sphere_tree" parent="test_island5" instance=ExtResource("9_fjdk2")]
+transform = Transform3D(1, 0, 8.9407e-08, 1.49012e-08, 1, 8.9407e-08, -5.96046e-08, 0, 1, 0.517395, 7.19775, 2.02255)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="test_island5"]
 transform = Transform3D(-2.8245, -5.43635, 6.17123, 7.90691, 5.00536e-07, 3.6189, -2.26244, 6.78688, 4.9432, 133.893, 31.4366, 77.8296)

@@ -298,12 +298,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.294, -1.8676, -2.2137)
 player_path = NodePath("../../Player")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9516, 6.13091, 1.42728)
+transform = Transform3D(0.828979, 0, -0.55928, 0, 1, 0, 0.55928, 0, 0.828979, 74.2146, 3.89419, 60.657)
 use_collision = true
 size = Vector3(2.63184, 19.2369, 33.8546)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0806, 15.2578, 0.912842)
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.129, 9.12689, -0.514438)
 use_collision = true
 size = Vector3(15.8691, 1, 30.145)
 

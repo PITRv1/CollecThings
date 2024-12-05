@@ -1346,3 +1346,8 @@ explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_qw214")
 draw_pass_1 = SubResource("SphereMesh_joq1j")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="AnimationPlayer" method="_on_timer_timeout"]

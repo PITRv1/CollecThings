@@ -1,5 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=43 format=3 uid="uid://bx6mee0g0jq65"]
 
+[ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
@@ -200,6 +201,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_7q3no")
 
 [node name="Env Asset Test Map" type="Node3D"]
+script = ExtResource("1_jhf8w")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fqgkm")
@@ -278,24 +280,13 @@ shape = SubResource("BoxShape3D_yy5y5")
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Basic_enemy" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -1.97122, 0)
-player_path = NodePath("../../Player")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.28283, 0, 0)
 
 [node name="Basic_enemy2" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0921, -1.79157, -0.817566)
-player_path = NodePath("../../Player")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9526, 0, 0)
 
 [node name="Basic_enemy3" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.33706, -1.95461, -1.72128)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy4" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87443, -2.43819, -2.68989)
-player_path = NodePath("../../Player")
-
-[node name="Basic_enemy5" parent="Enemies" instance=ExtResource("7_hahxq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.294, -1.8676, -2.2137)
-player_path = NodePath("../../Player")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(0.828979, 0, -0.55928, 0, 1, 0, 0.55928, 0, 0.828979, 74.2146, 3.89419, 60.657)
@@ -308,7 +299,7 @@ use_collision = true
 size = Vector3(15.8691, 1, 30.145)
 
 [node name="Space_ship" parent="." instance=ExtResource("11_5jvmd")]
-transform = Transform3D(0.943701, -0.308491, 0.119423, 0.281592, 0.938594, 0.199368, -0.173593, -0.154515, 0.97262, 9.356, -3.0843, 40.231)
+transform = Transform3D(0.943701, -0.308491, 0.119423, 0.223555, 0.860842, 0.457138, -0.243827, -0.404703, 0.881341, 8.76521, -4.27565, 40.231)
 
 [node name="Flame" type="GPUParticles3D" parent="Space_ship"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.652098, -0.758134, 0, 0.758134, 0.652098, 4.01284, 4.45555, 6.292)

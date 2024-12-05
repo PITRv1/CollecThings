@@ -22,6 +22,7 @@ var time : float = 0.0
 var idle_sway_adjustment
 var idle_sway_rotaion_strenght
 var weapon_bob_amount : Vector2 = Vector2(0,0)
+var last_weapon : String
 
 
 func _ready():
@@ -45,12 +46,15 @@ func _input(event):
 		
 		
 	#Slot change
-	if event.is_action_pressed("slot_1"):
+	if event.is_action_pressed("slot_1")  and last_weapon != weapon_list["TPistol"]:
 		load_weapon(weapon_list["TPistol"])
-	if event.is_action_pressed("slot_2"):
+		last_weapon = weapon_list["TPistol"]
+	if event.is_action_pressed("slot_2")  and last_weapon != weapon_list["TShotgun"]:
 		load_weapon(weapon_list["TShotgun"])
-	if event.is_action_pressed("slot_3"):
+		last_weapon = weapon_list["TShotgun"]
+	if event.is_action_pressed("slot_3") and last_weapon != weapon_list["Monger"]:
 		load_weapon(weapon_list["Monger"])
+		last_weapon = weapon_list["Monger"]
 		
 #func _physics_process(delta: float) -> void:
 	#if Input.is_action_pressed("secondary_fire"):

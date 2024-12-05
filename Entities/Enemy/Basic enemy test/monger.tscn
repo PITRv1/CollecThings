@@ -190,7 +190,6 @@ xfade_time = 0.2
 break_loop_at_end = true
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"run"
 advance_expression = "!_target_in_range()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cvjbv"]
@@ -339,7 +338,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
 parameters/conditions/fall_wand = false
 parameters/conditions/falling = false
-parameters/conditions/run = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_1swf8")]
 MAX_HEALTH = 10.0

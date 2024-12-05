@@ -620,9 +620,9 @@ _data = {
 
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_jsstv")
-grapple_type = 1
-GRAPPLE_FORCE_MAX = 30.0
-alma_speed = 75.0
+GRAPPLE_FORCE_MAX = 10.0
+alma_speed = 150.0
+is_enemy_grapple_enabled = true
 bald_speed = 25.0
 rest_length = 10.0
 stiffness = 15.0

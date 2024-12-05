@@ -907,6 +907,24 @@ spot_attenuation = 0.53
 spot_angle = 21.33
 spot_angle_attenuation = 0.757858
 
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.81343, -0.0797732, 0.576167, -0.0515423, 0.99654, 0.0652088, -0.579375, 0.0233458, -0.814727, -7.65035, 95.5276, -44.226)
+light_color = Color(1, 1, 0.901961, 1)
+shadow_enabled = true
+spot_range = 73.5587
+spot_attenuation = 0.53
+spot_angle = 53.4816
+spot_angle_attenuation = 0.757858
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.420336, -0.0808778, 0.903757, -0.0515423, 0.99654, 0.0652088, -0.905903, -0.0191721, -0.423051, 36.099, 96.3549, -33.6861)
+light_color = Color(1, 1, 0.901961, 1)
+shadow_enabled = true
+spot_range = 73.5587
+spot_attenuation = 0.53
+spot_angle = 72.4788
+spot_angle_attenuation = 0.757858
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nfrqf")
 

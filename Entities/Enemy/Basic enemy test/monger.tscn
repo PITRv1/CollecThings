@@ -183,7 +183,7 @@ advance_mode = 2
 xfade_time = 0.2
 break_loop_at_end = true
 advance_mode = 2
-advance_condition = &"attack"
+advance_expression = "_target_in_range()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rxbdj"]
 xfade_time = 0.2
@@ -191,11 +191,12 @@ break_loop_at_end = true
 switch_mode = 2
 advance_mode = 2
 advance_condition = &"run"
+advance_expression = "!_target_in_range()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cvjbv"]
 break_loop_at_end = true
 advance_mode = 2
-advance_condition = &"attack"
+advance_expression = "_target_in_range()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_81qyy"]
 advance_mode = 2

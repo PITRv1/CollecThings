@@ -31,27 +31,27 @@ max_value = 360.0
 _data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.428571, 360), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_lwkiv"]
+[sub_resource type="CurveTexture" id="CurveTexture_fmbhc"]
 curve = SubResource("Curve_20oml")
 
 [sub_resource type="Curve" id="Curve_d2nh2"]
 _data = [Vector2(0, 0.102641), 0.0, 0.0, 0, 0, Vector2(0.243161, 1), 0.0, 0.0, 0, 0, Vector2(0.984802, 0.508403), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_k6iak"]
+[sub_resource type="CurveTexture" id="CurveTexture_8q6n2"]
 curve = SubResource("Curve_d2nh2")
 
 [sub_resource type="Curve" id="Curve_emofo"]
 _data = [Vector2(0.00293256, 0.0500575), 0.0, 0.0, 0, 0, Vector2(0.486804, 0.364212), 0.0, 0.0, 0, 0, Vector2(0.753666, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_5yrv0"]
+[sub_resource type="CurveTexture" id="CurveTexture_gmw13"]
 curve = SubResource("Curve_emofo")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_srfmt"]
 angle_min = 1.07288e-05
 angle_max = 360.0
-angle_curve = SubResource("CurveTexture_lwkiv")
+angle_curve = SubResource("CurveTexture_fmbhc")
 direction = Vector3(0, 1, 0)
 spread = 0.0
 initial_velocity_min = 1.0
@@ -66,19 +66,19 @@ gravity = Vector3(0, 0, 0)
 linear_accel_min = 0.999998
 linear_accel_max = 5.0
 scale_min = 0.1
-scale_curve = SubResource("CurveTexture_k6iak")
+scale_curve = SubResource("CurveTexture_8q6n2")
 turbulence_enabled = true
 turbulence_noise_strength = 1.9
-turbulence_influence_over_life = SubResource("CurveTexture_5yrv0")
+turbulence_influence_over_life = SubResource("CurveTexture_gmw13")
 
-[sub_resource type="Gradient" id="Gradient_vum4l"]
+[sub_resource type="Gradient" id="Gradient_vyrvp"]
 offsets = PackedFloat32Array(0, 0.386885, 0.934426)
 colors = PackedColorArray(0.651184, 0, 0.0461743, 1, 0.998252, 0.621656, 0.502061, 1, 0.904799, 0.473779, 9.62615e-07, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_e8slq"]
-gradient = SubResource("Gradient_vum4l")
+gradient = SubResource("Gradient_vyrvp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g66pw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1c78"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -90,20 +90,20 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_wbic4"]
-material = SubResource("StandardMaterial3D_g66pw")
+material = SubResource("StandardMaterial3D_r1c78")
 
 [sub_resource type="Gradient" id="Gradient_5k5ap"]
 offsets = PackedFloat32Array(0.0299003, 1)
 colors = PackedColorArray(0.263827, 0.472193, 0.999055, 1, 0.959988, 0.513522, 0.416603, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xkgqe"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_52eph"]
 gradient = SubResource("Gradient_5k5ap")
 
 [sub_resource type="Curve" id="Curve_x3f50"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.319149, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.570828), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_g638f"]
+[sub_resource type="CurveTexture" id="CurveTexture_wnf38"]
 curve = SubResource("Curve_x3f50")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5j008"]
@@ -119,21 +119,21 @@ gravity = Vector3(0, 0, 0)
 linear_accel_min = 0.999998
 linear_accel_max = 5.0
 scale_min = 0.1
-scale_curve = SubResource("CurveTexture_g638f")
-color_initial_ramp = SubResource("GradientTexture1D_xkgqe")
+scale_curve = SubResource("CurveTexture_wnf38")
+color_initial_ramp = SubResource("GradientTexture1D_52eph")
 turbulence_noise_scale = 10.0
 turbulence_noise_speed_random = 0.4
 turbulence_initial_displacement_min = 0.100001
 turbulence_initial_displacement_max = 0.100001
 
-[sub_resource type="Gradient" id="Gradient_ijpyx"]
+[sub_resource type="Gradient" id="Gradient_3458n"]
 offsets = PackedFloat32Array(0, 0.337705, 1)
 colors = PackedColorArray(3.56168e-06, 0, 0.773407, 1, 0.146962, 0.0337854, 0.606047, 1, 0.329195, 0.390752, 0.980416, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ia85l"]
-gradient = SubResource("Gradient_ijpyx")
+gradient = SubResource("Gradient_3458n")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7q3no"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5mqw"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -146,7 +146,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_c6ane"]
-material = SubResource("StandardMaterial3D_7q3no")
+material = SubResource("StandardMaterial3D_q5mqw")
 
 [sub_resource type="Animation" id="Animation_eb5bk"]
 resource_name = "Crash"

@@ -35,6 +35,8 @@ var ini_pos
 @export var stiffness = 10.0
 @export var dampning = 1.0
 
+@onready var gun_utility = get_tree().get_first_node_in_group("gun_utility")
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	rope_gen.visible = false
@@ -125,9 +127,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go and charge <= 5:
 		
+		
 		print(charge)
 		charge += delta * 2
 		kurbli.rotation.x += -5 * delta
+		gun_utility.set_texture_offset(Vector2(10-(charge*2), 0))
 		
 	if Input.is_action_just_pressed("slot_2"):
 		print(kurbli.rotation.x)
@@ -149,13 +153,14 @@ func _physics_process(delta: float) -> void:
 			rope_gen.StartDrawing()
 			rope_go = true
 		else:
-			if remote_transform:
-				remote_transform.queue_free()
-				remote_transform = RemoteTransform3D.new()
-				is_grappling = false
-				rope_go = false
-				rope_go_back = true
-				start = false
+			remote_transform.queue_free()
+			remote_transform = RemoteTransform3D.new()
+			is_grappling = false
+			rope_go = false
+			rope_go_back = true
+			start = false
+		
+		gun_utility.set_texture_offset(Vector2(0, 0))
 	if rope_go:
 		alma_end.top_level = true
 		alma_end.look_at(pos)

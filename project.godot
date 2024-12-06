@@ -47,6 +47,7 @@ folder_colors={
 
 player="Please Peti I need this"
 enemy=""
+gun_utility=""
 
 [input]
 

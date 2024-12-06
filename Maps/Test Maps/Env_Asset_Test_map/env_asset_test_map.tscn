@@ -221,47 +221,49 @@ navigation_mesh = ExtResource("2_eq3lb")
 [node name="test_island" parent="NavigationRegion3D/Environment" instance=ExtResource("1_pen33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3282, -12.5338, 25.4648)
 
-[node name="Trees" type="Node3D" parent="NavigationRegion3D/Environment"]
+[node name="Environment_assets" type="Node3D" parent="NavigationRegion3D/Environment"]
+
+[node name="Trees" type="Node3D" parent="NavigationRegion3D/Environment/Environment_assets"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986599, 0, 0)
 
-[node name="Sphere_Trees" type="Node3D" parent="NavigationRegion3D/Environment/Trees"]
+[node name="Sphere_Trees" type="Node3D" parent="NavigationRegion3D/Environment/Environment_assets/Trees"]
 
-[node name="sphere_tree" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree" parent="NavigationRegion3D/Environment/Environment_assets/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22162, -1.51203, 10.5064)
 
-[node name="sphere_tree2" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree2" parent="NavigationRegion3D/Environment/Environment_assets/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4577, -1.35837, 29.8595)
 
-[node name="sphere_tree3" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree3" parent="NavigationRegion3D/Environment/Environment_assets/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.553, -2.71674, -14.2558)
 
-[node name="sphere_tree4" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree4" parent="NavigationRegion3D/Environment/Environment_assets/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6086, -3.28657, -9.5032)
 
-[node name="sphere_tree5" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree5" parent="NavigationRegion3D/Environment/Environment_assets/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241, -3.41305, 61.9771)
 
-[node name="sphere_tree6" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree6" parent="NavigationRegion3D/Environment/Environment_assets/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3627, -3.38873, 32.6667)
 
-[node name="sphere_tree7" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
+[node name="sphere_tree7" parent="NavigationRegion3D/Environment/Environment_assets/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, -3.9122, 15.3032)
 
-[node name="Rocks" type="Node3D" parent="NavigationRegion3D/Environment"]
+[node name="Rocks" type="Node3D" parent="NavigationRegion3D/Environment/Environment_assets"]
 
-[node name="rock1" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
+[node name="rock1" parent="NavigationRegion3D/Environment/Environment_assets/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4091, 2.8695, 23.2756)
 
-[node name="rock2" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
+[node name="rock2" parent="NavigationRegion3D/Environment/Environment_assets/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(0.284501, 0, -0.958676, 0, 1, 0, 0.958676, 0, 0.284501, 1.95845, 0.638242, 36.3226)
 
-[node name="rock3" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
+[node name="rock3" parent="NavigationRegion3D/Environment/Environment_assets/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, -2.19034, 2.8695, 12.9994)
 
-[node name="rock4" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
+[node name="rock4" parent="NavigationRegion3D/Environment/Environment_assets/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, 11.8348, 1.72502, 22.8651)
 
-[node name="rock5" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("5_swl5k")]
+[node name="rock5" parent="NavigationRegion3D/Environment/Environment_assets/Rocks" instance=ExtResource("5_swl5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5745, -4.03821, 14.2176)
 
 [node name="Space_ship" parent="NavigationRegion3D/Environment" instance=ExtResource("11_5jvmd")]

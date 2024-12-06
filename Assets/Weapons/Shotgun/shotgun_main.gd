@@ -149,12 +149,13 @@ func _physics_process(delta: float) -> void:
 			rope_gen.StartDrawing()
 			rope_go = true
 		else:
-			remote_transform.queue_free()
-			remote_transform = RemoteTransform3D.new()
-			is_grappling = false
-			rope_go = false
-			rope_go_back = true
-			start = false
+			if remote_transform:
+				remote_transform.queue_free()
+				remote_transform = RemoteTransform3D.new()
+				is_grappling = false
+				rope_go = false
+				rope_go_back = true
+				start = false
 	if rope_go:
 		alma_end.top_level = true
 		alma_end.look_at(pos)
@@ -223,6 +224,9 @@ func _physics_process(delta: float) -> void:
 			var grapple_dif = (grapple_target_speed - player.velocity)
 				
 			player.velocity += grapple_dif * delta
+		if player.global_position.distance_to(alma_end.global_position) < 2:
+			is_grappling = false
+			rope_go_back = true
 			
 	if rope_go_back:
 		alma_end.top_level = true

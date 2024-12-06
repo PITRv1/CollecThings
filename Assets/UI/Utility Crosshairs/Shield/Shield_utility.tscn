@@ -14,6 +14,7 @@ width = 1000
 script = ExtResource("1_7g0hk")
 
 [node name="Crosshair" type="Polygon2D" parent="."]
+texture_filter = 1
 position = Vector2(-9.23706e-14, 9)
 rotation = 3.14159
 scale = Vector2(3.66667, 3.66667)

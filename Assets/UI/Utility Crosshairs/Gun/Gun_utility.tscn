@@ -11,6 +11,7 @@ width = 1000
 [node name="GunUtility" type="Node2D"]
 
 [node name="Crosshair" type="Polygon2D" parent="." groups=["gun_utility"]]
+texture_filter = 1
 position = Vector2(0.0139704, -9.1708)
 rotation = 6.28319
 scale = Vector2(3.66667, 3.66667)

@@ -55,28 +55,6 @@ fog_sky_affect = 0.584
 fog_height_density = -0.5664
 volumetric_fog_density = 0.0443
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_52nbf"]
-render_priority = 0
-shader = ExtResource("4_5tgxb")
-shader_parameter/Ripple_Height_Speed = -0.009
-shader_parameter/Ripple_Height = 22.679
-shader_parameter/Water_Color = Color(0, 0.535823, 0.737412, 1)
-shader_parameter/ColorParameter = Color(0.0578568, 0.238741, 0.350693, 1)
-shader_parameter/DeepColor_cutoff = 26.703
-shader_parameter/Ripple_Speed = -0.009
-shader_parameter/FloatParameter = 1.0
-shader_parameter/Metalic = 0.0
-shader_parameter/Roughness = 0.056
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_362e4"]
-material = SubResource("ShaderMaterial_52nbf")
-size = Vector2(5000, 5000)
-subdivide_width = 100
-subdivide_depth = 100
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yy5y5"]
-size = Vector3(458.802, 0.758789, 499.972)
-
 [sub_resource type="Curve" id="Curve_wi0tu"]
 min_value = -360.0
 max_value = 360.0
@@ -200,6 +178,28 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_x8xfv"]
 material = SubResource("StandardMaterial3D_7q3no")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52nbf"]
+render_priority = 0
+shader = ExtResource("4_5tgxb")
+shader_parameter/Ripple_Height_Speed = -0.009
+shader_parameter/Ripple_Height = 22.679
+shader_parameter/Water_Color = Color(0, 0.535823, 0.737412, 1)
+shader_parameter/ColorParameter = Color(0.0578568, 0.238741, 0.350693, 1)
+shader_parameter/DeepColor_cutoff = 26.703
+shader_parameter/Ripple_Speed = -0.009
+shader_parameter/FloatParameter = 1.0
+shader_parameter/Metalic = 0.0
+shader_parameter/Roughness = 0.056
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_362e4"]
+material = SubResource("ShaderMaterial_52nbf")
+size = Vector2(5000, 5000)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy5y5"]
+size = Vector3(458.802, 0.758789, 499.972)
+
 [node name="Env Asset Test Map" type="Node3D"]
 script = ExtResource("1_jhf8w")
 
@@ -247,13 +247,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3627, -3.38873, 32.6667)
 [node name="sphere_tree7" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("6_nw6re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2162, -3.9122, 15.3032)
 
-[node name="rock1" parent="NavigationRegion3D/Environment/Trees/Sphere_Trees" instance=ExtResource("5_swl5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5879, -4.03821, 14.2176)
-
 [node name="Rocks" type="Node3D" parent="NavigationRegion3D/Environment"]
 
 [node name="rock1" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4091, 2.8695, 23.2756)
+
+[node name="rock2" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
+transform = Transform3D(0.284501, 0, -0.958676, 0, 1, 0, 0.958676, 0, 0.284501, 1.95845, 0.638242, 36.3226)
 
 [node name="rock3" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, -2.19034, 2.8695, 12.9994)
@@ -261,8 +261,71 @@ transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, 
 [node name="rock4" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
 transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, 11.8348, 1.72502, 22.8651)
 
-[node name="rock2" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("8_lguwc")]
-transform = Transform3D(0.284501, 0, -0.958676, 0, 1, 0, 0.958676, 0, 0.284501, 1.95845, 0.638242, 36.3226)
+[node name="rock5" parent="NavigationRegion3D/Environment/Rocks" instance=ExtResource("5_swl5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5745, -4.03821, 14.2176)
+
+[node name="Space_ship" parent="NavigationRegion3D/Environment" instance=ExtResource("11_5jvmd")]
+transform = Transform3D(0.943701, -0.308491, 0.119423, 0.223555, 0.860842, 0.457138, -0.243827, -0.404703, 0.881341, 8.76521, -4.27565, 40.231)
+
+[node name="Flame" type="GPUParticles3D" parent="NavigationRegion3D/Environment/Space_ship"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.652098, -0.758134, 0, 0.758134, 0.652098, 4.01284, 4.45555, 6.292)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="Flame2" type="GPUParticles3D" parent="NavigationRegion3D/Environment/Space_ship"]
+transform = Transform3D(2.565, -1.67638e-08, 0, -8.9407e-08, 0.999999, -5.96046e-08, 0, -1.49012e-08, 2.565, -5.08201, 1.81502, 5.999)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="Flame3" type="GPUParticles3D" parent="NavigationRegion3D/Environment/Space_ship"]
+transform = Transform3D(2.565, -3.53903e-08, 5.96046e-08, -3.8743e-07, 0.999999, -8.9407e-08, -5.96046e-08, 1.49012e-08, 2.565, 0.288672, -1.78669, 5.85553)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="Flame4" type="GPUParticles3D" parent="NavigationRegion3D/Environment/Space_ship"]
+transform = Transform3D(2.565, -3.53903e-08, 5.96046e-08, -3.8743e-07, 0.999999, -8.9407e-08, -5.96046e-08, 1.49012e-08, 2.565, -0.779178, 0.509292, -3.44534)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ndpu8")
+draw_pass_1 = SubResource("QuadMesh_08j0h")
+script = ExtResource("12_nenbi")
+
+[node name="BlueFlame" type="GPUParticles3D" parent="NavigationRegion3D/Environment/Space_ship"]
+transform = Transform3D(6.67, -1.04308e-07, 1.11759e-08, -8.9407e-07, 3.425, -1.11759e-08, -5.96046e-07, 0, 0.27, 4.79228, 5.08486, 0.218754)
+amount = 400
+lifetime = 0.7
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ijo5j")
+draw_pass_1 = SubResource("QuadMesh_x8xfv")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(0.828979, 0, -0.55928, 0, 1, 0, 0.55928, 0, 0.828979, 74.2146, 3.89419, 60.657)
+use_collision = true
+size = Vector3(2.63184, 19.2369, 33.8546)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/Environment/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.129, 9.12689, -0.514438)
+use_collision = true
+size = Vector3(15.8691, 1, 30.145)
 
 [node name="SpiderBot" parent="NavigationRegion3D" instance=ExtResource("11_bbx8q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98, 1.515, -2.677)
@@ -287,66 +350,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9526, 0, 0)
 
 [node name="Basic_enemy3" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(0.828979, 0, -0.55928, 0, 1, 0, 0.55928, 0, 0.828979, 74.2146, 3.89419, 60.657)
-use_collision = true
-size = Vector3(2.63184, 19.2369, 33.8546)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.129, 9.12689, -0.514438)
-use_collision = true
-size = Vector3(15.8691, 1, 30.145)
-
-[node name="Space_ship" parent="." instance=ExtResource("11_5jvmd")]
-transform = Transform3D(0.943701, -0.308491, 0.119423, 0.223555, 0.860842, 0.457138, -0.243827, -0.404703, 0.881341, 8.76521, -4.27565, 40.231)
-
-[node name="Flame" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.652098, -0.758134, 0, 0.758134, 0.652098, 4.01284, 4.45555, 6.292)
-amount = 1000
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_ndpu8")
-draw_pass_1 = SubResource("QuadMesh_08j0h")
-script = ExtResource("12_nenbi")
-
-[node name="Flame2" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(2.565, -1.67638e-08, 0, -8.9407e-08, 0.999999, -5.96046e-08, 0, -1.49012e-08, 2.565, -5.08201, 1.81502, 5.999)
-amount = 1000
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_ndpu8")
-draw_pass_1 = SubResource("QuadMesh_08j0h")
-script = ExtResource("12_nenbi")
-
-[node name="Flame3" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(2.565, -3.53903e-08, 5.96046e-08, -3.8743e-07, 0.999999, -8.9407e-08, -5.96046e-08, 1.49012e-08, 2.565, 0.288672, -1.78669, 5.85553)
-amount = 1000
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_ndpu8")
-draw_pass_1 = SubResource("QuadMesh_08j0h")
-script = ExtResource("12_nenbi")
-
-[node name="Flame4" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(2.565, -3.53903e-08, 5.96046e-08, -3.8743e-07, 0.999999, -8.9407e-08, -5.96046e-08, 1.49012e-08, 2.565, -0.779178, 0.509292, -3.44534)
-amount = 1000
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_ndpu8")
-draw_pass_1 = SubResource("QuadMesh_08j0h")
-script = ExtResource("12_nenbi")
-
-[node name="BlueFlame" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(6.67, -1.04308e-07, 1.11759e-08, -8.9407e-07, 3.425, -1.11759e-08, -5.96046e-07, 0, 0.27, 4.79228, 5.08486, 0.218754)
-amount = 400
-lifetime = 0.7
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_ijo5j")
-draw_pass_1 = SubResource("QuadMesh_x8xfv")

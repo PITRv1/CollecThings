@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1s76hipq41l8"
+path="res://.godot/imported/hook.obj-59d3e7c8998a1c462803939b4ec44200.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hook.obj-59d3e7c8998a1c462803939b4ec44200.mesh"]
+
+source_file="res://Assets/Weapons/Shotgun/hook.obj"
+dest_files=["res://.godot/imported/hook.obj-59d3e7c8998a1c462803939b4ec44200.mesh", "res://.godot/imported/hook.obj-59d3e7c8998a1c462803939b4ec44200.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

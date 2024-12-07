@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
 [ext_resource type="PackedScene" uid="uid://cktorru4v63el" path="res://Assets/Weapons/Shotgun/Shotgun.glb" id="3_wwjff"]
 [ext_resource type="PackedScene" uid="uid://b2ccpk0qlpd67" path="res://rope_gen.tscn" id="4_giuy1"]
+[ext_resource type="PackedScene" uid="uid://ca3qhb3txsujj" path="res://Assets/Weapons/Shotgun/hook.glb" id="4_wgmlj"]
 
 [sub_resource type="Animation" id="Animation_p58k5"]
 length = 0.001
@@ -614,8 +615,6 @@ _data = {
 "reload": SubResource("Animation_rd7bb")
 }
 
-[sub_resource type="SphereMesh" id="SphereMesh_qfnc1"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_6aue5"]
 
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
@@ -645,25 +644,80 @@ one_shot = true
 [node name="Shotgun" parent="." instance=ExtResource("3_wwjff")]
 transform = Transform3D(-0.188824, 0, -0.0305523, 0, 0.19128, 0, 0.0305523, 0, -0.188824, -0.26063, 0, 0.154068)
 
+[node name="Trigger" parent="Shotgun" index="0"]
+cast_shadow = 0
+
+[node name="Trigger_under" parent="Shotgun" index="1"]
+cast_shadow = 0
+
+[node name="Barrel_rigth" parent="Shotgun" index="2"]
+cast_shadow = 0
+
+[node name="Gun_handle" parent="Shotgun" index="3"]
+cast_shadow = 0
+
+[node name="Scope" parent="Shotgun" index="4"]
+cast_shadow = 0
+
+[node name="Scope2" parent="Shotgun" index="5"]
+cast_shadow = 0
+
+[node name="Barrel_left" parent="Shotgun" index="6"]
+cast_shadow = 0
+
+[node name="Barrel_under" parent="Shotgun" index="7"]
+cast_shadow = 0
+
+[node name="Recharger" parent="Shotgun" index="8"]
+cast_shadow = 0
+
 [node name="Ammo1" parent="Shotgun/Recharger" index="0"]
 transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2.93408e-09, 3.54326e-07, 1.13607e-06, 0.102245, -0.677994, -0.147965, -0.639878)
+cast_shadow = 0
 visibility_range_end = 0.9
 
 [node name="Ammo2" parent="Shotgun/Recharger" index="1"]
 transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2.93408e-09, 3.54326e-07, 1.13607e-06, 0.102245, -0.677994, -0.147965, 0.0758387)
+cast_shadow = 0
 
 [node name="Ammo3" parent="Shotgun/Recharger" index="2"]
 transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2.93408e-09, 3.54326e-07, 1.13607e-06, 0.102245, -0.677994, -0.147965, 0.791555)
+cast_shadow = 0
 
 [node name="Ammo4" parent="Shotgun/Recharger" index="3"]
 transform = Transform3D(-0.143421, -0.44588, 2.5921e-07, -0.323107, 0.197918, -2.93408e-09, 3.54326e-07, 1.13607e-06, 0.102245, -0.677994, -0.147965, 1.50727)
+cast_shadow = 0
+
+[node name="Battery1" parent="Shotgun/Recharger" index="4"]
+cast_shadow = 0
+
+[node name="Battery2" parent="Shotgun/Recharger" index="5"]
+cast_shadow = 0
+
+[node name="Battery3" parent="Shotgun/Recharger" index="6"]
+cast_shadow = 0
+
+[node name="Battery4" parent="Shotgun/Recharger" index="7"]
+cast_shadow = 0
+
+[node name="Barometer" parent="Shotgun" index="9"]
+cast_shadow = 0
 
 [node name="Kurbli" parent="Shotgun" index="10"]
 transform = Transform3D(5.14674e-09, -0.117744, 1.02935e-08, -0.117744, -5.14674e-09, 0, 4.49942e-16, -1.02935e-08, -0.117744, 0.617057, -0.0451915, 0.930737)
+cast_shadow = 0
+
+[node name="Barometer_handle" parent="Shotgun" index="11"]
+cast_shadow = 0
+
+[node name="Plane_001" parent="Shotgun" index="12"]
+cast_shadow = 0
 
 [node name="alma" type="MeshInstance3D" parent="Shotgun"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -0.858, -1.126)
-mesh = SubResource("SphereMesh_qfnc1")
+transform = Transform3D(0.0579671, -0.105274, -1.28621, -0.592047, -1.14619, 0.0671315, -1.14669, 0.586465, -0.0996805, 0.01504, -0.474695, -1.87768)
+cast_shadow = 0
+
+[node name="hook" parent="Shotgun/alma" instance=ExtResource("4_wgmlj")]
 
 [node name="RayCast3D" type="RayCast3D" parent="Shotgun/alma"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.197476, 0, 0.779523)
@@ -677,8 +731,10 @@ shape = SubResource("SphereShape3D_6aue5")
 
 [node name="alma_pos" type="MeshInstance3D" parent="Shotgun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.858, -1.126)
+cast_shadow = 0
 
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
+cast_shadow = 0
 firstTime = false
 
 [editable path="Shotgun"]

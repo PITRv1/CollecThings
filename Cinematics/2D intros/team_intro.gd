@@ -4,5 +4,5 @@ extends Control
 
 func _process(delta: float) -> void:
 	if not animation_player.is_playing():
-		get_tree().change_scene_to_packed(Global.MAIN_MENU)
+		get_tree().change_scene_to_packed(Global.main_menu)
 		

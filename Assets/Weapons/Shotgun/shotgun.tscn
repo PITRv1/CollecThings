@@ -734,6 +734,9 @@ shape = SubResource("SphereShape3D_6aue5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, -0.475, -1.878)
 cast_shadow = 0
 
+[node name="Barometer_001" parent="Shotgun" index="15"]
+cast_shadow = 0
+
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
 cast_shadow = 0
 firstTime = false

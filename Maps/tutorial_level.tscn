@@ -1040,12 +1040,14 @@ shape = SubResource("BoxShape3D_xubbt")
 
 [node name="Move" type="Label3D" parent="Hints"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27.3246, 94.6855, -154.118)
+billboard = 2
 outline_modulate = Color(0, 0, 0, 0.0588235)
 text = "Mozgás WASD gombokkal"
 font = ExtResource("11_mpkyx")
 
 [node name="Jump" type="Label3D" parent="Hints"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.6679, 98.0746, -126.776)
+billboard = 2
 outline_modulate = Color(0, 0, 0, 0.0588235)
 text = "Ugrás szóközzel
 ----------------------------
@@ -1054,10 +1056,27 @@ font = ExtResource("11_mpkyx")
 
 [node name="Dash" type="Label3D" parent="Hints"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30.2498, 97.0014, -89.9958)
+billboard = 2
 outline_modulate = Color(0, 0, 0, 0.0588235)
 text = "Előre ugrás shift-el
 -------------------
 Lövés bal klikkel"
+font = ExtResource("11_mpkyx")
+
+[node name="Break" type="Label3D" parent="Hints"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.745, 94.6, 19.593)
+billboard = 2
+outline_modulate = Color(0, 0, 0, 0.0588235)
+text = "Lődd ki a követ a továbbjutáshoz!"
+font = ExtResource("11_mpkyx")
+
+[node name="Leave" type="Label3D" parent="Hints"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.745, 98, 114.378)
+billboard = 2
+outline_modulate = Color(0, 0, 0, 0.0588235)
+text = "Leave planet
+------------------
+EXIT Tutorial"
 font = ExtResource("11_mpkyx")
 
 [connection signal="area_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]

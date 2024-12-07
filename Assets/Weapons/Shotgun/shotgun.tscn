@@ -714,7 +714,7 @@ cast_shadow = 0
 cast_shadow = 0
 
 [node name="alma" type="MeshInstance3D" parent="Shotgun"]
-transform = Transform3D(0.0579671, -0.105274, -1.28621, -0.592047, -1.14619, 0.0671315, -1.14669, 0.586465, -0.0996805, 0.01504, -0.474695, -1.87768)
+transform = Transform3D(1.29181, 0, 0, 0, 1.29181, 0, 0, 0, 1.29181, 0.01504, -0.474695, -1.87768)
 cast_shadow = 0
 
 [node name="hook" parent="Shotgun/alma" instance=ExtResource("4_wgmlj")]

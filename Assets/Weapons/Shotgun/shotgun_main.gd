@@ -36,6 +36,7 @@ var ini_pos
 @export var dampning = 1.0
 
 @onready var gun_utility = get_tree().get_first_node_in_group("gun_utility")
+@onready var hook: Node3D = $Shotgun/alma
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -161,6 +162,8 @@ func _physics_process(delta: float) -> void:
 			start = false
 		
 		gun_utility.set_texture_offset(Vector2(0, 0))
+		
+		
 	if rope_go:
 		alma_end.top_level = true
 		alma_end.look_at(pos)
@@ -247,6 +250,7 @@ func _physics_process(delta: float) -> void:
 			charge = 0.0
 			is_grappling = false
 			rope_go_back = false
+			hook.rotate(Vector3(0, -90, 0), -180)
 		
 	 #If not pulling
 	if is_grappling and grapple_type == 1:

@@ -8,4 +8,4 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_packed(INTRO)
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		get_tree().change_scene_to_packed(load("res://Maps/Main menu/Main_menu.tscn"))
+		get_tree().change_scene_to_packed(Global.MAIN_MENU)

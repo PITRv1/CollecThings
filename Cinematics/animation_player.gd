@@ -5,8 +5,6 @@ extends AnimationPlayer
 @onready var camera_low = $"../Camera_Low"
 @onready var timer: Timer = $"../Timer"
 
-
-const ENV_ASSET_TEST_MAP = preload("res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.tscn")
 var current_camera = camera_high
 
 
@@ -33,4 +31,4 @@ func _process(delta: float) -> void:
 	
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_packed(ENV_ASSET_TEST_MAP)
+	Global.change_scene_to("res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.tscn")

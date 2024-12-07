@@ -19,7 +19,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_packed(load("res://Maps/Main menu/Main_menu.tscn"))
+	get_tree().change_scene_to_packed(Global.MAIN_MENU)
 
 
 func _on_reload_pressed() -> void:

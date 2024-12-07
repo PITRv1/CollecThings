@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jrmifcwavt4y"]
+
+[ext_resource type="PackedScene" uid="uid://ca3qhb3txsujj" path="res://Assets/Weapons/Shotgun/hook.glb" id="1_woxsu"]
+
+[node name="hook" instance=ExtResource("1_woxsu")]
+
+[node name="Plane" parent="." index="0"]
+cast_shadow = 0

@@ -150,6 +150,7 @@ func _physics_process(delta: float) -> void:
 			kurbli.rotation.x = 0.0
 		elif not rope_go and not rope_go_back and not is_grappling:
 			roycast.look_at(pos)
+			print(player)
 			rope_gen.SetPlayerPosition(player.global_position)
 			rope_gen.SetGrappleHookPosition(alma_end.global_position)
 			rope_gen.StartDrawing()

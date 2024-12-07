@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=89 format=3 uid="uid://cvsbulx0h8dn7"]
 
 [ext_resource type="Script" path="res://Maps/Tutorial Map/tutorial_level.gd" id="1_na3iy"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="7_ve86l"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="8_ie5dl"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="9_p0oce"]
+[ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="11_mpkyx"]
 
 [sub_resource type="Gradient" id="Gradient_v8j7d"]
 offsets = PackedFloat32Array(0, 0.205479, 0.844749, 1)
@@ -1034,6 +1035,30 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TEMP_load_next_level"]
 transform = Transform3D(0.723196, 0, 0.690643, 0, 1, 0, -0.690643, 0, 0.723196, -12.94, 96.4562, 130.342)
 shape = SubResource("BoxShape3D_xubbt")
+
+[node name="Hints" type="Node3D" parent="."]
+
+[node name="Move" type="Label3D" parent="Hints"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27.3246, 94.6855, -154.118)
+outline_modulate = Color(0, 0, 0, 0.0588235)
+text = "Mozgás WASD gombokkal"
+font = ExtResource("11_mpkyx")
+
+[node name="Jump" type="Label3D" parent="Hints"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.6679, 98.0746, -126.776)
+outline_modulate = Color(0, 0, 0, 0.0588235)
+text = "Ugrás szóközzel
+----------------------------
+Grappler jobb klikkel"
+font = ExtResource("11_mpkyx")
+
+[node name="Dash" type="Label3D" parent="Hints"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30.2498, 97.0014, -89.9958)
+outline_modulate = Color(0, 0, 0, 0.0588235)
+text = "Előre ugrás shift-el
+-------------------
+Lövés bal klikkel"
+font = ExtResource("11_mpkyx")
 
 [connection signal="area_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
 [connection signal="area_entered" from="TEMP_load_next_level" to="." method="_on_temp_load_next_level_area_entered"]

@@ -43,8 +43,9 @@ func _input(event):
 		current_weapon.primary_fire()
 	if event.is_action_pressed("secondary_fire"):
 		current_weapon.secondary_fire()
-		
-		
+	if event.is_action_pressed("reload"):
+		current_weapon.reload()
+
 	#Slot change
 	if event.is_action_pressed("slot_1")  and last_weapon != weapon_list["TPistol"]:
 		load_weapon(weapon_list["TPistol"])

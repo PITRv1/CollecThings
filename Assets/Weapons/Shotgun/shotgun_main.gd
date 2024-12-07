@@ -45,7 +45,7 @@ func _ready() -> void:
 	clips = weapon_settings.mag_size
 	ini_rot = self.rotation
 	prev_pos = player.transform.origin
-	
+	max_clips = weapon_settings.mag_size
 
 #func _process(delta: float) -> void:
 	#if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go:
@@ -126,7 +126,7 @@ func _ready() -> void:
 
 		
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go and charge <= 5:
+	if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go and charge <= 5 and not animation_player.is_playing():
 		
 		
 		print(charge)
@@ -137,8 +137,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("slot_2"):
 		print(kurbli.rotation.x)
 		print(alma_end.global_position, alma.global_position)
+		print(clips)
 			
-	elif Input.is_action_just_released("secondary_fire") and not rope_go:
+	elif Input.is_action_just_released("secondary_fire") and not rope_go and not animation_player.is_playing():
 		var camera = get_viewport().get_camera_3d()
 		pos = camera.global_position + camera.global_transform.basis.z * -GRAPPLE_RAY_MAX * charge / 5
 		if charge <= 1:
@@ -250,7 +251,7 @@ func _physics_process(delta: float) -> void:
 			charge = 0.0
 			is_grappling = false
 			rope_go_back = false
-			hook.rotate(Vector3(0, -90, 0), -180)
+			hook.rotation = Vector3(0, 0, 0)
 		
 	 #If not pulling
 	if is_grappling and grapple_type == 1:

@@ -7,7 +7,7 @@ var proj_speed
 var pierce : int
 @onready var timer: Timer = $Timer
 var damage : float
-
+var stun_time
 var colliders : Array
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +17,7 @@ func _ready() -> void:
 	proj_speed = weapon_settings.proj_speed
 	pierce = weapon_settings.pierce
 	damage = weapon_settings.damage
+	stun_time = weapon_settings.stun_time
 	
 func enter(weapon_setting):
 	weapon_settings = weapon_setting
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 			if get_collider().has_method("damage") and get_collider() not in colliders:
 				weapon_settings.global_pos = global_position
 				weapon_settings.damage = damage
+				weapon_settings.stun_time = stun_time
 				get_collider().damage(weapon_settings)
 				colliders.append(get_collider())
 		

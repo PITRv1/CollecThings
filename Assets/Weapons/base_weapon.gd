@@ -15,30 +15,30 @@ var space_state : PhysicsDirectSpaceState3D
 var from : Vector3
 var to : Vector3
 var query : PhysicsRayQueryParameters3D
-var clips : int
-var max_clips : int
+var mag_size : int
+var max_mag_size : int
 
 @export var PROJECTILE : PackedScene = preload("res://Assets/Weapons/Projectile.tscn")
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	print(player)
-	clips = weapon_settings.mag_size
-	max_clips = weapon_settings.mag_size
+	mag_size = weapon_settings.mag_size
+	max_mag_size = weapon_settings.mag_size
 
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
 	if not animation_player.is_playing():
-		if clips > 0:
+		if mag_size > 0:
 			if cooldown_timer.is_stopped():
 				for i in range(weapon_settings.num_of_bullets):
 					spawn_bullet()
-				clips -= 1
+				mag_size -= 1
 
 				if animation_player.has_animation("knockback"):
 					animation_player.play("knockback")
 				cooldown_timer.start(weapon_settings.cooldown)
-				if clips <= 0:
+				if mag_size <= 0:
 					reload()
 		else:
 			reload()
@@ -50,15 +50,15 @@ func secondary_fire():
 	pass
 	
 func reload():
-	if clips != max_clips:
+	if mag_size != max_mag_size:
 		print("borger")
 		if animation_player.has_animation("reload"):
-					animation_player.play("reload")
+			animation_player.play("reload")
 	else:
 		print("You dumb af abald")
 	
 func _reload():
-	clips = weapon_settings.mag_size
+	mag_size = weapon_settings.mag_size
 	
 func spawn_bullet():
 	# Get space, camera, mousepos

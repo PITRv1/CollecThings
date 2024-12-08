@@ -6,6 +6,8 @@ var state_machine
 @export var player_path : NodePath
 @export var idle : bool
 
+var stun_time := 0.0
+
 const SPEED = 10.0
 const ATTACK_RANGE = 2.5
 
@@ -98,6 +100,12 @@ func _target_in_sight():
 		if facing > fov and not ray.is_colliding():
 			chase_timer.start()
 			return true
+			
+func _process(delta: float) -> void:
+	if stun_time >= 1:
+		velocity = velocity / stun_time
+		stun_time -= delta
+		print(stun_time)
 	
 func _hit_finished():
 	pass

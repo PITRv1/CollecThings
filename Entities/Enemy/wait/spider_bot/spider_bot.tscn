@@ -499,7 +499,6 @@ transform = Transform3D(0.996195, 0.0868241, -0.00759612, -0.0871557, 0.992404, 
 debug_enabled = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_wqf7k")]
-MAX_HEALTH = 200.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_nq2e4")]
 health_component = NodePath("../HealthComponent")

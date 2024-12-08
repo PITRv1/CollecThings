@@ -107,11 +107,11 @@ height = 0.15
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_685ou")
 weapon_settings = ExtResource("2_tu58d")
-animation_player = NodePath("Animation Player")
+animation_player = NodePath("AnimationPlayer")
 projectile_origin = NodePath("Marker3D")
 cooldown_timer = NodePath("Cooldown timer")
 
-[node name="Animation Player" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_lovvm")
 }

@@ -261,7 +261,6 @@ graph_offset = Vector2(9, -50.8656)
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_xu8m0")
-idle = true
 
 [node name="body" type="Node3D" parent="."]
 
@@ -341,7 +340,7 @@ parameters/conditions/fall_wand = false
 parameters/conditions/falling = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_1swf8")]
-MAX_HEALTH = 10.0
+MAX_HEALTH = 5000.0
 
 [node name="ShieldComponent" parent="." instance=ExtResource("3_y5dm5")]
 

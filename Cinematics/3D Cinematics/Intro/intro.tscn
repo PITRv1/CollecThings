@@ -1,12 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://b0jubqqbdp1yb"]
+[gd_scene load_steps=24 format=3 uid="uid://b0jubqqbdp1yb"]
 
-[ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_4ngx7"]
-[ext_resource type="Script" path="res://Cinematics/intro.gd" id="1_t1jb2"]
+[ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_4ngx7"]
+[ext_resource type="Script" path="res://Cinematics/3D Cinematics/Intro/intro.gd" id="1_t1jb2"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="2_8h5s1"]
-[ext_resource type="Script" path="res://Cinematics/flame_2.gd" id="3_ihei3"]
-[ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Cinematics/Planet.tscn" id="4_ntj0n"]
+[ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Assets/Models/Cinematic Models/Planet.tscn" id="4_ntj0n"]
 [ext_resource type="PackedScene" uid="uid://m2wrgbx358is" path="res://Assets/Models/Environment Models/Map Models/glowing_island.glb" id="4_uwd0t"]
-[ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Cinematics/Planet2.tscn" id="8_ebhvt"]
+[ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Assets/Models/Cinematic Models/Planet2.tscn" id="8_ebhvt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lq1fv"]
 panorama = ExtResource("1_4ngx7")
@@ -284,74 +283,6 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_q0ld3"]
 material = SubResource("StandardMaterial3D_m4er4")
 
-[sub_resource type="Curve" id="Curve_ni8t6"]
-min_value = -360.0
-max_value = 360.0
-_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.428571, 360), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_xd7dr"]
-curve = SubResource("Curve_ni8t6")
-
-[sub_resource type="Curve" id="Curve_q8krn"]
-_data = [Vector2(0, 0.102641), 0.0, 0.0, 0, 0, Vector2(0.243161, 1), 0.0, 0.0, 0, 0, Vector2(0.984802, 0.508403), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_w44jx"]
-curve = SubResource("Curve_q8krn")
-
-[sub_resource type="Curve" id="Curve_op4gk"]
-_data = [Vector2(0.00293256, 0.0500575), 0.0, 0.0, 0, 0, Vector2(0.486804, 0.364212), 0.0, 0.0, 0, 0, Vector2(0.753666, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_76lmb"]
-curve = SubResource("Curve_op4gk")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2pqs2"]
-angle_min = 1.07288e-05
-angle_max = 360.0
-angle_curve = SubResource("CurveTexture_xd7dr")
-direction = Vector3(0, 1, 0)
-spread = 0.0
-initial_velocity_min = 1.0
-initial_velocity_max = 4.0
-angular_velocity_min = -1.60933e-05
-angular_velocity_max = 3.99998
-orbit_velocity_min = 1.0
-orbit_velocity_max = 1.0
-radial_velocity_min = 0.999978
-radial_velocity_max = 2.99998
-gravity = Vector3(0, 0, 0)
-linear_accel_min = 0.999998
-linear_accel_max = 5.0
-scale_min = 0.1
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_w44jx")
-turbulence_enabled = true
-turbulence_noise_strength = 1.9
-turbulence_influence_over_life = SubResource("CurveTexture_76lmb")
-
-[sub_resource type="Gradient" id="Gradient_ylqey"]
-offsets = PackedFloat32Array(0, 0.386885, 0.934426)
-colors = PackedColorArray(0.651184, 0, 0.0461743, 1, 0.998252, 0.621656, 0.502061, 1, 0.904799, 0.473779, 9.62615e-07, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pb7es"]
-gradient = SubResource("Gradient_ylqey")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8n3b"]
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = SubResource("GradientTexture1D_pb7es")
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_jcqls"]
-material = SubResource("StandardMaterial3D_l8n3b")
-
 [node name="Intro" type="Node3D"]
 script = ExtResource("1_t1jb2")
 
@@ -408,28 +339,6 @@ draw_order = 3
 trail_lifetime = 3.49
 process_material = SubResource("ParticleProcessMaterial_tmouk")
 draw_pass_1 = SubResource("QuadMesh_q0ld3")
-
-[node name="Flame2" type="GPUParticles3D" parent="Path3D/PathFollow3D/Space_ship"]
-transform = Transform3D(-0.543444, -0.627859, -0.557191, -0.692945, 0.710178, -0.124399, 0.47381, 0.318499, -0.821013, -1.38207, 5.91236, -4.18231)
-visible = false
-amount = 1000
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_2pqs2")
-draw_pass_1 = SubResource("QuadMesh_jcqls")
-script = ExtResource("3_ihei3")
-
-[node name="Flame_small" type="GPUParticles3D" parent="Path3D/PathFollow3D/Space_ship"]
-transform = Transform3D(-0.302769, 0.272179, -0.13854, -0.0556238, 0.142675, 0.401863, 0.300301, 0.300844, -0.0652437, 2.71148, 2.82027, 3.74655)
-visible = false
-amount = 1000
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_2pqs2")
-draw_pass_1 = SubResource("QuadMesh_jcqls")
-script = ExtResource("3_ihei3")
 
 [node name="Camera_back" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48499e-05, 10.854, 98.3901)

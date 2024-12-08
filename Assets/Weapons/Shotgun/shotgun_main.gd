@@ -1,6 +1,6 @@
 extends  BaseWeapon
 
-@export var b_decal : PackedScene = preload("res://Assets/Models/BulletDecal.tscn")
+@export var b_decal : PackedScene = preload("res://Assets/Models/Bullet/BulletDecal.tscn")
 @onready var kurbli: MeshInstance3D = $Shotgun/Kurbli
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var rope_gen: MeshInstance3D = $RopeGen

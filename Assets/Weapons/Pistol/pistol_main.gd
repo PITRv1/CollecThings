@@ -1,6 +1,6 @@
 extends BaseWeapon
 
-@export var b_decal : PackedScene = preload("res://Assets/Models/BulletDecal.tscn")
+@export var b_decal : PackedScene = preload("res://Assets/Models/Bullet/BulletDecal.tscn")
 @onready var gun_utility = get_tree().get_first_node_in_group("gun_utility")
 
 var charge : float

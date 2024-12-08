@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-const TEAM_INTRO = preload("res://Cinematics/2D intros/team_intro.tscn")
+const TEAM_INTRO = preload("res://Cinematics/2D intros/Team intro/team_intro.tscn")
 
 func _ready() -> void:
 	AudioPlayer.play_music()

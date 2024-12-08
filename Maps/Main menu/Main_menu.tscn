@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_gjni7"]
-[ext_resource type="Script" path="res://Maps/Main Menu/node_3d.gd" id="2_dbhso"]
+[ext_resource type="Script" path="res://Maps/Main menu/node_3d.gd" id="2_dbhso"]
 [ext_resource type="PackedScene" uid="uid://gnmmw7fj5qr7" path="res://Assets/UI/Animated Tablets/Navsys/navsys_screen.tscn" id="3_8g06c"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_screen.tscn" id="3_355bm"]
-[ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="4_bw0vj"]
+[ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="4_bw0vj"]
 [ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="6_kcumm"]
 [ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="7_vrqq2"]
 

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-const INTRO = preload("res://Cinematics/intro.tscn")
+const INTRO = preload("res://Cinematics/3D Cinematics/Intro/intro.tscn")
 
 func _process(delta: float) -> void:
 	if not animation_player.is_playing():

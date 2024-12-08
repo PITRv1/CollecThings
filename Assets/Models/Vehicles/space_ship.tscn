@@ -24,8 +24,8 @@ shader_parameter/Base_Color = Color(0.395723, 0.243262, 3.85046e-07, 1)
 shader_parameter/Line_Amount = 90.0
 shader_parameter/Time_Multiply = 15.0
 shader_parameter/Scan_lines_center_weight = 0.02
-shader_parameter/Proximity_Higlight = 0.3
-shader_parameter/Fresnel_Power = 1.93
+shader_parameter/Proximity_Higlight = 0.001
+shader_parameter/Fresnel_Power = 2.0
 shader_parameter/ProximityFade_Alpha = 0.2
 shader_parameter/EmissionBrightness = 26.01
 

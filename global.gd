@@ -1,8 +1,9 @@
 extends Node
 
-var loading_screen : PackedScene = preload("res://Utilities/Loading Screen/LoadingScreen.tscn")
-var main_menu : PackedScene = preload("res://Maps/Main menu/Main_menu.tscn")
+@onready var loading_screen : PackedScene = preload("res://Utilities/Loading Screen/LoadingScreen.tscn")
+@onready var main_menu : PackedScene = preload("res://Maps/Main menu/Main_menu.tscn")
 
+var stat_tablet : Control
 var player : Player
 var next_scene: String
 

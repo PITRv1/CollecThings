@@ -16,7 +16,7 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nd05"]
 size = Vector3(1, 1, 0.0586203)
 
-[node name="Node3D" type="Node3D"]
+[node name="StatScreen" type="Node3D"]
 
 [node name="display" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ebjg2")

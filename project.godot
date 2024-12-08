@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CollecThings"
-run/main_scene="res://Cinematics/2D intros/game_intro.tscn"
+run/main_scene="res://Cinematics/2D intros/Game intro/game_intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 
@@ -19,10 +19,13 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 
 Global="*res://global.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
-AudioPlayer="*res://Assets/AudioPlayer/AudioPlayer.tscn"
+AudioPlayer="*res://Utilities/AudioPlayer/AudioPlayer.tscn"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

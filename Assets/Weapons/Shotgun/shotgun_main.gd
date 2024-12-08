@@ -126,8 +126,7 @@ func _ready() -> void:
 
 		
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go and charge <= 5 and not animation_player.is_playing():
-		
+	if Input.is_action_pressed("secondary_fire") and not rope_go_back and not rope_go and charge <= 5 and not animation_player.is_playing() and not is_enemy_grapple and not is_grappling:
 		
 		print(charge)
 		charge += delta * 2
@@ -148,7 +147,7 @@ func _physics_process(delta: float) -> void:
 			t.tween_property(kurbli, "rotation", Vector3(0.0, 0.0, 0.0), 0.1)
 			t.kill()
 			kurbli.rotation.x = 0.0
-		elif not rope_go and not rope_go_back and not is_grappling:
+		elif not rope_go and not rope_go_back and not is_grappling and not is_enemy_grapple:
 			roycast.look_at(pos)
 			print(player)
 			rope_gen.SetPlayerPosition(player.global_position)
@@ -156,8 +155,12 @@ func _physics_process(delta: float) -> void:
 			rope_gen.StartDrawing()
 			rope_go = true
 		else:
-			remote_transform.queue_free()
-			remote_transform = RemoteTransform3D.new()
+			if is_instance_valid(remote_transform):
+				remote_transform.queue_free()
+				remote_transform = RemoteTransform3D.new()
+			else:
+				remote_transform = RemoteTransform3D.new()
+			is_enemy_grapple = false
 			is_grappling = false
 			rope_go = false
 			rope_go_back = true
@@ -167,6 +170,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 	if rope_go:
+		print("rope_go")
 		alma_end.top_level = true
 		alma_end.look_at(pos)
 		roycast.look_at(pos)
@@ -197,11 +201,14 @@ func _physics_process(delta: float) -> void:
 			start = false
 			
 	if is_enemy_grapple:
+		print("rope_moner")
 		var enemy = roycast.get_collider()
 		if roycast.is_colliding():
 			
 			alma_end.top_level = true
-			roycast.get_collider().add_child(remote_transform)
+			print(enemy)
+			print(remote_transform)
+			enemy.add_child(remote_transform)
 			remote_transform.global_transform = alma_end.global_transform
 			remote_transform.remote_path = remote_transform.get_path_to(alma_end)
 			alma_end.top_level = true
@@ -210,18 +217,19 @@ func _physics_process(delta: float) -> void:
 			rope_gen.SetPlayerPosition(alma.global_position)
 			rope_gen.SetGrappleHookPosition(alma_end.global_position)
 			
-			var grapple_dir = (player.global_position - enemy.global_position).normalized()
-			var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX * 8
-					
-			var grapple_dif = (grapple_target_speed - enemy.velocity)
-					
-			enemy.velocity += grapple_dif * delta
+			#var grapple_dir = (player.global_position - enemy.global_position).normalized()
+			#var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX * 8
+					#
+			#var grapple_dif = (grapple_target_speed - enemy.velocity)
+					#
+			#enemy.velocity += grapple_dif * delta
 		
-		if player.global_position.distance_to(alma_end.global_position) < 3:
+		if player.global_position.distance_to(alma_end.global_position) < 2:
 			is_enemy_grapple = false
 			rope_go_back = true
 			
 	if is_grappling:
+		print("rope_balls")
 		alma_end.top_level = true
 		rope_go = false
 		rope_go_back = false
@@ -239,12 +247,18 @@ func _physics_process(delta: float) -> void:
 			rope_go_back = true
 			
 	if rope_go_back:
+		print("rope_goblack")
+		if is_instance_valid(remote_transform):
+			remote_transform.queue_free()
+			remote_transform = RemoteTransform3D.new()
+		else:
+			remote_transform = RemoteTransform3D.new()
 		alma_end.top_level = true
 		rope_gen.visible = true
 		rope_gen.SetPlayerPosition(alma.global_position)
 		rope_gen.SetGrappleHookPosition(alma_end.global_position)
 		alma_end.global_position = alma_end.global_position.move_toward(alma.global_position, delta*alma_speed)
-		if alma_end.global_position == alma.global_position:
+		if alma_end.global_position.is_equal_approx(alma.global_position):
 			alma_end.top_level = false
 			rope_gen.visible = false
 			print(alma_end.global_position, alma.global_position)

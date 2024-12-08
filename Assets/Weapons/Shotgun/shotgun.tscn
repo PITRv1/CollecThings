@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btpmyjub568re"]
+[gd_scene load_steps=12 format=3 uid="uid://btpmyjub568re"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Shotgun/shotgun_main.gd" id="1_jsstv"]
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
@@ -617,6 +617,8 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6aue5"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_2p58u"]
+
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_jsstv")
 GRAPPLE_FORCE_MAX = 10.0
@@ -736,8 +738,10 @@ shape = SubResource("SphereShape3D_6aue5")
 [node name="alma_pos" type="MeshInstance3D" parent="Shotgun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, -0.475, -1.878)
 cast_shadow = 0
+mesh = SubResource("BoxMesh_2p58u")
 
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
 cast_shadow = 0
+firstTime = false
 
 [editable path="Shotgun"]

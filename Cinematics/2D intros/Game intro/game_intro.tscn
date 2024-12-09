@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3r3nk3w8yuap"]
 
-[ext_resource type="Script" path="res://Cinematics/2D intros/game_intro.gd" id="1_3cba8"]
-[ext_resource type="Texture2D" uid="uid://bt783vh6t2c1w" path="res://Assets/Images/logo.png" id="1_r0u1v"]
-[ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="2_fjhlk"]
+[ext_resource type="Script" path="res://Cinematics/2D intros/Game intro/game_intro.gd" id="1_n2sux"]
+[ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="2_8g48y"]
+[ext_resource type="Texture2D" uid="uid://bt783vh6t2c1w" path="res://Assets/Images/logo.png" id="3_ls8k3"]
 
 [sub_resource type="Animation" id="Animation_733mi"]
 length = 0.001
@@ -60,7 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3cba8")
+script = ExtResource("1_n2sux")
 metadata/_edit_use_anchors_ = true
 
 [node name="bg" type="ColorRect" parent="."]
@@ -83,8 +83,8 @@ anchor_bottom = 1.0
 offset_top = -16.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_fjhlk")
-text = "Nyomd meg a szóközt az intro átugrásához!"
+theme_override_fonts/font = ExtResource("2_8g48y")
+text = "Press space to skip intro"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -117,7 +117,7 @@ offset_right = 240.0
 offset_bottom = 76.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_r0u1v")
+texture = ExtResource("3_ls8k3")
 
 [node name="fg" type="ColorRect" parent="."]
 layout_mode = 1

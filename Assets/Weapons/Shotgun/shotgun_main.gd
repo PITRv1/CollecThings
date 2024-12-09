@@ -2,11 +2,12 @@ extends BaseWeapon
 
 # The bullet hole
 
-@export var b_decal : PackedScene = preload("res://Assets/Models/BulletDecal.tscn")
+@export var b_decal : PackedScene = preload("res://Assets/Models/Bullet/BulletDecal.tscn")
 
 # Things we change in the code
 
 @onready var handle: MeshInstance3D = $Shotgun/Kurbli
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var rope_gen: MeshInstance3D = $RopeGen
 @onready var hook_start_position: Node3D = $Shotgun/hook_start_position
 @onready var hook: MeshInstance3D = $Shotgun/hook

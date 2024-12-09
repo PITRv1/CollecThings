@@ -25,10 +25,11 @@ func switch_camera():
 	
 
 func _process(delta: float) -> void:
-	if not animation_player.is_playing() or Input.is_action_just_pressed("ui_accept"):
-		if timer.is_stopped():
-			timer.start(2.0)
-	
+	if not animation_player.is_playing():
+		get_tree().create_timer(2.0).timeout.connect(func(): change_map())
+			
+	if Input.is_action_just_pressed("ui_accept"):
+		change_map()
 
-func _on_timer_timeout() -> void:
+func change_map() -> void:
 	Global.change_scene_to("res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.tscn")

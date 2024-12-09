@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cheq5i6m8t8bo"
-path.s3tc="res://.godot/imported/bullet_hole.png-63b51ade73e3c4606aa41574d4d7bf57.s3tc.ctex"
+uid="uid://de0oehpl441jh"
+path.bptc="res://.godot/imported/panorama_image.png-b533f843ba41fa81dd2f3e3bf77e6708.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/bullet_hole.png"
-dest_files=["res://.godot/imported/bullet_hole.png-63b51ade73e3c4606aa41574d4d7bf57.s3tc.ctex"]
+source_file="res://Assets/Images/panorama_image.png"
+dest_files=["res://.godot/imported/panorama_image.png-b533f843ba41fa81dd2f3e3bf77e6708.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

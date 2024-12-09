@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponSettings" load_steps=2 format=3 uid="uid://ce34echwp4s4y"]
+[gd_resource type="Resource" script_class="WeaponSettings" load_steps=3 format=3 uid="uid://ce34echwp4s4y"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/weapon_settings.gd" id="1_qqe8l"]
+[ext_resource type="Texture2D" uid="uid://blqu1jd0ghmir" path="res://Assets/UI/Resources/Icons/Weapons/stun.png" id="2_kjifh"]
 
 [resource]
 script = ExtResource("1_qqe8l")
@@ -27,3 +28,4 @@ sway_amount_rotation = 30.0
 idle_sway_adjustment = 10.0
 idle_sway_rotation_strength = 300.0
 random_sway_amount = 5.0
+speacial_icon_path = ExtResource("2_kjifh")

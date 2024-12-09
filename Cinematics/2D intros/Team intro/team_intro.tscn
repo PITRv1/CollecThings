@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dummevp0yxccs"]
 
 [ext_resource type="Texture2D" uid="uid://bop4cgo85b7vp" path="res://Assets/Images/undefined.png" id="1_gvusa"]
-[ext_resource type="Script" path="res://Cinematics/2D intros/team_intro.gd" id="1_p75rk"]
+[ext_resource type="Script" path="res://Cinematics/2D intros/Team intro/team_intro.gd" id="1_p75rk"]
 [ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="2_u48ve"]
 
 [sub_resource type="Animation" id="Animation_f2t5c"]
@@ -113,9 +113,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_u48ve")
 theme_override_font_sizes/font_size = 41
-text = "A játékot készítette:
+text = "A game by:
 
-Az"
+The
+"
 horizontal_alignment = 1
 
 [node name="Logo" type="TextureRect" parent="Control"]
@@ -151,7 +152,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_u48ve")
 theme_override_font_sizes/font_size = 41
-text = "Csapat"
+text = "Team"
+horizontal_alignment = 1
 
 [node name="fg" type="ColorRect" parent="."]
 layout_mode = 1

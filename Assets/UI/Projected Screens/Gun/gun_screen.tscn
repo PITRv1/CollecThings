@@ -27,9 +27,9 @@ shader_parameter/Base_Color = Color(0.254902, 0.784314, 0.615686, 1)
 shader_parameter/Line_Amount = 500.0
 shader_parameter/Time_Multiply = 15.0
 shader_parameter/Scan_lines_center_weight = 0.02
-shader_parameter/Proximity_Higlight = 0.0
+shader_parameter/Proximity_Higlight = 0.001
 shader_parameter/Fresnel_Power = 2.0
-shader_parameter/ProximityFade_Alpha = 0.05
+shader_parameter/ProximityFade_Alpha = 0.001
 shader_parameter/EmissionBrightness = 5.0
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_p7iea"]

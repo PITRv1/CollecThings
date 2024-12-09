@@ -1,10 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://7ps155gax7qy"]
+[gd_scene load_steps=10 format=3 uid="uid://7ps155gax7qy"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_2lt2n"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Player Stat/playerstat_ui.gd" id="1_h1c4b"]
 [ext_resource type="Theme" uid="uid://bebm2mefdi5x0" path="res://Assets/UI/Resources/Themes/red_progressbar.tres" id="3_j2pj4"]
 [ext_resource type="Theme" uid="uid://c887mfehapat7" path="res://Assets/UI/Resources/Themes/yellow_progressbar.tres" id="5_06o85"]
 [ext_resource type="StyleBox" uid="uid://cpc8efrj6ymh3" path="res://Assets/UI/Resources/Themes/Panel_border.tres" id="5_bbnp8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2p31"]
+bg_color = Color(1, 0.643137, 0, 0.392157)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.643137, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ahqbc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessagePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1100, 440)]
+}
+
+[sub_resource type="Animation" id="Animation_fw6ab"]
+resource_name = "message_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessagePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.318641, 0.258816),
+"update": 0,
+"values": [Vector2(-1100, 440), Vector2(20, 440)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65smc"]
+_data = {
+"RESET": SubResource("Animation_ahqbc"),
+"message_animation": SubResource("Animation_fw6ab")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -127,3 +171,53 @@ rounded = true
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 0.643137, 0, 1)
+
+[node name="MessagePanel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = -1100.0
+offset_top = 440.0
+offset_bottom = 630.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2p31")
+
+[node name="Margin" type="MarginContainer" parent="MessagePanel"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 1107.0
+offset_bottom = 195.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="MessagePanel/Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MessagePanel/Margin/VBox"]
+layout_mode = 2
+theme = ExtResource("1_2lt2n")
+theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
+text = "System message"
+uppercase = true
+
+[node name="Line3" type="ColorRect" parent="MessagePanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="Label" type="Label" parent="MessagePanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme = ExtResource("1_2lt2n")
+text = "Test Description
+"
+autowrap_mode = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_65smc")
+}

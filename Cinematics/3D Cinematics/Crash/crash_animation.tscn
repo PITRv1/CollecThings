@@ -1,12 +1,13 @@
-[gd_scene load_steps=76 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=77 format=3 uid="uid://b6numlndbfhf3"]
 
-[ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Cinematics/panorama_image.png" id="1_cut8p"]
+[ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
-[ext_resource type="Script" path="res://Cinematics/animation_player.gd" id="2_vos7h"]
-[ext_resource type="Script" path="res://Cinematics/flame_2.gd" id="2_yl1hm"]
+[ext_resource type="Script" path="res://Cinematics/3D Cinematics/Crash/animation_player.gd" id="2_vos7h"]
 [ext_resource type="Script" path="res://Assets/Models/Vehicles/space_ship.gd" id="3_4jaat"]
-[ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Cinematics/Planet.tscn" id="5_bnkwv"]
-[ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Cinematics/Planet2.tscn" id="6_jldjv"]
+[ext_resource type="PackedScene" uid="uid://conyfhi7ppg7g" path="res://Assets/Particle Effects/orange_flame.tscn" id="4_c8ow2"]
+[ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Assets/Models/Cinematic Models/Planet.tscn" id="5_bnkwv"]
+[ext_resource type="PackedScene" uid="uid://c8kdw4ohy4ga0" path="res://Assets/Particle Effects/blue_flame.tscn" id="6_4cfpa"]
+[ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Assets/Models/Cinematic Models/Planet2.tscn" id="6_jldjv"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="8_f65px"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="9_fjdk2"]
@@ -1102,15 +1103,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.903, 0)
 script = ExtResource("3_4jaat")
 
-[node name="Flame2" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(-0.163033, -0.188358, -0.167157, -0.207884, 0.213053, -0.0373198, 0.142143, 0.0955497, -0.246304, -1.40378, 5.28666, -1.38135)
-amount = 1000
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_srfmt")
-draw_pass_1 = SubResource("QuadMesh_wbic4")
-script = ExtResource("2_yl1hm")
+[node name="Flame2" parent="Space_ship" instance=ExtResource("4_c8ow2")]
 
 [node name="Flame3" type="GPUParticles3D" parent="Space_ship"]
 transform = Transform3D(0.0484353, 0.0604635, -0.289824, -0.254425, 0.15868, -0.00941551, 0.1514, 0.247316, 0.0768971, 2.04436, 3.27266, 0.54187)
@@ -1120,7 +1113,6 @@ local_coords = true
 draw_order = 3
 process_material = SubResource("ParticleProcessMaterial_srfmt")
 draw_pass_1 = SubResource("QuadMesh_wbic4")
-script = ExtResource("2_yl1hm")
 
 [node name="Flame4" type="GPUParticles3D" parent="Space_ship"]
 transform = Transform3D(-0.023506, 0.189413, -0.231453, -0.262241, -0.124678, -0.0753988, -0.143795, 0.196414, 0.175342, 1.11365, 1.69135, 0.54187)
@@ -1130,17 +1122,9 @@ local_coords = true
 draw_order = 3
 process_material = SubResource("ParticleProcessMaterial_srfmt")
 draw_pass_1 = SubResource("QuadMesh_wbic4")
-script = ExtResource("2_yl1hm")
 
-[node name="engine_flame_left" type="GPUParticles3D" parent="Space_ship"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.44806, 5.05348, 1.05597)
-amount = 400
-lifetime = 0.7
-randomness = 1.0
-local_coords = true
-draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_5j008")
-draw_pass_1 = SubResource("QuadMesh_c6ane")
+[node name="engine_flame_left" parent="Space_ship" instance=ExtResource("6_4cfpa")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.523, 4.986, 1.075)
 
 [node name="engine_flame_right" type="GPUParticles3D" parent="Space_ship"]
 transform = Transform3D(1, 0, 0, 0, -0.00811572, -0.999967, 0, 0.999967, -0.00811572, 5.52285, 4.98558, 1.07471)

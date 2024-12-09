@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdokxe274ig1m"
-path="res://.godot/imported/venus.fbx-39894d47ff6c91ae1cd244aeb62de2a4.scn"
+uid="uid://b3epat1ao7xvl"
+path="res://.godot/imported/venus.glb-26b7dd634591c3bbd92502b4a7fc3a2f.scn"
 
 [deps]
 
-source_file="res://Cinematics/venus.fbx"
-dest_files=["res://.godot/imported/venus.fbx-39894d47ff6c91ae1cd244aeb62de2a4.scn"]
+source_file="res://Assets/Models/Cinematic Models/venus.glb"
+dest_files=["res://.godot/imported/venus.glb-26b7dd634591c3bbd92502b4a7fc3a2f.scn"]
 
 [params]
 
@@ -27,11 +27,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

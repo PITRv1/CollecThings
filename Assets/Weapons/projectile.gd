@@ -13,7 +13,7 @@ var colliders : Array
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	b_decal = preload("res://Assets/Models/BulletDecal.tscn")
+	b_decal = preload("res://Assets/Models/Bullet/BulletDecal.tscn")
 	proj_speed = weapon_settings.proj_speed
 	pierce = weapon_settings.pierce
 	damage = weapon_settings.damage

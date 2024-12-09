@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=92 format=3 uid="uid://cvsbulx0h8dn7"]
 
 [ext_resource type="Script" path="res://Maps/Tutorial Map/tutorial_level.gd" id="1_na3iy"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
@@ -10,7 +10,42 @@
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="7_ve86l"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="8_ie5dl"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="9_p0oce"]
-[ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="11_mpkyx"]
+
+[sub_resource type="Animation" id="Animation_4ko2n"]
+resource_name = "Fight trigger"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jcjel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k184i"]
+_data = {
+"Fight trigger": SubResource("Animation_4ko2n"),
+"RESET": SubResource("Animation_jcjel")
+}
 
 [sub_resource type="Gradient" id="Gradient_v8j7d"]
 offsets = PackedFloat32Array(0, 0.205479, 0.844749, 1)
@@ -732,53 +767,41 @@ size = Vector3(458.802, 0.758789, 499.972)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ga04m"]
 size = Vector3(19.0049, 8.89001, 5.91998)
 
-[sub_resource type="Animation" id="Animation_4ko2n"]
-resource_name = "Fight trigger"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_jcjel"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k184i"]
-_data = {
-"Fight trigger": SubResource("Animation_4ko2n"),
-"RESET": SubResource("Animation_jcjel")
-}
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_xubbt"]
 size = Vector3(12.731, 9.05188, 13.4436)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wabm"]
+size = Vector3(5.92303, 5.93095, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pchin"]
+size = Vector3(7.75641, 5.04614, 5.46169)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wschb"]
+size = Vector3(4.86597, 5.42078, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cqwgn"]
+size = Vector3(9.56042, 6.76123, 1)
+
 [node name="Tutorial Level" type="Node3D"]
 script = ExtResource("1_na3iy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k184i")
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cy3sr")
 
 [node name="Player" parent="." instance=ExtResource("2_iubha")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.3421, 92.7533, -158.34)
+
+[node name="Basic_enemy" parent="." instance=ExtResource("5_7qha2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4973, 94.4559, -6.35659)
+
+[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_q5jgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4738, 97.736, -12.4657)
+player = NodePath("../Player")
 
 [node name="Lighting" type="Node3D" parent="."]
 
@@ -1010,77 +1033,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20873, -36.0551, -36.5811)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 92.2216, 0)
 shape = SubResource("BoxShape3D_83ftw")
 
-[node name="Basic_enemy" parent="." instance=ExtResource("5_7qha2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4973, 94.4559, -6.35659)
+[node name="Events" type="Node3D" parent="."]
 
-[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_q5jgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4738, 97.736, -12.4657)
-player = NodePath("../Player")
-
-[node name="Enemy Trigger" type="Area3D" parent="."]
+[node name="Enemy Trigger" type="Area3D" parent="Events"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8883, 95.5789, 47.5047)
+collision_layer = 0
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy Trigger"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Events/Enemy Trigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.223946, -2.26619)
 shape = SubResource("BoxShape3D_ga04m")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_k184i")
-}
+[node name="TEMP_load_next_level" type="Area3D" parent="Events"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 
-[node name="TEMP_load_next_level" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TEMP_load_next_level"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Events/TEMP_load_next_level"]
 transform = Transform3D(0.723196, 0, 0.690643, 0, 1, 0, -0.690643, 0, 0.723196, -12.94, 96.4562, 130.342)
 shape = SubResource("BoxShape3D_xubbt")
 
-[node name="Hints" type="Node3D" parent="."]
+[node name="Tutorial Messages" type="Node3D" parent="Events"]
 
-[node name="Move" type="Label3D" parent="Hints"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27.3246, 94.6855, -154.118)
-billboard = 2
-outline_modulate = Color(0, 0, 0, 0.0588235)
-text = "Mozgás WASD gombokkal"
-font = ExtResource("11_mpkyx")
-
-[node name="Jump" type="Label3D" parent="Hints"]
+[node name="Jump" type="Area3D" parent="Events/Tutorial Messages"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.6679, 98.0746, -126.776)
-billboard = 2
-outline_modulate = Color(0, 0, 0, 0.0588235)
-text = "Ugrás szóközzel
-----------------------------
-Grappler jobb klikkel"
-font = ExtResource("11_mpkyx")
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 
-[node name="Dash" type="Label3D" parent="Hints"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30.2498, 97.0014, -89.9958)
-billboard = 2
-outline_modulate = Color(0, 0, 0, 0.0588235)
-text = "Előre ugrás shift-el
--------------------
-Lövés bal klikkel"
-font = ExtResource("11_mpkyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Events/Tutorial Messages/Jump"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0224972, -1.11172, 0.0410614)
+shape = SubResource("BoxShape3D_5wabm")
 
-[node name="Break" type="Label3D" parent="Hints"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.745, 94.6, 19.593)
-billboard = 2
-outline_modulate = Color(0, 0, 0, 0.0588235)
-text = "Lődd ki a követ a továbbjutáshoz!"
-font = ExtResource("11_mpkyx")
+[node name="Grappler" type="Area3D" parent="Events/Tutorial Messages"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0149, 97.0014, -98.0101)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 
-[node name="Leave" type="Label3D" parent="Hints"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.745, 98, 114.378)
-billboard = 2
-outline_modulate = Color(0, 0, 0, 0.0588235)
-text = "Leave planet
-------------------
-EXIT Tutorial"
-font = ExtResource("11_mpkyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Events/Tutorial Messages/Grappler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514498, 0.90966, 3.0927)
+shape = SubResource("BoxShape3D_pchin")
 
-[connection signal="area_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
-[connection signal="area_entered" from="TEMP_load_next_level" to="." method="_on_temp_load_next_level_area_entered"]
+[node name="Break" type="Area3D" parent="Events/Tutorial Messages"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.745, 94.6, 10.2708)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Events/Tutorial Messages/Break"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278198, 0.210388, 0)
+shape = SubResource("BoxShape3D_wschb")
+
+[node name="Leave" type="Area3D" parent="Events/Tutorial Messages"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.745, 98, 92.7)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Events/Tutorial Messages/Leave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356018, -2.88062, 0)
+shape = SubResource("BoxShape3D_cqwgn")
+
+[connection signal="area_entered" from="Events/Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
+[connection signal="body_entered" from="Events/TEMP_load_next_level" to="." method="_on_temp_load_next_level_body_entered"]
+[connection signal="body_entered" from="Events/Tutorial Messages/Jump" to="." method="_on_jump_body_entered"]
+[connection signal="body_entered" from="Events/Tutorial Messages/Grappler" to="." method="_on_grappler_body_entered"]
+[connection signal="body_entered" from="Events/Tutorial Messages/Break" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Events/Tutorial Messages/Leave" to="." method="_on_leave_body_entered"]
 
 [editable path="NavigationRegion3D/Environment/Space_ship"]
 [editable path="NavigationRegion3D/Environment/Space_ship/Space_ship"]

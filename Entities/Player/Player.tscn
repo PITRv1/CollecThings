@@ -102,7 +102,7 @@ cast_shadow = 0
 [node name="StatTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_w4df6")]
 transform = Transform3D(0.0947768, 0, 0.0318959, 0, 0.1, 0, -0.0318959, 0, 0.0947768, -0.085, -0.05, -0.09)
 
-[node name="Node3D" parent="Head/CameraSmooth/Camera3D/Ui/StatTablet/Screen" index="0" instance=ExtResource("5_w5ti0")]
+[node name="StatScreen" parent="Head/CameraSmooth/Camera3D/Ui/StatTablet/Screen" index="0" instance=ExtResource("5_w5ti0")]
 
 [node name="Cube_002" parent="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet/tablet" index="0"]
 cast_shadow = 0

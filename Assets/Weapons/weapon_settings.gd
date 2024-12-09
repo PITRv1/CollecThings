@@ -31,3 +31,6 @@ var global_pos : Vector3
 @export var idle_sway_adjustment : float = 10.0
 @export var idle_sway_rotation_strength : float = 300.0
 @export_range(0.1,10.0,0.1) var random_sway_amount :float = 5.0
+
+@export_category("HUD")
+@export var speacial_icon_path : CompressedTexture2D = preload("res://Assets/UI/Resources/Icons/Weapons/no_special.png")

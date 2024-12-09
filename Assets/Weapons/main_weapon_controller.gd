@@ -74,6 +74,7 @@ func load_weapon(weapon_scene_path: String) -> void:
 		current_weapon_settings = current_weapon.weapon_settings
 		add_child(current_weapon)
 		apply_weapon_settings(current_weapon_settings)
+		Global.change_weapon_special_icon(current_weapon.weapon_settings.speacial_icon_path)
 		
 	else:
 		print("Failed to load weapon scene: ", weapon_scene_path)

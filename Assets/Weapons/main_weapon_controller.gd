@@ -69,7 +69,6 @@ func load_weapon(weapon_scene_path: String) -> void:
 	
 	if weapon_scene:
 		current_weapon = weapon_scene.instantiate()
-		#print(current_weapon)
 		
 		current_weapon_settings = current_weapon.weapon_settings
 		add_child(current_weapon)

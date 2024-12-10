@@ -5,6 +5,7 @@ class_name BaseWeapon
 @export var animation_player: AnimationPlayer
 @export var projectile_origin: Marker3D
 @export var cooldown_timer: Timer
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var player : CharacterBody3D
 var length := 100.0
@@ -32,6 +33,8 @@ func primary_fire():
 		if mag_size > 0:
 			if cooldown_timer.is_stopped():
 				for i in range(weapon_settings.num_of_bullets):
+					audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v1.mp3")
+					audio_stream_player_3d.play()
 					spawn_bullet()
 				mag_size -= 1
 

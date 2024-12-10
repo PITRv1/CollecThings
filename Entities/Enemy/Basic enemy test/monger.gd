@@ -11,7 +11,7 @@ var stun_time := 0.0
 const SPEED = 10.0
 const ATTACK_RANGE = 2.5
 
-@export var damage := 10.0
+@export var damage := 20.0
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree: AnimationTree = $"States and animation/AnimationTree"

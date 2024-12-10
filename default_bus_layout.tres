@@ -1,0 +1,31 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://b0xtds1ihp3js"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_qmnve"]
+resource_name = "Reverb"
+room_size = 1.0
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_irl2p"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_7cdgw"]
+resource_name = "Distortion"
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_5aqd7"]
+resource_name = "HighPassFilter"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_ypdok"]
+resource_name = "PitchShift"
+pitch_scale = 2.0
+
+[resource]
+bus/0/volume_db = 0.267241
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_qmnve")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectCompressor_irl2p")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectDistortion_7cdgw")
+bus/0/effect/2/enabled = false
+bus/0/effect/3/effect = SubResource("AudioEffectHighPassFilter_5aqd7")
+bus/0/effect/3/enabled = false
+bus/0/effect/4/effect = SubResource("AudioEffectPitchShift_ypdok")
+bus/0/effect/4/enabled = false

@@ -1,6 +1,7 @@
 class_name DashingPlayerState
 
 extends PlayerMovementState
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $"../../AudioStreamPlayer3D"
 
 
 @export_category("Movement Vars")
@@ -43,10 +44,14 @@ func enter(_previous_state)-> void:
 	player.velocity.y = 0
 	
 	if player.input_dir:
+		audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v2.wav")
+		audio_stream_player_3d.play()
 		dash_dir = (player.global_transform.basis * Vector3(player.input_dir.x,0,player.input_dir.y)).normalized()
 		player.velocity += dash_dir * dash_speed
 		
 	else:
+		audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v2.wav")
+		audio_stream_player_3d.play()
 		dash_dir = -(player.camera.global_transform.basis.z * Vector3(1,0,1)).normalized()
 		player.velocity += dash_dir * dash_speed
 

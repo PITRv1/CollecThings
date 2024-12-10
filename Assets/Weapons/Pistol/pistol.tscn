@@ -135,3 +135,5 @@ mesh = SubResource("CylinderMesh_w3b5k")
 skeleton = NodePath("../..")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

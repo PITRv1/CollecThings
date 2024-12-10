@@ -33,6 +33,8 @@ func _process(delta: float) -> void:
 		
 		# Only increase charge if the gun has enough bullets
 		
+		print(Engine.time_scale)
+		
 		if floor(charge) < mag_size:
 			
 			charge += delta * 2
@@ -63,7 +65,8 @@ func _secondary_fire():
 	
 	spawn_bullet()
 	
-	# Decrease
+	# Decrease back to normal
+	
 	mag_size = mag_size - floor(charge)
 	print(charge)
 	print(mag_size)

@@ -184,6 +184,8 @@ script = ExtResource("7_pwn5c")
 [node name="DeadPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("10_mlly4")
 
+[node name="Timer" type="Timer" parent="PlayerStateMachine/DeadPlayerState"]
+
 [node name="ShieldComponent" type="Node3D" parent="."]
 script = ExtResource("15_k32b2")
 MAX_SHIELD = 200.0
@@ -229,8 +231,12 @@ layout_mode = 2
 position = Vector2(13, 5.75)
 scale = Vector2(1.53, 1.5)
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="dash_finished"]
+[connection signal="died" from="PlayerStateMachine/DeadPlayerState" to="HealthComponent" method="_on_dead_player_state_died"]
+[connection signal="died" from="HealthComponent" to="PlayerStateMachine/DeadPlayerState" method="_on_health_component_died"]
 
 [editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet"]
 [editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet"]

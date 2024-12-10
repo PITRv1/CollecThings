@@ -11,6 +11,8 @@ var stun_time := 0.0
 const SPEED = 10.0
 const ATTACK_RANGE = 2.5
 
+@export var damage := 10.0
+
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree: AnimationTree = $"States and animation/AnimationTree"
 @onready var ray: RayCast3D = $RayCasts/sight
@@ -119,4 +121,11 @@ func _randomize_wander():
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == player:
 		var dir = global_position.direction_to(player.global_position)
-		player.velocity += dir * 40.0
+		#player.velocity += dir * 40.0
+
+func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	if area is HitboxComponent:
+		var attack = WeaponSettings.new()
+		attack.damage = damage
+		
+		area.damage(attack)

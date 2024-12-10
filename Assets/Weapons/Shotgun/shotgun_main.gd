@@ -249,13 +249,13 @@ func _physics_process(delta: float) -> void:
 				
 		enemy.velocity += grapple_dif * delta
 		
-		if player.global_position.distance_to(hook.global_position) < 2:
+		if player.global_position.distance_to(hook.global_position) < 4:
 			
 			is_enemy_grapple = false
 			
 			remote_transform.force_update_cache()
 			remote_transform.queue_free()
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.2).timeout
 			
 			is_grappling = false
 			rope_go = false
@@ -283,7 +283,7 @@ func _physics_process(delta: float) -> void:
 				
 			player.velocity += grapple_dif * delta
 			
-		if player.global_position.distance_to(hook.global_position) < 2:
+		if player.global_position.distance_to(hook.global_position) < 3:
 			
 			is_grappling = false
 			rope_go_back = true

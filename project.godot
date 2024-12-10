@@ -23,9 +23,6 @@ AudioPlayer="*res://Utilities/AudioPlayer/AudioPlayer.tscn"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]
@@ -123,5 +120,5 @@ reload={
 
 3d_physics/layer_1="env"
 3d_physics/layer_2="player"
-3d_physics/layer_3="rigidbodies"
+3d_physics/layer_3="enemy"
 3d_physics/layer_4="enemies"

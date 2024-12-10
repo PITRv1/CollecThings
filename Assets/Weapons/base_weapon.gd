@@ -26,23 +26,30 @@ func _ready() -> void:
 	print(player)
 	mag_size = weapon_settings.mag_size
 	max_mag_size = weapon_settings.mag_size
+	camera = get_viewport().get_camera_3d()
 
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
 	if not animation_player.is_playing():
 		if mag_size > 0:
-			if cooldown_timer.is_stopped():
-				for i in range(weapon_settings.num_of_bullets):
-					audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v1.mp3")
-					audio_stream_player_3d.play()
-					spawn_bullet()
-				mag_size -= 1
+			if weapon_settings.hitscan == 1:
+				if cooldown_timer.is_stopped():
+					for i in range(weapon_settings.num_of_bullets):
+						audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v1.mp3")
+						audio_stream_player_3d.play()
+						spawn_bullet()
+					mag_size -= 1
 
-				if animation_player.has_animation("knockback"):
-					animation_player.play("knockback")
-				cooldown_timer.start(weapon_settings.cooldown)
-				if mag_size <= 0:
-					reload()
+					if animation_player.has_animation("knockback"):
+						animation_player.play("knockback")
+					cooldown_timer.start(weapon_settings.cooldown)
+					if mag_size <= 0:
+						reload()
+			else:
+				var ray = run_ray_test()
+				if ray.size() > 0:
+					if ray["collider"] is HitboxComponent:
+						ray["collider"].damage(weapon_settings)
 		else:
 			reload()
 		
@@ -65,8 +72,8 @@ func _reload():
 	
 func spawn_bullet():
 	# Get space, camera, mousepos
-	space_state = get_world_3d().direct_space_state
 	camera = get_viewport().get_camera_3d()
+	space_state = get_world_3d().direct_space_state
 	mousepos = get_viewport().get_mouse_position()
 	
 	# This is a Dictionary, just select what you need from it, for example: position, collider, ect.	
@@ -103,6 +110,9 @@ func calculate_spread() -> Vector2:
 
 func run_ray_test() -> Dictionary:
 	# Project ray
+	camera = get_viewport().get_camera_3d()
+	space_state = get_world_3d().direct_space_state
+	mousepos = get_viewport().get_mouse_position()
 	from = camera.project_ray_origin(mousepos)
 	
 	var bloom = calculate_spread()

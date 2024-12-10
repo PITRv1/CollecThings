@@ -343,6 +343,7 @@ parameters/conditions/falling = false
 MAX_HEALTH = 5000.0
 
 [node name="ShieldComponent" parent="." instance=ExtResource("3_y5dm5")]
+MAX_SHIELD = 0.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "shield_component") instance=ExtResource("3_7gx45")]
 health_component = NodePath("../HealthComponent")

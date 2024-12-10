@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dee1xjnbe0hxf"]
+[gd_scene load_steps=4 format=3 uid="uid://dee1xjnbe0hxf"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_6uop4"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/music_volume.gd" id="3_clpri"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="UIMargin" type="MarginContainer" parent="."]
 clip_contents = true
 layout_mode = 2
 offset_right = 1152.0
@@ -33,39 +34,39 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="UI" type="VBoxContainer" parent="Margin"]
+[node name="UI" type="VBoxContainer" parent="UIMargin"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Title" type="Label" parent="Margin/UI"]
+[node name="Title" type="Label" parent="UIMargin/UI"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
 text = "Pause Menu"
 
-[node name="Line" type="ColorRect" parent="Margin/UI"]
+[node name="Line" type="ColorRect" parent="UIMargin/UI"]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 0.643137, 0, 1)
 
-[node name="Margin" type="MarginContainer" parent="Margin/UI"]
+[node name="Margin" type="MarginContainer" parent="UIMargin/UI"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/UI/Margin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UIMargin/UI/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Resume" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+[node name="Resume" type="Button" parent="UIMargin/UI/Margin/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_6uop4")
 text = "Resume"
 
-[node name="Options" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+[node name="Options" type="Button" parent="UIMargin/UI/Margin/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 focus_mode = 0
@@ -73,7 +74,7 @@ theme = ExtResource("1_6uop4")
 text = "Options
 "
 
-[node name="Reload" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+[node name="Reload" type="Button" parent="UIMargin/UI/Margin/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 focus_mode = 0
@@ -81,7 +82,7 @@ theme = ExtResource("1_6uop4")
 text = "Reload
 "
 
-[node name="MainMenu" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="UIMargin/UI/Margin/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 focus_mode = 0
@@ -89,15 +90,124 @@ theme = ExtResource("1_6uop4")
 text = "Main Menu
 "
 
-[node name="Quit" type="Button" parent="Margin/UI/Margin/VBoxContainer"]
+[node name="Quit" type="Button" parent="UIMargin/UI/Margin/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_6uop4")
 text = "Quit"
 
-[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
-[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Margin/UI/Margin/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="SettingsMargin" type="MarginContainer" parent="."]
+visible = false
+clip_contents = true
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 740
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
+text = "Settings"
+
+[node name="Done" type="Button" parent="SettingsMargin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+text = "Done"
+
+[node name="Line" type="ColorRect" parent="SettingsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="Settings" type="VBoxContainer" parent="SettingsMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 325
+
+[node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/HBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/HBox/LabelBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_font_sizes/font_size = 21
+text = "Label
+"
+
+[node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/HBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Settings/HBox/SliderBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+rounded = true
+
+[node name="Music Volume" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 220
+script = ExtResource("3_clpri")
+
+[node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Music Volume"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Music Volume/LabelBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_font_sizes/font_size = 21
+text = "Music Volume
+"
+
+[node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Music Volume"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Settings/Music Volume/SliderBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+min_value = -40.0
+max_value = 20.0
+step = 0.1
+rounded = true
+allow_greater = true
+allow_lesser = true
+
+[connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/HBoxContainer/Done" to="." method="_on_done_pressed"]
+[connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Music Volume/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Music Volume" method="_on_h_slider_value_changed"]

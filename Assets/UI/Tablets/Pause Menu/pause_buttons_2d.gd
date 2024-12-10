@@ -6,12 +6,21 @@ func _ready() -> void:
 	get_tree().paused = false
 
 
+func Show_or_hide_settings():
+	if $UIMargin.visible:
+		$UIMargin.hide()
+		$SettingsMargin.show()
+	else:
+		$UIMargin.show()
+		$SettingsMargin.hide()
+
+
 func _on_resume_pressed() -> void:
 	pause_menu.resume()
 
 
 func _on_options_pressed() -> void:
-	pass
+	Show_or_hide_settings()
 
 
 func _on_quit_pressed() -> void:
@@ -24,3 +33,7 @@ func _on_main_menu_pressed() -> void:
 
 func _on_reload_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_done_pressed() -> void:
+	Show_or_hide_settings()

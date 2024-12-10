@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://nkt57yku5n0s"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://nkt57yku5n0s"]
 
 [ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="1_0uiyr"]
+[ext_resource type="Texture2D" uid="uid://cpn7ptwskeurv" path="res://Assets/UI/Resources/Icons/UI/slider_grabber_normal.png" id="2_pq536"]
+[ext_resource type="Texture2D" uid="uid://cx7m2isseaxtw" path="res://Assets/UI/Resources/Icons/UI/slider_grabber_grabbed.png" id="3_fjsju"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h818t"]
 content_margin_left = 4.0
@@ -59,6 +61,10 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0mpay"]
+color = Color(1, 0.643137, 0, 1)
+thickness = 8
+
 [resource]
 Button/colors/font_color = Color(1, 0.643137, 0, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -83,6 +89,9 @@ Button/styles/disabled = SubResource("StyleBoxFlat_h818t")
 Button/styles/hover = SubResource("StyleBoxFlat_rbnhu")
 Button/styles/normal = SubResource("StyleBoxFlat_l1cyx")
 Button/styles/pressed = SubResource("StyleBoxFlat_jdlun")
+HSlider/icons/grabber = ExtResource("2_pq536")
+HSlider/icons/grabber_highlight = ExtResource("3_fjsju")
+HSlider/styles/slider = SubResource("StyleBoxLine_0mpay")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/constants/line_spacing = 3
 Label/font_sizes/font_size = 30

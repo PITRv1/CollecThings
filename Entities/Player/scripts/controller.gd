@@ -18,7 +18,7 @@ extends CharacterBody3D
 var input_dir := Vector2.ZERO
 var wish_dir := Vector3.ZERO
 
-#Movement variables set by statesWW
+#Movement variables set by states
 var gravity := 12.0
 
 var current_speed := 9.0

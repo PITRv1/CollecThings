@@ -7,12 +7,10 @@ func _ready() -> void:
 
 
 func Show_or_hide_settings():
-	if $UIMargin.visible:
-		$UIMargin.hide()
-		$SettingsMargin.show()
-	else:
-		$UIMargin.show()
+	if $SettingsMargin.visible:
 		$SettingsMargin.hide()
+	else:
+		$SettingsMargin.show()
 
 
 func _on_resume_pressed() -> void:

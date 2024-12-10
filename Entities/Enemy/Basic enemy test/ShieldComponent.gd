@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	shield_percent = shield/MAX_SHIELD
+	shield_percent = shield/MAX_SHIELD-1 
 	
 
 

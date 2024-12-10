@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dee1xjnbe0hxf"]
+[gd_scene load_steps=5 format=3 uid="uid://dee1xjnbe0hxf"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_6uop4"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/main_volume.gd" id="3_6bixt"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/music_volume.gd" id="3_clpri"]
 
 [node name="Control" type="Control"]
@@ -105,9 +106,13 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 19
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
+
+[node name="Background" type="ColorRect" parent="SettingsMargin"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsMargin"]
 layout_mode = 2
@@ -125,6 +130,7 @@ theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
 text = "Settings"
 
 [node name="Done" type="Button" parent="SettingsMargin/VBoxContainer/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
@@ -152,7 +158,7 @@ size_flags_horizontal = 8
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 30
 text = "Label
 "
 
@@ -169,9 +175,41 @@ focus_mode = 0
 theme = ExtResource("1_6uop4")
 rounded = true
 
+[node name="Main volume" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 180
+script = ExtResource("3_6bixt")
+
+[node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Main volume"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Main volume/LabelBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_font_sizes/font_size = 30
+text = "Main volume"
+
+[node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Main volume"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Settings/Main volume/SliderBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+min_value = -40.0
+max_value = 20.0
+step = 0.1
+rounded = true
+
 [node name="Music Volume" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
 layout_mode = 2
-theme_override_constants/separation = 220
+theme_override_constants/separation = 150
 script = ExtResource("3_clpri")
 
 [node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Music Volume"]
@@ -182,7 +220,7 @@ size_flags_horizontal = 8
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 30
 text = "Music Volume
 "
 
@@ -210,4 +248,5 @@ allow_lesser = true
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="SettingsMargin/VBoxContainer/HBoxContainer/Done" to="." method="_on_done_pressed"]
+[connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Main volume/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Main volume" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Music Volume/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Music Volume" method="_on_h_slider_value_changed"]

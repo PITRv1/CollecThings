@@ -7,8 +7,6 @@ func _play_music(music: AudioStreamMP3, volume: float = default_volume):
 	if stream == music: 
 		return
 	
-	print(volume)
-	
 	stream = music
 	volume_db = volume
 	play()

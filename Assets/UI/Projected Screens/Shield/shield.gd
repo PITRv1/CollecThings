@@ -9,5 +9,5 @@ func _ready() -> void:
 	shield_size_max = full_shield.size.x
 
 func _process(delta: float) -> void:
-	full_shield.size.x = shield_size_max*player.shield_component.shield_percent
+	full_shield.size.x = shield_size_max*player.shield_component.shield_percent-1
 	

@@ -73,7 +73,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	# I know this looks ass but I'm pretty sure it's needed, basically if nothing is happening you can charge the grappler
-	# Ok I fixed it I think, it looks a lot better
 	# If nothing is happening you can charge the grappler
 	
 	if Input.is_action_pressed("secondary_fire") and charge <= 5 and not animation_player.is_playing() and base_state:

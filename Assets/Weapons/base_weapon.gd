@@ -35,8 +35,8 @@ func primary_fire():
 			if weapon_settings.hitscan == 1:
 				if cooldown_timer.is_stopped():
 					for i in range(weapon_settings.num_of_bullets):
-						audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v1.mp3")
-						audio_stream_player_3d.play()
+						#audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v1.mp3")
+						#audio_stream_player_3d.play()
 						spawn_bullet()
 					mag_size -= 1
 

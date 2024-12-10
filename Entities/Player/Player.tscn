@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=36 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -24,8 +24,26 @@
 [ext_resource type="PackedScene" uid="uid://dg5f2jb7xuehf" path="res://Assets/UI/Utility Crosshairs/Shield/Shield_utility.tscn" id="20_rgemw"]
 [ext_resource type="PackedScene" uid="uid://c7a2w6n4brd57" path="res://Assets/UI/Utility Crosshairs/Gun/Gun_utility.tscn" id="21_tnftj"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wo758"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rs1ud"]
+sky_material = SubResource("ProceduralSkyMaterial_wo758")
+
+[sub_resource type="Environment" id="Environment_p3r5x"]
+background_mode = 2
+sky = SubResource("Sky_rs1ud")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Compositor" id="Compositor_ox11i"]
+compositor_effects = Array[CompositorEffect]([null])
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
+
+[sub_resource type="Compositor" id="Compositor_t34gk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oq38q"]
 viewport_path = NodePath("viewport")
@@ -64,6 +82,10 @@ weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
 health_component = NodePath("HealthComponent")
 shield_component = NodePath("ShieldComponent")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p3r5x")
+compositor = SubResource("Compositor_ox11i")
+
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856085, 0)
@@ -83,11 +105,11 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Head/CameraSmooth"]
 unique_name_in_owner = true
+compositor = SubResource("Compositor_t34gk")
 
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 
 [node name="PauseTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, -0.46)
 
 [node name="GunScreen" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("3_pes8g")]
 transform = Transform3D(0.169145, 0, -0.0615636, 0, 0.18, 0, 0.0615636, 0, 0.169145, 0.6, 0.295, -0.475)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=27 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
@@ -56,6 +56,15 @@ fog_sky_affect = 0.584
 fog_height_density = -0.5664
 volumetric_fog_density = 0.0443
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2db8"]
+albedo_color = Color(0.65, 0, 0.0108332, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogaig"]
+albedo_color = Color(0, 0.57, 0.038, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmlkn"]
+albedo_color = Color(0.0833335, 0, 1, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_52nbf"]
 render_priority = 0
 shader = ExtResource("4_5tgxb")
@@ -89,7 +98,7 @@ transform = Transform3D(-0.291273, 0.236429, -0.926964, -0.335225, 0.882312, 0.3
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_tnp5y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, -2.12151, -2.86695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6699, 761.321, -35.8197)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("2_eq3lb")
@@ -177,10 +186,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.129, 9.12689, -0.514438)
 use_collision = true
 size = Vector3(15.8691, 1, 30.145)
 
+[node name="CSGSphere3D" type="CSGSphere3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(0.536581, -2.91591e-11, -1.16906e-09, -2.91476e-11, 0.535914, -0.026745, 1.16906e-09, 0.026745, 0.535914, 46.931, 762.625, -47.2452)
+radius = 4.89787
+radial_segments = 24
+rings = 15
+material = SubResource("StandardMaterial3D_u2db8")
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 69.3151, 29.8231, 2.70423)
 use_collision = true
 size = Vector3(2.63184, 19.2369, 33.8546)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(0.536581, -5.71896e-15, 0, 5.71896e-15, 0.536581, 0, 0, 0, 0.536581, 49.4858, 762.057, -42.5155)
+radius = 3.5
+height = 15.289
+sides = 23
+material = SubResource("StandardMaterial3D_ogaig")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(-2.34547e-08, -0.536581, 0, 0.536581, -2.34547e-08, 0, 0, 0, 0.536581, 43.8684, 755.09, -43.0339)
+use_collision = true
+size = Vector3(19.3052, 82.3006, 51.4175)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(-2.34547e-08, -0.536581, 0, 0.536581, -2.34547e-08, 0, 0, 0, 0.536581, 64.0342, 768.015, -36.1814)
+use_collision = true
+size = Vector3(67.4797, 7.13662, 248.576)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(-1.76415e-08, -0.40359, -0.353602, 0.536581, -2.34547e-08, 0, -1.54565e-08, -0.353602, 0.40359, 49.7095, 763.252, -36.3316)
+use_collision = true
+size = Vector3(11.147, 11.5144, 10.9545)
+material = SubResource("StandardMaterial3D_pmlkn")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.54528, 29.8231, 2.70423)
@@ -215,3 +254,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9526, 0, 0)
 
 [node name="Basic_enemy3" parent="Enemies" instance=ExtResource("7_hahxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.99884, 0, 0, 0, 0.99884, 0, 0, 0, 0.99884, 49.2562, 768.286, -52.7144)
+light_color = Color(1, 0, 0.0166664, 1)
+light_energy = 8.812
+light_indirect_energy = 9.338
+shadow_enabled = true
+omni_range = 51.7419
+omni_attenuation = 0.249
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(0.99884, 0, 0, 0, 0.99884, 0, 0, 0, 0.99884, 54.0531, 768, -40.0134)
+light_color = Color(0.121336, 0.646391, 0, 1)
+light_energy = 10.54
+light_indirect_energy = 9.338
+shadow_enabled = true
+omni_range = 16.5461
+omni_attenuation = 1.094
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(0.99884, 0, 0, 0, 0.99884, 0, 0, 0, 0.99884, 49.9762, 768.286, -28.6765)
+light_color = Color(5.48691e-06, 0.587127, 0.764363, 1)
+light_energy = 1.225
+light_indirect_energy = 9.338
+shadow_enabled = true
+omni_range = 57.0434
+omni_attenuation = -0.408

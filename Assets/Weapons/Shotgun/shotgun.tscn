@@ -717,11 +717,11 @@ cast_shadow = 0
 transform = Transform3D(1.29181, 0, -2.98023e-08, 0, 1.29181, 0, 2.98023e-08, 0, 1.29181, 0.0150399, -0.474695, -1.87768)
 
 [node name="hook" type="MeshInstance3D" parent="Shotgun"]
-transform = Transform3D(1.29181, 0, 0, 0, 1.29181, 0, 0, 0, 1.29181, 0.01504, -0.474695, -1.87768)
+transform = Transform3D(1.29181, 0, -2.98023e-08, 0, 1.29181, 0, 2.98023e-08, 0, 1.29181, 0.00248897, -0.474695, -1.91532)
 cast_shadow = 0
 
 [node name="hook_mesh" parent="Shotgun/hook" instance=ExtResource("4_jwd3h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -0.0507383, 0, 0.491215)
 
 [node name="RayCast3D" type="RayCast3D" parent="Shotgun/hook"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.197476, 0, 0.779523)
@@ -730,6 +730,7 @@ collision_mask = 5
 
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
 cast_shadow = 0
+firstTime = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 

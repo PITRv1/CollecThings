@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=28 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
@@ -56,6 +56,8 @@ fog_sky_affect = 0.584
 fog_height_density = -0.5664
 volumetric_fog_density = 0.0443
 
+[sub_resource type="Compositor" id="Compositor_moo7u"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2db8"]
 albedo_color = Color(0.65, 0, 0.0108332, 1)
 
@@ -92,6 +94,7 @@ script = ExtResource("1_jhf8w")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fqgkm")
+compositor = SubResource("Compositor_moo7u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.291273, 0.236429, -0.926964, -0.335225, 0.882312, 0.330377, 0.895982, 0.406971, -0.177737, 0, 0, 0)

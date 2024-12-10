@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://c0xlrjj3ttipu"
+path="res://.godot/imported/outline_effect.glsl-edd17b492505912c6661ba1298b2c2dc.res"
+
+[deps]
+
+source_file="res://Assets/Compositor Effects/outline_effect.glsl"
+dest_files=["res://.godot/imported/outline_effect.glsl-edd17b492505912c6661ba1298b2c2dc.res"]
+
+[params]
+

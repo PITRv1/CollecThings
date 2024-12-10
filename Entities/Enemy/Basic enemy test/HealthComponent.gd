@@ -17,10 +17,14 @@ func damage(attack: WeaponSettings = null, damage : float = 0.0):
 	if attack:
 		health -= attack.damage
 		
+		print(health)
+		
 		#get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
 
 	elif damage:
 		health -= damage
+		
+		print(health)
 
 	if health <= 0:
 		if get_parent() is Player:

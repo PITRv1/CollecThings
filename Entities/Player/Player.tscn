@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=34 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -39,8 +39,6 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrrek"]
 height = 2.2
-
-[sub_resource type="Compositor" id="Compositor_t34gk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oq38q"]
 viewport_path = NodePath("viewport")
@@ -101,7 +99,6 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Head/CameraSmooth"]
 unique_name_in_owner = true
-compositor = SubResource("Compositor_t34gk")
 
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 

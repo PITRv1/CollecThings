@@ -4,7 +4,7 @@ extends Node3D
 
 func _ready() -> void:
 	animation_player.play("RESET")
-
+	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().paused:

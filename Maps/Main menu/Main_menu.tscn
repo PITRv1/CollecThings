@@ -1,12 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4oaiip05l464"]
+[gd_scene load_steps=27 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_gjni7"]
 [ext_resource type="Script" path="res://Maps/Main menu/node_3d.gd" id="2_dbhso"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="2_kxwcn"]
 [ext_resource type="PackedScene" uid="uid://gnmmw7fj5qr7" path="res://Assets/UI/Animated Tablets/Navsys/navsys_screen.tscn" id="3_8g06c"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_screen.tscn" id="3_355bm"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="3_elqwy"]
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="4_bw0vj"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="4_pkxac"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="5_nyw12"]
 [ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="6_kcumm"]
 [ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="7_vrqq2"]
+[ext_resource type="Script" path="res://Maps/Main menu/light_flicker.gd" id="12_fjr2v"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d7ayw"]
 panorama = ExtResource("4_bw0vj")
@@ -17,6 +22,53 @@ sky_material = SubResource("PanoramaSkyMaterial_d7ayw")
 [sub_resource type="Environment" id="Environment_0b0uo"]
 background_mode = 2
 sky = SubResource("Sky_xefy6")
+glow_enabled = true
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_bf7vi"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("2_kxwcn")
+color_amount = 128.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_xoa0l"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("3_elqwy")
+down_scaling = 2.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_c7xfv"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("4_pkxac")
+dithering_intesity = 0.02
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_ikonu"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_nyw12")
+contrast = 1.0
+brightness = 0.0
+saturation = 1.0
+gamma = 1.15
+
+[sub_resource type="Compositor" id="Compositor_g7mx4"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_bf7vi"), SubResource("CompositorEffect_xoa0l"), SubResource("CompositorEffect_c7xfv"), SubResource("CompositorEffect_ikonu")])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_noa4f"]
 viewport_path = NodePath("viewport")
@@ -47,6 +99,7 @@ process_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0b0uo")
+compositor = SubResource("Compositor_g7mx4")
 
 [node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("2_dbhso")
@@ -58,9 +111,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 transform = Transform3D(0.923783, 0.180563, -0.0792251, 0, 0.715149, 0.044332, 0.837636, -0.199133, 0.0873731, 0.448, 2.8, -3.48)
 material_override = SubResource("StandardMaterial3D_2tdlb")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Navsys"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 9.17466e-09, -0.126252)
+light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
+light_energy = 0.123
+shadow_enabled = true
+spot_range = 1.55509
+spot_attenuation = 6.44
+spot_angle = 88.05
+spot_angle_attenuation = 0.277393
+
 [node name="Core" parent="Node3D/Space_ship" instance=ExtResource("7_vrqq2")]
 transform = Transform3D(0.923783, -0.180563, 0.0792251, 0, 0.715149, 0.044332, -0.837636, -0.199133, 0.0873731, -2.70489, 2.79616, -3.48141)
 material_override = SubResource("StandardMaterial3D_i6t58")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Core"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 4.65661e-10, 8.20478e-09, -0.112495)
+light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
+light_energy = 0.123
+shadow_enabled = true
+spot_range = 1.55509
+spot_attenuation = 6.44
+spot_angle = 88.05
+spot_angle_attenuation = 0.217638
 
 [node name="Main menu" parent="Node3D/Space_ship" instance=ExtResource("3_355bm")]
 transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 0, 0, 1.77, -1.085, 3.333, -3.68)
@@ -69,11 +142,51 @@ transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 0, 0, 1.77, -1.085, 3.333, -3.
 transform = Transform3D(1, 0, 0, 0, 0.551543, -0.707107, 0, 0.551543, 0.707107, -1.03555, 4.64446, -2.82047)
 material_override = SubResource("StandardMaterial3D_5bmr1")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, 3.89, -4.07234)
-omni_range = 140.528
-omni_attenuation = 2.49
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Thrusters"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -8.80182e-10, -0.0112381)
+light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
+shadow_enabled = true
+spot_range = 1.175
+spot_attenuation = 6.44
+spot_angle = 89.99
+spot_angle_attenuation = 0.784584
+
+[node name="ShipSpot2" type="SpotLight3D" parent="Node3D/Space_ship" node_paths=PackedStringArray("timer")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.28768, 4.82614, -8.46706e-08)
+light_color = Color(0.76, 0.9, 1, 1)
+light_energy = 4.0
+spot_angle = 70.27
+script = ExtResource("12_fjr2v")
+timer = NodePath("../../../Timer")
+
+[node name="ShipSpot1" type="SpotLight3D" parent="Node3D/Space_ship"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.28768, 4.82614, 6.50581)
+light_color = Color(0.76, 0.9, 1, 1)
+light_energy = 4.068
+spot_angle = 56.09
+
+[node name="OrangeSmal" type="OmniLight3D" parent="Node3D/Space_ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08768, 2.39949, -3.83591)
+light_color = Color(1, 0.643137, 0, 1)
+light_energy = 0.11
+shadow_enabled = true
+omni_range = 0.588358
+omni_attenuation = -0.233
+
+[node name="MainDisplayLight" type="OmniLight3D" parent="Node3D/Space_ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08768, 3.41621, -3.83591)
+light_color = Color(1, 0.643137, 0, 1)
+light_energy = 0.11
+shadow_enabled = true
+omni_range = 1.94972
+omni_attenuation = -0.233
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.869495, 0.0849228, -0.486587, 0, 0.985109, 0.171929, 0.493942, -0.149491, 0.856548, -1.335, 3.585, -3.89)
-fov = 90.0
+transform = Transform3D(0.901297, 0.0849228, -0.424796, -0.0119842, 0.985109, 0.171511, 0.433036, -0.149491, 0.888894, -1.45935, 3.62076, -3.725)
+fov = 79.7
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.367
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Node3D/Space_ship/ShipSpot2" method="_on_timer_timeout"]

@@ -730,6 +730,7 @@ collision_mask = 5
 
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
 cast_shadow = 0
+firstTime = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 

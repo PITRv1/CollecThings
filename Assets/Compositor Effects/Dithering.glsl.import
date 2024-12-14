@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://c8qpa3q5mburh"
+path="res://.godot/imported/Dithering.glsl-39dba09059b9c156e50baf247cb610d8.res"
+
+[deps]
+
+source_file="res://Assets/Compositor Effects/Dithering.glsl"
+dest_files=["res://.godot/imported/Dithering.glsl-39dba09059b9c156e50baf247cb610d8.res"]
+
+[params]
+

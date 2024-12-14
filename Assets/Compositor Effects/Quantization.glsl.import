@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://db71dxklsfhg0"
+path="res://.godot/imported/Quantization.glsl-98561cf13d7d27fd6377b7d8aa15bf86.res"
+
+[deps]
+
+source_file="res://Assets/Compositor Effects/Quantization.glsl"
+dest_files=["res://.godot/imported/Quantization.glsl-98561cf13d7d27fd6377b7d8aa15bf86.res"]
+
+[params]
+

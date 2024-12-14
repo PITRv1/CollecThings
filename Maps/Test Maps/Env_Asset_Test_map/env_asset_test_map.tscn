@@ -1,11 +1,14 @@
-[gd_scene load_steps=30 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=36 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="2_cwwv1"]
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
-[ext_resource type="Script" path="res://Assets/Compositor Effects/PostProscess.gd" id="2_h0d2f"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="2_yv0de"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="4_57s2t"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="5_k626a"]
 [ext_resource type="PackedScene" uid="uid://bvo3xke2n3jn3" path="res://Assets/Models/Environment Models/Test_rock.tscn" id="5_swl5k"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
@@ -26,7 +29,7 @@ frequency = 0.0225
 fractal_lacunarity = 1.745
 fractal_gain = 0.665
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rxou4"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t533v"]
 seamless = true
 color_ramp = SubResource("Gradient_qiymf")
 noise = SubResource("FastNoiseLite_cve68")
@@ -35,18 +38,18 @@ noise = SubResource("FastNoiseLite_cve68")
 sky_top_color = Color(0.0188757, 0.447067, 0.925636, 1)
 sky_horizon_color = Color(0.483006, 0.747435, 0.982709, 1)
 sky_curve = 0.0304596
-sky_cover = SubResource("NoiseTexture2D_rxou4")
+sky_cover = SubResource("NoiseTexture2D_t533v")
 sky_cover_modulate = Color(0.815686, 1, 1, 1)
 ground_bottom_color = Color(0.1995, 0.612275, 0.95, 1)
 ground_horizon_color = Color(0.2, 0.611765, 0.94902, 1)
 ground_curve = 0.171484
 
-[sub_resource type="Sky" id="Sky_4jqd3"]
+[sub_resource type="Sky" id="Sky_8q0n5"]
 sky_material = SubResource("ProceduralSkyMaterial_ss61i")
 
 [sub_resource type="Environment" id="Environment_fqgkm"]
 background_mode = 2
-sky = SubResource("Sky_4jqd3")
+sky = SubResource("Sky_8q0n5")
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 0.16
@@ -57,17 +60,51 @@ fog_sky_affect = 0.584
 fog_height_density = -0.5664
 volumetric_fog_density = 0.0443
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_xq4o5"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_jwfxd"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
-script = ExtResource("2_h0d2f")
+script = ExtResource("2_cwwv1")
+color_amount = 64.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_74b1c"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("2_yv0de")
+down_scaling = 2.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_1ivdv"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("4_57s2t")
+dithering_intesity = 0.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_b666d"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_k626a")
+contrast = 1.05
+brightness = 0.0
+saturation = 1.1
+gamma = 0.9
 
 [sub_resource type="Compositor" id="Compositor_moo7u"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_xq4o5")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_jwfxd"), SubResource("CompositorEffect_74b1c"), SubResource("CompositorEffect_1ivdv"), SubResource("CompositorEffect_b666d")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2db8"]
 albedo_color = Color(0.65, 0, 0.0108332, 1)
@@ -76,7 +113,7 @@ albedo_color = Color(0.65, 0, 0.0108332, 1)
 albedo_color = Color(0, 0.57, 0.038, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmlkn"]
-albedo_color = Color(0.0833335, 0, 1, 1)
+albedo_color = Color(0.219608, 0, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_52nbf"]
 render_priority = 0
@@ -220,7 +257,7 @@ sides = 23
 material = SubResource("StandardMaterial3D_ogaig")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
-transform = Transform3D(-2.34547e-08, -0.536581, 0, 0.536581, -2.34547e-08, 0, 0, 0, 0.536581, 43.8684, 755.09, -43.0339)
+transform = Transform3D(-2.34547e-08, -0.536581, 0, 0.536581, -2.34547e-08, 0, 0, 0, 0.536581, 43.8684, 755.647, -43.0339)
 use_collision = true
 size = Vector3(19.3052, 82.3006, 51.4175)
 
@@ -230,7 +267,7 @@ use_collision = true
 size = Vector3(67.4797, 7.13662, 248.576)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
-transform = Transform3D(-1.76415e-08, -0.40359, -0.353602, 0.536581, -2.34547e-08, 0, -1.54565e-08, -0.353602, 0.40359, 49.7095, 763.252, -36.3316)
+transform = Transform3D(-1.76415e-08, -0.40359, -0.353602, 0.536581, -2.34547e-08, 0, -1.54565e-08, -0.353602, 0.40359, 49.7095, 763.441, -36.3316)
 use_collision = true
 size = Vector3(11.147, 11.5144, 10.9545)
 material = SubResource("StandardMaterial3D_pmlkn")
@@ -279,7 +316,7 @@ omni_range = 51.7419
 omni_attenuation = 0.249
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(0.99884, 0, 0, 0, 0.99884, 0, 0, 0, 0.99884, 54.0531, 768, -40.0134)
+transform = Transform3D(0.99884, 0, 0, 0, 0.99884, 0, 0, 0, 0.99884, 57.5247, 768, -40.0134)
 light_color = Color(0.121336, 0.646391, 0, 1)
 light_energy = 10.54
 light_indirect_energy = 9.338
@@ -288,7 +325,7 @@ omni_range = 16.5461
 omni_attenuation = 1.094
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(0.99884, 0, 0, 0, 0.99884, 0, 0, 0, 0.99884, 49.9762, 768.286, -28.6765)
+transform = Transform3D(0.99884, 0, 0, 0, 0.99884, 0, 0, 0, 0.99884, 49.9762, 768.286, -14.7627)
 light_color = Color(5.48691e-06, 0.587127, 0.764363, 1)
 light_energy = 1.225
 light_indirect_energy = 9.338

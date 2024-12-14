@@ -1,19 +1,367 @@
-[gd_scene load_steps=7 format=3 uid="uid://v3uujc2tqga2"]
+[gd_scene load_steps=16 format=3 uid="uid://v3uujc2tqga2"]
 
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_e0jjt"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="2_8wp8a"]
 
+[sub_resource type="Animation" id="Animation_e8d03"]
+resource_name = "Button_color_light_change"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship/Circle_001:surface_material_override/0:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 14.75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Space_ship/Circle_002:surface_material_override/0:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 13.33]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Space_ship/Circle_003:surface_material_override/0:emission_energy_multiplier")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10.67]
+}
+
 [sub_resource type="Animation" id="Animation_wghkt"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship/Circle_001:surface_material_override/0:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8.27]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Space_ship/Circle_002:surface_material_override/0:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Space_ship/Circle_003:surface_material_override/0:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Space_ship/Cylinder:surface_material_override/0:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Space_ship/Cube_065:surface_material_override/0:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Space_ship/Cube_065:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.812943, 0.002998, -0.00149907)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Space_ship/Cylinder/MeshInstance3D:mesh:material:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Space_ship/Cylinder/MeshInstance3D2:mesh:material:albedo_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Space_ship/Cylinder/MeshInstance3D3:mesh:material:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Space_ship/Cube_065:surface_material_override/0:emission_energy_multiplier")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.76]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Space_ship/Cylinder/MeshInstance3D:mesh:material:emission_energy_multiplier")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [9.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Space_ship/Cylinder/MeshInstance3D2:mesh:material:emission_energy_multiplier")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [9.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Space_ship/Cylinder/MeshInstance3D3:mesh:material:emission_energy_multiplier")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [9.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Space_ship/Cylinder:surface_material_override/0:emission_energy_multiplier")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_3lgr3"]
 resource_name = "take_off"
 length = 3.784
 loop_mode = 1
 
+[sub_resource type="Animation" id="Animation_4we4e"]
+resource_name = "Radar"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship/Cylinder:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.36667, 2.16667, 2.33333, 3.7, 4.66667, 4.83333, 6.76667, 10),
+"transitions": PackedFloat32Array(1, 0.273871, 0.273871, 1, 1, 1, 1, 0.273871, 0.273871),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Space_ship/Cube_065:surface_material_override/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.638527, 0.403936, 9.62615e-08, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Space_ship/Cube_065:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.813323, 0.00349066, 6.28319), Vector3(0.813323, 0.00349066, -0.00174533)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Space_ship/Cylinder/MeshInstance3D:mesh:material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.53333, 2.175, 3.93293, 4.84207, 6.33333, 10),
+"transitions": PackedFloat32Array(1, 0.273871, 1, 1, 1, 0.273871, 0.273871),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Space_ship/Cylinder/MeshInstance3D2:mesh:material:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.53333, 2.175, 3.90833, 4.84207, 6.33333, 10),
+"transitions": PackedFloat32Array(1, 0.273871, 1, 1, 1, 0.273871, 0.273871),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Space_ship/Cylinder/MeshInstance3D3:mesh:material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.53333, 2.175, 3.90833, 4.84207, 6.33333, 10),
+"transitions": PackedFloat32Array(1, 0.273871, 1, 1, 1, 0.273871, 0.273871),
+"update": 0,
+"values": [Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(1, 0.643137, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Space_ship/Cube_065:surface_material_override/0:emission_energy_multiplier")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.0, 4.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Space_ship/Cylinder/MeshInstance3D:mesh:material:emission_energy_multiplier")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.833333, 2.13333, 2.26667, 3.33333, 4.73333, 4.83333, 6.2, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.76, 0.0, 0.0, 4.76, 0.0, 0.0, 4.76, 0.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Space_ship/Cylinder/MeshInstance3D2:mesh:material:emission_energy_multiplier")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.833333, 2.13333, 2.26667, 3.33333, 4.73333, 4.83333, 6.2, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.76, 0.0, 0.0, 4.76, 0.0, 0.0, 4.76, 0.0, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Space_ship/Cylinder/MeshInstance3D3:mesh:material:emission_energy_multiplier")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.833333, 2.13333, 2.26667, 3.33333, 4.73333, 4.83333, 6.2, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.76, 0.0, 0.0, 4.76, 0.0, 0.0, 4.76, 0.0, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Space_ship/Cylinder:surface_material_override/0:emission_energy_multiplier")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.333333, 2.13333, 2.26667, 2.6, 4.73333, 4.83333, 5.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.0, 0.0, 0.0, 2.0, 0.0, 0.0, 2.0, 0.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wetl0"]
 _data = {
+"Button_color_light_change": SubResource("Animation_e8d03"),
 "RESET": SubResource("Animation_wghkt"),
+"Radar": SubResource("Animation_4we4e"),
 "take_off": SubResource("Animation_3lgr3")
 }
 
@@ -29,18 +377,89 @@ shader_parameter/Fresnel_Power = 2.0
 shader_parameter/ProximityFade_Alpha = 0.2
 shader_parameter/EmissionBrightness = 26.01
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_680p2"]
+albedo_color = Color(1, 0.643137, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.643137, 0, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8xok"]
+albedo_color = Color(1, 0.643137, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.643137, 0, 1)
+emission_energy_multiplier = 9.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wvmpp"]
+material = SubResource("StandardMaterial3D_m8xok")
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aei20"]
+albedo_color = Color(1, 0.643137, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.643137, 0, 1)
+emission_energy_multiplier = 4.76
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7xe0"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 8.27
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpke1"]
+albedo_color = Color(0.337376, 0.68907, 0.910468, 1)
+emission_enabled = true
+emission = Color(0, 0.352, 0.64, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cb4oo"]
+albedo_color = Color(1, 0.643137, 0, 1)
+emission_enabled = true
+emission = Color(0.47, 0.3055, 0, 1)
+emission_energy_multiplier = 0.0
+
 [node name="Space_ship" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632255, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_wetl0")
 }
-autoplay = "take_off"
+autoplay = "Radar"
+speed_scale = 0.5
 
 [node name="Space_ship" parent="." instance=ExtResource("1_e0jjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09426, 0, 2.55486)
 
 [node name="Plane" parent="Space_ship" index="9"]
 surface_material_override/0 = SubResource("ShaderMaterial_0supp")
+
+[node name="Cylinder" parent="Space_ship" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_680p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Space_ship/Cylinder" index="0"]
+transform = Transform3D(0.0357297, 0, 0, 0, 0.0343058, -0.00998624, 0, 0.00998624, 0.0343058, 0, -0.0441779, 0.140958)
+mesh = SubResource("CylinderMesh_wvmpp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Space_ship/Cylinder" index="1"]
+transform = Transform3D(0.0357297, 0, 0, 0, 0.0343058, -0.00998624, 0, 0.00998624, 0.0343058, -0.000103641, 0.0369568, -0.137765)
+mesh = SubResource("CylinderMesh_wvmpp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Space_ship/Cylinder" index="2"]
+transform = Transform3D(0.0198525, 0, 0, 0, 0.0190614, -0.00554866, 0, 0.00554866, 0.0190614, 0.109816, -0.0054308, 0.00784973)
+mesh = SubResource("CylinderMesh_wvmpp")
+
+[node name="Cube_065" parent="Space_ship" index="11"]
+transform = Transform3D(0.0128974, 4.74183e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27094e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
+surface_material_override/0 = SubResource("StandardMaterial3D_aei20")
+
+[node name="Circle_001" parent="Space_ship" index="21"]
+surface_material_override/0 = SubResource("StandardMaterial3D_k7xe0")
+
+[node name="Circle_002" parent="Space_ship" index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.874743, 2.05765, -5.80253)
+surface_material_override/0 = SubResource("StandardMaterial3D_vpke1")
+
+[node name="Circle_003" parent="Space_ship" index="23"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cb4oo")
 
 [editable path="Space_ship"]

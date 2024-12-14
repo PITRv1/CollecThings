@@ -229,7 +229,6 @@ func _physics_process(delta):
 	
 	cam_tilt_effect()
 	fov_change(delta)
-	
 
 #Callables for the movement states
 func update_gravity(delta):

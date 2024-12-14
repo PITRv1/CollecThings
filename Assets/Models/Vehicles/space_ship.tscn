@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://v3uujc2tqga2"]
+[gd_scene load_steps=19 format=3 uid="uid://v3uujc2tqga2"]
 
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_e0jjt"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="2_8wp8a"]
@@ -14,7 +14,7 @@ tracks/0/path = NodePath("Space_ship/Circle_001:surface_material_override/0:emis
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.16667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0.0, 14.75]
@@ -403,7 +403,7 @@ emission_energy_multiplier = 4.76
 albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 8.27
+emission_energy_multiplier = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpke1"]
 albedo_color = Color(0.337376, 0.68907, 0.910468, 1)
@@ -416,6 +416,92 @@ albedo_color = Color(1, 0.643137, 0, 1)
 emission_enabled = true
 emission = Color(0.47, 0.3055, 0, 1)
 emission_energy_multiplier = 0.0
+
+[sub_resource type="Animation" id="Animation_tli0k"]
+resource_name = "Blinking_buttons"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship/Circle_001:surface_material_override/0:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 14.75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Space_ship/Circle_002:surface_material_override/0:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 13.33]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Space_ship/Circle_003:surface_material_override/0:emission_energy_multiplier")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10.67]
+}
+
+[sub_resource type="Animation" id="Animation_wvvpr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship/Circle_001:surface_material_override/0:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Space_ship/Circle_002:surface_material_override/0:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Space_ship/Circle_003:surface_material_override/0:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fyios"]
+_data = {
+"Blinking_buttons": SubResource("Animation_tli0k"),
+"RESET": SubResource("Animation_wvvpr")
+}
 
 [node name="Space_ship" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632255, 0, 0)
@@ -461,5 +547,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vpke1")
 
 [node name="Circle_003" parent="Space_ship" index="23"]
 surface_material_override/0 = SubResource("StandardMaterial3D_cb4oo")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fyios")
+}
+autoplay = "Blinking_buttons"
 
 [editable path="Space_ship"]

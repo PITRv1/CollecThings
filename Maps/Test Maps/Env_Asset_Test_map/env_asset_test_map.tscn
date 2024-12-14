@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=30 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
 [ext_resource type="NavigationMesh" uid="uid://qi7av7ia6htx" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map_nav_mesh.tres" id="2_eq3lb"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/PostProscess.gd" id="2_h0d2f"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_tnp5y"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="4_5tgxb"]
 [ext_resource type="PackedScene" uid="uid://bvo3xke2n3jn3" path="res://Assets/Models/Environment Models/Test_rock.tscn" id="5_swl5k"]
@@ -56,7 +57,17 @@ fog_sky_affect = 0.584
 fog_height_density = -0.5664
 volumetric_fog_density = 0.0443
 
+[sub_resource type="CompositorEffect" id="CompositorEffect_xq4o5"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("2_h0d2f")
+
 [sub_resource type="Compositor" id="Compositor_moo7u"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_xq4o5")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2db8"]
 albedo_color = Color(0.65, 0, 0.0108332, 1)

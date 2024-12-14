@@ -8,7 +8,7 @@ var pipeline := RID()
 var parameter_storage_buffer := RID()
 
 func _init() -> void:
-	var shader_file : RDShaderFile = load("res://Assets/Compositor Effects/outline.glsl")
+	var shader_file : RDShaderFile = load("res://Assets/Compositor Effects/grayscale.glsl")
 	var shader_spirv := shader_file.get_spirv()
 	shader = rd.shader_create_from_spirv(shader_spirv)
 	pipeline = rd.compute_pipeline_create(shader)

@@ -88,7 +88,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_57s2t")
-dithering_intesity = 0.0
+dithering_intesity = 0.609
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_b666d"]
 resource_local_to_scene = false

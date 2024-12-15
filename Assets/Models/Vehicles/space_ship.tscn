@@ -215,11 +215,6 @@ tracks/13/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_3lgr3"]
-resource_name = "take_off"
-length = 3.784
-loop_mode = 1
-
 [sub_resource type="Animation" id="Animation_4we4e"]
 resource_name = "Radar"
 length = 10.0
@@ -356,6 +351,11 @@ tracks/10/keys = {
 "update": 0,
 "values": [2.0, 0.0, 0.0, 2.0, 0.0, 0.0, 2.0, 0.0, 0.0]
 }
+
+[sub_resource type="Animation" id="Animation_3lgr3"]
+resource_name = "take_off"
+length = 3.784
+loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wetl0"]
 _data = {
@@ -535,7 +535,7 @@ transform = Transform3D(0.0198525, 0, 0, 0, 0.0190614, -0.00554866, 0, 0.0055486
 mesh = SubResource("CylinderMesh_wvmpp")
 
 [node name="Cube_065" parent="Space_ship" index="11"]
-transform = Transform3D(0.0128974, 4.74183e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27094e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
+transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
 surface_material_override/0 = SubResource("StandardMaterial3D_aei20")
 
 [node name="Circle_001" parent="Space_ship" index="21"]

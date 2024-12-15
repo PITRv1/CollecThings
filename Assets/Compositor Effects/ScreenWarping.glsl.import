@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://d063lucht657e"
+path="res://.godot/imported/ScreenWarping.glsl-ae734f9e6ed4fb5c35ee2b99ef099d42.res"
+
+[deps]
+
+source_file="res://Assets/Compositor Effects/ScreenWarping.glsl"
+dest_files=["res://.godot/imported/ScreenWarping.glsl-ae734f9e6ed4fb5c35ee2b99ef099d42.res"]
+
+[params]
+

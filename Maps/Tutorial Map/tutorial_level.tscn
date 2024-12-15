@@ -1024,7 +1024,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = null
 
 [node name="Cube_065" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="11"]
-transform = Transform3D(0.0128974, 4.74183e-05, 2.65781e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27094e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
+transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
 
 [node name="Circle_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="21"]
 surface_material_override/0 = null

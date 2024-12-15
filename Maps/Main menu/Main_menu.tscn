@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b4oaiip05l464"]
+[gd_scene load_steps=29 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_gjni7"]
 [ext_resource type="Script" path="res://Maps/Main menu/node_3d.gd" id="2_dbhso"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="3_elqwy"]
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="4_bw0vj"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="4_pkxac"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="5_dbdyl"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="5_nyw12"]
 [ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="6_kcumm"]
 [ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="7_vrqq2"]
@@ -23,6 +24,17 @@ sky_material = SubResource("PanoramaSkyMaterial_d7ayw")
 background_mode = 2
 sky = SubResource("Sky_xefy6")
 glow_enabled = true
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_cghkc"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_dbdyl")
+frequency = 1000.0
+line_brightness = -0.33
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_bf7vi"]
 resource_local_to_scene = false
@@ -68,7 +80,7 @@ saturation = 1.0
 gamma = 1.15
 
 [sub_resource type="Compositor" id="Compositor_g7mx4"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_bf7vi"), SubResource("CompositorEffect_xoa0l"), SubResource("CompositorEffect_c7xfv"), SubResource("CompositorEffect_ikonu")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_cghkc"), SubResource("CompositorEffect_bf7vi"), SubResource("CompositorEffect_xoa0l"), SubResource("CompositorEffect_c7xfv"), SubResource("CompositorEffect_ikonu")])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_noa4f"]
 viewport_path = NodePath("viewport")
@@ -108,7 +120,7 @@ script = ExtResource("2_dbhso")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 
 [node name="Navsys" parent="Node3D/Space_ship" instance=ExtResource("3_8g06c")]
-transform = Transform3D(0.923783, 0.180563, -0.0792251, 0, 0.715149, 0.044332, 0.837636, -0.199133, 0.0873731, 0.448, 2.8, -3.48)
+transform = Transform3D(0.985835, 0.175857, -0.0847189, 0, 0.696509, 0.0474061, 0.893902, -0.193943, 0.0934319, 0.448, 2.8, -3.48)
 material_override = SubResource("StandardMaterial3D_2tdlb")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Navsys"]

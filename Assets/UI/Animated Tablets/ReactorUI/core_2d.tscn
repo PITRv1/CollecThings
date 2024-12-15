@@ -1,20 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://batb8noj04xf7"]
+[gd_scene load_steps=7 format=3 uid="uid://batb8noj04xf7"]
 
+[ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactCanvas.gdshader" id="1_525a3"]
 [ext_resource type="Texture2D" uid="uid://bwbkdpwcfxlks" path="res://Assets/UI/Animated Tablets/ReactorUI/core.png" id="1_ppx0a"]
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="2_vioih"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gx41c"]
+shader = ExtResource("1_525a3")
+shader_parameter/frequency = 422.915
+shader_parameter/line_brightness = 0.077
+shader_parameter/time_scale = 0.054
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehddn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l77wc"]
+shader = ExtResource("1_525a3")
+shader_parameter/frequency = 539.192
+shader_parameter/line_brightness = 0.215
+shader_parameter/time_scale = 0.108
 
 [node name="Reactor2d" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_gx41c")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_ehddn")
+use_parent_material = true
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 texture = ExtResource("1_ppx0a")
 
-[node name="Label" type="Label" parent="TextureRect"]
+[node name="Label" type="Label" parent="TextureRect2/TextureRect"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
@@ -25,7 +53,7 @@ theme_override_colors/font_color = Color(0.164706, 0.286275, 0.392157, 1)
 theme_override_font_sizes/font_size = 61
 text = "Core information"
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect2/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,68 +66,69 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect2/TextureRect/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 95
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(0.372549, 0.803922, 0.894118, 1)
 theme_override_font_sizes/font_size = 51
 text = "Status:"
 
-[node name="Label2" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(0.372549, 0.803922, 0.894118, 1)
 theme_override_font_sizes/font_size = 51
 text = "Efficiency:"
 
-[node name="Label3" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(0.372549, 0.803922, 0.894118, 1)
 theme_override_font_sizes/font_size = 51
 text = "Cooling:"
 
-[node name="Label4" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(0.372549, 0.803922, 0.894118, 1)
 theme_override_font_sizes/font_size = 51
 text = "Shielding:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+material = SubResource("ShaderMaterial_l77wc")
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
 theme_override_font_sizes/font_size = 51
 text = "Stable"
 
-[node name="Label2" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
 theme_override_font_sizes/font_size = 51
 text = "100%"
 
-[node name="Label3" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label3" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
 theme_override_font_sizes/font_size = 51
 text = "Online"
 
-[node name="Label4" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label4" type="Label" parent="TextureRect2/TextureRect/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_vioih")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)

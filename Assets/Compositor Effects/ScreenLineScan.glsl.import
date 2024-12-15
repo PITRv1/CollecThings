@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://cw0lyjna50bwc"
+path="res://.godot/imported/ScreenLineScan.glsl-50c162da49d2136ba49bc8a2176f8980.res"
+
+[deps]
+
+source_file="res://Assets/Compositor Effects/ScreenLineScan.glsl"
+dest_files=["res://.godot/imported/ScreenLineScan.glsl-50c162da49d2136ba49bc8a2176f8980.res"]
+
+[params]
+

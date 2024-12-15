@@ -92,6 +92,7 @@ material = SubResource("ShaderMaterial_7pe17")
 material = SubResource("ShaderMaterial_56hos")
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_uituk")
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

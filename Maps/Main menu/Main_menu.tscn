@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b4oaiip05l464"]
+[gd_scene load_steps=40 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_gjni7"]
 [ext_resource type="Script" path="res://Maps/Main menu/node_3d.gd" id="2_dbhso"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="5_nyw12"]
 [ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="6_kcumm"]
 [ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="7_vrqq2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/ScreenWarpingEffectSpatial.gdshader" id="10_4lr3f"]
+[ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="11_hpybg"]
 [ext_resource type="Script" path="res://Maps/Main menu/light_flicker.gd" id="12_fjr2v"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d7ayw"]
@@ -90,6 +92,29 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_noa4f")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_shjob"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tf2y"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_4lr3f")
+shader_parameter/lens_curvature = 0.219
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_shjob")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gq3ly"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_0tf2y")
+shader = ExtResource("11_hpybg")
+shader_parameter/line_amount = 256.918
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.728
+shader_parameter/line_opacity = 0.457
+shader_parameter/emission_power = 0.182
+shader_parameter/line_color = Color(0, 0.75, 1, 1)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_ixs4s"]
 viewport_path = NodePath("viewport")
 
@@ -98,6 +123,29 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_ixs4s")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_u5of0"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kv05u"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_4lr3f")
+shader_parameter/lens_curvature = 0.052
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_u5of0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lo03u"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_kv05u")
+shader = ExtResource("11_hpybg")
+shader_parameter/line_amount = 256.918
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.728
+shader_parameter/line_opacity = 0.457
+shader_parameter/emission_power = 0.182
+shader_parameter/line_color = Color(0, 0.74902, 1, 1)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_ljgob"]
 viewport_path = NodePath("viewport")
 
@@ -105,6 +153,29 @@ viewport_path = NodePath("viewport")
 resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_ljgob")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hu3mp"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xry2r"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_4lr3f")
+shader_parameter/lens_curvature = 0.289
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_hu3mp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjq4l"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_xry2r")
+shader = ExtResource("11_hpybg")
+shader_parameter/line_amount = 256.918
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.728
+shader_parameter/line_opacity = 0.457
+shader_parameter/emission_power = 0.182
+shader_parameter/line_color = Color(0, 0.74902, 1, 1)
 
 [node name="MainMenu" type="Node3D"]
 process_mode = 3
@@ -122,6 +193,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 [node name="Navsys" parent="Node3D/Space_ship" instance=ExtResource("3_8g06c")]
 transform = Transform3D(0.985835, 0.175857, -0.0847189, 0, 0.696509, 0.0474061, 0.893902, -0.193943, 0.0934319, 0.448, 2.8, -3.48)
 material_override = SubResource("StandardMaterial3D_2tdlb")
+material_overlay = SubResource("ShaderMaterial_gq3ly")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Navsys"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 9.17466e-09, -0.126252)
@@ -136,6 +208,7 @@ spot_angle_attenuation = 0.277393
 [node name="Core" parent="Node3D/Space_ship" instance=ExtResource("7_vrqq2")]
 transform = Transform3D(0.923783, -0.180563, 0.0792251, 0, 0.715149, 0.044332, -0.837636, -0.199133, 0.0873731, -2.70489, 2.79616, -3.48141)
 material_override = SubResource("StandardMaterial3D_i6t58")
+material_overlay = SubResource("ShaderMaterial_lo03u")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Core"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 4.65661e-10, 8.20478e-09, -0.112495)
@@ -153,6 +226,7 @@ transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 0, 0, 1.77, -1.085, 3.333, -3.
 [node name="Thrusters" parent="Node3D/Space_ship" instance=ExtResource("6_kcumm")]
 transform = Transform3D(1, 0, 0, 0, 0.551543, -0.707107, 0, 0.551543, 0.707107, -1.03555, 4.64446, -2.82047)
 material_override = SubResource("StandardMaterial3D_5bmr1")
+material_overlay = SubResource("ShaderMaterial_pjq4l")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Thrusters"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -8.80182e-10, -0.0112381)

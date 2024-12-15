@@ -1,12 +1,17 @@
-[gd_scene load_steps=77 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=88 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="2_poik5"]
 [ext_resource type="Script" path="res://Cinematics/3D Cinematics/Crash/animation_player.gd" id="2_vos7h"]
 [ext_resource type="Script" path="res://Assets/Models/Vehicles/space_ship.gd" id="3_4jaat"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="3_rd5mt"]
 [ext_resource type="PackedScene" uid="uid://conyfhi7ppg7g" path="res://Assets/Particle Effects/orange_flame.tscn" id="4_c8ow2"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="4_so0ga"]
 [ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Assets/Models/Cinematic Models/Planet.tscn" id="5_bnkwv"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="5_x5a01"]
 [ext_resource type="PackedScene" uid="uid://c8kdw4ohy4ga0" path="res://Assets/Particle Effects/blue_flame.tscn" id="6_4cfpa"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="6_hn1hp"]
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Assets/Models/Cinematic Models/Planet2.tscn" id="6_jldjv"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="8_f65px"]
@@ -26,6 +31,63 @@ sky = SubResource("Sky_qix8o")
 fog_light_color = Color(0.399762, 0.574757, 0.691026, 1)
 fog_light_energy = 0.36
 fog_density = 0.018
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_ro62p"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("2_poik5")
+frequency = 10.0
+line_brightness = 0.5
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_w1ka6"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("3_rd5mt")
+color_amount = 64.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_303fr"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("4_so0ga")
+down_scaling = 2.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_jx282"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_x5a01")
+dithering_intesity = 0.02
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_ro51y"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("6_hn1hp")
+contrast = 1.01
+brightness = 0.0
+saturation = 1.1
+gamma = 0.9
+
+[sub_resource type="Compositor" id="Compositor_5nuaa"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_ro62p"), SubResource("CompositorEffect_w1ka6"), SubResource("CompositorEffect_303fr"), SubResource("CompositorEffect_jx282"), SubResource("CompositorEffect_ro51y")])
 
 [sub_resource type="Curve" id="Curve_20oml"]
 min_value = -360.0
@@ -1093,6 +1155,7 @@ alpha_curve = SubResource("CurveTexture_nu6ce")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mpead")
+compositor = SubResource("Compositor_5nuaa")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

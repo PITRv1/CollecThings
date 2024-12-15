@@ -132,6 +132,7 @@ custom_minimum_size = Vector2(1050, 50)
 layout_mode = 2
 theme = ExtResource("3_j2pj4")
 rounded = true
+show_percentage = false
 
 [node name="EnergyPanel" type="Panel" parent="Margin/UI/PlayerStats"]
 custom_minimum_size = Vector2(500, 150)
@@ -166,6 +167,7 @@ custom_minimum_size = Vector2(1050, 50)
 layout_mode = 2
 theme = ExtResource("5_06o85")
 rounded = true
+show_percentage = false
 
 [node name="Line2" type="ColorRect" parent="Margin/UI"]
 custom_minimum_size = Vector2(0, 4)

@@ -10,7 +10,7 @@ var mouse_entered : bool = false
 var mouse_held : bool = false
 var mouse_inside : bool = false
 var is_mouse_event : bool = false
-	
+
 var last_mouse_pos_3D = null
 var last_mouse_pos_2D = null
 
@@ -21,13 +21,12 @@ func _ready() -> void:
 	
 
 func _unhandled_input(event: InputEvent) -> void:
-	viewport = $viewport
-	
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		is_mouse_event = true
-		
+	
 	if mouse_entered and (is_mouse_event or mouse_held):
 		handle_mouse(event)
+		
 	elif not is_mouse_event:
 		viewport.push_input(event,true)
 	
@@ -71,10 +70,9 @@ func handle_mouse(event) -> void:
 		else:
 			event.relative = mouse_pos2D - last_mouse_pos_2D
 		
-	last_mouse_pos_2D = mouse_pos2D
 	
-	if $viewport:
-		viewport.push_input(event, false)
+	last_mouse_pos_2D = mouse_pos2D
+	viewport.push_input(event, false)
 	
 
 func find_mouse(pos: Vector2):
@@ -94,4 +92,3 @@ func find_mouse(pos: Vector2):
 		return result.position
 	else:
 		return null
-	

@@ -1,6 +1,6 @@
 extends Control
 
-var scene_to_load: String = Global.next_scene
+@onready var scene_to_load: String = Global.next_scene
 
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(scene_to_load)

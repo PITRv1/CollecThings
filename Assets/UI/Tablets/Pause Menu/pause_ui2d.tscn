@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dee1xjnbe0hxf"]
+[gd_scene load_steps=8 format=3 uid="uid://dee1xjnbe0hxf"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_6uop4"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/main_volume.gd" id="3_6bixt"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/music_volume.gd" id="3_clpri"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/window_mode.gd" id="5_2orxk"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/resolution.gd" id="6_7kn0j"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/pixelization.gd" id="7_e2won"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -99,7 +102,6 @@ theme = ExtResource("1_6uop4")
 text = "Quit"
 
 [node name="SettingsMargin" type="MarginContainer" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 2
 offset_right = 1152.0
@@ -120,7 +122,6 @@ theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsMargin/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 740
 
 [node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/HBoxContainer"]
 texture_filter = 1
@@ -132,7 +133,7 @@ text = "Settings"
 [node name="Done" type="Button" parent="SettingsMargin/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 10
 focus_mode = 0
 theme = ExtResource("1_6uop4")
 text = "Done"
@@ -144,15 +145,16 @@ color = Color(1, 0.643137, 0, 1)
 
 [node name="Settings" type="VBoxContainer" parent="SettingsMargin/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="HBox" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
 visible = false
 layout_mode = 2
-theme_override_constants/separation = 325
 
 [node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/HBox"]
 layout_mode = 2
 size_flags_horizontal = 8
+alignment = 1
 
 [node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/HBox/LabelBox"]
 texture_filter = 1
@@ -164,7 +166,7 @@ text = "Label
 
 [node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/HBox"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 alignment = 2
 
 [node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Settings/HBox/SliderBox"]
@@ -177,12 +179,12 @@ rounded = true
 
 [node name="Main volume" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
 layout_mode = 2
-theme_override_constants/separation = 180
 script = ExtResource("3_6bixt")
 
 [node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Main volume"]
 layout_mode = 2
 size_flags_horizontal = 8
+alignment = 1
 
 [node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Main volume/LabelBox"]
 texture_filter = 1
@@ -193,7 +195,7 @@ text = "Main volume"
 
 [node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Main volume"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 alignment = 2
 
 [node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Settings/Main volume/SliderBox"]
@@ -209,12 +211,12 @@ rounded = true
 
 [node name="Music Volume" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
 layout_mode = 2
-theme_override_constants/separation = 150
 script = ExtResource("3_clpri")
 
 [node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Music Volume"]
 layout_mode = 2
 size_flags_horizontal = 8
+alignment = 1
 
 [node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Music Volume/LabelBox"]
 texture_filter = 1
@@ -226,7 +228,7 @@ text = "Music Volume
 
 [node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Music Volume"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 alignment = 2
 
 [node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Settings/Music Volume/SliderBox"]
@@ -242,6 +244,119 @@ rounded = true
 allow_greater = true
 allow_lesser = true
 
+[node name="Window Mode" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("5_2orxk")
+
+[node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Window Mode"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Window Mode/LabelBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_font_sizes/font_size = 30
+text = "Window Mode"
+
+[node name="ButtonBox" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Window Mode"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Windowed" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Window Mode/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "Windowed"
+
+[node name="Fullscreen" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Window Mode/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "Fullscreen"
+
+[node name="Resolution" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("6_7kn0j")
+
+[node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Resolution/LabelBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_font_sizes/font_size = 30
+text = "Resolution"
+
+[node name="ButtonBox" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Default" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "Auto"
+
+[node name="2K" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "1440p"
+
+[node name="FullHD" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "1080p"
+
+[node name="HD" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "720p
+"
+
+[node name="Pixelization" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
+layout_mode = 2
+script = ExtResource("7_e2won")
+
+[node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Pixelization"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Pixelization/LabelBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_font_sizes/font_size = 30
+text = "Pixelization"
+
+[node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Pixelization"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="HSlider" type="HSlider" parent="SettingsMargin/VBoxContainer/Settings/Pixelization/SliderBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+max_value = 16.0
+step = 2.0
+value = 2.0
+rounded = true
+
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
@@ -250,3 +365,10 @@ allow_lesser = true
 [connection signal="pressed" from="SettingsMargin/VBoxContainer/HBoxContainer/Done" to="." method="_on_done_pressed"]
 [connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Main volume/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Main volume" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Music Volume/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Music Volume" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Window Mode/ButtonBox/Windowed" to="SettingsMargin/VBoxContainer/Settings/Window Mode" method="_on_windowed_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Window Mode/ButtonBox/Fullscreen" to="SettingsMargin/VBoxContainer/Settings/Window Mode" method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox/Default" to="SettingsMargin/VBoxContainer/Settings/Resolution" method="_on_default_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox/2K" to="SettingsMargin/VBoxContainer/Settings/Resolution" method="_on_k_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox/FullHD" to="SettingsMargin/VBoxContainer/Settings/Resolution" method="_on_full_hd_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox/HD" to="SettingsMargin/VBoxContainer/Settings/Resolution" method="_on_hd_pressed"]
+[connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Pixelization/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Pixelization" method="_on_h_slider_value_changed"]

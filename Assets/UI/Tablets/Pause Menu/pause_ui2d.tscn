@@ -102,6 +102,7 @@ theme = ExtResource("1_6uop4")
 text = "Quit"
 
 [node name="SettingsMargin" type="MarginContainer" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 2
 offset_right = 1152.0
@@ -339,7 +340,7 @@ texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
 theme_override_font_sizes/font_size = 30
-text = "Pixelization"
+text = "Down scaling"
 
 [node name="SliderBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Pixelization"]
 layout_mode = 2
@@ -356,6 +357,7 @@ max_value = 16.0
 step = 2.0
 value = 2.0
 rounded = true
+editable = false
 
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]

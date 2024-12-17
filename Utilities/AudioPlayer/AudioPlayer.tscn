@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" path="res://Utilities/AudioPlayer/audio_player.gd" id="1_0nyv2"]
 
-[node name="AudioPlayer" type="AudioStreamPlayer2D"]
+[node name="AudioPlayer" type="AudioStreamPlayer"]
 process_mode = 3
 script = ExtResource("1_0nyv2")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b4oaiip05l464"]
+[gd_scene load_steps=41 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_gjni7"]
 [ext_resource type="Script" path="res://Maps/Main menu/node_3d.gd" id="2_dbhso"]
@@ -15,6 +15,7 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/ScreenWarpingEffectSpatial.gdshader" id="10_4lr3f"]
 [ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="11_hpybg"]
 [ext_resource type="Script" path="res://Maps/Main menu/light_flicker.gd" id="12_fjr2v"]
+[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="16_6hl7x"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d7ayw"]
 panorama = ExtResource("4_bw0vj")
@@ -274,5 +275,8 @@ fov = 79.7
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.367
 autostart = true
+
+[node name="SafeMode" type="Node3D" parent="."]
+script = ExtResource("16_6hl7x")
 
 [connection signal="timeout" from="Timer" to="Node3D/Space_ship/ShipSpot2" method="_on_timer_timeout"]

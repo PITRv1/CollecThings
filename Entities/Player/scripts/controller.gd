@@ -48,6 +48,7 @@ var _last_frame_was_on_floor = -INF
 @onready var stairs_below_raycast: RayCast3D = $StairsBelowRayCast
 
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
+@export var safe_mode : SafeMode
 
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running = false

@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://b0jubqqbdp1yb"]
+[gd_scene load_steps=25 format=3 uid="uid://b0jubqqbdp1yb"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_4ngx7"]
 [ext_resource type="Script" path="res://Cinematics/3D Cinematics/Intro/intro.gd" id="1_t1jb2"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="2_8h5s1"]
 [ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Assets/Models/Cinematic Models/Planet.tscn" id="4_ntj0n"]
 [ext_resource type="PackedScene" uid="uid://m2wrgbx358is" path="res://Assets/Models/Environment Models/Map Models/glowing_island.glb" id="4_uwd0t"]
+[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="7_vbtif"]
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Assets/Models/Cinematic Models/Planet2.tscn" id="8_ebhvt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lq1fv"]
@@ -380,3 +381,6 @@ transform = Transform3D(0.474242, 0, -0.880395, -0.229376, 0.965464, -0.123558, 
 
 [node name="Planet2" parent="." instance=ExtResource("8_ebhvt")]
 transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.0773795, -0.820754, 0.361096, -0.442688, 1228.27, 36.2598, 125.038)
+
+[node name="SafeMode" type="Node3D" parent="."]
+script = ExtResource("7_vbtif")

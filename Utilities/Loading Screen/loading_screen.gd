@@ -5,7 +5,7 @@ extends Control
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(scene_to_load)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var progress = []
 	
 	ResourceLoader.load_threaded_get_status(scene_to_load, progress)

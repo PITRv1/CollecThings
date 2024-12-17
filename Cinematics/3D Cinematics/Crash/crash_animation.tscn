@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://b6numlndbfhf3"]
+[gd_scene load_steps=89 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_cut8p"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="9_fjdk2"]
 [ext_resource type="Shader" uid="uid://crqb62fj4xmgm" path="res://Assets/Shaders/disolve.tres" id="9_m4ook"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="11_7pd81"]
+[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="19_isc74"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ybvnx"]
 panorama = ExtResource("1_cut8p")
@@ -1396,5 +1397,8 @@ draw_pass_1 = SubResource("SphereMesh_joq1j")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="SafeMode" type="Node3D" parent="."]
+script = ExtResource("19_isc74")
 
 [connection signal="timeout" from="Timer" to="AnimationPlayer" method="_on_timer_timeout"]

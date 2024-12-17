@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=35 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="16_vqqka"]
 [ext_resource type="PackedScene" uid="uid://dg5f2jb7xuehf" path="res://Assets/UI/Utility Crosshairs/Shield/Shield_utility.tscn" id="20_rgemw"]
 [ext_resource type="PackedScene" uid="uid://c7a2w6n4brd57" path="res://Assets/UI/Utility Crosshairs/Gun/Gun_utility.tscn" id="21_tnftj"]
+[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="24_h8mba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wo758"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -67,7 +68,7 @@ radius = 18.3116
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtw6f"]
 height = 2.2
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component", "shield_component") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component", "shield_component", "safe_mode") groups=["player"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_d8ygf")
@@ -76,8 +77,9 @@ FOV_CHANGE = 0.7
 weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
 health_component = NodePath("HealthComponent")
 shield_component = NodePath("ShieldComponent")
+safe_mode = NodePath("SafeMode")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="PlayerWorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p3r5x")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
@@ -220,17 +222,13 @@ shield_component = NodePath("../ShieldComponent")
 shape = SubResource("CapsuleShape3D_dtw6f")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -19.0
-offset_right = 20.0
-offset_bottom = 21.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -248,6 +246,9 @@ position = Vector2(13, 5.75)
 scale = Vector2(1.53, 1.5)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="SafeMode" type="Node3D" parent="."]
+script = ExtResource("24_h8mba")
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/DashingPlayerState/DashLengthTimer" to="PlayerStateMachine/DashingPlayerState" method="dash_finished"]

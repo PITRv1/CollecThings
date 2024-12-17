@@ -7,6 +7,8 @@ var stat_tablet : Control
 var weapon_speacial : TextureRect
 var player : Player
 var next_scene: String
+var safe_mode_status : bool
+
 
 func change_scene_to(scene_path: String) -> void:
 	if scene_path:
@@ -14,15 +16,25 @@ func change_scene_to(scene_path: String) -> void:
 		get_tree().change_scene_to_packed(loading_screen)
 	
 
+
 func change_weapon_special_icon(image: CompressedTexture2D) -> void:
-	var file : Image = Image.load_from_file(image.resource_path)
+	var file : Resource = Image.load_from_file(image.resource_path)
 	var texture : ImageTexture = ImageTexture.create_from_image(file)
 	Global.weapon_speacial.texture = texture
 	
 
 
-func get_environment_shader_by_property(property: String) -> CompositorEffect:
+func get_current_world_environment_node() -> WorldEnvironment:
 	var world_env = get_tree().current_scene.get_node_or_null("WorldEnvironment") as WorldEnvironment
+	
+	if world_env:
+		return world_env
+	return null
+	
+
+
+func get_environment_shader_by_property(property: String) -> CompositorEffect:
+	var world_env = get_current_world_environment_node()
 	if world_env:
 		for effect in world_env.compositor.compositor_effects:
 			if effect.get(property):

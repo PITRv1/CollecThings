@@ -7,7 +7,7 @@ const TEAM_INTRO = preload("res://Cinematics/2D intros/Team intro/team_intro.tsc
 func _ready() -> void:
 	AudioPlayer.play_music()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not animation_player.is_playing():
 		get_tree().change_scene_to_packed(TEAM_INTRO)
 	

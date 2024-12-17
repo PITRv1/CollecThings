@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dee1xjnbe0hxf"]
+[gd_scene load_steps=9 format=3 uid="uid://dee1xjnbe0hxf"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_6uop4"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/main_volume.gd" id="3_6bixt"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/music_volume.gd" id="3_clpri"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/window_mode.gd" id="5_2orxk"]
-[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/resolution.gd" id="6_7kn0j"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/resolution.gd" id="6_7kn0j"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/pixelization.gd" id="7_e2won"]
+[ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/comapitibility_mode.gd" id="7_wcmqt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -102,7 +103,6 @@ theme = ExtResource("1_6uop4")
 text = "Quit"
 
 [node name="SettingsMargin" type="MarginContainer" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 2
 offset_right = 1152.0
@@ -326,6 +326,52 @@ theme = ExtResource("1_6uop4")
 text = "720p
 "
 
+[node name="Comapitibility Mode" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
+layout_mode = 2
+script = ExtResource("7_wcmqt")
+
+[node name="LabelBox" type="VBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/LabelBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_font_sizes/font_size = 30
+text = "Compatibility
+"
+
+[node name="ButtonBox" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="Auto" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "Auto"
+
+[node name="Disable" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "Disable"
+
+[node name="Safe" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "Safe"
+
+[node name="Performance" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+text = "Performance"
+
 [node name="Pixelization" type="HBoxContainer" parent="SettingsMargin/VBoxContainer/Settings"]
 layout_mode = 2
 script = ExtResource("7_e2won")
@@ -357,7 +403,6 @@ max_value = 16.0
 step = 2.0
 value = 2.0
 rounded = true
-editable = false
 
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
@@ -373,4 +418,9 @@ editable = false
 [connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox/2K" to="SettingsMargin/VBoxContainer/Settings/Resolution" method="_on_k_pressed"]
 [connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox/FullHD" to="SettingsMargin/VBoxContainer/Settings/Resolution" method="_on_full_hd_pressed"]
 [connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Resolution/ButtonBox/HD" to="SettingsMargin/VBoxContainer/Settings/Resolution" method="_on_hd_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox/Auto" to="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode" method="_on_auto_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox/Disable" to="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode" method="_on_disable_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox/Safe" to="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode" method="_on_safe_pressed"]
+[connection signal="pressed" from="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox/Performance" to="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode" method="_on_performance_pressed"]
+[connection signal="mouse_entered" from="SettingsMargin/VBoxContainer/Settings/Pixelization/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Pixelization" method="_on_h_slider_mouse_entered"]
 [connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Pixelization/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Pixelization" method="_on_h_slider_value_changed"]

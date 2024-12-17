@@ -10,7 +10,7 @@ signal died
 func _ready() -> void:
 	health = MAX_HEALTH
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	health_percent = health/MAX_HEALTH
 
 func damage(attack: WeaponSettings = null, damage : float = 0.0):

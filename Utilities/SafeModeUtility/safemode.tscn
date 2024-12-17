@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cndj3t7wjeupb"]
+
+[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="1_rqewl"]
+
+[node name="Safemode" type="Node3D"]
+script = ExtResource("1_rqewl")

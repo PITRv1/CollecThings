@@ -1,4 +1,4 @@
-extends AudioStreamPlayer2D
+extends AudioStreamPlayer
 
 const MUSIC : AudioStreamMP3 = preload("res://Assets/Musics/Lost in Fields of Nothing.mp3")
 @export var default_volume : float = -8.0

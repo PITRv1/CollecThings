@@ -1017,59 +1017,56 @@ transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914
 [node name="Space_ship" parent="NavigationRegion3D/Environment" instance=ExtResource("2_liksq")]
 transform = Transform3D(0.762183, 0, -0.647362, 0, 1, 0, 0.647362, 0, 0.762183, -10.4443, 94.1957, 129.091)
 
-[node name="Space_ship" parent="NavigationRegion3D/Environment/Space_ship" index="1"]
+[node name="Space_ship" parent="NavigationRegion3D/Environment/Space_ship" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Plane" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="9"]
 surface_material_override/0 = null
 
-[node name="Cube_065" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="11"]
-transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
-
-[node name="Circle_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="21"]
+[node name="Circle_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="19"]
 surface_material_override/0 = null
 
-[node name="Circle_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="22"]
+[node name="Circle_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877475, 2.05765, -5.80244)
 surface_material_override/0 = null
 
-[node name="Circle_003" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="23"]
+[node name="Circle_003" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="21"]
 surface_material_override/0 = null
 
-[node name="Cone_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="26"]
+[node name="Cone_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="24"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.5967, 7.10589, -0.249695)
 
-[node name="Cube_043" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="27"]
+[node name="Cube_043" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="25"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -6.20656, 4.93134, 1.75759)
 
-[node name="Cube_044" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="28"]
+[node name="Cube_044" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="26"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.33696, 4.97733, 1.86129)
 
-[node name="Cube_049" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="29"]
+[node name="Cube_049" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="27"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.87106, 4.58306, -0.846378)
 
-[node name="Cube_050" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="30"]
+[node name="Cube_050" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="28"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -4.85273, 4.63136, -0.704594)
 
-[node name="Iron Bars" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="31"]
+[node name="Iron Bars" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="29"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.50093, 4.55758, 0.528637)
 
-[node name="Cone_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="32"]
+[node name="Cone_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="30"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.59684, 6.91808, -0.791988)
 
-[node name="Cube_045" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="33"]
+[node name="Cube_045" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="31"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.01278, 5.00594, 1.45507)
 
-[node name="Cube_046" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="34"]
+[node name="Cube_046" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="32"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.88481, 4.91321, 1.46133)
 
-[node name="Cube_047" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="35"]
+[node name="Cube_047" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="33"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 4.9549, 4.40678, -1.20036)
 
-[node name="Cube_048" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="36"]
+[node name="Cube_048" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="34"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.97457, 4.32325, -1.10463)
 
-[node name="Iron Bars_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="37"]
+[node name="Iron Bars_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="35"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.33557, 4.44995, 0.182167)
 
 [node name="rock1" parent="NavigationRegion3D/Environment" instance=ExtResource("7_ve86l")]

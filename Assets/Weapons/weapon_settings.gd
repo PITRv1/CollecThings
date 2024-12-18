@@ -13,6 +13,7 @@ class_name WeaponSettings extends Resource
 @export var proj_speed : float
 @export var pierce : int
 @export var mag_size : int
+@export var projectile_mesh : PackedScene
 
 @export_category("Weapon Orientation")
 @export var position: Vector3

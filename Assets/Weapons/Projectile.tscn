@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d27pl0cgt22sp"]
+[gd_scene load_steps=2 format=3 uid="uid://d27pl0cgt22sp"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/projectile.gd" id="1_26cfc"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_84k4p"]
-top_radius = 0.0
-bottom_radius = 0.1
-height = 1.0
 
 [node name="RayCast3D" type="RayCast3D"]
 top_level = true
@@ -13,11 +8,6 @@ target_position = Vector3(0, 0, 1)
 collision_mask = 5
 collide_with_areas = true
 script = ExtResource("1_26cfc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("CylinderMesh_84k4p")
-skeleton = NodePath("../..")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

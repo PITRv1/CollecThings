@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponSettings" load_steps=3 format=3 uid="uid://ckt8ohxdhnj2e"]
+[gd_resource type="Resource" script_class="WeaponSettings" load_steps=4 format=3 uid="uid://ckt8ohxdhnj2e"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/weapon_settings.gd" id="1_6t6et"]
+[ext_resource type="PackedScene" uid="uid://cikdgvnmodb5j" path="res://Assets/Weapons/Shotgun/shotgun_projectile.tscn" id="1_cvw5o"]
 [ext_resource type="Texture2D" uid="uid://hh8fvyjngh2" path="res://Assets/UI/Resources/Icons/Weapons/grappler.png" id="2_ljys1"]
 
 [resource]
@@ -13,9 +14,10 @@ stun_time = 0.0
 spread = 3.0
 num_of_bullets = 8
 hitscan = 1
-proj_speed = 50.0
+proj_speed = 10.0
 pierce = 0
 mag_size = 12
+projectile_mesh = ExtResource("1_cvw5o")
 position = Vector3(0, -0.135, -0.309)
 rotation = Vector3(0, 180, 0)
 scale = Vector3(1, 1, 1)

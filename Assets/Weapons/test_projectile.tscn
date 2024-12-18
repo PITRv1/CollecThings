@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddo40kp0nqq4p"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wln1q"]
+top_radius = 0.0
+bottom_radius = 0.1
+height = 1.0
+
+[node name="projectile_mesh" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_wln1q")
+skeleton = NodePath("../..")

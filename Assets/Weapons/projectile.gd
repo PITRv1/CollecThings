@@ -9,6 +9,7 @@ var pierce : int
 var damage : float
 var stun_time
 var colliders : Array
+var proj : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,10 +19,13 @@ func _ready() -> void:
 	pierce = weapon_settings.pierce
 	damage = weapon_settings.damage
 	stun_time = weapon_settings.stun_time
+	proj = weapon_settings.projectile_mesh
+	var pald = proj.instantiate()
+	self.add_child(pald)
 	
 func enter(weapon_setting):
 	weapon_settings = weapon_setting
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += global_basis * Vector3.FORWARD * proj_speed * delta

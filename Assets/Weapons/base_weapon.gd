@@ -128,7 +128,7 @@ func run_ray_test() -> Dictionary:
 func instantiate_projectile(target) -> void:
 	var proj = PROJECTILE.instantiate()
 	if proj:
-		proj.global_position = projectile_origin.global_position 
+		proj.global_position = projectile_origin.global_position
 		proj.enter(weapon_settings)
 		get_tree().root.add_child(proj)
 		proj.look_at(target, Vector3.UP)

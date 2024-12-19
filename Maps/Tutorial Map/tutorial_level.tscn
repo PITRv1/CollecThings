@@ -123,7 +123,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("2_u26f8")
-color_amount = 64.0
+color_amount = 128.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_hlwq6"]
 resource_local_to_scene = false
@@ -135,7 +135,7 @@ access_resolved_depth = false
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("3_win0w")
-down_scaling = 2.0
+down_scaling = 0.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_q7fch"]
 resource_local_to_scene = false
@@ -145,7 +145,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_phah0")
-dithering_intesity = 0.01
+dithering_intesity = 0.02
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_pw8bj"]
 resource_local_to_scene = false
@@ -999,6 +999,30 @@ shadow_enabled = true
 omni_range = 32.586
 omni_attenuation = 0.531
 
+[node name="Orange_omni2" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -23.7089, 97.1973, -68.8724)
+light_color = Color(1, 0.954167, 0.75, 1)
+light_energy = 4.095
+shadow_enabled = true
+omni_range = 10.6813
+omni_attenuation = 2.157
+
+[node name="Orange_omni3" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -23.7089, 97.1973, -56.7066)
+light_color = Color(1, 0.954167, 0.75, 1)
+light_energy = 4.095
+shadow_enabled = true
+omni_range = 10.6813
+omni_attenuation = 2.157
+
+[node name="Orange_omni4" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -27.7711, 94.7563, -60.9094)
+light_color = Color(1, 0.979833, 0.89, 1)
+light_energy = 11.9
+shadow_enabled = true
+omni_range = 13.2087
+omni_attenuation = 2.157
+
 [node name="FlowerBlueOmni2" type="OmniLight3D" parent="Lighting/First_Room"]
 transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -31.3082, 97.7479, -119.857)
 light_color = Color(0, 0.983334, 1, 1)
@@ -1073,6 +1097,24 @@ shadow_enabled = true
 omni_range = 52.061
 omni_attenuation = 0.719
 
+[node name="Spawn_room" type="Node3D" parent="Lighting"]
+
+[node name="Cave_Last Light_Omni5" type="OmniLight3D" parent="Lighting/Spawn_room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -33.561, 96.5119, -158.183)
+light_color = Color(1, 1, 0.92549, 1)
+light_energy = 1.774
+shadow_enabled = true
+omni_range = 52.061
+omni_attenuation = 0.719
+
+[node name="Cave_Last Light_Omni6" type="OmniLight3D" parent="Lighting/Spawn_room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -18.4207, 94.4202, -144.794)
+light_color = Color(1, 1, 0.92549, 1)
+light_energy = 1.774
+shadow_enabled = true
+omni_range = 52.061
+omni_attenuation = 0.719
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nfrqf")
 
@@ -1088,56 +1130,59 @@ transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914
 [node name="Space_ship" parent="NavigationRegion3D/Environment" instance=ExtResource("2_liksq")]
 transform = Transform3D(0.762183, 0, -0.647362, 0, 1, 0, 0.647362, 0, 0.762183, -10.4443, 94.1957, 129.091)
 
-[node name="Space_ship" parent="NavigationRegion3D/Environment/Space_ship" index="4"]
+[node name="Space_ship" parent="NavigationRegion3D/Environment/Space_ship" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Plane" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="9"]
 surface_material_override/0 = null
 
-[node name="Circle_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="19"]
+[node name="Cube_065" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="11"]
+transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
+
+[node name="Circle_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="21"]
 surface_material_override/0 = null
 
-[node name="Circle_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="20"]
+[node name="Circle_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="22"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877475, 2.05765, -5.80244)
 surface_material_override/0 = null
 
-[node name="Circle_003" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="21"]
+[node name="Circle_003" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="23"]
 surface_material_override/0 = null
 
-[node name="Cone_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="24"]
+[node name="Cone_002" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="26"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.5967, 7.10589, -0.249695)
 
-[node name="Cube_043" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="25"]
+[node name="Cube_043" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="27"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -6.20656, 4.93134, 1.75759)
 
-[node name="Cube_044" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="26"]
+[node name="Cube_044" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="28"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.33696, 4.97733, 1.86129)
 
-[node name="Cube_049" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="27"]
+[node name="Cube_049" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="29"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.87106, 4.58306, -0.846378)
 
-[node name="Cube_050" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="28"]
+[node name="Cube_050" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="30"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -4.85273, 4.63136, -0.704594)
 
-[node name="Iron Bars" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="29"]
+[node name="Iron Bars" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="31"]
 transform = Transform3D(1.17066, -0.243777, 0.0270775, 0.101969, 0.363616, -1.1349, 0.223075, 1.11309, 0.376671, -5.50093, 4.55758, 0.528637)
 
-[node name="Cone_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="30"]
+[node name="Cone_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="32"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.59684, 6.91808, -0.791988)
 
-[node name="Cube_045" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="31"]
+[node name="Cube_045" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="33"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.01278, 5.00594, 1.45507)
 
-[node name="Cube_046" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="32"]
+[node name="Cube_046" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="34"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.88481, 4.91321, 1.46133)
 
-[node name="Cube_047" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="33"]
+[node name="Cube_047" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="35"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 4.9549, 4.40678, -1.20036)
 
-[node name="Cube_048" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="34"]
+[node name="Cube_048" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="36"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.97457, 4.32325, -1.10463)
 
-[node name="Iron Bars_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="35"]
+[node name="Iron Bars_001" parent="NavigationRegion3D/Environment/Space_ship/Space_ship" index="37"]
 transform = Transform3D(1.19019, -0.0492189, -0.107935, -0.0798559, 0.472351, -1.09596, 0.087724, 1.09776, 0.466735, 5.33557, 4.44995, 0.182167)
 
 [node name="rock1" parent="NavigationRegion3D/Environment" instance=ExtResource("7_ve86l")]
@@ -1163,8 +1208,14 @@ transform = Transform3D(0.819302, -3.72529e-09, 0, 3.72529e-09, 0.819302, 0, 0, 
 transform = Transform3D(0.786543, -3.72529e-09, 0, 3.72529e-09, 0.786543, 0, 0, 0, 0.786543, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_o8l0s")
 
+[node name="mineral_rock_EMIS" parent="NavigationRegion3D/Environment" instance=ExtResource("14_lai5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9838, 94.104, -30.4372)
+
+[node name="mineral_rock_NO_EMIS" parent="NavigationRegion3D/Environment" instance=ExtResource("15_kuk2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7566, 94.2784, -35.7237)
+
 [node name="Killbox" parent="." instance=ExtResource("4_wf3cu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20873, -36.0551, -36.5811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20873, -94.8635, -36.5811)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 92.2216, 0)
@@ -1231,19 +1282,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356018, -2.88062, 0)
 shape = SubResource("BoxShape3D_cqwgn")
 
 [node name="HealthPack" parent="." instance=ExtResource("15_bauje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -18.8175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
 
 [node name="HealthPack2" parent="." instance=ExtResource("15_bauje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -18.8175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
 
 [node name="HealthPack3" parent="." instance=ExtResource("15_bauje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -18.8175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
 
-[node name="mineral_rock_EMIS" parent="." instance=ExtResource("14_lai5u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9838, 94.104, -30.4372)
+[node name="HealthPack4" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
 
-[node name="mineral_rock_NO_EMIS" parent="." instance=ExtResource("15_kuk2r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7566, 94.2784, -35.7237)
+[node name="HealthPack5" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack6" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack7" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack8" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack9" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack10" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack11" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack12" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack13" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack14" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack15" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack16" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack17" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
+
+[node name="HealthPack18" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
 
 [connection signal="area_entered" from="Events/Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
 [connection signal="body_entered" from="Events/TEMP_load_next_level" to="." method="_on_temp_load_next_level_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=43 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kdw4ohy4ga0" path="res://Assets/Particle Effects/blue_flame.tscn" id="10_tyr87"]
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="11_5jvmd"]
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="11_bbx8q"]
+[ext_resource type="PackedScene" uid="uid://c3fi7jn4d476k" path="res://Assets/Models/Interactables/HealthPack/Health_pack.tscn" id="21_3ykag"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -129,6 +130,10 @@ gamma = 0.9
 [sub_resource type="Compositor" id="Compositor_moo7u"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_pd3n8"), SubResource("CompositorEffect_dqtkv"), SubResource("CompositorEffect_d0wjr"), SubResource("CompositorEffect_0nked"), SubResource("CompositorEffect_um86m"), SubResource("CompositorEffect_kxuga")])
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_kobo3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_c0xny"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2db8"]
 albedo_color = Color(0.65, 0, 0.0108332, 1)
 
@@ -172,7 +177,7 @@ transform = Transform3D(-0.291273, 0.236429, -0.926964, -0.335225, 0.882312, 0.3
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_tnp5y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6699, 761.321, -35.8197)
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 30.2992, -3.40284, 17.7982)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("2_eq3lb")
@@ -250,9 +255,21 @@ amount = 100
 transform = Transform3D(6.67, -1.19209e-07, 1.49012e-08, -8.9407e-07, 3.425, -1.49012e-08, -4.76837e-07, 1.19209e-07, 0.27, 4.79228, 5.08486, 0.21875)
 amount = 100
 
+[node name="RigidBody3D" type="RigidBody3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(0.828979, 0, -0.55928, 0, 1, 0, 0.55928, 0, 0.828979, 59.7952, 15.6396, 50.9288)
+collision_layer = 16
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/RigidBody3D"]
+shape = SubResource("SphereShape3D_kobo3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Environment/RigidBody3D"]
+mesh = SubResource("SphereMesh_c0xny")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Environment"]
 transform = Transform3D(0.828979, 0, -0.55928, 0, 1, 0, 0.55928, 0, 0.828979, 74.2146, 3.89419, 60.657)
 use_collision = true
+collision_mask = 7
 size = Vector3(2.63184, 19.2369, 33.8546)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/Environment/CSGBox3D"]
@@ -355,3 +372,15 @@ light_indirect_energy = 9.338
 shadow_enabled = true
 omni_range = 57.0434
 omni_attenuation = -0.408
+
+[node name="RigidBody3D" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5157, 16.6263, 49.5648)
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5221, -0.332056, 24.6027)
+
+[node name="RigidBody3D3" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5221, -0.332056, 29.6027)
+
+[node name="RigidBody3D4" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5221, -0.332056, 31.6027)

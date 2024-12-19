@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://db68phsho5rmy"
+path.s3tc="res://.godot/imported/caveV3_BLOCKOUT_vulcanic_rock_normals.png-742601610e8b2e589a4f8c88d05a7de7.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "0317e4488d1c7d8493723929b44f2cbf"
+}
+
+[deps]
+
+source_file="res://Assets/Models/Environment Models/Map Models/tut_cave_v3/caveV3_BLOCKOUT_vulcanic_rock_normals.png"
+dest_files=["res://.godot/imported/caveV3_BLOCKOUT_vulcanic_rock_normals.png-742601610e8b2e589a4f8c88d05a7de7.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/Models/Environment Models/Map Models/tut_cave_v3/caveV3_BLOCKOUT_vulcanic_rock_normals.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

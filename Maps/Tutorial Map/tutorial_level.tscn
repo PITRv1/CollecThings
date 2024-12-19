@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=102 format=3 uid="uid://cvsbulx0h8dn7"]
 
 [ext_resource type="Script" path="res://Maps/Tutorial Map/tutorial_level.gd" id="1_na3iy"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
@@ -7,13 +7,14 @@
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="3_win0w"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="4_phah0"]
 [ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/killbox.tscn" id="4_wf3cu"]
-[ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="5_7qha2"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="5_i7lpt"]
 [ext_resource type="PackedScene" uid="uid://dammrvsguaa0a" path="res://Assets/Models/Environment Models/Map Models/tut_cave_v3/caveV3_BLOCKOUT.glb" id="6_o3yjm"]
-[ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="6_q5jgl"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="7_ve86l"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="8_ie5dl"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="9_p0oce"]
+[ext_resource type="PackedScene" uid="uid://cxogo8v5vtcg8" path="res://Assets/Models/Environment Models/Stone-Rock/Mineral_rocks/mineral_rock_EMIS.glb" id="14_lai5u"]
+[ext_resource type="PackedScene" uid="uid://c3fi7jn4d476k" path="res://Assets/Models/Interactables/HealthPack/Health_pack.tscn" id="15_bauje"]
+[ext_resource type="PackedScene" uid="uid://ctbse5jxcw8ca" path="res://Assets/Models/Environment Models/Stone-Rock/Mineral_rocks/mineral_rock_NO_EMIS.glb" id="15_kuk2r"]
 
 [sub_resource type="Animation" id="Animation_4ko2n"]
 resource_name = "Fight trigger"
@@ -59,6 +60,10 @@ colors = PackedColorArray(0, 0, 0, 1, 0.206039, 0.212716, 0.186372, 1, 0.850309,
 gradient = SubResource("Gradient_v8j7d")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bcor3"]
+sky_top_color = Color(0.239035, 0.423735, 0.821398, 1)
+sky_horizon_color = Color(0.582059, 0.628113, 0.937679, 1)
+ground_bottom_color = Color(0.580392, 0.627451, 0.937255, 1)
+ground_horizon_color = Color(0.580392, 0.627451, 0.937255, 1)
 
 [sub_resource type="Sky" id="Sky_dy8b2"]
 sky_material = SubResource("ProceduralSkyMaterial_bcor3")
@@ -849,61 +854,7 @@ compositor = SubResource("Compositor_mvxb1")
 [node name="Player" parent="." instance=ExtResource("2_iubha")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -27.3421, 92.7533, -158.34)
 
-[node name="Basic_enemy" parent="." instance=ExtResource("5_7qha2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4973, 94.4559, -6.35659)
-
-[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_q5jgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4738, 97.736, -12.4657)
-player = NodePath("../Player")
-
 [node name="Lighting" type="Node3D" parent="."]
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -28.225, 97.7479, -121.265)
-light_energy = 0.624
-shadow_enabled = true
-omni_range = 32.586
-omni_attenuation = 0.531
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -26.6447, 97.9895, -77.0908)
-light_color = Color(1, 1, 0.956863, 1)
-light_energy = 1.225
-shadow_enabled = true
-omni_range = 14.922
-omni_attenuation = 1.094
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -38.257, 109.463, 146.092)
-light_color = Color(1, 1, 0.92549, 1)
-light_energy = 0.249
-shadow_enabled = true
-omni_range = 52.061
-omni_attenuation = 0.719
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, 14.7731, 91.6218, 152.826)
-light_color = Color(1, 1, 0.92549, 1)
-light_energy = 0.249
-shadow_enabled = true
-omni_range = 52.061
-omni_attenuation = 0.719
-
-[node name="OmniLight3D10" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, 14.1334, 111.483, 104.092)
-light_color = Color(1, 1, 0.92549, 1)
-light_energy = 0.249
-shadow_enabled = true
-omni_range = 52.061
-omni_attenuation = 0.719
-
-[node name="OmniLight3D11" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -40.8031, 107.156, 104.813)
-light_color = Color(1, 1, 0.92549, 1)
-light_energy = 0.249
-shadow_enabled = true
-omni_range = 52.061
-omni_attenuation = 0.719
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(-0.926273, 0, -0.376854, 0, 1, 0, 0.376854, 0, -0.926273, 44.1984, 96.0338, -40.9087)
@@ -917,18 +868,18 @@ spot_angle = 49.23
 spot_angle_attenuation = 0.574349
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, -0.0122804, 0.00463059, 0, 0.352822, 0.935691, -0.0131244, -0.93561, 0.352791, -27.1594, 134.962, -157.789)
+transform = Transform3D(0.999914, -0.0122804, 0.00463058, -0.00362308, 0.0808304, 0.996721, -0.0126144, -0.996652, 0.0807789, -27.1594, 234.313, -157.789)
 light_color = Color(0.86137, 0.905362, 0.910607, 1)
-light_energy = 12.794
+light_energy = 16.0
 shadow_enabled = true
-spot_range = 38.966
-spot_attenuation = 0.53
-spot_angle = 27.06
+spot_range = 139.164
+spot_attenuation = -0.22
+spot_angle = 12.7954
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="Lighting"]
+[node name="Sun3" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.999914, -0.0124867, -0.00404129, -7.07807e-10, -0.307921, 0.951412, -0.0131244, -0.95133, -0.307895, -15.7383, 144.932, 64.1002)
 light_color = Color(0.86137, 0.905362, 0.910607, 1)
-light_energy = 12.794
+light_energy = 7.662
 light_indirect_energy = 4.831
 shadow_enabled = true
 shadow_blur = 1.657
@@ -936,12 +887,12 @@ distance_fade_begin = 79.58
 distance_fade_shadow = 465.54
 distance_fade_length = 2147.04
 spot_range = 95.665
-spot_attenuation = 1.09
-spot_angle = 18.9806
+spot_attenuation = 0.34
+spot_angle = 24.07
 spot_angle_attenuation = 0.203063
 
-[node name="SpotLight3D9" type="SpotLight3D" parent="Lighting"]
-transform = Transform3D(0.999914, -0.0131072, -0.000671779, -5.82026e-11, -0.0511853, 0.998689, -0.0131244, -0.998603, -0.0511809, -14.8675, 275.702, 130.413)
+[node name="Sun" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.999914, -0.0131072, -0.000671776, -5.82026e-11, -0.0511853, 0.998689, -0.0131244, -0.998603, -0.0511809, -14.8675, 203.908, 130.413)
 light_color = Color(0.86137, 0.905362, 0.910607, 1)
 light_energy = 12.794
 light_indirect_energy = 4.831
@@ -952,9 +903,9 @@ shadow_blur = 1.657
 distance_fade_begin = 79.58
 distance_fade_shadow = 465.54
 distance_fade_length = 2147.04
-spot_range = 264.057
-spot_attenuation = 0.81
-spot_angle = 11.37
+spot_range = 134.926
+spot_attenuation = 0.3
+spot_angle = 20.71
 spot_angle_attenuation = 0.112656
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Lighting"]
@@ -1001,6 +952,126 @@ spot_range = 73.5587
 spot_attenuation = 0.53
 spot_angle = 72.4788
 spot_angle_attenuation = 0.757858
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8722, 97.9649, -22.8016)
+light_energy = 6.008
+shadow_enabled = true
+omni_range = 56.5584
+
+[node name="First_Room" type="Node3D" parent="Lighting"]
+
+[node name="Sun2" type="SpotLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.968477, 0.0079217, 0.248975, -0.248842, -0.014823, 0.968431, 0.0113622, -0.999859, -0.0123845, 1.58419, 181.814, -108.667)
+light_color = Color(0.86137, 0.905362, 0.910607, 1)
+light_energy = 16.0
+shadow_enabled = true
+shadow_bias = 0.436
+spot_range = 139.164
+spot_attenuation = 0.19
+spot_angle = 31.82
+
+[node name="Sun4" type="SpotLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999832, 0.017703, 0.00474324, -0.0111921, 0.384824, 0.922922, 0.0145131, -0.92282, 0.384958, -34.6876, 175.684, -74.7553)
+light_color = Color(0.86137, 0.905362, 0.910607, 1)
+light_energy = 16.0
+shadow_enabled = true
+shadow_bias = 0.436
+spot_range = 139.164
+spot_attenuation = 0.19
+spot_angle = 31.82
+
+[node name="Sun5" type="SpotLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999832, 0.017703, 0.00474324, -0.00995369, 0.307202, 0.951592, 0.0153889, -0.95148, 0.307327, -25.4153, 182.042, -70.7318)
+light_color = Color(0.86137, 0.905362, 0.910607, 1)
+light_energy = 16.0
+shadow_enabled = true
+shadow_bias = 0.436
+spot_range = 139.164
+spot_attenuation = 0.19
+spot_angle = 31.82
+
+[node name="Orange_omni" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -15.1346, 97.7479, -78.9215)
+light_color = Color(1, 0.633333, 0, 1)
+light_energy = 6.957
+shadow_enabled = true
+omni_range = 32.586
+omni_attenuation = 0.531
+
+[node name="FlowerBlueOmni2" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -31.3082, 97.7479, -119.857)
+light_color = Color(0, 0.983334, 1, 1)
+light_energy = 6.437
+shadow_enabled = true
+omni_range = 32.586
+omni_attenuation = 1.507
+
+[node name="FlowerBlueOmni3" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -35.5163, 79.9307, -68.953)
+light_color = Color(0, 0.983334, 1, 1)
+light_energy = 6.437
+shadow_enabled = true
+omni_range = 32.586
+omni_attenuation = 1.507
+
+[node name="FlowerBlueOmni4" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -11.8117, 72.0911, -95.159)
+light_color = Color(0, 0.983334, 1, 1)
+light_energy = 6.437
+shadow_enabled = true
+omni_range = 15.2328
+omni_attenuation = 1.507
+
+[node name="FlowerBlueOmni5" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -38.6995, 79.9307, -107.061)
+light_color = Color(0, 0.983334, 1, 1)
+light_energy = 6.437
+shadow_enabled = true
+omni_range = 15.2328
+omni_attenuation = 1.507
+
+[node name="FlowerBlueOmni6" type="OmniLight3D" parent="Lighting/First_Room"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -12.3267, 62.1803, -119.156)
+light_color = Color(0, 0.983334, 1, 1)
+light_energy = 6.437
+shadow_enabled = true
+omni_range = 15.2328
+omni_attenuation = 1.507
+
+[node name="Cave_Last" type="Node3D" parent="Lighting"]
+
+[node name="Cave_Last Light_Omni" type="OmniLight3D" parent="Lighting/Cave_Last"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -38.257, 109.463, 146.092)
+light_color = Color(1, 1, 0.92549, 1)
+light_energy = 5.683
+shadow_enabled = true
+omni_range = 52.061
+omni_attenuation = 0.719
+
+[node name="Cave_Last Light_Omni2" type="OmniLight3D" parent="Lighting/Cave_Last"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, 14.7731, 91.6218, 152.826)
+light_color = Color(1, 1, 0.92549, 1)
+light_energy = 6.362
+shadow_enabled = true
+omni_range = 52.061
+omni_attenuation = 0.719
+
+[node name="Cave_Last Light_Omni3" type="OmniLight3D" parent="Lighting/Cave_Last"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, 8.16582, 109.241, 107.362)
+light_color = Color(1, 1, 0.92549, 1)
+light_energy = 3.268
+shadow_enabled = true
+omni_range = 52.061
+omni_attenuation = 0.719
+
+[node name="Cave_Last Light_Omni4" type="OmniLight3D" parent="Lighting/Cave_Last"]
+transform = Transform3D(0.999914, 0, 0.0131244, 0, 1, 0, -0.0131244, 0, 0.999914, -40.8031, 107.156, 104.813)
+light_color = Color(1, 1, 0.92549, 1)
+light_energy = 2.815
+shadow_enabled = true
+omni_range = 52.061
+omni_attenuation = 0.719
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nfrqf")
@@ -1158,6 +1229,21 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Events/Tutorial Messages/Leave"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356018, -2.88062, 0)
 shape = SubResource("BoxShape3D_cqwgn")
+
+[node name="HealthPack" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -18.8175)
+
+[node name="HealthPack2" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -18.8175)
+
+[node name="HealthPack3" parent="." instance=ExtResource("15_bauje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -18.8175)
+
+[node name="mineral_rock_EMIS" parent="." instance=ExtResource("14_lai5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9838, 94.104, -30.4372)
+
+[node name="mineral_rock_NO_EMIS" parent="." instance=ExtResource("15_kuk2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7566, 94.2784, -35.7237)
 
 [connection signal="area_entered" from="Events/Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
 [connection signal="body_entered" from="Events/TEMP_load_next_level" to="." method="_on_temp_load_next_level_body_entered"]

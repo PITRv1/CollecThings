@@ -49,6 +49,7 @@ var _last_frame_was_on_floor = -INF
 
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @export var safe_mode : SafeMode
+@export var crosshair : CenterContainer
 
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running = false

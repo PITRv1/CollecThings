@@ -16,7 +16,7 @@ func _ready() -> void:
 	# Set up the player and the UI
 	
 	player = get_tree().get_first_node_in_group("player")
-	gun_utility.set_texture_offset(Vector2(0, 0))
+	gun_utility.set_texture_offset(Vector2(-5, 0))
 	
 	# Save the base weapon settings for later use
 	

@@ -1,7 +1,7 @@
 extends Node
 
 @onready var loading_screen : PackedScene = preload("res://Utilities/Loading Screen/LoadingScreen.tscn")
-@onready var main_menu : PackedScene = preload("res://Maps/Main menu/Main_menu.tscn")
+const main_menu = preload("res://Maps/Main_Menu/Main_menu.tscn")
 
 var stat_tablet : Control
 var weapon_speacial : TextureRect

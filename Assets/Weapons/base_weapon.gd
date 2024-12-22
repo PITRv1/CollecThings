@@ -7,7 +7,7 @@ class_name BaseWeapon
 @export var cooldown_timer: Timer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-var player : CharacterBody3D
+var player : Player
 var length := 100.0
 
 var camera : Camera3D

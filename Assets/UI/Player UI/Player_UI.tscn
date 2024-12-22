@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc64c1kvu84vp"]
+
+[ext_resource type="Script" path="res://Assets/UI/Player UI/crosshair.gd" id="1_2nwmo"]
+[ext_resource type="PackedScene" uid="uid://dg5f2jb7xuehf" path="res://Assets/UI/Utility Crosshairs/Shield/Shield_utility.tscn" id="1_iurhr"]
+[ext_resource type="PackedScene" uid="uid://c7a2w6n4brd57" path="res://Assets/UI/Utility Crosshairs/Gun/Gun_utility.tscn" id="2_cq1r7"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.5
+offset_top = -5.5
+offset_right = 5.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("1_2nwmo")
+
+[node name="ShieldUtility" parent="CenterContainer" instance=ExtResource("1_iurhr")]
+z_index = 1
+position = Vector2(-5.5, 0.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="GunUtility" parent="CenterContainer" instance=ExtResource("2_cq1r7")]
+z_index = 1
+position = Vector2(6.5, 0.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="Top" type="Line2D" parent="CenterContainer"]
+points = PackedVector2Array(0, -5, 0, -15)
+width = 2.0
+
+[node name="Right" type="Line2D" parent="CenterContainer"]
+points = PackedVector2Array(5, 0, 15, 0)
+width = 2.0
+
+[node name="Bottom" type="Line2D" parent="CenterContainer"]
+points = PackedVector2Array(0, 5, 0, 15)
+width = 2.0
+
+[node name="Left" type="Line2D" parent="CenterContainer"]
+points = PackedVector2Array(-5, 0, -15, 0)
+width = 2.0

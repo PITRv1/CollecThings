@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=34 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
@@ -21,8 +21,7 @@
 [ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/ShieldComponent.gd" id="15_k32b2"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="15_r3psd"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="16_vqqka"]
-[ext_resource type="PackedScene" uid="uid://dg5f2jb7xuehf" path="res://Assets/UI/Utility Crosshairs/Shield/Shield_utility.tscn" id="20_rgemw"]
-[ext_resource type="PackedScene" uid="uid://c7a2w6n4brd57" path="res://Assets/UI/Utility Crosshairs/Gun/Gun_utility.tscn" id="21_tnftj"]
+[ext_resource type="PackedScene" uid="uid://cc64c1kvu84vp" path="res://Assets/UI/Player UI/Player_UI.tscn" id="22_yn3cy"]
 [ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="24_h8mba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wo758"]
@@ -68,7 +67,7 @@ radius = 18.3116
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtw6f"]
 height = 2.2
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component", "shield_component", "safe_mode") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_controller", "health_component", "shield_component", "safe_mode", "crosshair") groups=["player"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_d8ygf")
@@ -78,6 +77,7 @@ weapon_controller = NodePath("Head/CameraSmooth/Camera3D/Weapon Rig/Weapon")
 health_component = NodePath("HealthComponent")
 shield_component = NodePath("ShieldComponent")
 safe_mode = NodePath("SafeMode")
+crosshair = NodePath("PlayerUI/CenterContainer")
 
 [node name="PlayerWorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p3r5x")
@@ -105,6 +105,7 @@ unique_name_in_owner = true
 [node name="Ui" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 
 [node name="PauseTablet" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("4_4dxjy")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, -0.46)
 
 [node name="GunScreen" parent="Head/CameraSmooth/Camera3D/Ui" instance=ExtResource("3_pes8g")]
 transform = Transform3D(0.169145, 0, -0.0615636, 0, 0.18, 0, 0.0615636, 0, 0.169145, 0.6, 0.295, -0.475)
@@ -220,29 +221,7 @@ shield_component = NodePath("../ShieldComponent")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape3D_dtw6f")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="ShieldUtility" parent="CenterContainer/HBoxContainer" instance=ExtResource("20_rgemw")]
-position = Vector2(-2, 6)
-scale = Vector2(1.5, 1.5)
-
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/HBoxContainer"]
-custom_minimum_size = Vector2(11, 11)
-layout_mode = 2
-
-[node name="GunUtility" parent="CenterContainer/HBoxContainer" instance=ExtResource("21_tnftj")]
-position = Vector2(13, 5.75)
-scale = Vector2(1.53, 1.5)
+[node name="PlayerUI" parent="." instance=ExtResource("22_yn3cy")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
@@ -257,3 +236,4 @@ script = ExtResource("24_h8mba")
 [editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet"]
 [editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet"]
 [editable path="Head/CameraSmooth/Camera3D/Ui/StatTablet/Tablet/tablet"]
+[editable path="PlayerUI"]

@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 			
 			# UI
 			
-			gun_utility.set_texture_offset(Vector2(10-(charge*2), 0))
+			gun_utility.set_texture_offset(Vector2(5-(charge*2), 0))
 	
 	# If not pressing it down, and charge is more than 0 do an alt fire
 	
@@ -53,7 +53,7 @@ func _secondary_fire():
 	
 	# Set UI
 	
-	gun_utility.set_texture_offset(Vector2(0, 0))
+	gun_utility.set_texture_offset(Vector2(-5, 0))
 	
 	# Change the weapon setting from the normal
 	

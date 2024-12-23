@@ -123,7 +123,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("2_u26f8")
-color_amount = 128.0
+color_amount = 64.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_hlwq6"]
 resource_local_to_scene = false
@@ -135,7 +135,7 @@ access_resolved_depth = false
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("3_win0w")
-down_scaling = 0.0
+down_scaling = 2.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_q7fch"]
 resource_local_to_scene = false

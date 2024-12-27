@@ -1,7 +1,9 @@
 extends BaseWeapon
 
-# bullet decal and the UI
 
+# bullet decal and the UI
+@onready var shooting_particles: GPUParticles3D = $shooting
+@onready var charging_particles: GPUParticles3D = $charging
 @export var b_decal : PackedScene = preload("res://Assets/Models/Bullet/BulletDecal.tscn")
 @onready var gun_utility = get_tree().get_first_node_in_group("gun_utility")
 
@@ -20,10 +22,12 @@ func _ready() -> void:
 	
 	# Save the base weapon settings for later use
 	
-	knock_force = weapon_settings.knockback_force 
+	knock_force = weapon_settings.knockback_force
 	mag_size = weapon_settings.mag_size
 	max_mag_size = weapon_settings.mag_size
 	damage = weapon_settings.damage
+	
+	charging_particles.emitting = false
 
 func _process(delta: float) -> void:
 
@@ -33,9 +37,10 @@ func _process(delta: float) -> void:
 		
 		# Only increase charge if the gun has enough bullets
 		
-		print(Engine.time_scale)
-		
 		if floor(charge) < mag_size:
+			
+			charging_particles.emitting = true
+			charging_particles.amount = floor(charge)
 			
 			charge += delta * 2
 			
@@ -45,8 +50,9 @@ func _process(delta: float) -> void:
 	
 	# If not pressing it down, and charge is more than 0 do an alt fire
 	
-	elif charge > 0:
+	if Input.is_action_just_released("secondary_fire") and charge > 0:
 		
+		charging_particles.emitting = false
 		_secondary_fire()
 
 func _secondary_fire():
@@ -61,9 +67,13 @@ func _secondary_fire():
 	weapon_settings.damage += charge * 20
 	weapon_settings.stun_time = charge / 2
 	
-	# Spawn the bullet with these settings
+	# Shoot with these settings
 	
-	spawn_bullet()
+	var ray = run_ray_test()
+	shooting_particles.emitting = true
+	if ray.size() > 0:
+		if ray["collider"] is HitboxComponent:
+			ray["collider"].damage(weapon_settings)
 	
 	# Decrease back to normal
 	

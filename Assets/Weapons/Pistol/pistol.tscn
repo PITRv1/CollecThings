@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://behqer6qog0tr"]
+[gd_scene load_steps=16 format=3 uid="uid://behqer6qog0tr"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Pistol/pistol_main.gd" id="1_685ou"]
 [ext_resource type="Resource" uid="uid://ce34echwp4s4y" path="res://Assets/Weapons/Pistol/TPistol_settings.tres" id="2_tu58d"]
@@ -105,6 +105,38 @@ top_radius = 0.05
 bottom_radius = 0.05
 height = 0.15
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ql4w"]
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_juuwj"]
+
+[sub_resource type="Curve" id="Curve_jn45a"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 54.9451), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dp8n3"]
+curve = SubResource("Curve_jn45a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vmc4m"]
+direction = Vector3(0, 0, 1)
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+damping_min = 4.0
+damping_max = 10.0
+damping_curve = SubResource("CurveTexture_dp8n3")
+scale_min = 0.01
+scale_max = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_hxaty"]
+
 [node name="Pistol" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_685ou")
 weapon_settings = ExtResource("2_tu58d")
@@ -124,7 +156,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.173378)
 
 [node name="Pistol" parent="." instance=ExtResource("3_0fgs5")]
-transform = Transform3D(0.262102, 0, 0, 0, 0.262102, 0, 0, 0, 0.262102, -0.041137, 0.0577929, 0.257709)
+transform = Transform3D(0.262102, 0, 0, 0, 0.262102, 0, 0, 0, 0.262102, -0.041, 0.058, 0.058)
 
 [node name="Model" type="Node3D" parent="."]
 visible = false
@@ -142,3 +174,20 @@ skeleton = NodePath("../..")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="charging" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041, 0.058, 0.118159)
+emitting = false
+amount = 4
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_3ql4w")
+draw_pass_1 = SubResource("SphereMesh_juuwj")
+
+[node name="shooting" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041, 0.058, 0.118)
+emitting = false
+amount = 128
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_vmc4m")
+draw_pass_1 = SubResource("SphereMesh_hxaty")

@@ -66,7 +66,9 @@ func _physics_process(delta: float) -> void:
 	
 	# I know this looks ass but I'm pretty sure it's needed, basically if nothing is happening you can charge the grappler
 	# If nothing is happening you can charge the grappler
+	
 	check_for_colliding()
+	
 	if Input.is_action_pressed("secondary_fire") and charge <= 5 and not animation_player.is_playing() and base_state:
 		# Adds 2 charge every second, change the 2, to make it faster or slower
 		# haha I've found a grammer mistake you dumbass
@@ -87,6 +89,11 @@ func _physics_process(delta: float) -> void:
 		# pos is the end position, this is where the grappler will go, and look at, if nothing is in the way
 		var camera = get_viewport().get_camera_3d()
 		pos = camera.global_position + camera.global_transform.basis.z * -GRAPPLE_RAY_MAX * charge / 5
+		print(GRAPPLE_RAY_MAX * charge / 5)
+		var pos_ray = run_hook_ray(GRAPPLE_RAY_MAX * charge / 5)
+		print(pos_ray)
+		if pos_ray.size() > 0:
+			pos = pos_ray["position"]
 		
 		# If the charge is less than 1, basically do nothing
 		if charge <= 1:
@@ -238,7 +245,7 @@ func _physics_process(delta: float) -> void:
 			var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX * 5
 			var grapple_dif = (grapple_target_speed - player.velocity)
 				
-			player.velocity += grapple_dif * delta
+			player.velocity += grapple_dif * delta * (player.global_position.distance_to(hook.global_position)/20)
 			
 		if player.global_position.distance_to(hook.global_position) < 3:
 			
@@ -297,7 +304,25 @@ func check_for_colliding():
 	if charge < 1: return
 	
 	helper_cast.target_position.z = GRAPPLE_RAY_MAX * charge
+	
 	if helper_cast.is_colliding():
 		player.crosshair.dot_color = Color.YELLOW
 	else:
 		player.crosshair.dot_color = Color.WHITE
+		
+func run_hook_ray(length):
+	# Project ray
+	var camera = get_viewport().get_camera_3d()
+	var space_state = get_world_3d().direct_space_state
+	var mousepos = get_viewport().get_mouse_position()
+	var dot_pos = player.crosshair.position
+	mousepos = dot_pos
+	print(mousepos)
+	print(dot_pos)
+	var from = camera.project_ray_origin(mousepos)
+	
+	var to = from + camera.project_ray_normal(mousepos) * length
+	
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	
+	return space_state.intersect_ray(query)

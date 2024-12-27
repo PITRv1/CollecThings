@@ -6,12 +6,26 @@ class_name SafeMode
 var unsupported_vendors : Array = ["Intel Corporation", ""]
 var gpu : String = str(OS.get_video_adapter_driver_info()[0])
 var resources_status : bool = true
+var prev_mode : int = 0
 
 func _ready() -> void:
+	if ResourceLoader.exists("user://game_settings.tres"):
+		var settings : ConfigData = ResourceLoader.load("user://game_settings.tres")
+		mode = settings.compatibility_mode
+	
 	if mode == 0:
 		_check_graphics_card()
 	reload()
 	
+
+
+func _process(_delta: float) -> void:
+	#ISNT REALLY WORKING
+	if prev_mode != mode:
+		reload()
+		prev_mode = mode
+	
+
 
 func reload():
 	if mode == 0:

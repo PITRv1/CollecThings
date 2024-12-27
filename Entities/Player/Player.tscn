@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="15_r3psd"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="16_vqqka"]
 [ext_resource type="PackedScene" uid="uid://cc64c1kvu84vp" path="res://Assets/UI/Player UI/Player_UI.tscn" id="22_yn3cy"]
-[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="24_h8mba"]
+[ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="24_h8mba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wo758"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

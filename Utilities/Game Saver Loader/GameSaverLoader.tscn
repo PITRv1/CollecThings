@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2f3a16382jr4"]
+
+[ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="1_0bn0h"]
+
+[node name="GameSaverLoader" type="Node"]
+script = ExtResource("1_0bn0h")

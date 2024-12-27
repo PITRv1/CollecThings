@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="2_8h5s1"]
 [ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Assets/Models/Cinematic Models/Planet.tscn" id="4_ntj0n"]
 [ext_resource type="PackedScene" uid="uid://m2wrgbx358is" path="res://Assets/Models/Environment Models/Map Models/glowing_island.glb" id="4_uwd0t"]
-[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="7_vbtif"]
+[ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="7_vbtif"]
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Assets/Models/Cinematic Models/Planet2.tscn" id="8_ebhvt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lq1fv"]

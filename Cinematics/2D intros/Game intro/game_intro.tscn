@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3r3nk3w8yuap"]
+[gd_scene load_steps=8 format=3 uid="uid://c3r3nk3w8yuap"]
 
 [ext_resource type="Script" path="res://Cinematics/2D intros/Game intro/game_intro.gd" id="1_n2sux"]
 [ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="2_8g48y"]
 [ext_resource type="Texture2D" uid="uid://bt783vh6t2c1w" path="res://Assets/Images/logo.png" id="3_ls8k3"]
+[ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="4_s37yq"]
 
 [sub_resource type="Animation" id="Animation_733mi"]
 length = 0.001
@@ -133,3 +134,6 @@ libraries = {
 "": SubResource("AnimationLibrary_8wut8")
 }
 autoplay = "fade_in_out"
+
+[node name="GameSaverLoader" type="Node" parent="."]
+script = ExtResource("4_s37yq")

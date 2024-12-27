@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b4oaiip05l464"]
+[gd_scene load_steps=42 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_l206q"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="2_l25qa"]
@@ -15,7 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_screen.tscn" id="13_nqawn"]
 [ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="14_ka4r6"]
 [ext_resource type="Script" path="res://Maps/Main_Menu/light_flicker.gd" id="15_yhyx7"]
-[ext_resource type="Script" path="res://Utilities/SafeModeUtility/safemode.gd" id="16_6ybuj"]
+[ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="16_6ybuj"]
+[ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="17_1dedw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d7ayw"]
 panorama = ExtResource("1_l206q")
@@ -278,5 +279,8 @@ autostart = true
 
 [node name="SafeMode" type="Node3D" parent="."]
 script = ExtResource("16_6ybuj")
+
+[node name="GameSaverLoader" type="Node" parent="."]
+script = ExtResource("17_1dedw")
 
 [connection signal="timeout" from="Timer" to="Node3D/Space_ship/ShipSpot2" method="_on_timer_timeout"]

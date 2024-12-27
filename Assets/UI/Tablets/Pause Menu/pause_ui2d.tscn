@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dee1xjnbe0hxf"]
+[gd_scene load_steps=10 format=3 uid="uid://dee1xjnbe0hxf"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_6uop4"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/resolution.gd" id="6_7kn0j"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/pixelization.gd" id="7_e2won"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/comapitibility_mode.gd" id="7_wcmqt"]
+[ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="9_wpegb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -402,8 +403,9 @@ focus_mode = 0
 theme = ExtResource("1_6uop4")
 max_value = 16.0
 step = 2.0
-value = 2.0
-rounded = true
+
+[node name="GameSaverLoader" type="Node" parent="."]
+script = ExtResource("9_wpegb")
 
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]

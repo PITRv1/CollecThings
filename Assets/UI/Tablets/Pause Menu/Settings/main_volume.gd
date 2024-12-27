@@ -7,6 +7,6 @@ func _ready() -> void:
 	
 
 func _on_h_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	$"../../../../GameSaverLoader".set_main_volume(value)
 	
 	

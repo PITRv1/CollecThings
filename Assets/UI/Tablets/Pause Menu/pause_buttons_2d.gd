@@ -1,12 +1,16 @@
 extends Control
 
 @onready var pause_menu : Node3D = get_tree().get_first_node_in_group("Pause_menu")
+@onready var player_safe_mode = get_tree().get_first_node_in_group("player").safe_mode
 
 func _ready() -> void:
 	get_tree().paused = false
+	
+	if ResourceLoader.exists("user://game_settings.tres"):
+		$GameSaverLoader.load_settings()
 
 
-func Show_or_hide_settings():
+func _show_or_hide_settings():
 	if $SettingsMargin.visible:
 		$SettingsMargin.hide()
 	else:
@@ -18,7 +22,7 @@ func _on_resume_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	Show_or_hide_settings()
+	_show_or_hide_settings()
 
 
 func _on_quit_pressed() -> void:
@@ -34,4 +38,5 @@ func _on_reload_pressed() -> void:
 
 
 func _on_done_pressed() -> void:
-	Show_or_hide_settings()
+	_show_or_hide_settings()
+	$GameSaverLoader.save_settings()

@@ -23,6 +23,7 @@ func _ready() -> void:
 	var pald = proj.instantiate()
 	self.add_child(pald)
 	
+
 func enter(weapon_setting):
 	weapon_settings = weapon_setting
 

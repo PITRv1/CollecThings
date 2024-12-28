@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/SprintingPlayerState.gd" id="9_dh4us"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DeadPlayerState.gd" id="10_mlly4"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/DashingPlayerState.gd" id="12_u7dve"]
-[ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/ShieldComponent.gd" id="15_k32b2"]
+[ext_resource type="Script" path="res://Components/ShieldComponent.gd" id="15_k32b2"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="15_r3psd"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="16_vqqka"]
 [ext_resource type="PackedScene" uid="uid://cc64c1kvu84vp" path="res://Assets/UI/Player UI/Player_UI.tscn" id="22_yn3cy"]

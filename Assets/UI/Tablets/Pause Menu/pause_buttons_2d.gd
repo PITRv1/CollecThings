@@ -6,8 +6,6 @@ extends Control
 func _ready() -> void:
 	get_tree().paused = false
 	
-	if ResourceLoader.exists("user://game_settings.tres"):
-		$GameSaverLoader.load_settings()
 
 
 func _show_or_hide_settings():
@@ -39,4 +37,12 @@ func _on_reload_pressed() -> void:
 
 func _on_done_pressed() -> void:
 	_show_or_hide_settings()
-	$GameSaverLoader.save_settings()
+	$GameSaverLoader._save_settings()
+
+
+func _on_debug_save_map_data_pressed() -> void:
+	$GameSaverLoader._save_current_map_data()
+
+
+func _on_debug_load_map_data_pressed() -> void:
+	$GameSaverLoader._load_saved_map_data()

@@ -17,7 +17,6 @@ func set_pixelization_amount():
 
 
 func _on_h_slider_value_changed(value: float) -> void:
-	print("Setting value", value)
 	$"../../../../GameSaverLoader".set_pixelization_amount(value)
 	
 

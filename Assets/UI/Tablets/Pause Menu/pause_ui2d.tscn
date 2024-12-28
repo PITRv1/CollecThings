@@ -103,6 +103,20 @@ focus_mode = 0
 theme = ExtResource("1_6uop4")
 text = "Quit"
 
+[node name="DEBUG_save_map_data" type="Button" parent="UIMargin/UI/Margin/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+text = "DEBUG: Save Map Data"
+
+[node name="DEBUG_load_map_data" type="Button" parent="UIMargin/UI/Margin/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+text = "DEBUG: Load Map Data"
+
 [node name="SettingsMargin" type="MarginContainer" parent="."]
 visible = false
 clip_contents = true
@@ -412,6 +426,8 @@ script = ExtResource("9_wpegb")
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/DEBUG_save_map_data" to="." method="_on_debug_save_map_data_pressed"]
+[connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/DEBUG_load_map_data" to="." method="_on_debug_load_map_data_pressed"]
 [connection signal="pressed" from="SettingsMargin/VBoxContainer/HBoxContainer/Done" to="." method="_on_done_pressed"]
 [connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Main volume/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Main volume" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="SettingsMargin/VBoxContainer/Settings/Music Volume/SliderBox/HSlider" to="SettingsMargin/VBoxContainer/Settings/Music Volume" method="_on_h_slider_value_changed"]

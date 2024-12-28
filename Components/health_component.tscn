@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxo3gstx1krox"]
 
-[ext_resource type="Script" path="res://Entities/Enemy/Basic enemy test/HealthComponent.gd" id="1_uvmxv"]
+[ext_resource type="Script" path="res://Components/HealthComponent.gd" id="1_uvmxv"]
 
-[node name="HealthComponent" type="Node3D"]
+[node name="HealthComponent" type="Node3D" groups=["health_components"]]
 script = ExtResource("1_uvmxv")

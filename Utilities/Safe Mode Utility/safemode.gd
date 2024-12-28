@@ -9,9 +9,10 @@ var resources_status : bool = true
 var prev_mode : int = 0
 
 func _ready() -> void:
-	if ResourceLoader.exists("user://game_settings.tres"):
-		var settings : ConfigData = ResourceLoader.load("user://game_settings.tres")
-		mode = settings.compatibility_mode
+	if ResourceLoader.exists(Global.USER_SAVE_FILE):
+		var settings : ConfigData = ResourceLoader.load(Global.USER_SAVE_FILE)
+		if settings:
+			mode = settings.compatibility_mode
 	
 	if mode == 0:
 		_check_graphics_card()

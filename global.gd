@@ -3,6 +3,10 @@ extends Node
 @onready var loading_screen : PackedScene = preload("res://Utilities/Loading Screen/LoadingScreen.tscn")
 const main_menu = preload("res://Maps/Main_Menu/Main_menu.tscn")
 
+const USER_SAVE_FILE : String = "user://game_settings.tres"
+const MAP_SAVE_FILE : String = "user://mapdata_save.tres"
+
+
 var stat_tablet : Control
 var weapon_speacial : TextureRect
 var player : Player

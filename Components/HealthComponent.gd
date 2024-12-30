@@ -19,14 +19,13 @@ func _process(_delta: float) -> void:
 func damage(attack: WeaponSettings = null, damage : float = 0.0):
 	if attack:
 		health -= attack.damage
-		
 		#get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
 	
 	elif damage:
 		health -= damage
 	
 	damaged.emit()
-
+	
 	if health <= 0:
 		if get_parent() is Player:
 			died.emit()

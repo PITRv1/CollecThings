@@ -5,7 +5,11 @@ class_name ShieldComponent
 var shield : float
 var shield_percent : float
 
+
 signal died
+signal damaged
+signal healed
+
 
 func _ready() -> void:
 	shield = MAX_SHIELD
@@ -14,22 +18,23 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	shield_percent = shield/MAX_SHIELD
-	
 
 
 func damage(attack: WeaponSettings = null, damage : float = 0.0):
 	if attack:
 		shield -= attack.damage
-		#get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
 		
-
+	
 	elif damage:
 		shield -= damage
+		
+	
+	damaged.emit()
 	
 	if shield <= 0:
 		if get_parent() is Player:
 			pass
 		else:
 			queue_free()
-		
-		
+			
+	

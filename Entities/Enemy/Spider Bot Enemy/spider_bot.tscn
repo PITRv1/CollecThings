@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://cabgrr2bvykhs"]
+[gd_scene load_steps=22 format=4 uid="uid://cabgrr2bvykhs"]
 
-[ext_resource type="Script" path="res://Entities/Enemy/wait/spider_bot/start_ik.gd" id="1_n6l5c"]
-[ext_resource type="Script" path="res://Entities/Enemy/wait/spider_bot/spider_bot.gd" id="2_kfpvc"]
-[ext_resource type="Script" path="res://Entities/Enemy/wait/spider_bot/step_ray.gd" id="4_8a6ki"]
-[ext_resource type="Script" path="res://Entities/Enemy/wait/spider_bot/ik_target.gd" id="4_p25cf"]
-[ext_resource type="Script" path="res://Entities/Enemy/wait/spider_bot/StepTargetContainer.gd" id="5_yguvh"]
+[ext_resource type="Script" path="res://Entities/Enemy/Spider Bot Enemy/start_ik.gd" id="1_n6l5c"]
+[ext_resource type="Script" path="res://Entities/Enemy/Spider Bot Enemy/spider_bot.gd" id="2_kfpvc"]
+[ext_resource type="Script" path="res://Entities/Enemy/Spider Bot Enemy/step_ray.gd" id="4_8a6ki"]
+[ext_resource type="Script" path="res://Entities/Enemy/Spider Bot Enemy/ik_target.gd" id="4_p25cf"]
+[ext_resource type="Script" path="res://Entities/Enemy/Spider Bot Enemy/StepTargetContainer.gd" id="5_yguvh"]
+[ext_resource type="Script" path="res://Components/ShieldComponent.gd" id="7_kqlbh"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="7_wqf7k"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="8_nq2e4"]
 
@@ -498,10 +499,15 @@ transform = Transform3D(0.996195, 0.0868241, -0.00759612, -0.0871557, 0.992404, 
 debug_enabled = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_wqf7k")]
-MAX_HEALTH = 100.0
+MAX_HEALTH = 50.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_nq2e4")]
+[node name="ShieldComponent" type="Node3D" parent="." groups=["shield_components"]]
+script = ExtResource("7_kqlbh")
+MAX_SHIELD = 100.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "shield_component") instance=ExtResource("8_nq2e4")]
 health_component = NodePath("../HealthComponent")
+shield_component = NodePath("../ShieldComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115582, 0, 0)

@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/Killbox/killbox.tscn" id="9_xdoes"]
 [ext_resource type="PackedScene" uid="uid://c8kdw4ohy4ga0" path="res://Assets/Particle Effects/blue_flame.tscn" id="10_tyr87"]
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="11_5jvmd"]
-[ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="11_bbx8q"]
+[ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/Spider Bot Enemy/spider_bot.tscn" id="11_bbx8q"]
 [ext_resource type="PackedScene" uid="uid://c3fi7jn4d476k" path="res://Assets/Models/Interactables/HealthPack/Health_pack.tscn" id="21_3ykag"]
 [ext_resource type="PackedScene" uid="uid://dvw8j27aay8mm" path="res://Assets/Models/Environment Models/Foilage/Cactus/cactus.tscn" id="22_sjpom"]
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="23_deaev"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="1_lb8sp"]
 [ext_resource type="Texture2D" uid="uid://dee3kggjavdua" path="res://Assets/Test assets/Test Textures/Petha_1m x 1m Dark Gary.png" id="2_o8fry"]
-[ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="3_1bdfg"]
+[ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/Spider Bot Enemy/spider_bot.tscn" id="3_1bdfg"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="4_6y5q3"]
 [ext_resource type="Script" path="res://Maps/Test Maps/pin_joint_3d.gd" id="5_p336p"]
 

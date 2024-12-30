@@ -29,7 +29,7 @@ var ground_friction := 6.0
 var dashes_left := 2
 
 #Slide variable
-const SLIDE_TRANSLATE = 0.5
+const SLIDE_TRANSLATE := 0.5
 var sliding := false
 var slide_friction := 3.0
 var stand_to_slide := Vector3.ZERO
@@ -41,19 +41,19 @@ const headbob_frequency := 1.4 # how fast is side to side
 var headbob_time := 0.0
 
 #Stair movment variables
-const MAX_STEP_HEIGHT = 0.5
+const MAX_STEP_HEIGHT := 0.5
 var _snapped_to_stairs_last_frame := false
 var _last_frame_was_on_floor = -INF
 @onready var stairs_ahead_raycast: RayCast3D = $StairsAheadRayCast
 @onready var stairs_below_raycast: RayCast3D = $StairsBelowRayCast
 
-@onready var hitbox_component: HitboxComponent = $HitboxComponent
+@onready var hitbox_component : HitboxComponent = $HitboxComponent
 @export var safe_mode : SafeMode
 @export var crosshair : CenterContainer
 
 #Jump buffer && (maybe coyoteTime) variables
-var jump_buffer_running = false
-var look_sensitivity = 0.003
+var jump_buffer_running := false
+var look_sensitivity := 0.003
 
 ########################################################
 func _input(event):

@@ -204,7 +204,7 @@ script = ExtResource("10_mlly4")
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/DeadPlayerState"]
 
-[node name="ShieldComponent" type="Node3D" parent="."]
+[node name="ShieldComponent" type="Node3D" parent="." groups=["shield_components"]]
 script = ExtResource("15_k32b2")
 MAX_SHIELD = 200.0
 

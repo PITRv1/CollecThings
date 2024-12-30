@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" path="res://Components/ShieldComponent.gd" id="1_g0wkh"]
 
-[node name="ShieldComponent" type="Node3D"]
+[node name="ShieldComponent" type="Node3D" groups=["shield_components"]]
 script = ExtResource("1_g0wkh")
-MAX_SHIELD = 100.0

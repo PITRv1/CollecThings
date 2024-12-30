@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=49 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="23_deaev"]
 [ext_resource type="PackedScene" uid="uid://b5a2aq0k2alvo" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom_float.tscn" id="24_1pglc"]
 [ext_resource type="PackedScene" uid="uid://dgjwea0yphsog" path="res://Assets/Models/Environment Models/Foilage/Space_flower/space_flower.tscn" id="25_udvkd"]
+[ext_resource type="PackedScene" uid="uid://50br11hn5j8c" path="res://Entities/Enemy/abel_teszt/abel.tscn" id="26_13l3v"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -430,3 +431,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3257, -4.51226, 46.4595)
 [node name="SpaceFlower" parent="." instance=ExtResource("25_udvkd")]
 transform = Transform3D(1.25807, 0, 0, 0, 1.25807, 0, 0, 0, 1.25807, -0.39, 0.84, 1.765)
 script = SubResource("GDScript_fpsr4")
+
+[node name="Basic_enemy" parent="." instance=ExtResource("26_13l3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.362, -1.56374, -12.3371)

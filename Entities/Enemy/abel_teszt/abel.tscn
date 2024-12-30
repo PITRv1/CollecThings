@@ -1,0 +1,204 @@
+[gd_scene load_steps=34 format=3 uid="uid://50br11hn5j8c"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/abel_teszt/abel.gd" id="1_4y12o"]
+[ext_resource type="PackedScene" uid="uid://cw0tclge151u1" path="res://Entities/Enemy/abel_teszt/enemy.glb" id="2_v6mv7"]
+[ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="2_xb286"]
+[ext_resource type="PackedScene" uid="uid://4lg7g1d8f6ju" path="res://Components/shield_component.tscn" id="3_1qo12"]
+[ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="4_m1f60"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0mjao"]
+radius = 1.5
+height = 8.0
+
+[sub_resource type="Animation" id="Animation_6dypk"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_tpxgc"]
+resource_name = "chase"
+
+[sub_resource type="Animation" id="Animation_namnf"]
+resource_name = "falling"
+
+[sub_resource type="Animation" id="Animation_15u86"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_8pw6u"]
+resource_name = "wander"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4v56"]
+_data = {
+"attack": SubResource("Animation_6dypk"),
+"chase": SubResource("Animation_tpxgc"),
+"falling": SubResource("Animation_namnf"),
+"idle": SubResource("Animation_15u86"),
+"wander": SubResource("Animation_8pw6u")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_81ham"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n0lqh"]
+animation = &"chase"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1eunn"]
+animation = &"falling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fix0"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x1l3x"]
+animation = &"wander"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rqyu0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8tiqg"]
+xfade_time = 0.2
+break_loop_at_end = true
+advance_mode = 2
+advance_expression = "_target_in_range()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rxbdj"]
+xfade_time = 0.2
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!_target_in_range()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cvjbv"]
+break_loop_at_end = true
+advance_mode = 2
+advance_expression = "_target_in_range()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_81qyy"]
+advance_mode = 2
+advance_condition = &"fall_wand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vh11f"]
+break_loop_at_end = true
+advance_mode = 2
+advance_expression = "_target_in_sight()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d5mwj"]
+advance_mode = 2
+advance_expression = "player.global_position.y - global_position.y > 5"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x06ew"]
+advance_mode = 2
+advance_expression = "!is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pc6a7"]
+break_loop_at_end = true
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bhwk5"]
+advance_mode = 2
+advance_expression = "!is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pmi0k"]
+advance_mode = 2
+advance_condition = &"falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pf0fn"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wr45w"]
+advance_mode = 2
+advance_expression = "idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hmqvu"]
+advance_mode = 2
+advance_expression = "!idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jh0iq"]
+states/End/position = Vector2(1081, 100)
+states/Start/position = Vector2(313, 100)
+states/attack/node = SubResource("AnimationNodeAnimation_81ham")
+states/attack/position = Vector2(893, 153)
+states/chase/node = SubResource("AnimationNodeAnimation_n0lqh")
+states/chase/position = Vector2(496, -7.8656)
+states/falling/node = SubResource("AnimationNodeAnimation_1eunn")
+states/falling/position = Vector2(496, 153)
+states/idle/node = SubResource("AnimationNodeAnimation_3fix0")
+states/idle/position = Vector2(345, -7.8656)
+states/wander/node = SubResource("AnimationNodeAnimation_x1l3x")
+states/wander/position = Vector2(893, -7.8656)
+transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5"), "attack", "falling", SubResource("AnimationNodeStateMachineTransition_pmi0k"), "falling", "attack", SubResource("AnimationNodeStateMachineTransition_pf0fn"), "falling", "idle", SubResource("AnimationNodeStateMachineTransition_wr45w"), "idle", "falling", SubResource("AnimationNodeStateMachineTransition_hmqvu")]
+graph_offset = Vector2(9, -50.8656)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cgksf"]
+radius = 1.5
+height = 8.0
+
+[node name="Basic_enemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_4y12o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.20537, 0.488468, 0)
+shape = SubResource("CapsuleShape3D_0mjao")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.15
+simplify_path = true
+debug_enabled = true
+
+[node name="body" type="Node3D" parent="."]
+
+[node name="enemy" parent="body" instance=ExtResource("2_v6mv7")]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="chaseTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="wanderTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="RayCasts" type="Node3D" parent="."]
+
+[node name="sight" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, 0, 0)
+
+[node name="stair_check" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.724837, 0.415768)
+target_position = Vector3(0, 0, 0.3)
+
+[node name="stair_check2" type="RayCast3D" parent="RayCasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.903069, 0.416)
+target_position = Vector3(0, 0, 0.3)
+
+[node name="States and animation" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="States and animation"]
+libraries = {
+"": SubResource("AnimationLibrary_i4v56")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="States and animation"]
+tree_root = SubResource("AnimationNodeStateMachine_jh0iq")
+advance_expression_base_node = NodePath("../..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/attack = false
+parameters/conditions/fall_wand = false
+parameters/conditions/falling = false
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_xb286")]
+MAX_HEALTH = 60.0
+
+[node name="ShieldComponent" parent="." instance=ExtResource("3_1qo12")]
+MAX_SHIELD = 20.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "shield_component") instance=ExtResource("4_m1f60")]
+health_component = NodePath("../HealthComponent")
+shield_component = NodePath("../ShieldComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.205, 0, 0)
+shape = SubResource("CapsuleShape3D_cgksf")

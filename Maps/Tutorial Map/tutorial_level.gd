@@ -1,13 +1,24 @@
 extends Node3D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var stat_tablet = Global.stat_tablet
+@onready var basic_enemy : PackedScene = preload("res://Entities/Enemy/Basic enemy test/monger.tscn")
+@onready var enemy_spawn : Marker3D = $NavigationRegion3D/Environment/EnemySpawn
+@onready var collision_shape_3d: CollisionShape3D = $NavigationRegion3D/Environment/StaticBody3D/CollisionShape3D
 
 func _ready() -> void:
 	stat_tablet.purge_message("Move with WASD")
+	for i in range(0, 5):
+		spawn_basic_enemy()
 
-func _on_enemy_trigger_area_entered(_area: Area3D) -> void:
-	animation_player.play("Fight trigger")
+
+func _on_enemy_trigger_body_entered(body: Player) -> void:
+	collision_shape_3d.disabled = true
+
+
+func spawn_basic_enemy() -> void:
+	var enemy : CharacterBody3D = basic_enemy.instantiate()
+	enemy.global_position = enemy_spawn.global_position
+	get_tree().current_scene.add_child(enemy)
 
 
 func _on_grappler_body_entered(body: Player) -> void:

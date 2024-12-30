@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=99 format=3 uid="uid://cvsbulx0h8dn7"]
 
 [ext_resource type="Script" path="res://Maps/Tutorial Map/tutorial_level.gd" id="1_na3iy"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="2_u26f8"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="3_win0w"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="4_phah0"]
-[ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/killbox.tscn" id="4_wf3cu"]
+[ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/Killbox/killbox.tscn" id="4_wf3cu"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="5_i7lpt"]
 [ext_resource type="PackedScene" uid="uid://dammrvsguaa0a" path="res://Assets/Models/Environment Models/Map Models/tut_cave_v3/caveV3_BLOCKOUT.glb" id="6_o3yjm"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="7_ve86l"]
@@ -15,42 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cxogo8v5vtcg8" path="res://Assets/Models/Environment Models/Stone-Rock/Mineral_rocks/mineral_rock_EMIS.glb" id="14_lai5u"]
 [ext_resource type="PackedScene" uid="uid://c3fi7jn4d476k" path="res://Assets/Models/Interactables/HealthPack/Health_pack.tscn" id="15_bauje"]
 [ext_resource type="PackedScene" uid="uid://ctbse5jxcw8ca" path="res://Assets/Models/Environment Models/Stone-Rock/Mineral_rocks/mineral_rock_NO_EMIS.glb" id="15_kuk2r"]
-
-[sub_resource type="Animation" id="Animation_4ko2n"]
-resource_name = "Fight trigger"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_jcjel"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NavigationRegion3D/Environment/RigidBody3D:freeze")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k184i"]
-_data = {
-"Fight trigger": SubResource("Animation_4ko2n"),
-"RESET": SubResource("Animation_jcjel")
-}
 
 [sub_resource type="Gradient" id="Gradient_v8j7d"]
 offsets = PackedFloat32Array(0, 0.205479, 0.844749, 1)
@@ -814,9 +778,8 @@ size = Vector2(100, 100)
 radius = 3.756
 height = 18.674
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o8l0s"]
-radius = 2.826
-height = 20.07
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4mqe"]
+size = Vector3(31.424, 1, 27.0449)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_83ftw"]
 size = Vector3(458.802, 0.758789, 499.972)
@@ -841,11 +804,6 @@ size = Vector3(9.56042, 6.76123, 1)
 
 [node name="Tutorial Level" type="Node3D"]
 script = ExtResource("1_na3iy")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_k184i")
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cy3sr")
@@ -1197,22 +1155,20 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/rock1/HitboxComponent"]
 shape = SubResource("CapsuleShape3D_kq1ej")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="NavigationRegion3D/Environment"]
-transform = Transform3D(0.997168, 0.075205, 0, -0.075205, 0.997168, 0, 0, 0, 1, -14.6687, 120.14, 69.7437)
-freeze = true
-
-[node name="rock2" parent="NavigationRegion3D/Environment/RigidBody3D" instance=ExtResource("7_ve86l")]
-transform = Transform3D(0.819302, -3.72529e-09, 0, 3.72529e-09, 0.819302, 0, 0, 0, 0.819302, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/RigidBody3D"]
-transform = Transform3D(0.786543, -3.72529e-09, 0, 3.72529e-09, 0.786543, 0, 0, 0, 0.786543, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_o8l0s")
+[node name="EnemySpawn" type="Marker3D" parent="NavigationRegion3D/Environment"]
+transform = Transform3D(0.997168, 0.075205, 0, -0.075205, 0.997168, 0, 0, 0, 1, -14.6687, 122.454, 69.7437)
 
 [node name="mineral_rock_EMIS" parent="NavigationRegion3D/Environment" instance=ExtResource("14_lai5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9838, 94.104, -30.4372)
 
 [node name="mineral_rock_NO_EMIS" parent="NavigationRegion3D/Environment" instance=ExtResource("15_kuk2r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7566, 94.2784, -35.7237)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Environment"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2995, 106.833, 73.32)
+shape = SubResource("BoxShape3D_f4mqe")
 
 [node name="Killbox" parent="." instance=ExtResource("4_wf3cu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20873, -94.8635, -36.5811)
@@ -1336,6 +1292,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9345, 94.0504, -27.5971)
 
 [connection signal="area_entered" from="Events/Enemy Trigger" to="." method="_on_enemy_trigger_area_entered"]
+[connection signal="body_entered" from="Events/Enemy Trigger" to="." method="_on_enemy_trigger_body_entered"]
 [connection signal="body_entered" from="Events/TEMP_load_next_level" to="." method="_on_temp_load_next_level_body_entered"]
 [connection signal="body_entered" from="Events/Tutorial Messages/Jump" to="." method="_on_jump_body_entered"]
 [connection signal="body_entered" from="Events/Tutorial Messages/Grappler" to="." method="_on_grappler_body_entered"]

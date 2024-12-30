@@ -13,6 +13,7 @@ var player : Player
 var next_scene: String
 var safe_mode_status : bool
 
+var load_saved_map_data : bool = false
 
 func change_scene_to(scene_path: String) -> void:
 	if scene_path:

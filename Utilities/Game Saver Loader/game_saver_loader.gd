@@ -9,57 +9,101 @@ var pixelization_amount : int
 
 var pixelization_shader = null
 var health_data : Dictionary = {}
+var position_data : Dictionary = {}
 
 @onready var player : Player = get_tree().get_first_node_in_group("player")
 
 
 func _ready() -> void:
-	pixelization_shader = Global.get_environment_shader_by_property("down_scaling")
-	_load_settings()
-	get_tree().create_timer(0.5, true, true, false).timeout.connect(_load_health_components)
+	health_data = {}
+	position_data = {}
 	
+	pixelization_shader = Global.get_environment_shader_by_property("down_scaling")
+	load_settings()
+	get_tree().create_timer(0.2, true, true, false).timeout.connect(_load_health_components)
+	
+	if Global.load_saved_map_data:
+		get_tree().create_timer(0.2, true, true, false).timeout.connect(load_saved_map_data)
+		Global.load_saved_map_data = false
+
+func load_saved_map():
+	if ResourceLoader.exists(Global.MAP_SAVE_FILE):
+		var map_path : String = ResourceLoader.load(Global.MAP_SAVE_FILE).map_path
+		
+		if map_path:
+			Global.change_scene_to(map_path)
+			Global.load_saved_map_data = true
 
 
-func _load_health_components():
+func _load_health_components() -> void:
 	var health_components : Array[Node] = get_tree().get_nodes_in_group("health_components")
 	for health_component: HealthComponent in health_components:
 		health_component.damaged.connect(func(): _handle_health_component_damage(health_component))
 		
 		health_data[health_component.get_path()] = health_component.health
-	print("<", get_tree().current_scene.name, "> map's health data: ", health_data)
+	#print("<", get_tree().current_scene.name, "> map's health data: ", health_data)
 
 
-func _handle_health_component_damage(health_component: HealthComponent):
+func _save_position_data() -> void:
+	var health_components : Array[Node] = get_tree().get_nodes_in_group("health_components")
+	for health_component: HealthComponent in health_components:
+		var parent = health_component.get_parent()
+		
+		position_data[parent.get_path()] = parent.global_position
+
+
+func _handle_health_component_damage(health_component: HealthComponent) -> void:
 	var id := health_component.get_path()
 	
 	health_data[id] = health_component.health
-	print(id, " -> ", health_data[id], "hp")
 
 
-func _save_current_map_data():
+func save_current_map_data() -> void:
+	_save_position_data()
+	
 	var map_data : MapData = MapData.new()
-	map_data.map_name = get_tree().current_scene.name
+	map_data.map_path = get_tree().current_scene.scene_file_path
 	map_data.health_data = health_data
+	map_data.position_data = position_data
+	map_data.player_position = player.global_position
+	map_data.player_rotation = Vector2(player.camera.rotation.x, player.rotation.y)
 	
 	ResourceSaver.save(map_data, Global.MAP_SAVE_FILE)
 
 
-func _load_saved_map_data():
+func load_saved_map_data() -> void:
 	if ResourceLoader.exists(Global.MAP_SAVE_FILE):
 		var map_data : MapData = ResourceLoader.load(Global.MAP_SAVE_FILE)
 		
 		if map_data:
-			if get_tree().current_scene.name == map_data.map_name:
+			if get_tree().current_scene.scene_file_path == map_data.map_path:
 				print("Loading saved map data...")
+				
 				health_data = map_data.health_data
+				position_data = map_data.position_data
 				
 				var health_components : Array[Node] = get_tree().get_nodes_in_group("health_components")
 				for health_component: HealthComponent in health_components:
 					var id := health_component.get_path()
+					var parent := health_component.get_parent()
 					
-					health_component.damage(null, health_component.health-health_data[id])
-				#
+					if health_data.has(id):
+						health_component.damage(null, health_component.health-health_data[id])
+					else:
+						print(id, " is not in the current health data!!!")
+						
+					if position_data.has(parent.get_path()):
+						instance_from_id(parent.get_instance_id()).global_position = position_data[parent.get_path()]
+					else:
+						print(parent.get_path(), " is not in the current position data!!!")
+				
+				if player and player.camera:
+					player.global_position = map_data.player_position
+					player.camera.rotation.x = map_data.player_rotation[0]
+					player.global_rotation.y = map_data.player_rotation[1]
+				
 				print("Loaded saved map data succesfully")
+
 
 func set_main_volume(volume: float) -> void: 
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)
@@ -72,30 +116,30 @@ func set_music_volume(volume: float) -> void:
 	music_volume = volume
 	
 
-func set_window_mode(mode: Window.Mode):
+func set_window_mode(mode: Window.Mode) -> void:
 	get_tree().root.mode = mode
 	window_mode = mode
 	
 
-func set_game_resolution(resolution: Vector2i):
+func set_game_resolution(resolution: Vector2i) -> void:
 	get_tree().root.content_scale_size = resolution
 	game_resolution = resolution
 	
 
-func set_safe_mode(value: int):
+func set_safe_mode(value: int) -> void:
 	if player:
 		player.safe_mode.mode = value
 		player.safe_mode.reload()
 	safe_mode = value
 	
 
-func set_pixelization_amount(value: int):
+func set_pixelization_amount(value: int) -> void:
 	if pixelization_shader != null:
 		pixelization_shader.set("down_scaling", value)
 	pixelization_amount = value
 	
 
-func _save_settings() -> void:
+func save_settings() -> void:
 	var config_data : ConfigData = ConfigData.new()
 	config_data.main_volume = main_volume
 	config_data.music_volume = music_volume
@@ -107,7 +151,7 @@ func _save_settings() -> void:
 	ResourceSaver.save(config_data, Global.USER_SAVE_FILE)
 	
 
-func _load_settings() -> void:
+func load_settings() -> void:
 	if ResourceLoader.exists(Global.USER_SAVE_FILE):
 		var config_data : ConfigData = ResourceLoader.load(Global.USER_SAVE_FILE)
 		

@@ -3,4 +3,11 @@
 [ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="1_0bn0h"]
 
 [node name="GameSaverLoader" type="Node"]
+process_mode = 3
+process_priority = 1
 script = ExtResource("1_0bn0h")
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 0.5
+autostart = true

@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="8_lguwc"]
 [ext_resource type="PackedScene" uid="uid://conyfhi7ppg7g" path="res://Assets/Particle Effects/orange_flame.tscn" id="9_oi2vs"]
-[ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/killbox.tscn" id="9_xdoes"]
+[ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/Killbox/killbox.tscn" id="9_xdoes"]
 [ext_resource type="PackedScene" uid="uid://c8kdw4ohy4ga0" path="res://Assets/Particle Effects/blue_flame.tscn" id="10_tyr87"]
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="11_5jvmd"]
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/wait/spider_bot/spider_bot.tscn" id="11_bbx8q"]

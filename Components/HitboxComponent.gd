@@ -7,13 +7,18 @@ class_name HitboxComponent
 func damage(attack: WeaponSettings = null, damage: float = 0.0):
 	if health_component:
 		if attack:
-			print("attack stun: ", attack.stun_time)
 			if attack.stun_time > 0:
 				if "stun_time" in get_parent():
 					get_parent().stun_time = attack.stun_time
+			
 			if shield_component != null:
 				if shield_component.shield > attack.damage:
 					shield_component.damage(attack)
+				elif shield_component.shield < attack.damage:
+					var diff : int = int(attack.damage) - int(shield_component.shield)
+					
+					shield_component.damage(null, shield_component.shield)
+					health_component.damage(null, diff)
 				else:
 					health_component.damage(attack)
 			else:

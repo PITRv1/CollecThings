@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b1n5rqw53onuo"
-path="res://.godot/imported/spider_bot_model.gltf-11f542b0fac62c0fd021f5bc72422c43.scn"
+path="res://.godot/imported/spider_bot_model.gltf-668f8896e09891e5924b4bf1132f2f47.scn"
 
 [deps]
 
-source_file="res://Entities/Enemy/wait/spider_bot/spider_bot_model.gltf"
-dest_files=["res://.godot/imported/spider_bot_model.gltf-11f542b0fac62c0fd021f5bc72422c43.scn"]
+source_file="res://Entities/Enemy/Spider Bot Enemy/spider_bot_model.gltf"
+dest_files=["res://.godot/imported/spider_bot_model.gltf-668f8896e09891e5924b4bf1132f2f47.scn"]
 
 [params]
 

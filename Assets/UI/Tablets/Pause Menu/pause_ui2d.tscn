@@ -425,22 +425,22 @@ color = Color(0, 0, 0, 1)
 [node name="MarginContainer" type="MarginContainer" parent="QuitMenu"]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="QuitMenu/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Title2" type="Label" parent="QuitMenu/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="QuitMenu/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
-theme_override_font_sizes/font_size = 51
-text = "Quit"
+theme_override_font_sizes/font_size = 41
+text = "Quit game?"
 horizontal_alignment = 1
 
 [node name="save" type="Button" parent="QuitMenu/MarginContainer/VBoxContainer"]
@@ -477,6 +477,71 @@ theme = ExtResource("1_6uop4")
 text = "Main Menu
 "
 
+[node name="LoadMenu" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LoadMenu"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="LoadMenu"]
+custom_minimum_size = Vector2(490, 190)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadMenu"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 106.195)
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="LoadMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Load Savefile?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoadMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="BackLoadButton" type="Button" parent="LoadMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+text = "Back"
+
+[node name="LoadButton" type="Button" parent="LoadMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6uop4")
+text = "Load savefile
+"
+
 [node name="GameSaverLoader" type="Node" parent="."]
 script = ExtResource("9_wpegb")
 
@@ -504,3 +569,5 @@ script = ExtResource("9_wpegb")
 [connection signal="pressed" from="QuitMenu/MarginContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="QuitMenu/MarginContainer/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="QuitMenu/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="LoadMenu/MarginContainer/VBoxContainer/HBoxContainer/BackLoadButton" to="." method="_on_back_load_button_pressed"]
+[connection signal="pressed" from="LoadMenu/MarginContainer/VBoxContainer/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]

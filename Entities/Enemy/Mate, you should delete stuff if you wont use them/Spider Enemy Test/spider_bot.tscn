@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://ds2hjqixrrf5g"]
 
 [ext_resource type="PackedScene" uid="uid://cgmuqtt43qal7" path="res://Assets/Models/Enemy Models/spider_bot_model.gltf" id="1_t6bxi"]
-[ext_resource type="Script" path="res://Entities/Enemy/Spider Enemy Test/start_ik.gd" id="2_7jls2"]
-[ext_resource type="Script" path="res://Entities/Enemy/Spider Enemy Test/spider_bot.gd" id="2_sx2b5"]
-[ext_resource type="Script" path="res://Entities/Enemy/Spider Enemy Test/step_ray.gd" id="4_0kckp"]
-[ext_resource type="Script" path="res://Entities/Enemy/Spider Enemy Test/ik_target.gd" id="4_1vpo1"]
-[ext_resource type="Script" path="res://Entities/Enemy/Spider Enemy Test/StepContainer.gd" id="5_ekqxx"]
+[ext_resource type="Script" path="res://Entities/Enemy/Mate, you should delete stuff if you wont use them/Spider Enemy Test/start_ik.gd" id="2_7jls2"]
+[ext_resource type="Script" path="res://Entities/Enemy/Mate, you should delete stuff if you wont use them/Spider Enemy Test/spider_bot.gd" id="2_sx2b5"]
+[ext_resource type="Script" path="res://Entities/Enemy/Mate, you should delete stuff if you wont use them/Spider Enemy Test/step_ray.gd" id="4_0kckp"]
+[ext_resource type="Script" path="res://Entities/Enemy/Mate, you should delete stuff if you wont use them/Spider Enemy Test/ik_target.gd" id="4_1vpo1"]
+[ext_resource type="Script" path="res://Entities/Enemy/Mate, you should delete stuff if you wont use them/Spider Enemy Test/StepContainer.gd" id="5_ekqxx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4s7f"]
 albedo_color = Color(0.473976, 0.473976, 0.473976, 1)

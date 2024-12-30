@@ -14,12 +14,19 @@ func _show_or_hide_settings() -> void:
 		$SettingsMargin.show()
 	
 
-func _show_or_quit_menu() -> void:
+func _show_or_hide_quit_menu() -> void:
 	if $QuitMenu.visible:
 		$QuitMenu.hide()
 	else:
 		$QuitMenu.show()
 	
+
+func _show_or_hide_load_menu() -> void:
+	if $LoadMenu.visible:
+		$LoadMenu.hide()
+	else:
+		$LoadMenu.show()
+
 
 func _on_resume_pressed() -> void:
 	pause_menu.resume()
@@ -30,7 +37,7 @@ func _on_options_pressed() -> void:
 
 
 func _on_quit_menu_pressed() -> void:
-	_show_or_quit_menu()
+	_show_or_hide_quit_menu()
 
 
 func _on_main_menu_pressed() -> void:
@@ -50,7 +57,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_load_pressed() -> void:
-	$GameSaverLoader.load_saved_map_data()
+	_show_or_hide_load_menu()
 
 
 func _on_save_pressed() -> void:
@@ -58,4 +65,12 @@ func _on_save_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
-	_show_or_quit_menu()
+	_show_or_hide_quit_menu()
+
+
+func _on_back_load_button_pressed() -> void:
+	_show_or_hide_load_menu()
+
+
+func _on_load_button_pressed() -> void:
+	$GameSaverLoader.load_saved_map_data()

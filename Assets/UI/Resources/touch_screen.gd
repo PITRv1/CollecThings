@@ -54,10 +54,12 @@ func handle_mouse(event) -> void:
 	#convert from -meshsize/2 to meshsize/2
 	mouse_pos2D.x += mesh_size.x / 2
 	mouse_pos2D.y += mesh_size.y / 2
-	#convert to 0 to 1
+	
+	#convert to range 0 to 1
 	mouse_pos2D.x = mouse_pos2D.x / mesh_size.x
 	mouse_pos2D.y = mouse_pos2D.y / mesh_size.y
-	#convert to viewport range 0 to veiwport size
+	
+	#convert range 0 to veiwport size
 	mouse_pos2D.x = mouse_pos2D.x * viewport.size.x
 	mouse_pos2D.y = mouse_pos2D.y * viewport.size.y
 	
@@ -92,3 +94,4 @@ func find_mouse(pos: Vector2):
 		return result.position
 	else:
 		return null
+	

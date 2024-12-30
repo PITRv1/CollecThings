@@ -245,7 +245,7 @@ func _physics_process(delta: float) -> void:
 			var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX * 5
 			var grapple_dif = (grapple_target_speed - player.velocity)
 				
-			player.velocity += grapple_dif * delta * (player.global_position.distance_to(hook.global_position)/20)
+			player.velocity += grapple_dif * delta
 			
 		if player.global_position.distance_to(hook.global_position) < 3:
 			
@@ -303,9 +303,7 @@ func _physics_process(delta: float) -> void:
 func check_for_colliding():
 	if charge < 1: return
 	
-	helper_cast.target_position.z = GRAPPLE_RAY_MAX * charge
-	
-	if helper_cast.is_colliding():
+	if run_hook_ray(GRAPPLE_RAY_MAX * charge).size() > 0:
 		player.crosshair.dot_color = Color.YELLOW
 	else:
 		player.crosshair.dot_color = Color.WHITE

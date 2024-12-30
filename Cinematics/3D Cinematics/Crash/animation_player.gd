@@ -5,6 +5,7 @@ extends AnimationPlayer
 @onready var camera_low = $"../Camera_Low"
 @onready var timer: Timer = $"../Timer"
 
+
 var current_camera = camera_high
 
 
@@ -18,15 +19,19 @@ func switch_camera():
 			current_camera.current = false
 			current_camera = camera_low
 			current_camera.current = true
+				
 		else:
 			current_camera.current = false
 			current_camera = camera_high
 			current_camera.current = true
+
+
 	
 
 func _process(delta: float) -> void:
 	if not animation_player.is_playing():
-		get_tree().create_timer(2.0).timeout.connect(func(): change_map())
+		
+		get_tree().create_timer(3.0).timeout.connect(func(): change_map())
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		change_map()

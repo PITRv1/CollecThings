@@ -66,7 +66,8 @@ fog_light_color = Color(0.557693, 0.59221, 0.646449, 1)
 fog_density = 1.0
 fog_sky_affect = 0.584
 fog_height_density = -0.5664
-volumetric_fog_density = 0.0443
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_pd3n8"]
 resource_local_to_scene = false
@@ -424,6 +425,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3917, -3.15596, 66.204)
 
 [node name="mushroom" parent="." instance=ExtResource("23_deaev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9891, -1.62558, 24.3129)
+script = null
 
 [node name="MushroomFloat" parent="." instance=ExtResource("24_1pglc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3257, -4.51226, 46.4595)

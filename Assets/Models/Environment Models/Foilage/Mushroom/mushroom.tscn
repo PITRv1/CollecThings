@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=4 uid="uid://bov4xs1544xcp"]
+[gd_scene load_steps=25 format=4 uid="uid://bov4xs1544xcp"]
 
 [ext_resource type="PackedScene" uid="uid://qdk0xp2w5y3p" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.glb" id="1_mnb6p"]
+[ext_resource type="Script" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.gd" id="2_pnf0m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4w7rj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -209,7 +210,12 @@ albedo = Color(0.889545, 0.548361, 0.618412, 1)
 height_falloff = 0.757858
 edge_fade = 0.887655
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_54fk0"]
+radius = 10.0
+height = 25.0
+
 [node name="mushroom" instance=ExtResource("1_mnb6p")]
+script = ExtResource("2_pnf0m")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_l2nh2")
@@ -303,3 +309,12 @@ shape = SubResource("ConcavePolygonShape3D_poegx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4104, 6.97748, -0.0743752)
 size = Vector3(18.9131, 18.955, 17.8999)
 material = SubResource("FogMaterial_hyw4x")
+
+[node name="Area3D" type="Area3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_mask = 15
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299253, 4.19802, -0.177509)
+shape = SubResource("CapsuleShape3D_54fk0")

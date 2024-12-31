@@ -425,7 +425,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3917, -3.15596, 66.204)
 
 [node name="mushroom" parent="." instance=ExtResource("23_deaev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9891, -1.62558, 24.3129)
-script = null
 
 [node name="MushroomFloat" parent="." instance=ExtResource("24_1pglc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3257, -4.51226, 46.4595)

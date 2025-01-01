@@ -259,7 +259,7 @@ graph_offset = Vector2(9, -50.8656)
 
 [node name="Basic_enemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 collision_layer = 4
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("1_xu8m0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

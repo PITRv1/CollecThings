@@ -7,18 +7,18 @@ extends Node3D
 
 func _ready() -> void:
 	stat_tablet.purge_message("Move with WASD")
-	for i in range(0, 5):
-		spawn_basic_enemy()
-
+	#spawn_basic_enemy(5 , Vector3(1, 0, 0)) #first are is for amount second is offset from global pos
+	#if we spawn on ready might as well use the editor.
 
 func _on_enemy_trigger_body_entered(body: Player) -> void:
 	collision_shape_3d.disabled = true
 
 
-func spawn_basic_enemy() -> void:
-	var enemy : CharacterBody3D = basic_enemy.instantiate()
-	enemy.global_position = enemy_spawn.global_position
-	get_tree().current_scene.add_child(enemy)
+func spawn_basic_enemy(amount:int, offset: Vector3) -> void:
+	for i in range(0, amount):
+		var enemy : CharacterBody3D = basic_enemy.instantiate()
+		enemy.global_position = enemy_spawn.global_position + offset
+		get_tree().current_scene.add_child(enemy)
 
 
 func _on_grappler_body_entered(body: Player) -> void:

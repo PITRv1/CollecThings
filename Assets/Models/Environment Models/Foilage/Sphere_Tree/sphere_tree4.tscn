@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2gcqnxod1ibo"]
+
+[ext_resource type="PackedScene" uid="uid://36in6mqj3i44" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/Ez egy fa.glb" id="1_3afoy"]
+[ext_resource type="Texture2D" uid="uid://cyynn734eiua7" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/nature_bark3.jpg" id="2_jvwkr"]
+[ext_resource type="Texture2D" uid="uid://crgixkimxibcf" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/lomb3.jpg" id="2_ubac8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3woo2"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_jvwkr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hgx5"]
+transparency = 1
+blend_mode = 4
+shading_mode = 2
+diffuse_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_ubac8")
+metallic = 0.3
+metallic_specular = 0.72
+rim_enabled = true
+rim = 0.35
+rim_tint = 0.26
+
+[node name="SphereTree4" type="Node3D"]
+
+[node name="Ez egy fa" parent="." instance=ExtResource("1_3afoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00773132, 0.195062, -0.0136051)
+
+[node name="Cube_004" parent="Ez egy fa" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3woo2")
+
+[node name="Cube_007" parent="Ez egy fa" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7hgx5")
+
+[editable path="Ez egy fa"]

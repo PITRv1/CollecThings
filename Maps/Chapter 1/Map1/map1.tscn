@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=25 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bqbbqix6fn652" path="res://Assets/Models/Environment Models/Foilage/Forests/Lightgreen Forest/lightgreen_forest.tscn" id="4_gsnas"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="5_yjgmn"]
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="7_ji8tk"]
+[ext_resource type="PackedScene" uid="uid://bf4rbmnocdbof" path="res://Assets/Models/Environment Models/Foilage/Grass/grass.tscn" id="8_poxjt"]
+[ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="9_fpyna"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gnm1k"]
 
@@ -149,6 +151,9 @@ transform = Transform3D(0.928083, 0, 0.372372, 0, 0.784127, 0, -0.372372, 0, 0.9
 [node name="DarkgreenForest7" parent="map1/Forest" instance=ExtResource("2_jrg62")]
 transform = Transform3D(0.792662, 0, -0.609661, 0, 0.784127, 0, 0.609661, 0, 0.792662, 168.444, 48.6299, 656.587)
 
+[node name="DarkgreenForest10" parent="map1/Forest" instance=ExtResource("2_jrg62")]
+transform = Transform3D(0.792662, 0, -0.609661, 0, 0.784127, 0, 0.609661, 0, 0.792662, 184.301, 48.6299, 656.587)
+
 [node name="DarkgreenForest8" parent="map1/Forest" instance=ExtResource("2_jrg62")]
 transform = Transform3D(-0.507147, 0, 0.861859, 0, 0.784127, 0, -0.861859, 0, -0.507147, 265.571, 41.913, 618.303)
 
@@ -245,9 +250,6 @@ transform = Transform3D(-0.946711, 0, -0.322084, 0, 0.784127, 0, 0.322084, 0, -0
 [node name="LightgreenForest15" parent="map1/Forest" instance=ExtResource("4_gsnas")]
 transform = Transform3D(0.98735, 0, 0.158554, 0, 0.784127, 0, -0.158554, 0, 0.98735, 995.776, 50.5378, -29.171)
 
-[node name="LightgreenForest16" parent="map1/Forest" instance=ExtResource("4_gsnas")]
-transform = Transform3D(0.992362, 0, 0.123359, 0, 0.784127, 0, -0.123359, 0, 0.992362, 1068.42, 50.5378, -34.2773)
-
 [node name="LightgreenForest17" parent="map1/Forest" instance=ExtResource("4_gsnas")]
 transform = Transform3D(0.989282, 0, 0.146014, 0, 0.784127, 0, -0.146014, 0, 0.989282, 1135.77, 50.5378, -29.0565)
 
@@ -324,7 +326,7 @@ transform = Transform3D(-0.871342, 0, -0.490676, 0, 0.784127, 0, 0.490676, 0, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 308.609)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="map1/Waterfall"]
-transform = Transform3D(29.9619, 0.982717, 3.6367, -0.0548339, 47.0554, -27.7199, -1.51052, 17.7845, 73.1421, 613.878, 60.6147, 221.121)
+transform = Transform3D(29.9619, 0.982717, 3.6367, -0.0548339, 47.0554, -27.7199, -1.51052, 17.7845, 73.1421, 613.878, 75.5728, 221.121)
 mesh = SubResource("PlaneMesh_g56td")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_hq104")
@@ -336,7 +338,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 1.86265e-09, -2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_7jul3")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="map1/Waterfall"]
-transform = Transform3D(26.4681, -0.143167, 9.57309, 0.949983, 49.5207, -7.12885, -5.48625, 7.88417, 44.9504, 619.605, 44.1013, 280.202)
+transform = Transform3D(26.4681, -0.143167, 9.57309, 0.949983, 49.5207, -7.12885, -5.48625, 7.88417, 44.9504, 619.605, 55.8059, 280.202)
 mesh = SubResource("PlaneMesh_g56td")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_qrlp7")
@@ -348,7 +350,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_vjghl")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="map1/Waterfall"]
-transform = Transform3D(27.015, -0.511653, 2.22494, 0.356355, 50.0431, -2.8937, -1.27415, 3.14784, 46.3646, 630.151, 39.2372, 345.835)
+transform = Transform3D(27.015, -0.511653, 2.22494, 0.327692, 50.1011, -1.85322, -1.28182, 2.0248, 46.4178, 630.018, 45.2255, 345.835)
 mesh = SubResource("PlaneMesh_g56td")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_wrsit")
@@ -360,7 +362,7 @@ transform = Transform3D(1, 2.32831e-09, -7.45058e-09, 0, 1, -7.45058e-09, -1.862
 shape = SubResource("ConvexPolygonShape3D_74jk3")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="map1/Waterfall"]
-transform = Transform3D(27.7606, -0.395602, 0.835261, 0.859728, 34.4823, -7.96353, -1.05322, 17.7202, 15.5151, 630.151, 23.6561, 418.807)
+transform = Transform3D(27.7606, -0.395602, 0.835261, 0.35878, 38.7057, -0.987888, -1.31137, 2.21501, 17.4115, 632.735, 44.2091, 397.798)
 mesh = SubResource("PlaneMesh_g56td")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_ua083")
@@ -371,32 +373,116 @@ surface_material_override/0 = SubResource("ShaderMaterial_ua083")
 transform = Transform3D(1, 1.86265e-09, 0, -9.31323e-10, 1, 0, -3.72529e-09, -5.96046e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_lxou4")
 
-[node name="mushroom" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(3.43042, 0, -2.44852, 0, 4.21463, 0, 2.44852, 0, 3.43042, 1155.9, 49.5476, 572.524)
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="map1/Waterfall"]
+transform = Transform3D(27.7606, -0.395602, 0.835261, 0.514362, 38.1558, -3.08118, -1.25851, 6.86826, 17.1652, 632.735, 42.5807, 425.782)
+mesh = SubResource("PlaneMesh_g56td")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ua083")
 
-[node name="mushroom2" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-0.696406, 0, 3.09271, 0, 3.17015, 0, -3.09271, 0, -0.696406, 1232.91, 49.5476, 548.042)
+[node name="StaticBody3D" type="StaticBody3D" parent="map1/Waterfall/MeshInstance3D5"]
 
-[node name="mushroom6" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-1.75534, 0, 1.1054, 0, 2.07439, 0, -1.1054, 0, -1.75534, 1207.71, 49.5476, 594.576)
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="map1/Waterfall/MeshInstance3D5/StaticBody3D"]
+transform = Transform3D(1, 1.86265e-09, 0, -9.31323e-10, 1, 0, -3.72529e-09, -5.96046e-08, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_lxou4")
 
-[node name="mushroom5" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-2.96107, 0, 2.59971, 0, 3.94036, 0, -2.59971, 0, -2.96107, 1287.13, 49.5476, 518.057)
+[node name="Mushrooms" type="Node3D" parent="map1"]
 
-[node name="mushroom7" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-3.89545, 0, 0.593235, 0, 3.94036, 0, -0.593235, 0, -3.89545, 1494.95, 49.5476, 543.805)
+[node name="mushroom" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(3.43042, 0, -2.44852, 0, 4.21463, 0, 2.44852, 0, 3.43042, 1155.9, 49.5476, 881.133)
 
-[node name="mushroom8" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-2.83149, 0, 0.742247, 0, 2.92716, 0, -0.742247, 0, -2.83149, 1393.13, 49.5476, 664.079)
+[node name="mushroom2" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-0.696406, 0, 3.09271, 0, 3.17015, 0, -3.09271, 0, -0.696406, 1232.91, 49.5476, 856.651)
 
-[node name="mushroom9" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-0.311976, 0, 1.97242, 0, 1.99694, 0, -1.97242, 0, -0.311976, 1442.47, 49.5476, 626.808)
+[node name="mushroom6" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-1.75534, 0, 1.1054, 0, 2.07439, 0, -1.1054, 0, -1.75534, 1207.71, 49.5476, 903.185)
 
-[node name="mushroom10" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-1.76122, 0, 0.941195, 0, 1.99694, 0, -0.941195, 0, -1.76122, 1466.07, 49.5476, 593.486)
+[node name="mushroom5" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-2.96107, 0, 2.59971, 0, 3.94036, 0, -2.59971, 0, -2.96107, 1287.13, 49.5476, 826.666)
 
-[node name="mushroom3" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-2.31131, 0, 1.2971, 0, 2.65041, 0, -1.2971, 0, -2.31131, 1027.23, 49.5476, 614.948)
+[node name="mushroom7" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-3.89545, 0, 0.593235, 0, 3.94036, 0, -0.593235, 0, -3.89545, 1494.95, 49.5476, 852.414)
 
-[node name="mushroom4" parent="." instance=ExtResource("7_ji8tk")]
-transform = Transform3D(-0.0847776, 0, 3.60274, 0, 3.60374, 0, -3.60274, 0, -0.0847776, 1092.39, 49.5476, 603.285)
+[node name="mushroom8" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-2.83149, 0, 0.742247, 0, 2.92716, 0, -0.742247, 0, -2.83149, 1393.13, 49.5476, 972.688)
+
+[node name="mushroom9" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-0.311976, 0, 1.97242, 0, 1.99694, 0, -1.97242, 0, -0.311976, 1442.47, 49.5476, 935.417)
+
+[node name="mushroom10" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-1.76122, 0, 0.941195, 0, 1.99694, 0, -0.941195, 0, -1.76122, 1466.07, 49.5476, 902.095)
+
+[node name="mushroom3" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-2.31131, 0, 1.2971, 0, 2.65041, 0, -1.2971, 0, -2.31131, 1027.23, 49.5476, 923.557)
+
+[node name="mushroom4" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
+transform = Transform3D(-0.0847776, 0, 3.60274, 0, 3.60374, 0, -3.60274, 0, -0.0847776, 1092.39, 49.5476, 911.894)
+
+[node name="Grass" type="Node3D" parent="map1"]
+
+[node name="Grass" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3119, 50.7717, 901.248)
+
+[node name="Grass2" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 166.587, 50.7717, 932.61)
+
+[node name="Grass3" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 232.834, 50.7717, 898.782)
+
+[node name="Grass4" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 187.73, 45.5408, 856.849)
+
+[node name="Grass5" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 164.825, 45.1544, 800.821)
+
+[node name="Grass6" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 81.6642, 48.1934, 800.821)
+
+[node name="Grass7" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 63.6929, 49.4721, 809.63)
+
+[node name="Grass8" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 89.7689, 50.7717, 849.449)
+
+[node name="Grass9" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 116.902, 50.7717, 873.411)
+
+[node name="Grass10" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 12.9506, 50.7717, 877.991)
+
+[node name="Grass11" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -20.8777, 50.7717, 843.106)
+
+[node name="Grass12" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -17.0015, 50.7717, 851.211)
+
+[node name="Grass13" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -17.0015, 50.7717, 777.564)
+
+[node name="Grass14" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -9.60159, 50.7717, 781.088)
+
+[node name="Grass15" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 17.1791, 50.7717, 805.754)
+
+[node name="Grass16" parent="map1/Grass" instance=ExtResource("8_poxjt")]
+transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 51.3598, 50.7717, 873.058)
+
+[node name="Lock_trees" type="Node3D" parent="map1"]
+
+[node name="tree_lightgreen" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
+transform = Transform3D(0.856285, 0.514355, -0.0470538, -0.156262, 0.344813, 0.925574, 0.492298, -0.785202, 0.375632, 1020.94, 50.7294, 282.66)
+
+[node name="tree_lightgreen2" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
+transform = Transform3D(0.861785, -0.501601, 0.0756525, 0.397035, 0.759787, 0.514865, -0.315736, -0.413666, 0.853927, 1059.79, 48.6331, 272.643)
+
+[node name="tree_lightgreen3" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1058.95, 49.4157, 262.31)
+
+[node name="tree_lightgreen6" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
+transform = Transform3D(0.972933, -0.226912, -0.043721, 0.229013, 0.972076, 0.0511996, 0.0308824, -0.0598265, 0.997731, 1089.53, 46.7253, 262.31)
+
+[node name="tree_lightgreen5" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
+transform = Transform3D(0.836878, -0.525978, -0.151596, 0.0469635, 0.344915, -0.937458, 0.545371, 0.777419, 0.313354, 1088.51, 44.9616, 229.472)
+
+[node name="tree_lightgreen4" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
+transform = Transform3D(0.304962, 0.946893, 0.101942, -0.951852, 0.306559, 0, -0.0312512, -0.0970335, 0.99479, 1075.59, 50.6295, 262.31)

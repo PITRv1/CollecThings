@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf4rbmnocdbof"]
+
+[ext_resource type="PackedScene" uid="uid://ds21y1h4q5imk" path="res://Assets/Models/Environment Models/Foilage/Grass/Grass.glb" id="1_ouxbr"]
+
+[node name="Grass" type="Node3D"]
+
+[node name="Grass" parent="." instance=ExtResource("1_ouxbr")]
+transform = Transform3D(0.984482, 0.175487, 0, -0.171611, 0.962739, 0.209004, 0.0366775, -0.205761, 0.977915, 0.0802259, 0, -0.275684)
+
+[node name="Grass3" parent="." instance=ExtResource("1_ouxbr")]
+transform = Transform3D(0.87515, 0.452311, -0.171838, -0.48374, 0.825581, -0.290537, 0.010453, 0.337388, 0.941308, 0.0802259, 0, 0.311551)
+
+[node name="Grass2" parent="." instance=ExtResource("1_ouxbr")]
+transform = Transform3D(0.703109, 0, -0.711082, 0, 1, 0, 0.711082, 0, 0.703109, -0.634257, 0, 0.50004)

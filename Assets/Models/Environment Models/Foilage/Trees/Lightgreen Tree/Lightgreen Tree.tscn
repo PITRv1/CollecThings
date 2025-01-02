@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://0xieorun18cu"]
+
+[ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="1_isy5p"]
+
+[node name="LightgreenTree" type="Node3D"]
+
+[node name="tree_lightgreen" parent="." instance=ExtResource("1_isy5p")]

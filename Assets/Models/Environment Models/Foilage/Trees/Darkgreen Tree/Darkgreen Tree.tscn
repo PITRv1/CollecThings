@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://drnu6rf6y046g"]
+
+[ext_resource type="PackedScene" uid="uid://chbdnqitpscf0" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/tree_darkgreen.glb" id="1_dvjeo"]
+
+[node name="DarkgreenTree" type="Node3D"]
+
+[node name="tree_darkgreen" parent="." instance=ExtResource("1_dvjeo")]

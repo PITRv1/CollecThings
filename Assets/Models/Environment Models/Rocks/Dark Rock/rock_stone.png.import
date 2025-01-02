@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtl5ck0nl4etu"
-path.s3tc="res://.godot/imported/Space_ship_body_metal.png-8f91efba459452c22af9111cbd2c688a.s3tc.ctex"
+uid="uid://comlh6y5jpipj"
+path.s3tc="res://.godot/imported/rock_stone.png-823bcfbc75648151e4c9e0686fe1be2c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ebc2ffc88538d9c27edb526a67e9f0ba"
+"md5": "4235a06d95eaf7a4ca1cc55d192e14da"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Vehicles/Space_ship_body_metal.png"
-dest_files=["res://.godot/imported/Space_ship_body_metal.png-8f91efba459452c22af9111cbd2c688a.s3tc.ctex"]
+source_file="res://Assets/Models/Environment Models/Rocks/Dark Rock/rock_stone.png"
+dest_files=["res://.godot/imported/rock_stone.png-823bcfbc75648151e4c9e0686fe1be2c.s3tc.ctex"]
 
 [params]
 

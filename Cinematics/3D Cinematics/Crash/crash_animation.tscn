@@ -1,7 +1,7 @@
 [gd_scene load_steps=92 format=3 uid="uid://b6numlndbfhf3"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_cut8p"]
-[ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Maps/Space_ship.glb" id="1_qegrm"]
+[ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_qegrm"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="2_poik5"]
 [ext_resource type="Script" path="res://Cinematics/3D Cinematics/Crash/animation_player.gd" id="2_vos7h"]
 [ext_resource type="Script" path="res://Assets/Models/Vehicles/space_ship.gd" id="3_4jaat"]
@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Assets/Models/Cinematic Models/Planet2.tscn" id="6_jldjv"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="7_4agym"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="8_f65px"]
-[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/sphere_tree.glb" id="9_fjdk2"]
+[ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Maps/Test Maps/Ch1 Map1 design/sphere_tree.glb" id="9_fjdk2"]
 [ext_resource type="Shader" uid="uid://crqb62fj4xmgm" path="res://Assets/Shaders/disolve.tres" id="9_m4ook"]
-[ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Stone-Rock/rock1.glb" id="11_7pd81"]
+[ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Rocks/Simple Rock/rock1.glb" id="11_7pd81"]
 [ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="19_isc74"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="20_0ie0c"]
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d12gb7rkwkgsc"]
+
+[ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="1_k6m5i"]
+
+[node name="HubMap" type="Node3D"]
+
+[node name="hub_map" parent="." instance=ExtResource("1_k6m5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148, 0, -312)

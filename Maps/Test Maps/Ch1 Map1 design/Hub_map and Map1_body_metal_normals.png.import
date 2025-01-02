@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c38doi5jpx2bb"
-path.s3tc="res://.godot/imported/Space_ship_body_metal_normals.png-5362724401a5387ab95f232d48a0f37e.s3tc.ctex"
+uid="uid://qsy7r2pbsg5v"
+path.s3tc="res://.godot/imported/Hub_map and Map1_body_metal_normals.png-f9272214a9060b458ee1237fa6b8407a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/Vehicles/Space_ship_body_metal_normals.png"
-dest_files=["res://.godot/imported/Space_ship_body_metal_normals.png-5362724401a5387ab95f232d48a0f37e.s3tc.ctex"]
+source_file="res://Maps/Test Maps/Ch1 Map1 design/Hub_map and Map1_body_metal_normals.png"
+dest_files=["res://.godot/imported/Hub_map and Map1_body_metal_normals.png-f9272214a9060b458ee1237fa6b8407a.s3tc.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Maps/Space_ship_body_metal_normals.png"
+roughness/src_normal="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/Hub_map and Map1_body_metal_normals.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

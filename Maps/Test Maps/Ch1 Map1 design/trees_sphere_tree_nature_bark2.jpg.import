@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtl5ck0nl4etu"
-path.s3tc="res://.godot/imported/Space_ship_body_metal.png-8f91efba459452c22af9111cbd2c688a.s3tc.ctex"
+uid="uid://ckt0dbpihnt5m"
+path.s3tc="res://.godot/imported/trees_sphere_tree_nature_bark2.jpg-5a31e66ee39b7475a5a372c150fa3480.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ebc2ffc88538d9c27edb526a67e9f0ba"
+"md5": "666f7748403083f7ee7f9638b19a8514"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Vehicles/Space_ship_body_metal.png"
-dest_files=["res://.godot/imported/Space_ship_body_metal.png-8f91efba459452c22af9111cbd2c688a.s3tc.ctex"]
+source_file="res://Maps/Test Maps/Ch1 Map1 design/trees_sphere_tree_nature_bark2.jpg"
+dest_files=["res://.godot/imported/trees_sphere_tree_nature_bark2.jpg-5a31e66ee39b7475a5a372c150fa3480.s3tc.ctex"]
 
 [params]
 

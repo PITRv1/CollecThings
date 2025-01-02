@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtl5ck0nl4etu"
-path.s3tc="res://.godot/imported/Space_ship_body_metal.png-8f91efba459452c22af9111cbd2c688a.s3tc.ctex"
+uid="uid://cne1fpc3n5dlr"
+path.s3tc="res://.godot/imported/spruce_tree_nature_trees_0076_01_s.png-eed19988144b23d287ec2df63e5d6845.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ebc2ffc88538d9c27edb526a67e9f0ba"
+"md5": "7a6ff6a8b42fe39ea6fb755f66043afa"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Vehicles/Space_ship_body_metal.png"
-dest_files=["res://.godot/imported/Space_ship_body_metal.png-8f91efba459452c22af9111cbd2c688a.s3tc.ctex"]
+source_file="res://Assets/Models/Environment Models/Foilage/Trees/Spruce Tree/spruce_tree_nature_trees_0076_01_s.png"
+dest_files=["res://.godot/imported/spruce_tree_nature_trees_0076_01_s.png-eed19988144b23d287ec2df63e5d6845.s3tc.ctex"]
 
 [params]
 

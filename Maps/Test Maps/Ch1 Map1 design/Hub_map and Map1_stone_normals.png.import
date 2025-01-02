@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c38doi5jpx2bb"
-path.s3tc="res://.godot/imported/Space_ship_body_metal_normals.png-5362724401a5387ab95f232d48a0f37e.s3tc.ctex"
+uid="uid://cbinc6b805ec1"
+path.s3tc="res://.godot/imported/Hub_map and Map1_stone_normals.png-12f2dc3a70db74e67ca99985b247bf21.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "867a09fbb295e5d5e12aeab02c3a404d"
+"md5": "8ec4545ac51171643d4bfb95b8994fb2"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Vehicles/Space_ship_body_metal_normals.png"
-dest_files=["res://.godot/imported/Space_ship_body_metal_normals.png-5362724401a5387ab95f232d48a0f37e.s3tc.ctex"]
+source_file="res://Maps/Test Maps/Ch1 Map1 design/Hub_map and Map1_stone_normals.png"
+dest_files=["res://.godot/imported/Hub_map and Map1_stone_normals.png-12f2dc3a70db74e67ca99985b247bf21.s3tc.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Maps/Space_ship_body_metal_normals.png"
+roughness/src_normal="res://Assets/Models/Environment Models/Foilage/Sphere_Tree/Hub_map and Map1_stone_normals.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

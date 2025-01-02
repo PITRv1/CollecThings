@@ -163,7 +163,7 @@ gravity = 15.0
 [node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("4_fodp0")
 gravity = 15.0
-movement_speed = 10.0
+movement_speed = 30.0
 weapon_bob_speed = 7.0
 
 [node name="SprintingPlayerState" type="Node" parent="PlayerStateMachine"]

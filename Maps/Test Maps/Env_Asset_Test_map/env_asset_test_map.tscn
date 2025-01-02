@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bx6mee0g0jq65"]
+[gd_scene load_steps=46 format=3 uid="uid://bx6mee0g0jq65"]
 
 [ext_resource type="Script" path="res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.gd" id="1_jhf8w"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="1_pen33"]
@@ -15,10 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Maps/Test Maps/Ch1 Map1 design/sphere_tree.glb" id="6_nw6re"]
 [ext_resource type="PackedScene" uid="uid://coair8lxktg3n" path="res://Entities/Enemy/Basic enemy test/monger.tscn" id="7_hahxq"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1.glb" id="8_lguwc"]
-[ext_resource type="PackedScene" uid="uid://conyfhi7ppg7g" path="res://Assets/Particle Effects/orange_flame.tscn" id="9_oi2vs"]
 [ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/Killbox/killbox.tscn" id="9_xdoes"]
-[ext_resource type="PackedScene" uid="uid://c8kdw4ohy4ga0" path="res://Assets/Particle Effects/blue_flame.tscn" id="10_tyr87"]
-[ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="11_5jvmd"]
 [ext_resource type="PackedScene" uid="uid://cabgrr2bvykhs" path="res://Entities/Enemy/Spider Bot Enemy/spider_bot.tscn" id="11_bbx8q"]
 [ext_resource type="PackedScene" uid="uid://c3fi7jn4d476k" path="res://Assets/Models/Interactables/HealthPack/Health_pack.tscn" id="21_3ykag"]
 [ext_resource type="PackedScene" uid="uid://dvw8j27aay8mm" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal.tscn" id="22_sjpom"]
@@ -267,29 +264,6 @@ transform = Transform3D(0.638956, 0, -0.769243, 0, 1, 0, 0.769243, 0, 0.638956, 
 [node name="rock5" parent="NavigationRegion3D/Environment/Environment_assets/Rocks" instance=ExtResource("5_swl5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5745, -4.03821, 14.2176)
 
-[node name="Space_ship" parent="NavigationRegion3D/Environment" instance=ExtResource("11_5jvmd")]
-transform = Transform3D(0.943701, -0.308491, 0.119423, 0.223555, 0.860842, 0.457138, -0.243827, -0.404703, 0.881341, 8.76521, -4.27565, 40.231)
-
-[node name="OrangeFlame" parent="NavigationRegion3D/Environment/Space_ship" instance=ExtResource("9_oi2vs")]
-transform = Transform3D(0.999999, -2.98023e-08, 1.49012e-08, 1.49012e-08, 0.652098, -0.758134, 5.96046e-08, 0.758134, 0.652098, 4.25724, 4.86121, 5.40857)
-amount = 100
-
-[node name="OrangeFlame2" parent="NavigationRegion3D/Environment/Space_ship" instance=ExtResource("9_oi2vs")]
-transform = Transform3D(2.565, -1.41561e-07, 2.98023e-07, -1.49012e-07, 0.999999, -5.96046e-08, 0, 8.9407e-08, 2.565, -5.91419, 0.375671, 5.10784)
-amount = 100
-
-[node name="OrangeFlame3" parent="NavigationRegion3D/Environment/Space_ship" instance=ExtResource("9_oi2vs")]
-transform = Transform3D(2.565, -6.70552e-08, 1.78814e-07, -5.06639e-07, 0.999999, -1.78814e-07, 0, 0, 2.565, 0.288671, -1.78669, 5.85553)
-amount = 100
-
-[node name="OrangeFlame4" parent="NavigationRegion3D/Environment/Space_ship" instance=ExtResource("9_oi2vs")]
-transform = Transform3D(2.565, -6.70552e-08, 1.78814e-07, -5.06639e-07, 0.999999, -1.78814e-07, 0, 0, 2.565, -0.77918, 0.509293, -3.44534)
-amount = 100
-
-[node name="BlueFlame" parent="NavigationRegion3D/Environment/Space_ship" instance=ExtResource("10_tyr87")]
-transform = Transform3D(6.67, -1.19209e-07, 1.49012e-08, -8.9407e-07, 3.425, -1.49012e-08, -4.76837e-07, 1.19209e-07, 0.27, 4.79228, 5.08486, 0.21875)
-amount = 100
-
 [node name="RigidBody3D" type="RigidBody3D" parent="NavigationRegion3D/Environment"]
 transform = Transform3D(0.828979, 0, -0.55928, 0, 1, 0, 0.55928, 0, 0.828979, 59.7952, 15.6396, 50.9288)
 collision_layer = 16
@@ -413,6 +387,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3917, -3.15596, 66.204)
 
 [node name="mushroom" parent="." instance=ExtResource("23_deaev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9891, -1.62558, 24.3129)
+do_damage = true
 
 [node name="MushroomFloat" parent="." instance=ExtResource("24_1pglc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3257, -4.51226, 46.4595)

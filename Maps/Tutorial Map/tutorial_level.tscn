@@ -2172,7 +2172,7 @@ shape = SubResource("SphereShape3D_xxq6m")
 transform = Transform3D(-0.775353, 0, -0.631528, 0, 1, 0, 0.631528, 0, -0.775353, -10.8402, 97.7789, 128.975)
 
 [node name="TakeOffCam" type="Camera3D" parent="CamPivot"]
-transform = Transform3D(0.482229, -0.154168, 0.862373, 0, 0.984394, 0.175981, -0.876045, -0.0848633, 0.474704, 19.6423, -0.000579834, 10.8123)
+transform = Transform3D(0.482228, -0.154168, 0.862374, 0, 0.984394, 0.175981, -0.876046, -0.0848631, 0.474702, 19.6423, -0.000579834, 10.8123)
 fov = 70.0
 script = ExtResource("17_wew2r")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://50br11hn5j8c"]
+[gd_scene load_steps=35 format=3 uid="uid://50br11hn5j8c"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/abel_teszt/abel.gd" id="1_4y12o"]
 [ext_resource type="PackedScene" uid="uid://cw0tclge151u1" path="res://Entities/Enemy/abel_teszt/enemy.glb" id="2_v6mv7"]
@@ -9,29 +9,7 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mwvb0"]
 points = PackedVector3Array(0.482884, 0.492295, 0.182447, 0.496339, 0.499025, -0.101962, 1.17071, -0.843712, -0.210336, -1.79375, -1.00887, 0.900849, -4.63293, -0.945649, -0.719614, 0.153034, -0.436959, -1.02514, -0.356763, 0.377792, 0.909769, -4.93855, -1.35315, 0.0949678, -0.356763, 0.377792, -0.923369, 1.2728, -0.640585, 0.604246, -2.34582, -1.84717, -0.00680006, -3.81815, -1.7604, -0.923369, 1.2728, -0.640585, -0.617846, -0.254676, 0.581666, -0.210336, -4.12313, -1.25121, -1.02514, -5.14272, -1.86259, -0.108568, -4.12313, -0.742023, -0.00680006, -1.37508, -0.233334, 1.01154, 0.458656, -0.335022, 1.01154, -2.15047, -1.71621, 0.349587, 1.12472, 0.230713, 0.0901934, -2.15014, -1.71495, -0.451687, 0.384651, 0.395926, -0.668608, -4.42875, -1.96452, -0.617846, -0.662385, 0.174166, -1.02514, 0.664622, 0.20554, 0.654027, 1.0699, -0.843712, 0.400491, -0.153227, 0.581666, 0.400491, -4.53148, -0.843712, -0.617846, -2.1517, -1.3625, 0.709257, -4.73192, -1.6881, -0.671401, -0.764472, 0.174166, 1.01154)
 
-[sub_resource type="Animation" id="Animation_6dypk"]
-resource_name = "attack"
-
-[sub_resource type="Animation" id="Animation_tpxgc"]
-resource_name = "chase"
-
-[sub_resource type="Animation" id="Animation_namnf"]
-resource_name = "falling"
-
-[sub_resource type="Animation" id="Animation_15u86"]
-resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_8pw6u"]
-resource_name = "wander"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4v56"]
-_data = {
-"attack": SubResource("Animation_6dypk"),
-"chase": SubResource("Animation_tpxgc"),
-"falling": SubResource("Animation_namnf"),
-"idle": SubResource("Animation_15u86"),
-"wander": SubResource("Animation_8pw6u")
-}
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bslc"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_81ham"]
 animation = &"attack"
@@ -127,6 +105,82 @@ states/wander/position = Vector2(893, -7.8656)
 transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5"), "attack", "falling", SubResource("AnimationNodeStateMachineTransition_pmi0k"), "falling", "attack", SubResource("AnimationNodeStateMachineTransition_pf0fn"), "falling", "idle", SubResource("AnimationNodeStateMachineTransition_wr45w"), "idle", "falling", SubResource("AnimationNodeStateMachineTransition_hmqvu")]
 graph_offset = Vector2(9, -50.8656)
 
+[sub_resource type="Animation" id="Animation_d4lm5"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../body/Area3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.39332, 0.618696), Vector3(0, 1.39332, 2.3187), Vector3(0, 1.39332, 0.618696)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../body/Area3D/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_e78gl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../body/Area3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.39332, 0.618696)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../body/Area3D/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6hdmy"]
+resource_name = "falling"
+
+[sub_resource type="Animation" id="Animation_cbily"]
+resource_name = "chase"
+
+[sub_resource type="Animation" id="Animation_t4kdj"]
+resource_name = "wander"
+
+[sub_resource type="Animation" id="Animation_jaqx0"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3vj6"]
+_data = {
+"RESET": SubResource("Animation_e78gl"),
+"attack": SubResource("Animation_d4lm5"),
+"chase": SubResource("Animation_cbily"),
+"falling": SubResource("Animation_6hdmy"),
+"idle": SubResource("Animation_jaqx0"),
+"wander": SubResource("Animation_t4kdj")
+}
+
 [node name="abel_mans" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 collision_layer = 4
 collision_mask = 9
@@ -145,6 +199,12 @@ shape = SubResource("ConvexPolygonShape3D_mwvb0")
 
 [node name="enemy" parent="body" instance=ExtResource("2_v6mv7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39332, 0.618696)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="body/Area3D"]
+shape = SubResource("BoxShape3D_1bslc")
 
 [node name="Timers" type="Node" parent="."]
 
@@ -172,11 +232,6 @@ target_position = Vector3(0, 0, 0.3)
 
 [node name="States and animation" type="Node" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="States and animation"]
-libraries = {
-"": SubResource("AnimationLibrary_i4v56")
-}
-
 [node name="AnimationTree" type="AnimationTree" parent="States and animation"]
 tree_root = SubResource("AnimationNodeStateMachine_jh0iq")
 advance_expression_base_node = NodePath("../..")
@@ -184,6 +239,11 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
 parameters/conditions/fall_wand = false
 parameters/conditions/falling = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="States and animation"]
+libraries = {
+"": SubResource("AnimationLibrary_k3vj6")
+}
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_xb286")]
 MAX_HEALTH = 60.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://50br11hn5j8c"]
+[gd_scene load_steps=33 format=3 uid="uid://50br11hn5j8c"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/abel_teszt/abel.gd" id="1_4y12o"]
 [ext_resource type="PackedScene" uid="uid://cw0tclge151u1" path="res://Entities/Enemy/abel_teszt/enemy.glb" id="2_v6mv7"]
@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://4lg7g1d8f6ju" path="res://Components/shield_component.tscn" id="3_1qo12"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="4_m1f60"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0mjao"]
-radius = 1.5
-height = 8.0
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mwvb0"]
+points = PackedVector3Array(0.482884, 0.492295, 0.182447, 0.496339, 0.499025, -0.101962, 1.17071, -0.843712, -0.210336, -1.79375, -1.00887, 0.900849, -4.63293, -0.945649, -0.719614, 0.153034, -0.436959, -1.02514, -0.356763, 0.377792, 0.909769, -4.93855, -1.35315, 0.0949678, -0.356763, 0.377792, -0.923369, 1.2728, -0.640585, 0.604246, -2.34582, -1.84717, -0.00680006, -3.81815, -1.7604, -0.923369, 1.2728, -0.640585, -0.617846, -0.254676, 0.581666, -0.210336, -4.12313, -1.25121, -1.02514, -5.14272, -1.86259, -0.108568, -4.12313, -0.742023, -0.00680006, -1.37508, -0.233334, 1.01154, 0.458656, -0.335022, 1.01154, -2.15047, -1.71621, 0.349587, 1.12472, 0.230713, 0.0901934, -2.15014, -1.71495, -0.451687, 0.384651, 0.395926, -0.668608, -4.42875, -1.96452, -0.617846, -0.662385, 0.174166, -1.02514, 0.664622, 0.20554, 0.654027, 1.0699, -0.843712, 0.400491, -0.153227, 0.581666, 0.400491, -4.53148, -0.843712, -0.617846, -2.1517, -1.3625, 0.709257, -4.73192, -1.6881, -0.671401, -0.764472, 0.174166, 1.01154)
 
 [sub_resource type="Animation" id="Animation_6dypk"]
 resource_name = "attack"
@@ -128,27 +127,24 @@ states/wander/position = Vector2(893, -7.8656)
 transitions = ["Start", "falling", SubResource("AnimationNodeStateMachineTransition_rqyu0"), "chase", "attack", SubResource("AnimationNodeStateMachineTransition_8tiqg"), "attack", "chase", SubResource("AnimationNodeStateMachineTransition_rxbdj"), "wander", "attack", SubResource("AnimationNodeStateMachineTransition_cvjbv"), "falling", "wander", SubResource("AnimationNodeStateMachineTransition_81qyy"), "wander", "chase", SubResource("AnimationNodeStateMachineTransition_vh11f"), "chase", "wander", SubResource("AnimationNodeStateMachineTransition_d5mwj"), "wander", "falling", SubResource("AnimationNodeStateMachineTransition_x06ew"), "falling", "chase", SubResource("AnimationNodeStateMachineTransition_pc6a7"), "chase", "falling", SubResource("AnimationNodeStateMachineTransition_bhwk5"), "attack", "falling", SubResource("AnimationNodeStateMachineTransition_pmi0k"), "falling", "attack", SubResource("AnimationNodeStateMachineTransition_pf0fn"), "falling", "idle", SubResource("AnimationNodeStateMachineTransition_wr45w"), "idle", "falling", SubResource("AnimationNodeStateMachineTransition_hmqvu")]
 graph_offset = Vector2(9, -50.8656)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cgksf"]
-radius = 1.5
-height = 8.0
-
-[node name="Basic_enemy" type="CharacterBody3D" groups=["Enemy", "enemy"]]
+[node name="abel_mans" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 collision_layer = 4
 collision_mask = 9
 script = ExtResource("1_4y12o")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.20537, 0.488468, 0)
-shape = SubResource("CapsuleShape3D_0mjao")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.15
 simplify_path = true
 debug_enabled = true
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.54974, 0)
+shape = SubResource("ConvexPolygonShape3D_mwvb0")
+
 [node name="body" type="Node3D" parent="."]
 
 [node name="enemy" parent="body" instance=ExtResource("2_v6mv7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Timers" type="Node" parent="."]
 
@@ -200,5 +196,5 @@ health_component = NodePath("../HealthComponent")
 shield_component = NodePath("../ShieldComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.205, 0, 0)
-shape = SubResource("CapsuleShape3D_cgksf")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.54974, 0)
+shape = SubResource("ConvexPolygonShape3D_mwvb0")

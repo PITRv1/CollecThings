@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctbse5jxcw8ca"
-path="res://.godot/imported/mineral_rock_NO_EMIS.glb-9a6234f9fa46d9faf9fd4caf74bca5a6.scn"
+uid="uid://bdvfy8n5igwlx"
+path="res://.godot/imported/rock1.glb-a8b2b4b913db326eaa368d453fabd741.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Rocks/Simple Rock/Mineral_rocks/mineral_rock_NO_EMIS.glb"
-dest_files=["res://.godot/imported/mineral_rock_NO_EMIS.glb-9a6234f9fa46d9faf9fd4caf74bca5a6.scn"]
+source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1.glb"
+dest_files=["res://.godot/imported/rock1.glb-a8b2b4b913db326eaa368d453fabd741.scn"]
 
 [params]
 
@@ -33,7 +33,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Icosphere": {
+"PATH:Icosphere_002": {
 "generate/physics": true
 }
 }

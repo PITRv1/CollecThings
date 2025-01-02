@@ -72,6 +72,9 @@ func save_current_map_data() -> void:
 	map_data.player_rotation = Vector2(player.camera.rotation.x, player.rotation.y)
 	
 	ResourceSaver.save(map_data, Global.MAP_SAVE_FILE)
+	
+	Global.update_main_menu()
+	
 
 
 func load_saved_map():
@@ -157,7 +160,9 @@ func set_pixelization_amount(value: int) -> void:
 	
 
 func save_settings() -> void:
+	Global.update_main_menu()
 	var config_data : ConfigData = ConfigData.new()
+	
 	config_data.main_volume = main_volume
 	config_data.music_volume = music_volume
 	config_data.window_mode = window_mode

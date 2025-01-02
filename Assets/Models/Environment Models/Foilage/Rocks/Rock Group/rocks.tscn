@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2w1i0lhbf17l"]
 
-[ext_resource type="PackedScene" uid="uid://wbcirt4d6h8a" path="res://Assets/Models/Environment Models/Rocks/Dark Rock/dark_rock.tscn" id="1_n6esn"]
+[ext_resource type="PackedScene" uid="uid://wbcirt4d6h8a" path="res://Assets/Models/Environment Models/Foilage/Rocks/Dark Rock/dark_rock.tscn" id="1_n6esn"]
 
 [node name="Rocks" type="Node3D"]
 

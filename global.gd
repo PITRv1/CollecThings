@@ -1,7 +1,11 @@
 extends Node
 
 @onready var loading_screen : PackedScene = preload("res://Utilities/Loading Screen/LoadingScreen.tscn")
-const main_menu = preload("res://Maps/Main_Menu/Space/Main_menu.tscn")
+
+@onready var main_menu : PackedScene = null
+
+@onready var space_main_menu : PackedScene = preload("res://Maps/Main_Menu/Space/Main_menu.tscn")
+@onready var crashed_main_menu : PackedScene = preload("res://Maps/Main_Menu/Crash/Main_menu.tscn")
 
 const USER_SAVE_FILE : String = "user://game_settings.tres"
 const MAP_SAVE_FILE : String = "user://mapdata_save.tres"
@@ -14,6 +18,22 @@ var next_scene: String
 var safe_mode_status : bool
 
 var load_saved_map_data : bool = false
+
+
+func _ready() -> void:
+	update_main_menu()
+
+
+func update_main_menu() -> void:
+	main_menu = space_main_menu
+	
+	if ResourceLoader.exists(MAP_SAVE_FILE):
+		var map_data : MapData = ResourceLoader.load(MAP_SAVE_FILE)
+		
+		if map_data.map_path != "res://Maps/Tutorial Map/tutorial_level.tscn":
+			main_menu = crashed_main_menu
+			
+
 
 func change_scene_to(scene_path: String) -> void:
 	if scene_path:

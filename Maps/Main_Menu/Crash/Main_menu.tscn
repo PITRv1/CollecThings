@@ -1,24 +1,28 @@
-[gd_scene load_steps=62 format=3 uid="uid://dqf1stl6dukf0"]
+[gd_scene load_steps=67 format=3 uid="uid://dqf1stl6dukf0"]
 
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="2_1g1gx"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="3_vvmmc"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="4_3a801"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="5_t5xdc"]
+[ext_resource type="PackedScene" uid="uid://0xieorun18cu" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/Lightgreen Tree.tscn" id="6_010rx"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="6_bdq6e"]
+[ext_resource type="PackedScene" uid="uid://rfn8d8w348pe" path="res://Assets/UI/Animated Tablets/Crashed/Error Console/console_error_screen.tscn" id="7_c03b3"]
 [ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="8_dquof"]
-[ext_resource type="PackedScene" uid="uid://rnydtmt2ituf" path="res://Assets/UI/Animated Tablets/Console/console_screen.tscn" id="9_msrk2"]
 [ext_resource type="Shader" path="res://Assets/Shaders/ScreenWarpingEffectSpatial.gdshader" id="10_epgie"]
+[ext_resource type="PackedScene" uid="uid://dakd54acns1gt" path="res://Assets/UI/Animated Tablets/Crashed/Blank/blank_screen.tscn" id="10_ypq24"]
 [ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="11_60vxc"]
-[ext_resource type="PackedScene" uid="uid://gnmmw7fj5qr7" path="res://Assets/UI/Animated Tablets/Navsys/navsys_screen.tscn" id="12_ncsdj"]
-[ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="13_1kwbt"]
+[ext_resource type="PackedScene" uid="uid://qqywc02u5h3c" path="res://Assets/UI/Animated Tablets/Crashed/OfflineReactor/offline_core_screen.tscn" id="11_m28nl"]
+[ext_resource type="PackedScene" uid="uid://dv0bjp4cb87hi" path="res://Assets/UI/Animated Tablets/Crashed/OfflineThrusterSys/offline_thrusters_screen.tscn" id="13_33hov"]
+[ext_resource type="PackedScene" uid="uid://e70eoeb6keot" path="res://Assets/UI/Animated Tablets/Crashed/NoVid/no_vid_screen.tscn" id="14_eviat"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_screen.tscn" id="14_mqkme"]
-[ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="15_lijcs"]
-[ext_resource type="PackedScene" uid="uid://2wuiup6h4oe3" path="res://Assets/UI/Animated Tablets/Keyboard/keyboard_screen.tscn" id="16_i1w38"]
 [ext_resource type="PackedScene" uid="uid://b70ab8yxj8sml" path="res://Assets/UI/Animated Tablets/Touchpad/touchpad_screen.tscn" id="17_0l3td"]
+[ext_resource type="PackedScene" uid="uid://conyfhi7ppg7g" path="res://Assets/Particle Effects/orange_flame.tscn" id="17_o5v7e"]
 [ext_resource type="Script" path="res://Maps/Main_Menu/Space/light_flicker.gd" id="18_y5sbh"]
 [ext_resource type="PackedScene" uid="uid://uitf53kbqm4f" path="res://Assets/Models/Environment Models/Map Models/test_island.glb" id="19_6v3t3"]
 [ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="19_jxktb"]
 [ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="20_7mrh5"]
+[ext_resource type="PackedScene" uid="uid://wbcirt4d6h8a" path="res://Assets/Models/Environment Models/Foilage/Rocks/Dark Rock/dark_rock.tscn" id="21_3rh5x"]
+[ext_resource type="PackedScene" uid="uid://cgveeh3hj2u7i" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 1/bush.tscn" id="22_g18ig"]
 
 [sub_resource type="Gradient" id="Gradient_qiymf"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -39,6 +43,7 @@ noise = SubResource("FastNoiseLite_cve68")
 sky_top_color = Color(0.0188757, 0.447067, 0.925636, 1)
 sky_horizon_color = Color(0.483006, 0.747435, 0.982709, 1)
 sky_curve = 0.0304596
+sky_energy_multiplier = 0.0
 sky_cover = SubResource("NoiseTexture2D_t533v")
 sky_cover_modulate = Color(0.815686, 1, 1, 1)
 ground_bottom_color = Color(0.1995, 0.612275, 0.95, 1)
@@ -72,7 +77,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("3_vvmmc")
-color_amount = 128.0
+color_amount = 24.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_xoa0l"]
 resource_local_to_scene = false
@@ -82,7 +87,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_3a801")
-down_scaling = 2.0
+down_scaling = 0.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_c7xfv"]
 resource_local_to_scene = false
@@ -92,7 +97,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("5_t5xdc")
-dithering_intesity = 0.02
+dithering_intesity = 0.04
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_ikonu"]
 resource_local_to_scene = false
@@ -105,35 +110,35 @@ script = ExtResource("6_bdq6e")
 contrast = 1.0
 brightness = 0.0
 saturation = 1.0
-gamma = 1.15
+gamma = 0.8
 
 [sub_resource type="Compositor" id="Compositor_g7mx4"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_cghkc"), SubResource("CompositorEffect_bf7vi"), SubResource("CompositorEffect_xoa0l"), SubResource("CompositorEffect_c7xfv"), SubResource("CompositorEffect_ikonu")])
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bgspn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qobsq"]
 viewport_path = NodePath("viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ogan"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5g578"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_bgspn")
+albedo_texture = SubResource("ViewportTexture_qobsq")
 texture_filter = 0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_iymob"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c65gk"]
 viewport_path = NodePath("viewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5khq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djyy7"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("10_epgie")
-shader_parameter/lens_curvature = 0.155
-shader_parameter/vignette_strength = 0.719
-shader_parameter/texture_albedo = SubResource("ViewportTexture_iymob")
+shader_parameter/lens_curvature = 0.096
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_c65gk")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bx4fy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_md6bw"]
 resource_local_to_scene = true
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_p5khq")
+next_pass = SubResource("ShaderMaterial_djyy7")
 shader = ExtResource("11_60vxc")
 shader_parameter/line_amount = 256.918
 shader_parameter/time_scale = 0.05
@@ -142,123 +147,94 @@ shader_parameter/line_opacity = 0.457
 shader_parameter/emission_power = 0.182
 shader_parameter/line_color = Color(0.35663, 0.217392, 1.92523e-07, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_noa4f"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pygpa"]
 viewport_path = NodePath("viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tdlb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udki4"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_noa4f")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_shjob"]
-viewport_path = NodePath("viewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tf2y"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("10_epgie")
-shader_parameter/lens_curvature = 0.219
-shader_parameter/vignette_strength = 0.895
-shader_parameter/texture_albedo = SubResource("ViewportTexture_shjob")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gq3ly"]
-resource_local_to_scene = true
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_0tf2y")
-shader = ExtResource("11_60vxc")
-shader_parameter/line_amount = 256.918
-shader_parameter/time_scale = 0.05
-shader_parameter/line_brightness = 0.728
-shader_parameter/line_opacity = 0.457
-shader_parameter/emission_power = 0.182
-shader_parameter/line_color = Color(0, 0.75, 1, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ixs4s"]
-viewport_path = NodePath("viewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6t58"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_ixs4s")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_u5of0"]
-viewport_path = NodePath("viewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kv05u"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("10_epgie")
-shader_parameter/lens_curvature = 0.052
-shader_parameter/vignette_strength = 0.895
-shader_parameter/texture_albedo = SubResource("ViewportTexture_u5of0")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lo03u"]
-resource_local_to_scene = true
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_kv05u")
-shader = ExtResource("11_60vxc")
-shader_parameter/line_amount = 256.918
-shader_parameter/time_scale = 0.05
-shader_parameter/line_brightness = 0.728
-shader_parameter/line_opacity = 0.457
-shader_parameter/emission_power = 0.182
-shader_parameter/line_color = Color(0, 0.74902, 1, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ljgob"]
-viewport_path = NodePath("viewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bmr1"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_ljgob")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hu3mp"]
-viewport_path = NodePath("viewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xry2r"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("10_epgie")
-shader_parameter/lens_curvature = 0.289
-shader_parameter/vignette_strength = 0.895
-shader_parameter/texture_albedo = SubResource("ViewportTexture_hu3mp")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjq4l"]
-resource_local_to_scene = true
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_xry2r")
-shader = ExtResource("11_60vxc")
-shader_parameter/line_amount = 256.918
-shader_parameter/time_scale = 0.05
-shader_parameter/line_brightness = 0.728
-shader_parameter/line_opacity = 0.457
-shader_parameter/emission_power = 0.182
-shader_parameter/line_color = Color(0, 0.74902, 1, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_t4ldt"]
-viewport_path = NodePath("viewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xq48"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_t4ldt")
+albedo_texture = SubResource("ViewportTexture_pygpa")
 texture_filter = 0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6yomc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s0cct"]
 viewport_path = NodePath("viewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ms236"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nxd5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_epgie")
+shader_parameter/lens_curvature = 2.0
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_s0cct")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eu5rx"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_1nxd5")
+shader = ExtResource("11_60vxc")
+shader_parameter/line_amount = 256.918
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.728
+shader_parameter/line_opacity = 0.457
+shader_parameter/emission_power = 0.057
+shader_parameter/line_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xbdtb"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yx2h"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_xbdtb")
+texture_filter = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2gyke"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bom7"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("10_epgie")
 shader_parameter/lens_curvature = 0.096
 shader_parameter/vignette_strength = 0.895
-shader_parameter/texture_albedo = SubResource("ViewportTexture_6yomc")
+shader_parameter/texture_albedo = SubResource("ViewportTexture_2gyke")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_10cr2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53w41"]
 resource_local_to_scene = true
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_ms236")
+next_pass = SubResource("ShaderMaterial_4bom7")
+shader = ExtResource("11_60vxc")
+shader_parameter/line_amount = 256.918
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.728
+shader_parameter/line_opacity = 0.188
+shader_parameter/emission_power = 0.1
+shader_parameter/line_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_frbn0"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iep3j"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_frbn0")
+texture_filter = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uio5v"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48rvr"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_epgie")
+shader_parameter/lens_curvature = 0.096
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_uio5v")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rojqs"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_48rvr")
 shader = ExtResource("11_60vxc")
 shader_parameter/line_amount = 256.918
 shader_parameter/time_scale = 0.05
@@ -266,6 +242,38 @@ shader_parameter/line_brightness = 0.728
 shader_parameter/line_opacity = 0.457
 shader_parameter/emission_power = 0.182
 shader_parameter/line_color = Color(0, 0.74902, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kehp5"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvtdm"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_kehp5")
+texture_filter = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cu3ey"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfa4k"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_epgie")
+shader_parameter/lens_curvature = 0.096
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_cu3ey")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7e30"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_hfa4k")
+shader = ExtResource("11_60vxc")
+shader_parameter/line_amount = 256.918
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.728
+shader_parameter/line_opacity = 0.188
+shader_parameter/emission_power = 0.0
+shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_i7bfi"]
 viewport_path = NodePath("viewport")
@@ -299,6 +307,15 @@ shader_parameter/line_opacity = 0.457
 shader_parameter/emission_power = 0.182
 shader_parameter/line_color = Color(0, 0.74902, 1, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kyw7b"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+initial_velocity_max = 4.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 3.99998
+linear_accel_min = -2.23517e-06
+linear_accel_max = 5.0
+
 [node name="MainMenuCrashed" type="Node3D"]
 process_mode = 3
 
@@ -306,23 +323,38 @@ process_mode = 3
 environment = SubResource("Environment_0b0uo")
 compositor = SubResource("Compositor_g7mx4")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.367
+autostart = true
+
+[node name="SafeMode" type="Node3D" parent="."]
+script = ExtResource("19_jxktb")
+
+[node name="GameSaverLoader" type="Node" parent="."]
+script = ExtResource("20_7mrh5")
+
+[node name="test_island" parent="." instance=ExtResource("19_6v3t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3282, -11.9538, 25.4648)
+
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.942641, -0.333807, 0, 0.217675, 0.614695, 0.758134, -0.25307, -0.714649, 0.652098, 0, 0, 0)
+transform = Transform3D(0.942641, -0.333807, 0, 0.217675, 0.614695, 0.758134, -0.25307, -0.714649, 0.652098, 0, 2, 0)
 
 [node name="Space_ship" parent="Node3D" instance=ExtResource("8_dquof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 
-[node name="Console_screen" parent="Node3D/Space_ship" instance=ExtResource("9_msrk2")]
-transform = Transform3D(0.44, 0, 0, 0, 0.523259, -0.707107, 0, 0.523259, 0.707107, -1.83184, 4.58969, -2.88542)
-material_override = SubResource("StandardMaterial3D_7ogan")
-material_overlay = SubResource("ShaderMaterial_bx4fy")
+[node name="Cube_065" parent="Node3D/Space_ship/Space_ship" index="11"]
+transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
 
-[node name="Navsys" parent="Node3D/Space_ship" instance=ExtResource("12_ncsdj")]
-transform = Transform3D(0.985835, 0.175857, -0.0847189, 0, 0.696509, 0.0474061, 0.893902, -0.193943, 0.0934319, 0.448, 2.8, -3.48)
-material_override = SubResource("StandardMaterial3D_2tdlb")
-material_overlay = SubResource("ShaderMaterial_gq3ly")
+[node name="Screens" type="Node3D" parent="Node3D/Space_ship"]
+transform = Transform3D(1, 1.49012e-08, -1.49012e-08, -2.98023e-08, 1, 0, 0, 0, 1, -1.085, 0, 2.525)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Navsys"]
+[node name="Console_error_screen" parent="Node3D/Space_ship/Screens" instance=ExtResource("7_c03b3")]
+transform = Transform3D(0.44, -3.72529e-09, -2.98023e-08, -2.23517e-08, 0.523259, -0.707107, 0, 0.523259, 0.707107, -0.74684, 4.58969, -5.41042)
+material_override = SubResource("StandardMaterial3D_5g578")
+material_overlay = SubResource("ShaderMaterial_md6bw")
+skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/Console_error_screen"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 9.17466e-09, -0.126252)
 light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
 light_energy = 0.123
@@ -332,14 +364,30 @@ spot_attenuation = 6.44
 spot_angle = 88.05
 spot_angle_attenuation = 0.277393
 
-[node name="Core" parent="Node3D/Space_ship" instance=ExtResource("13_1kwbt")]
-transform = Transform3D(0.923783, -0.180563, 0.0792251, 0, 0.715149, 0.044332, -0.837636, -0.199133, 0.0873731, -2.70489, 2.79616, -3.48141)
-material_override = SubResource("StandardMaterial3D_i6t58")
-material_overlay = SubResource("ShaderMaterial_lo03u")
+[node name="display" parent="Node3D/Space_ship/Screens" instance=ExtResource("10_ypq24")]
+transform = Transform3D(0.931614, 0.175857, -0.0847189, -5.96046e-08, 0.696509, 0.0474062, 0.844737, -0.193943, 0.0934319, 1.533, 2.8, -6.005)
+material_override = SubResource("StandardMaterial3D_udki4")
+material_overlay = SubResource("ShaderMaterial_eu5rx")
+skeleton = NodePath("")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Core"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 4.65661e-10, 8.20478e-09, -0.112495)
-light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/display"]
+transform = Transform3D(0.795184, -5.96046e-08, 4.39584e-07, 5.96046e-08, -1.34393, 5.06639e-07, -2.38419e-07, -7.15256e-07, -7.42185, -2.38419e-07, 0, -0.126253)
+light_energy = 0.123
+shadow_enabled = true
+spot_range = 1.55509
+spot_attenuation = 6.44
+spot_angle = 88.05
+spot_angle_attenuation = 0.277393
+
+[node name="Core" parent="Node3D/Space_ship/Screens" instance=ExtResource("11_m28nl")]
+transform = Transform3D(0.923783, -0.180563, 0.0792251, 0, 0.715149, 0.044332, -0.837636, -0.199133, 0.0873731, -1.61989, 2.79616, -6.00641)
+material_override = SubResource("StandardMaterial3D_6yx2h")
+material_overlay = SubResource("ShaderMaterial_53w41")
+skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/Core"]
+transform = Transform3D(0.801925, -1.19209e-07, -3.1665e-07, 5.96046e-08, -1.3089, 2.01166e-07, -3.12924e-07, -2.38419e-07, -7.93651, 2.38419e-07, 4.76837e-07, -0.112495)
+light_color = Color(1, 0, 0, 1)
 light_energy = 0.123
 shadow_enabled = true
 spot_range = 1.55509
@@ -347,16 +395,17 @@ spot_attenuation = 6.44
 spot_angle = 88.05
 spot_angle_attenuation = 0.217638
 
-[node name="Main menu" parent="Node3D/Space_ship" instance=ExtResource("14_mqkme")]
-transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 0, 0, 1.77, -1.085, 3.333, -3.68)
+[node name="Main menu" parent="Node3D/Space_ship/Screens" instance=ExtResource("14_mqkme")]
+transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 2.98023e-08, 5.96046e-08, 1.77, 1.19209e-07, 3.333, -6.205)
 
-[node name="Thrusters" parent="Node3D/Space_ship" instance=ExtResource("15_lijcs")]
-transform = Transform3D(1, 0, 0, 0, 0.551543, -0.707107, 0, 0.551543, 0.707107, -1.03555, 4.64446, -2.82047)
-material_override = SubResource("StandardMaterial3D_5bmr1")
-material_overlay = SubResource("ShaderMaterial_pjq4l")
+[node name="Thrusters" parent="Node3D/Space_ship/Screens" instance=ExtResource("13_33hov")]
+transform = Transform3D(1, -0.000135028, -0.000173062, -3.12924e-07, 0.551162, -0.707595, 0.000244737, 0.551924, 0.706618, 0.054, 4.633, -5.372)
+material_override = SubResource("StandardMaterial3D_iep3j")
+material_overlay = SubResource("ShaderMaterial_rojqs")
+skeleton = NodePath("")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Thrusters"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -8.80182e-10, -0.0112381)
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/Thrusters"]
+transform = Transform3D(1, 1.51806e-07, 5.06639e-07, 1.11759e-07, -1.28205, -6.14673e-07, 1.19209e-07, -1.67638e-07, -1, 3.57628e-07, 4.76837e-07, -0.0112395)
 light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
 shadow_enabled = true
 spot_range = 1.175
@@ -364,15 +413,17 @@ spot_attenuation = 6.44
 spot_angle = 89.99
 spot_angle_attenuation = 0.784584
 
-[node name="Keyboard_screen" parent="Node3D/Space_ship" instance=ExtResource("16_i1w38")]
-transform = Transform3D(1.1, 0, 0, 0, 0.318999, 0.91706, 0, -0.733648, 0.398749, -1.0691, 2.03047, -3.24927)
-material_override = SubResource("StandardMaterial3D_8xq48")
-material_overlay = SubResource("ShaderMaterial_10cr2")
+[node name="NoVid" parent="Node3D/Space_ship/Screens" instance=ExtResource("14_eviat")]
+transform = Transform3D(1.1, 0, 0, 0, 0.318999, 0.91706, 0, -0.733648, 0.398749, 0.0158999, 2.03047, -5.77427)
+material_override = SubResource("StandardMaterial3D_gvtdm")
+material_overlay = SubResource("ShaderMaterial_m7e30")
+skeleton = NodePath("")
 
-[node name="Touchpad_screen" parent="Node3D/Space_ship" instance=ExtResource("17_0l3td")]
-transform = Transform3D(0.3, 0, 0, 0, 0.338937, 0.91706, 0, -0.779501, 0.398749, -1.93761, 2.03492, -3.21958)
+[node name="Touchpad_screen" parent="Node3D/Space_ship/Screens" instance=ExtResource("17_0l3td")]
+transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.338937, 0.91706, 7.45058e-09, -0.779501, 0.398749, -0.85261, 2.03492, -5.74458)
 material_override = SubResource("StandardMaterial3D_q0d77")
 material_overlay = SubResource("ShaderMaterial_r0bpg")
+skeleton = NodePath("../..")
 
 [node name="ShipSpot2" type="SpotLight3D" parent="Node3D/Space_ship" node_paths=PackedStringArray("timer")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.28768, 4.82614, -8.46706e-08)
@@ -405,28 +456,48 @@ omni_range = 1.94972
 omni_attenuation = -0.233
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.901297, 0.0849228, -0.424796, -0.0119842, 0.985109, 0.171511, 0.433036, -0.149491, 0.888894, -1.459, 3.976, -3.75)
+transform = Transform3D(0.971999, 0.226741, -0.0616988, -0.234386, 0.954248, -0.185667, 0.0167777, 0.194929, 0.980674, -0.059, 2.776, -2.655)
 fov = 79.7
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.367
-autostart = true
+[node name="flames" type="Node3D" parent="."]
+transform = Transform3D(0.942641, -0.333807, 0, 0.217675, 0.614695, 0.758134, -0.25307, -0.714649, 0.652098, 1.02277, 0.321889, -1.92113)
 
-[node name="SafeMode" type="Node3D" parent="."]
-script = ExtResource("19_jxktb")
+[node name="OrangeFlame" parent="flames" instance=ExtResource("17_o5v7e")]
+transform = Transform3D(0.14611, 0.0494438, 0.101419, -0.05174, 0.139625, 0.286399, -5.26809e-08, -0.29489, 0.152609, -1.32869, 1.67972, -3.43719)
+amount = 50
 
-[node name="GameSaverLoader" type="Node" parent="."]
-script = ExtResource("20_7mrh5")
+[node name="OrangeFlame2" parent="flames" instance=ExtResource("17_o5v7e")]
+transform = Transform3D(0.145968, -0.105752, 0.0347618, 0.0111319, 0.161202, 0.295667, -0.0509359, -0.267826, 0.164234, -2.94599, 2.5977, -3.45982)
+amount = 50
 
-[node name="test_island" parent="." instance=ExtResource("19_6v3t3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3282, -11.9538, 25.4648)
+[node name="OrangeFlame3" parent="flames" instance=ExtResource("17_o5v7e")]
+transform = Transform3D(-0.915425, -0.30261, -0.265376, 0.396576, -0.565539, -0.723114, 0.0687413, -0.767197, 0.637717, -3.33623, 4.19411, -6.88201)
+amount = 50
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_kyw7b")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37.27, -39.589)
-light_energy = 2.0
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-light_angular_distance = 19.4
-light_bake_mode = 1
+[node name="DarkRock" parent="." instance=ExtResource("21_3rh5x")]
+transform = Transform3D(-0.901562, 0.420548, -0.101615, -0.366119, -0.866726, -0.338738, -0.230527, -0.26819, 0.935377, -6.055, -2.698, -4.067)
+
+[node name="LightgreenTree" parent="." instance=ExtResource("6_010rx")]
+transform = Transform3D(1, 0, -2.98023e-08, -2.90922e-09, 1, 2.98023e-08, -9.69122e-09, 2.98023e-08, 1, -4.207, -2.931, -10.949)
+
+[node name="LightgreenTree2" parent="." instance=ExtResource("6_010rx")]
+transform = Transform3D(1, 1.49012e-07, -7.45058e-08, -7.10637e-07, 0.404839, 0.914389, 3.0252e-07, -0.914388, 0.404838, 1.361, -3.559, -10.666)
+
+[node name="Bush" parent="." instance=ExtResource("22_g18ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, -13)
+
+[node name="Bush2" parent="." instance=ExtResource("22_g18ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59003, -3, -13)
+
+[node name="Bush3" parent="." instance=ExtResource("22_g18ig")]
+transform = Transform3D(0.886478, 0, -0.46277, 0, 1, 0, 0.46277, 0, 0.886478, 5.59003, -3, -7.7154)
+
+[node name="Bush4" parent="." instance=ExtResource("22_g18ig")]
+transform = Transform3D(-0.524739, 0.43018, -0.734571, 0.250051, 0.902743, 0.350042, 0.81371, 0, -0.581271, 4.11781, -1.26516, -5.86029)
 
 [connection signal="timeout" from="Timer" to="Node3D/Space_ship/ShipSpot2" method="_on_timer_timeout"]
+
+[editable path="Node3D/Space_ship"]
+[editable path="Node3D/Space_ship/Space_ship"]

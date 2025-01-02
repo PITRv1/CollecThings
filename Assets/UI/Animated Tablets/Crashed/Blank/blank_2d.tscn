@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://byl86y1hqexhx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.945252, 5.87195e-06, 0.586518, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.0854728, 0.639828, 0.303416, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(2.02149e-06, 0.594783, 0.723564, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.864656, 0.696474, 0, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.542491, 0.565069, 0.0478903, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ColorRect11" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(9.62615e-07, 0.620018, 0.558034, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.439914, 0.45277, 1, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(1, 0, 0, 1)

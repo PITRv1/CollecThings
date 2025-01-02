@@ -13,7 +13,7 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="11_6gxid"]
 [ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="12_nnrjb"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_screen.tscn" id="13_nqawn"]
-[ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusterts_screen.tscn" id="14_ka4r6"]
+[ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusters_screen.tscn" id="14_ka4r6"]
 [ext_resource type="Script" path="res://Maps/Main_Menu/Space/light_flicker.gd" id="15_yhyx7"]
 [ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="16_6ybuj"]
 [ext_resource type="PackedScene" uid="uid://rnydtmt2ituf" path="res://Assets/UI/Animated Tablets/Console/console_screen.tscn" id="16_nvukv"]

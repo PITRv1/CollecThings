@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxmkxj0vcxyk6"
-path.s3tc="res://.godot/imported/bush_red_fallen_red_leaves.jpg-2036cd8e2042f512a4acd9fdbad2b5df.s3tc.ctex"
+uid="uid://contwof23wg12"
+path.s3tc="res://.godot/imported/map1_dirt_layer.jpg-4395fd795c0fa7a3fbe5f16631c9666c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "36166db05813ed799d43a4b72a6daaba"
+}
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Bushes/Red Bush/bush_red_fallen_red_leaves.jpg"
-dest_files=["res://.godot/imported/bush_red_fallen_red_leaves.jpg-2036cd8e2042f512a4acd9fdbad2b5df.s3tc.ctex"]
+source_file="res://Maps/Chapter 1/Map1/map1_dirt_layer.jpg"
+dest_files=["res://.godot/imported/map1_dirt_layer.jpg-4395fd795c0fa7a3fbe5f16631c9666c.s3tc.ctex"]
 
 [params]
 

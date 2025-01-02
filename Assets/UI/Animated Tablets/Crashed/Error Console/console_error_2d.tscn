@@ -1,0 +1,140 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgpyfpmjp5dub"]
+
+[ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_sfowo"]
+
+[sub_resource type="Animation" id="Animation_gibwh"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_x4n40"]
+resource_name = "input"
+length = 2.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1regr"]
+_data = {
+"RESET": SubResource("Animation_gibwh"),
+"input": SubResource("Animation_x4n40")
+}
+
+[node name="Console2d" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "DER SYSTEM CONSOLE V21"
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0.035, 9.23)
+layout_mode = 2
+color = Color(1, 0.643137, 0, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="err" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="err2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="err3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="err4" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="err5" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="err6" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="err7" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="err8" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_sfowo")
+theme_override_colors/font_color = Color(1, 0.101961, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "ERR!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1regr")
+}
+autoplay = "input"

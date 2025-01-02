@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://qqywc02u5h3c"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/ScreenWarpingEffectSpatial.gdshader" id="1_jll8g"]
+[ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="2_iak5h"]
+[ext_resource type="PackedScene" uid="uid://hmn8djvekrxa" path="res://Assets/UI/Animated Tablets/Crashed/OfflineReactor/offline_core_2d.tscn" id="3_qtfvj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n4skr"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebjg2"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_n4skr")
+texture_filter = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_06hqs"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6rkrh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_jll8g")
+shader_parameter/lens_curvature = 0.096
+shader_parameter/vignette_strength = 0.895
+shader_parameter/texture_albedo = SubResource("ViewportTexture_06hqs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j72tp"]
+resource_local_to_scene = true
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_6rkrh")
+shader = ExtResource("2_iak5h")
+shader_parameter/line_amount = 256.918
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.728
+shader_parameter/line_opacity = 0.188
+shader_parameter/emission_power = 0.1
+shader_parameter/line_color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1fjye"]
+
+[node name="Core" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_ebjg2")
+material_overlay = SubResource("ShaderMaterial_j72tp")
+mesh = SubResource("QuadMesh_1fjye")
+
+[node name="viewport" type="SubViewport" parent="."]
+size = Vector2i(1152, 648)
+
+[node name="Reactor2d2" parent="viewport" instance=ExtResource("3_qtfvj")]

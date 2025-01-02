@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkpe8eiu2a42o"]
+
+[ext_resource type="Texture2D" uid="uid://cnphqm4jmuvu0" path="res://Assets/UI/Animated Tablets/Crashed/OfflineThrusterSys/animation/animation.png" id="1_0uw17"]
+[ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="2_glg2s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4enf2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0uw17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_rhg7k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_x8nyv"]
+resource_name = "play"
+length = 4.0
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.00485, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0ys4"]
+_data = {
+"RESET": SubResource("Animation_rhg7k"),
+"play": SubResource("Animation_x8nyv")
+}
+
+[sub_resource type="Animation" id="Animation_s7skc"]
+resource_name = "anim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_u5rls"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o5i2g"]
+_data = {
+"RESET": SubResource("Animation_u5rls"),
+"anim": SubResource("Animation_s7skc")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Thrsuters2d" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Thrsuters2d"]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_4enf2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Thrsuters2d"]
+libraries = {
+"": SubResource("AnimationLibrary_f0ys4")
+}
+autoplay = "play"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_glg2s")
+theme_override_colors/font_color = Color(0.898275, 2.59906e-06, 1.2514e-06, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 120
+text = "[OFFLINE]"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o5i2g")
+}
+autoplay = "anim"

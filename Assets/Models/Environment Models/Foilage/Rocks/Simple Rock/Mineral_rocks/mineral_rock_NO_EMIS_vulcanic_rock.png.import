@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxmkxj0vcxyk6"
-path.s3tc="res://.godot/imported/bush_red_fallen_red_leaves.jpg-2036cd8e2042f512a4acd9fdbad2b5df.s3tc.ctex"
+uid="uid://bxmrowcsvqsby"
+path.s3tc="res://.godot/imported/mineral_rock_NO_EMIS_vulcanic_rock.png-4453ecca78c5f635edfd4c3266fd0b25.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Bushes/Red Bush/bush_red_fallen_red_leaves.jpg"
-dest_files=["res://.godot/imported/bush_red_fallen_red_leaves.jpg-2036cd8e2042f512a4acd9fdbad2b5df.s3tc.ctex"]
+source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/Mineral_rocks/mineral_rock_NO_EMIS_vulcanic_rock.png"
+dest_files=["res://.godot/imported/mineral_rock_NO_EMIS_vulcanic_rock.png-4453ecca78c5f635edfd4c3266fd0b25.s3tc.ctex"]
 
 [params]
 

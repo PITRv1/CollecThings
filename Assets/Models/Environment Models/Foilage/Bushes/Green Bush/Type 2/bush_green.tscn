@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ht34e3cmdk0g"]
+
+[ext_resource type="PackedScene" uid="uid://c0xpb8d04kxai" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green.glb" id="1_5ln37"]
+
+[node name="BushGreen" type="Node3D"]
+
+[node name="bush_green" parent="." instance=ExtResource("1_5ln37")]

@@ -48,7 +48,11 @@ func _on_leave_body_entered(body: Player) -> void:
 func _on_temp_load_next_level_body_entered(body: Node3D) -> void:
 	Global.change_scene_to("res://Cinematics/3D Cinematics/Crash/crash_animation.tscn")
 
+@onready var take_off_cam: Camera3D = $CamPivot/TakeOffCam
 @onready var tako_off_animation_p: AnimationPlayer = $"TakoOff animationP"
 func _on_end_scene_trigger_body_entered(body: Node3D) -> void:
 	var from = player.camera
+	var to = take_off_cam
 	tako_off_animation_p.play("Take Of")
+	
+	var tween = Tween.new()

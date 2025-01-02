@@ -17,7 +17,7 @@
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="8_f65px"]
 [ext_resource type="PackedScene" uid="uid://1nt1633pri32" path="res://Maps/Test Maps/Ch1 Map1 design/sphere_tree.glb" id="9_fjdk2"]
 [ext_resource type="Shader" uid="uid://crqb62fj4xmgm" path="res://Assets/Shaders/disolve.tres" id="9_m4ook"]
-[ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Rocks/Simple Rock/rock1.glb" id="11_7pd81"]
+[ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1.glb" id="11_7pd81"]
 [ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="19_isc74"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="20_0ie0c"]
 

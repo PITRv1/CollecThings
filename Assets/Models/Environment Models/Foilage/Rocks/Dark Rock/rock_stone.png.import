@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxmkxj0vcxyk6"
-path.s3tc="res://.godot/imported/bush_red_fallen_red_leaves.jpg-2036cd8e2042f512a4acd9fdbad2b5df.s3tc.ctex"
+uid="uid://comlh6y5jpipj"
+path.s3tc="res://.godot/imported/rock_stone.png-b892e3798ec75fe7a81a5f22bc88d14a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4235a06d95eaf7a4ca1cc55d192e14da"
+}
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Bushes/Red Bush/bush_red_fallen_red_leaves.jpg"
-dest_files=["res://.godot/imported/bush_red_fallen_red_leaves.jpg-2036cd8e2042f512a4acd9fdbad2b5df.s3tc.ctex"]
+source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Dark Rock/rock_stone.png"
+dest_files=["res://.godot/imported/rock_stone.png-b892e3798ec75fe7a81a5f22bc88d14a.s3tc.ctex"]
 
 [params]
 

@@ -20,10 +20,10 @@ var mag_size : int
 var max_mag_size : int
 
 @export var PROJECTILE : PackedScene = preload("res://Assets/Weapons/Projectile.tscn")
+@export var rope_gen : PackedScene
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	print(player)
 	mag_size = weapon_settings.mag_size
 	max_mag_size = weapon_settings.mag_size
 	camera = get_viewport().get_camera_3d()
@@ -32,8 +32,8 @@ func _ready() -> void:
 func primary_fire():
 	if not animation_player.is_playing():
 		if mag_size > 0:
-			if weapon_settings.hitscan == 1:
-				if cooldown_timer.is_stopped():
+			if cooldown_timer.is_stopped():
+				if weapon_settings.hitscan == 1:
 					for i in range(weapon_settings.num_of_bullets):
 						#audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v1.mp3")
 						#audio_stream_player_3d.play()
@@ -42,19 +42,45 @@ func primary_fire():
 
 					if animation_player.has_animation("knockback"):
 						animation_player.play("knockback")
-						print("heh")
 					cooldown_timer.start(weapon_settings.cooldown)
 					if mag_size <= 0:
 						reload()
-			else:
-				var ray = run_ray_test()
-				if ray.size() > 0:
-					if ray["collider"] is HitboxComponent:
-						ray["collider"].damage(weapon_settings)
+				else:
+					var ray = run_ray_test(true)
+					
+					if ray.size() > 0:
+						if ray["collider"] is HitboxComponent:
+							ray["collider"].damage(weapon_settings)
+							
+					cooldown_timer.start(weapon_settings.cooldown)
+					mag_size -= 1
+					what(ray)
 		else:
 			reload()
 		
 	
+func what(ray):
+	var line = rope_gen.instantiate()
+	if ray.size() > 0:
+		line.SetPlayerPosition(projectile_origin.global_position)
+		line.SetGrappleHookPosition(ray["position"])
+		line.StartDrawing()
+		line.visible = true
+		get_tree().root.add_child(line)
+	else:
+		ray = run_ray_test(false)
+		if ray.size() > 0:
+			line.SetPlayerPosition(projectile_origin.global_position)
+			line.SetGrappleHookPosition(ray["position"])
+			line.StartDrawing()
+			line.visible = true
+			get_tree().root.add_child(line)
+		else:
+			line.SetPlayerPosition(projectile_origin.global_position)
+			line.SetGrappleHookPosition(camera.project_ray_origin(mousepos) + camera.project_ray_normal(mousepos) * length)
+			line.StartDrawing()
+			line.visible = true
+			get_tree().root.add_child(line)
 
 # Secondary fire function, can be overridden in derived weapons
 func secondary_fire():
@@ -62,11 +88,8 @@ func secondary_fire():
 	
 func reload():
 	if mag_size != max_mag_size:
-		print("borger")
 		if animation_player.has_animation("reload"):
 			animation_player.play("reload")
-	else:
-		print("You dumb af abald")
 	
 func _reload():
 	mag_size = weapon_settings.mag_size
@@ -78,7 +101,7 @@ func spawn_bullet():
 	mousepos = get_viewport().get_mouse_position()
 	
 	# This is a Dictionary, just select what you need from it, for example: position, collider, ect.	
-	var result = run_ray_test()
+	var result = run_ray_test(true)
 	player.velocity += get_viewport().get_camera_3d().global_transform.basis.z * weapon_settings.knockback_force/4
 	if result.size() == 0:
 		query = PhysicsRayQueryParameters3D.create(from, to)
@@ -109,20 +132,25 @@ func calculate_spread() -> Vector2:
 		
 	return spread
 
-func run_ray_test() -> Dictionary:
+func run_ray_test(area_check) -> Dictionary:
 	# Project ray
 	camera = get_viewport().get_camera_3d()
 	space_state = get_world_3d().direct_space_state
 	mousepos = get_viewport().get_mouse_position()
+	var dot_pos = player.crosshair.position
+	mousepos = dot_pos
 	from = camera.project_ray_origin(mousepos)
-	
 	var bloom = calculate_spread()
 	to = from + camera.project_ray_normal(mousepos + bloom) * length
 	
 	query = PhysicsRayQueryParameters3D.create(from, to)
 	
-	query.collide_with_areas = true
-	query.collide_with_bodies = false
+	if area_check:
+		query.collide_with_areas = true
+		query.collide_with_bodies = false
+	else:
+		query.collide_with_areas = false
+		query.collide_with_bodies = true
 	
 	return space_state.intersect_ray(query)
 

@@ -6,11 +6,11 @@ extends BaseWeapon
 # Things we change in the code
 @onready var handle: MeshInstance3D = $Shotgun/Kurbli
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
-@onready var rope_gen: MeshInstance3D = $RopeGen
 @onready var hook_start_position: Node3D = $Shotgun/hook_start_position
 @onready var hook: MeshInstance3D = $Shotgun/hook
 @onready var hook_raycast: RayCast3D = $Shotgun/hook/RayCast3D
 @onready var helper_cast: RayCast3D = $HelperCast
+@onready var hook_rope_gen: MeshInstance3D = $RopeGen
 
 # Hell itself, literally I have no clue about this thing
 @onready var remote_transform := RemoteTransform3D.new()
@@ -56,7 +56,7 @@ var charge := 0.0
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	gun_utility.set_texture_offset(Vector2(10, 0))
-	rope_gen.visible = false
+	hook_rope_gen.visible = false
 	hook.global_position = hook_start_position.global_position
 	mag_size = weapon_settings.mag_size
 	ini_rot = self.rotation
@@ -89,9 +89,7 @@ func _physics_process(delta: float) -> void:
 		# pos is the end position, this is where the grappler will go, and look at, if nothing is in the way
 		var camera = get_viewport().get_camera_3d()
 		pos = camera.global_position + camera.global_transform.basis.z * -GRAPPLE_RAY_MAX * charge / 5
-		print(GRAPPLE_RAY_MAX * charge / 5)
 		var pos_ray = run_hook_ray(GRAPPLE_RAY_MAX * charge / 5)
-		print(pos_ray)
 		if pos_ray.size() > 0:
 			pos = pos_ray["position"]
 		
@@ -114,9 +112,9 @@ func _physics_process(delta: float) -> void:
 			hook_raycast.look_at(pos)
 			
 			# For the rope mesh, don't worry about it
-			rope_gen.SetPlayerPosition(player.global_position)
-			rope_gen.SetGrappleHookPosition(hook.global_position)
-			rope_gen.StartDrawing()
+			hook_rope_gen.SetPlayerPosition(player.global_position)
+			hook_rope_gen.SetGrappleHookPosition(hook.global_position)
+			hook_rope_gen.StartDrawing()
 			
 			rope_go = true
 			
@@ -149,11 +147,11 @@ func _physics_process(delta: float) -> void:
 		
 		# Rotate the handle to 0.0
 		handle.rotation.x = lerp(handle.rotation.x, 0.0, hook_speed * delta/hook.global_position.distance_to(pos))
-		rope_gen.visible = true
+		hook_rope_gen.visible = true
 		
 		# Used for the rope mesh creation
-		rope_gen.SetPlayerPosition(hook_start_position.global_position)
-		rope_gen.SetGrappleHookPosition(hook.global_position)
+		hook_rope_gen.SetPlayerPosition(hook_start_position.global_position)
+		hook_rope_gen.SetGrappleHookPosition(hook.global_position)
 		
 		hook_raycast.force_raycast_update()
 		
@@ -207,8 +205,8 @@ func _physics_process(delta: float) -> void:
 		rope_go = false
 		rope_go_back = false
 		
-		rope_gen.SetPlayerPosition(hook_start_position.global_position)
-		rope_gen.SetGrappleHookPosition(hook.global_position)
+		hook_rope_gen.SetPlayerPosition(hook_start_position.global_position)
+		hook_rope_gen.SetGrappleHookPosition(hook.global_position)
 			
 		var grapple_dir = (player.global_position - enemy.global_position).normalized()
 		var grapple_target_speed = grapple_dir * GRAPPLE_FORCE_MAX * 8
@@ -234,8 +232,8 @@ func _physics_process(delta: float) -> void:
 		rope_go = false
 		rope_go_back = false
 		
-		rope_gen.SetPlayerPosition(hook_start_position.global_position)
-		rope_gen.SetGrappleHookPosition(hook.global_position)
+		hook_rope_gen.SetPlayerPosition(hook_start_position.global_position)
+		hook_rope_gen.SetGrappleHookPosition(hook.global_position)
 		gun_utility.set_texture_offset(Vector2(5, 0))
 		
 		# grapple type 0 is just a basic vector to the grapple point
@@ -258,10 +256,10 @@ func _physics_process(delta: float) -> void:
 		helper_cast.target_position.z = 0
 		player.crosshair.dot_color = Color.WHITE
 		hook.top_level = true
-		rope_gen.visible = true
+		hook_rope_gen.visible = true
 		
-		rope_gen.SetPlayerPosition(hook_start_position.global_position)
-		rope_gen.SetGrappleHookPosition(hook.global_position)
+		hook_rope_gen.SetPlayerPosition(hook_start_position.global_position)
+		hook_rope_gen.SetGrappleHookPosition(hook.global_position)
 		
 		hook.global_position = hook.global_position.move_toward(hook_start_position.global_position, delta*hook_speed)
 		hook.rotation = hook.rotation.move_toward(hook_start_position.rotation, delta*hook_speed)
@@ -269,7 +267,7 @@ func _physics_process(delta: float) -> void:
 		if hook.global_position.is_equal_approx(hook_start_position.global_position):
 			
 			hook.top_level = false
-			rope_gen.visible = false
+			hook_rope_gen.visible = false
 			is_grappling = false
 			rope_go_back = false
 			base_state = true
@@ -315,8 +313,6 @@ func run_hook_ray(length):
 	var mousepos = get_viewport().get_mouse_position()
 	var dot_pos = player.crosshair.position
 	mousepos = dot_pos
-	print(mousepos)
-	print(dot_pos)
 	var from = camera.project_ray_origin(mousepos)
 	
 	var to = from + camera.project_ray_normal(mousepos) * length

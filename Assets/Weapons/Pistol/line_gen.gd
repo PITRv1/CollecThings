@@ -12,7 +12,7 @@ var grapple_hook_position
 var rope_length
 var point_spacing
 @export var dirty : bool
-@export var firstTime : bool = false
+@export var firstTime : bool
 var player_position
 var vertex_array : Array
 var normal_array : Array
@@ -25,39 +25,22 @@ var index_array : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if not firstTime:
-		SetGrappleHookPosition(end.global_position)
-		SetPlayerPosition(burger.global_position)
-		PreparePoints()
+	PreparePoints()
+	UpdatePoints(0)
+	GenerateMesh()
+	var t = get_tree().create_tween()
+	t.tween_property(self, "transparency", 1, 1)
+	await t.finished
+	queue_free()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#SetGrappleHookPosition(grapple_hook_position)
-	#SetPlayerPosition(player_position)
-	
-	if isDrawing or dirty:
-		if firstTime:
-			PreparePoints()
-			firstTime = false
-		UpdatePoints(delta)
-		
-		GenerateMesh()
-		
-		dirty = false
-	
-	#if majon:
-		#SetGrappleHookPosition(end.global_position)
-		#SetPlayerPosition(burger.global_position)
-		#majon = false
 		
 func SetGrappleHookPosition(val : Vector3):
-	print("apple")
 	grapple_hook_position = val
 	firstTime = true
 	
 func SetPlayerPosition(val : Vector3):
-	print("apple")
 	player_position = val
 
 func StartDrawing():

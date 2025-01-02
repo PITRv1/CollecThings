@@ -70,17 +70,16 @@ func _secondary_fire():
 	
 	# Shoot with these settings
 	
-	var ray = run_ray_test()
+	var ray = run_ray_test(true)
 	shooting_particles.emitting = true
 	if ray.size() > 0:
 		if ray["collider"] is HitboxComponent:
 			ray["collider"].damage(weapon_settings)
+	what(ray)
 	
 	# Decrease back to normal
 	
 	mag_size = mag_size - floor(charge)
-	print(charge)
-	print(mag_size)
 	charge = 0.0
 	weapon_settings.stun_time = 0.0
 	weapon_settings.knockback_force = knock_force

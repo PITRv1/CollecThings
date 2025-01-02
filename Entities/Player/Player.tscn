@@ -131,7 +131,7 @@ cast_shadow = 0
 [node name="Weapon Rig" type="Node3D" parent="Head/CameraSmooth/Camera3D" groups=["player"]]
 
 [node name="Weapon" parent="Head/CameraSmooth/Camera3D/Weapon Rig" instance=ExtResource("5_q5jdb")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.222, -0.135, -0.309)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.135, -0.309)
 
 [node name="ShakerComponent3D" type="Node3D" parent="Head/CameraSmooth/Camera3D"]
 script = ExtResource("6_qhxil")

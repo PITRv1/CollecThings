@@ -12,7 +12,7 @@ var grapple_hook_position
 var rope_length
 var point_spacing
 @export var dirty : bool
-@export var firstTime : bool = false
+@export var firstTime : bool
 var player_position
 var vertex_array : Array
 var normal_array : Array
@@ -21,14 +21,12 @@ var index_array : Array
 @export var resolution : int = 4
 @export var rope_width : float = 0.02
 @export var iterations : int = 5
-#@export var majon : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if not firstTime:
-		SetGrappleHookPosition(end.global_position)
-		SetPlayerPosition(burger.global_position)
-		PreparePoints()
+	SetGrappleHookPosition(end.global_position)
+	SetPlayerPosition(burger.global_position)
+	PreparePoints()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,19 +43,12 @@ func _process(delta: float) -> void:
 		GenerateMesh()
 		
 		dirty = false
-	
-	#if majon:
-		#SetGrappleHookPosition(end.global_position)
-		#SetPlayerPosition(burger.global_position)
-		#majon = false
 		
 func SetGrappleHookPosition(val : Vector3):
-	print("apple")
 	grapple_hook_position = val
 	firstTime = true
 	
 func SetPlayerPosition(val : Vector3):
-	print("apple")
 	player_position = val
 
 func StartDrawing():
@@ -89,9 +80,9 @@ func UpdatePoints(delta):
 	
 	for i in range(1, point_count - 1):
 		var curr : Vector3 = points[i]
-		#points[i] = points[i] + (points[i] - points_old[i]) + (
-			#Vector3.DOWN * 9.8 * delta * delta
-		#)
+		points[i] = points[i] + (points[i] - points_old[i]) + (
+			Vector3.DOWN * 9.8 * delta * delta
+		)
 		points_old[i] = curr
 		
 	for i in range(iterations):

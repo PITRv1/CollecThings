@@ -499,11 +499,11 @@ transform = Transform3D(0.996195, 0.0868241, -0.00759612, -0.0871557, 0.992404, 
 debug_enabled = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_wqf7k")]
-MAX_HEALTH = 50.0
+MAX_HEALTH = 1.0
 
 [node name="ShieldComponent" type="Node3D" parent="." groups=["shield_components"]]
 script = ExtResource("7_kqlbh")
-MAX_SHIELD = 100.0
+MAX_SHIELD = 1.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "shield_component") instance=ExtResource("8_nq2e4")]
 health_component = NodePath("../HealthComponent")

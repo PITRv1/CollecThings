@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_qqe8l")
 name = &"TPistol"
-damage = 1.0
+damage = 20.0
 cooldown = 0.2
 knockback_force = 50.0
 stun_time = 0.0

@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://btpmyjub568re"]
+[gd_scene load_steps=11 format=3 uid="uid://btpmyjub568re"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Shotgun/shotgun_main.gd" id="1_jsstv"]
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
 [ext_resource type="PackedScene" uid="uid://cktorru4v63el" path="res://Assets/Weapons/Shotgun/Shotgun.glb" id="3_wwjff"]
-[ext_resource type="PackedScene" uid="uid://b2ccpk0qlpd67" path="res://rope_gen.tscn" id="4_giuy1"]
+[ext_resource type="PackedScene" uid="uid://b2ccpk0qlpd67" path="res://line_gen.tscn" id="4_giuy1"]
 [ext_resource type="PackedScene" uid="uid://jrmifcwavt4y" path="res://Assets/Weapons/Shotgun/hook.tscn" id="4_jwd3h"]
 
 [sub_resource type="Animation" id="Animation_p58k5"]
@@ -615,6 +615,9 @@ _data = {
 "reload": SubResource("Animation_rd7bb")
 }
 
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_i7m6k"]
+resource_local_to_scene = true
+
 [node name="Shotgun" type="Node3D" node_paths=PackedStringArray("animation_player", "projectile_origin", "cooldown_timer")]
 script = ExtResource("1_jsstv")
 GRAPPLE_RAY_MAX = 100.0
@@ -731,7 +734,8 @@ collision_mask = 5
 
 [node name="RopeGen" parent="." instance=ExtResource("4_giuy1")]
 cast_shadow = 0
-isDrawing = false
+mesh = SubResource("ImmediateMesh_i7m6k")
+firstTime = true
 
 [node name="HelperCast" type="RayCast3D" parent="."]
 transform = Transform3D(-0.243925, 0, -0.0394677, 0, 0.247097, 0, 0.0394677, 0, -0.243925, -0.281518, -0.0907997, 0.333451)

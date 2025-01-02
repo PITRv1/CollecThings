@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://du5oq6377nsa2"]
+
+[ext_resource type="PackedScene" uid="uid://cxogo8v5vtcg8" path="res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock_EMIS.glb" id="1_7daj4"]
+
+[node name="mineral_rock_EMIS" instance=ExtResource("1_7daj4")]

@@ -23,12 +23,12 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d7ayw"]
 panorama = ExtResource("1_l206q")
 
-[sub_resource type="Sky" id="Sky_xefy6"]
+[sub_resource type="Sky" id="Sky_mcvv0"]
 sky_material = SubResource("PanoramaSkyMaterial_d7ayw")
 
 [sub_resource type="Environment" id="Environment_0b0uo"]
 background_mode = 2
-sky = SubResource("Sky_xefy6")
+sky = SubResource("Sky_mcvv0")
 glow_enabled = true
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_cghkc"]

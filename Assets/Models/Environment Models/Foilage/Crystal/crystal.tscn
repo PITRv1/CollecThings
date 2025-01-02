@@ -7,7 +7,7 @@
 render_priority = 0
 shader = ExtResource("2_nx1u8")
 
-[node name="cactus" instance=ExtResource("1_vvybf")]
+[node name="Crystal" instance=ExtResource("1_vvybf")]
 
 [node name="Icosphere_004" parent="." index="0"]
 material_override = SubResource("ShaderMaterial_iga2a")

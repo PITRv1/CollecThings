@@ -33,7 +33,7 @@ shader_parameter/line_amount = 256.918
 shader_parameter/time_scale = 0.05
 shader_parameter/line_brightness = 0.728
 shader_parameter/line_opacity = 0.188
-shader_parameter/emission_power = 0.1
+shader_parameter/emission_power = 0.324
 shader_parameter/line_color = Color(1, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_1fjye"]

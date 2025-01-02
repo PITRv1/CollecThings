@@ -70,6 +70,7 @@ func save_current_map_data() -> void:
 	map_data.position_data = position_data
 	map_data.player_position = player.global_position
 	map_data.player_rotation = Vector2(player.camera.rotation.x, player.rotation.y)
+	map_data.player_velocity = player.velocity
 	
 	ResourceSaver.save(map_data, Global.MAP_SAVE_FILE)
 	
@@ -121,6 +122,7 @@ func load_saved_map_data() -> void:
 					player.global_position = map_data.player_position
 					player.camera.rotation.x = map_data.player_rotation[0]
 					player.global_rotation.y = map_data.player_rotation[1]
+					player.velocity = map_data.player_velocity
 					
 				
 

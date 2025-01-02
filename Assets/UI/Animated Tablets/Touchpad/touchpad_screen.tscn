@@ -39,6 +39,7 @@ shader_parameter/line_color = Color(0, 0.74902, 1, 1)
 [sub_resource type="QuadMesh" id="QuadMesh_1fjye"]
 
 [node name="Touchpad_screen" type="MeshInstance3D"]
+process_priority = 2
 material_override = SubResource("StandardMaterial3D_ebjg2")
 material_overlay = SubResource("ShaderMaterial_j72tp")
 mesh = SubResource("QuadMesh_1fjye")

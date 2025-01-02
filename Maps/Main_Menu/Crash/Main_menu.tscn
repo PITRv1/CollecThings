@@ -342,7 +342,7 @@ transform = Transform3D(0.942641, -0.333807, 0, 0.217675, 0.614695, 0.758134, -0
 [node name="Space_ship" parent="Node3D" instance=ExtResource("8_dquof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 
-[node name="Cube_065" parent="Node3D/Space_ship/Space_ship" index="11"]
+[node name="Cube_065" parent="Node3D/Space_ship/Space_ship" index="3"]
 transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
 
 [node name="Screens" type="Node3D" parent="Node3D/Space_ship"]
@@ -456,14 +456,14 @@ omni_range = 1.94972
 omni_attenuation = -0.233
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.971999, 0.226741, -0.0616988, -0.234386, 0.954248, -0.185667, 0.0167777, 0.194929, 0.980674, -0.059, 2.776, -2.655)
-fov = 79.7
+transform = Transform3D(0.889182, -0.101309, 0.446198, 0.113203, 0.993571, 0, -0.44333, 0.050511, 0.894935, 1.211, 3.496, -4.41)
+fov = 80.5
 
 [node name="flames" type="Node3D" parent="."]
 transform = Transform3D(0.942641, -0.333807, 0, 0.217675, 0.614695, 0.758134, -0.25307, -0.714649, 0.652098, 1.02277, 0.321889, -1.92113)
 
 [node name="OrangeFlame" parent="flames" instance=ExtResource("17_o5v7e")]
-transform = Transform3D(0.14611, 0.0494438, 0.101419, -0.05174, 0.139625, 0.286399, -5.26809e-08, -0.29489, 0.152609, -1.32869, 1.67972, -3.43719)
+transform = Transform3D(0.14611, 0.0494438, 0.101419, -0.05174, 0.139625, 0.286399, -5.31089e-08, -0.29489, 0.152609, -1.41163, 1.4455, -3.72606)
 amount = 50
 
 [node name="OrangeFlame2" parent="flames" instance=ExtResource("17_o5v7e")]
@@ -471,7 +471,7 @@ transform = Transform3D(0.145968, -0.105752, 0.0347618, 0.0111319, 0.161202, 0.2
 amount = 50
 
 [node name="OrangeFlame3" parent="flames" instance=ExtResource("17_o5v7e")]
-transform = Transform3D(-0.915425, -0.30261, -0.265376, 0.396576, -0.565539, -0.723114, 0.0687413, -0.767197, 0.637717, -3.33623, 4.19411, -6.88201)
+transform = Transform3D(-0.915425, -0.30261, -0.265376, 0.396576, -0.565539, -0.723114, 0.0687413, -0.767197, 0.637717, 1.414, 4.194, -6.882)
 amount = 50
 lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_kyw7b")

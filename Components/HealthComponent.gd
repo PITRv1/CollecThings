@@ -27,10 +27,10 @@ func damage(attack: WeaponSettings = null, damage : float = 0.0):
 	damaged.emit()
 	
 	if health <= 0:
-		if get_parent() is Player:
-			died.emit()
-		else:
+		if get_parent() is not Player:
 			get_parent().queue_free()
+		
+		died.emit()
 
 func heal(amount: int) -> void:
 	healed.emit()

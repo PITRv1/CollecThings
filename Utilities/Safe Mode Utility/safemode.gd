@@ -8,6 +8,7 @@ var gpu : String = str(OS.get_video_adapter_driver_info()[0])
 var resources_status : bool = true
 var prev_mode : int = 0
 
+
 func _ready() -> void:
 	if ResourceLoader.exists(Global.USER_SAVE_FILE):
 		var settings : ConfigData = ResourceLoader.load(Global.USER_SAVE_FILE)

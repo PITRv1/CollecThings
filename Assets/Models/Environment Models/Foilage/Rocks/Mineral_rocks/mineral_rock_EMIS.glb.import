@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cxogo8v5vtcg8"
-path="res://.godot/imported/mineral_rock_EMIS.glb-ad2f28d08c01e137dfbdb5d1618f46df.scn"
+path="res://.godot/imported/mineral_rock_EMIS.glb-afee367a0e1e0c371befde6f2c68608d.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/Mineral_rocks/mineral_rock_EMIS.glb"
-dest_files=["res://.godot/imported/mineral_rock_EMIS.glb-ad2f28d08c01e137dfbdb5d1618f46df.scn"]
+source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock_EMIS.glb"
+dest_files=["res://.godot/imported/mineral_rock_EMIS.glb-afee367a0e1e0c371befde6f2c68608d.scn"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqk7dccf2mr6e"
-path.s3tc="res://.godot/imported/mineral_rock_EMIS_vulcanic_rock.png-98acfeac7aec72f19bdd74297cf69582.s3tc.ctex"
+uid="uid://bxmrowcsvqsby"
+path.s3tc="res://.godot/imported/mineral_rock_NO_EMIS_vulcanic_rock.png-e5b3991956ade53a8168a8cb5b9ce670.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/Mineral_rocks/mineral_rock_EMIS_vulcanic_rock.png"
-dest_files=["res://.godot/imported/mineral_rock_EMIS_vulcanic_rock.png-98acfeac7aec72f19bdd74297cf69582.s3tc.ctex"]
+source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock_NO_EMIS_vulcanic_rock.png"
+dest_files=["res://.godot/imported/mineral_rock_NO_EMIS_vulcanic_rock.png-e5b3991956ade53a8168a8cb5b9ce670.s3tc.ctex"]
 
 [params]
 

@@ -29,11 +29,11 @@ resource_local_to_scene = true
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_y46sd")
 shader = ExtResource("2_yiu1b")
-shader_parameter/line_amount = 369.0
+shader_parameter/line_amount = 256.0
 shader_parameter/time_scale = 0.05
 shader_parameter/line_brightness = 0.728
-shader_parameter/line_opacity = 0.57
-shader_parameter/emission_power = 0.332
+shader_parameter/line_opacity = 0.457
+shader_parameter/emission_power = 0.182
 shader_parameter/line_color = Color(0, 0.74902, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_1fjye"]

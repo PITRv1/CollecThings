@@ -52,12 +52,10 @@ func _process(delta: float) -> void:
 		#majon = false
 		
 func SetGrappleHookPosition(val : Vector3):
-	print("apple")
 	grapple_hook_position = val
 	firstTime = true
 	
 func SetPlayerPosition(val : Vector3):
-	print("apple")
 	player_position = val
 
 func StartDrawing():

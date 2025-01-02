@@ -408,18 +408,6 @@ shadow_enabled = true
 omni_range = 57.0434
 omni_attenuation = -0.408
 
-[node name="RigidBody3D" parent="." instance=ExtResource("21_3ykag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5157, 16.6263, 49.5648)
-
-[node name="RigidBody3D2" parent="." instance=ExtResource("21_3ykag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5221, -0.332056, 24.6027)
-
-[node name="RigidBody3D3" parent="." instance=ExtResource("21_3ykag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5221, -0.332056, 29.6027)
-
-[node name="RigidBody3D4" parent="." instance=ExtResource("21_3ykag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5221, -0.332056, 31.6027)
-
 [node name="cactus2" parent="." instance=ExtResource("22_sjpom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3917, -3.15596, 66.204)
 
@@ -435,3 +423,15 @@ script = SubResource("GDScript_fpsr4")
 
 [node name="Basic_enemy" parent="." instance=ExtResource("26_13l3v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.362, -1.56374, -12.3371)
+
+[node name="HealthPack" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 43.8711, -1.7826, 25.9227)
+
+[node name="HealthPack2" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 43.8711, -1.7826, 27.9846)
+
+[node name="HealthPack3" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 43.8711, -1.7826, 30.052)
+
+[node name="HealthPack4" parent="." instance=ExtResource("21_3ykag")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 43.8711, -1.7826, 32.7715)

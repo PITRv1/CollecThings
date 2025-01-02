@@ -31,3 +31,9 @@ func damage(attack: WeaponSettings = null, damage : float = 0.0):
 			died.emit()
 		else:
 			get_parent().queue_free()
+
+func heal(amount: int) -> void:
+	healed.emit()
+	health += amount
+	if health > MAX_HEALTH:
+		health = MAX_HEALTH

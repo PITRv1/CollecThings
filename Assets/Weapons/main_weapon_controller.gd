@@ -6,7 +6,10 @@ var current_weapon_settings
 
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
-@export var reset : bool = false
+@export var reset: bool:
+	set(value):
+		reset = value
+		load_weapon(weapon_list["TPistol"])
 
 @export var weapon_list: Dictionary = {
 	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",

@@ -26,3 +26,7 @@ func damage(attack: WeaponSettings = null, damage: float = 0.0):
 				
 		elif damage:
 				health_component.damage(null,damage)
+				
+func heal(amount : int) -> void:
+	if health_component:
+		health_component.heal(amount)

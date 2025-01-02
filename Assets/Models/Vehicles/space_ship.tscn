@@ -365,18 +365,6 @@ _data = {
 "take_off": SubResource("Animation_3lgr3")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0supp"]
-render_priority = 0
-shader = ExtResource("2_8wp8a")
-shader_parameter/Base_Color = Color(0.395723, 0.243262, 3.85046e-07, 1)
-shader_parameter/Line_Amount = 90.0
-shader_parameter/Time_Multiply = 15.0
-shader_parameter/Scan_lines_center_weight = 0.02
-shader_parameter/Proximity_Higlight = 0.001
-shader_parameter/Fresnel_Power = 2.0
-shader_parameter/ProximityFade_Alpha = 0.2
-shader_parameter/EmissionBrightness = 26.01
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_680p2"]
 albedo_color = Color(1, 0.643137, 0, 1)
 emission_enabled = true
@@ -416,6 +404,18 @@ albedo_color = Color(1, 0.643137, 0, 1)
 emission_enabled = true
 emission = Color(0.47, 0.3055, 0, 1)
 emission_energy_multiplier = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0cux"]
+render_priority = 0
+shader = ExtResource("2_8wp8a")
+shader_parameter/Base_Color = Color(0.396078, 0.243137, 0, 1)
+shader_parameter/Line_Amount = 90.0
+shader_parameter/Time_Multiply = 15.0
+shader_parameter/Scan_lines_center_weight = 0.02
+shader_parameter/Proximity_Higlight = 0.001
+shader_parameter/Fresnel_Power = 2.0
+shader_parameter/ProximityFade_Alpha = 0.2
+shader_parameter/EmissionBrightness = 26.0
 
 [sub_resource type="Animation" id="Animation_tli0k"]
 resource_name = "Blinking_buttons"
@@ -516,10 +516,7 @@ speed_scale = 0.5
 [node name="Space_ship" parent="." instance=ExtResource("1_e0jjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09426, 0, 2.55486)
 
-[node name="Plane" parent="Space_ship" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_0supp")
-
-[node name="Cylinder" parent="Space_ship" index="10"]
+[node name="Cylinder" parent="Space_ship" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_680p2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Space_ship/Cylinder" index="0"]
@@ -534,19 +531,22 @@ mesh = SubResource("CylinderMesh_wvmpp")
 transform = Transform3D(0.0198525, 0, 0, 0, 0.0190614, -0.00554866, 0, 0.00554866, 0.0190614, 0.109816, -0.0054308, 0.00784973)
 mesh = SubResource("CylinderMesh_wvmpp")
 
-[node name="Cube_065" parent="Space_ship" index="11"]
+[node name="Cube_065" parent="Space_ship" index="3"]
 transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
 surface_material_override/0 = SubResource("StandardMaterial3D_aei20")
 
-[node name="Circle_001" parent="Space_ship" index="21"]
+[node name="Circle_001" parent="Space_ship" index="12"]
 surface_material_override/0 = SubResource("StandardMaterial3D_k7xe0")
 
-[node name="Circle_002" parent="Space_ship" index="22"]
+[node name="Circle_002" parent="Space_ship" index="13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.874743, 2.05765, -5.80253)
 surface_material_override/0 = SubResource("StandardMaterial3D_vpke1")
 
-[node name="Circle_003" parent="Space_ship" index="23"]
+[node name="Circle_003" parent="Space_ship" index="14"]
 surface_material_override/0 = SubResource("StandardMaterial3D_cb4oo")
+
+[node name="Cube_004" parent="Space_ship" index="28"]
+surface_material_override/0 = SubResource("ShaderMaterial_p0cux")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {

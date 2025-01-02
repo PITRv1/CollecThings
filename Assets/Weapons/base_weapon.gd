@@ -42,6 +42,7 @@ func primary_fire():
 
 					if animation_player.has_animation("knockback"):
 						animation_player.play("knockback")
+						print("heh")
 					cooldown_timer.start(weapon_settings.cooldown)
 					if mag_size <= 0:
 						reload()

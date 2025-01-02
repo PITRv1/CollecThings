@@ -113,4 +113,3 @@ func _on_crystall_fall_body_entered(body: Player) -> void:
 	if $Crystals/Crystal8:
 		$Crystals/Crystal8.freeze = false
 		get_tree().create_timer(5).timeout.connect(func(): if $Crystals/Crystal8: $Crystals/Crystal8.queue_free())
-

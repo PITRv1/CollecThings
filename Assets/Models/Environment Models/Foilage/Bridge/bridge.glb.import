@@ -1,0 +1,117 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://sb8uh7riuoum"
+path="res://.godot/imported/bridge.glb-bbef0d42612b84431b7d80eaea3b883b.scn"
+
+[deps]
+
+source_file="res://Assets/Models/Environment Models/Foilage/Bridge/bridge.glb"
+dest_files=["res://.godot/imported/bridge.glb-bbef0d42612b84431b7d80eaea3b883b.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Circle_001": {
+"generate/physics": true
+},
+"PATH:Circle_002": {
+"generate/physics": true
+},
+"PATH:Cube": {
+"generate/physics": true
+},
+"PATH:Cube_013": {
+"generate/physics": true
+},
+"PATH:Cube_014": {
+"generate/physics": true
+},
+"PATH:Cube_015": {
+"generate/physics": true
+},
+"PATH:Cube_025": {
+"generate/physics": true
+},
+"PATH:Cube_026": {
+"generate/physics": true
+},
+"PATH:Cube_027": {
+"generate/physics": true
+},
+"PATH:Cube_028": {
+"generate/physics": true
+},
+"PATH:Cube_029": {
+"generate/physics": true
+},
+"PATH:Cube_030": {
+"generate/physics": true
+},
+"PATH:Cube_031": {
+"generate/physics": true
+},
+"PATH:Cube_032": {
+"generate/physics": true
+},
+"PATH:Cube_033": {
+"generate/physics": true
+},
+"PATH:Cube_034": {
+"generate/physics": true
+},
+"PATH:Cube_035": {
+"generate/physics": true
+},
+"PATH:Cube_036": {
+"generate/physics": true
+},
+"PATH:Cube_037": {
+"generate/physics": true
+},
+"PATH:Cube_038": {
+"generate/physics": true
+},
+"PATH:Cube_039": {
+"generate/physics": true
+},
+"PATH:Cube_040": {
+"generate/physics": true
+},
+"PATH:Cube_041": {
+"generate/physics": true
+},
+"PATH:Cube_042": {
+"generate/physics": true
+},
+"PATH:Cube_044": {
+"generate/physics": true
+},
+"PATH:Cube_045": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

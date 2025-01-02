@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://krbxqgoh58oa"]
+
+[ext_resource type="PackedScene" uid="uid://ghjbcxeeipgm" path="res://Assets/Models/Environment Models/Foilage/Leaves/red_fallen_leave3.glb" id="1_qa7jq"]
+
+[node name="FallenRedLeaves" type="Node3D"]
+
+[node name="red_fallen_leave3" parent="." instance=ExtResource("1_qa7jq")]

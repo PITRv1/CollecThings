@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbcirt4d6h8a"]
+
+[ext_resource type="PackedScene" uid="uid://b8ymkj1p2xuer" path="res://Assets/Models/Environment Models/Rocks/Dark Rock/rock.glb" id="1_bc727"]
+
+[node name="DarkRock" type="Node3D"]
+
+[node name="rock" parent="." instance=ExtResource("1_bc727")]

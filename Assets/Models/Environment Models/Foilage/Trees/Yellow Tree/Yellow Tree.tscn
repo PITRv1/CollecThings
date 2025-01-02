@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv0p7j11w6lrr"]
+
+[ext_resource type="PackedScene" uid="uid://bx5b5g5geudih" path="res://Assets/Models/Environment Models/Foilage/Trees/Yellow Tree/tree_yellow.glb" id="1_nlj8b"]
+
+[node name="YellowTree" type="Node3D"]
+
+[node name="tree_yellow" parent="." instance=ExtResource("1_nlj8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.40715)

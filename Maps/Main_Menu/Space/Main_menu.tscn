@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b4oaiip05l464"]
+[gd_scene load_steps=59 format=3 uid="uid://b4oaiip05l464"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_l206q"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="2_l25qa"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cg5egtuctip3u" path="res://Assets/UI/Animated Tablets/ReactorUI/core_screen.tscn" id="12_nnrjb"]
 [ext_resource type="PackedScene" uid="uid://bcgtyv4p3uhpc" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_screen.tscn" id="13_nqawn"]
 [ext_resource type="PackedScene" uid="uid://dgoygj2wqo0kk" path="res://Assets/UI/Animated Tablets/ThrusterSys/thrusters_screen.tscn" id="14_ka4r6"]
-[ext_resource type="Script" path="res://Maps/Main_Menu/Space/light_flicker.gd" id="15_yhyx7"]
 [ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="16_6ybuj"]
 [ext_resource type="PackedScene" uid="uid://rnydtmt2ituf" path="res://Assets/UI/Animated Tablets/Console/console_screen.tscn" id="16_nvukv"]
 [ext_resource type="PackedScene" uid="uid://2wuiup6h4oe3" path="res://Assets/UI/Animated Tablets/Keyboard/keyboard_screen.tscn" id="16_scot2"]
@@ -353,20 +352,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.338937, 0.91706, 0, -0.779501, 0.398749,
 material_override = SubResource("StandardMaterial3D_q0d77")
 material_overlay = SubResource("ShaderMaterial_r0bpg")
 
-[node name="ShipSpot2" type="SpotLight3D" parent="Node3D/Space_ship" node_paths=PackedStringArray("timer")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.28768, 4.82614, -8.46706e-08)
-light_color = Color(0.76, 0.9, 1, 1)
-light_energy = 4.0
-spot_angle = 70.27
-script = ExtResource("15_yhyx7")
-timer = NodePath("../../../Timer")
-
-[node name="ShipSpot1" type="SpotLight3D" parent="Node3D/Space_ship"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.28768, 4.82614, 6.50581)
-light_color = Color(0.76, 0.9, 1, 1)
-light_energy = 4.068
-spot_angle = 56.09
-
 [node name="OrangeSmal" type="OmniLight3D" parent="Node3D/Space_ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08768, 2.39949, -3.83591)
 light_color = Color(1, 0.643137, 0, 1)
@@ -396,5 +381,3 @@ script = ExtResource("16_6ybuj")
 
 [node name="GameSaverLoader" type="Node" parent="."]
 script = ExtResource("17_1dedw")
-
-[connection signal="timeout" from="Timer" to="Node3D/Space_ship/ShipSpot2" method="_on_timer_timeout"]

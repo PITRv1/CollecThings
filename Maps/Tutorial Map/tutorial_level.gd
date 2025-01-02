@@ -6,9 +6,15 @@ extends Node3D
 @onready var collision_shape_3d: CollisionShape3D = $NavigationRegion3D/Environment/StaticBody3D/CollisionShape3D
 @onready var player : Player = get_tree().get_first_node_in_group("player")
 
+@onready var take_off_cam: Camera3D = $CamPivot/TakeOffCam
+@onready var tako_off_animation_p: AnimationPlayer = %TakoOffAnimationP
+@onready var space_ship: Node3D = $Space_ship/Space_ship
+
 func _ready() -> void:
 	stat_tablet.purge_message("Move with WASD")
 	
+	
+	tako_off_animation_p.play("RESET")
 	player.health_component.health = 75
 	
 	#spawn_basic_enemy(5 , Vector3(1, 0, 0)) #first are is for amount second is offset from global pos
@@ -48,11 +54,45 @@ func _on_leave_body_entered(body: Player) -> void:
 func _on_temp_load_next_level_body_entered(body: Node3D) -> void:
 	Global.change_scene_to("res://Cinematics/3D Cinematics/Crash/crash_animation.tscn")
 
-@onready var take_off_cam: Camera3D = $CamPivot/TakeOffCam
-@onready var tako_off_animation_p: AnimationPlayer = $"TakoOff animationP"
+
+
+
 func _on_end_scene_trigger_body_entered(body: Node3D) -> void:
 	var from = player.camera
 	var to = take_off_cam
-	tako_off_animation_p.play("Take Of")
 	
-	var tween = Tween.new()
+	
+	
+	player.paused = true
+	player.ui.visible = false
+	player.weapon_controller.visible = false
+	player.crosshair.visible = false
+	
+	var tween:Tween
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	
+
+	#tween.tween_property(from, "rotation", from.look_at(space_ship.global_position))
+	tween.tween_property(from, "fov", to.fov, 2)
+	tween.tween_property(from, "global_transform", to.global_transform, 5)
+	tween.tween_property(from, "fov", to.fov, 2)
+	await tween.finished
+	
+	from.current = false
+	to.current = true
+	
+	if tako_off_animation_p.has_animation("Take_off"):
+		tako_off_animation_p.play("Take_off")
+		
+	await tako_off_animation_p.animation_finished
+	
+	player.paused = false
+	player.weapon_controller.visible = true
+	player.ui.visible = true
+	player.crosshair.visible = true
+	Global.change_scene_to("res://Cinematics/3D Cinematics/Crash/crash_animation.tscn")

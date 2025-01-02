@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://v3uujc2tqga2"]
+[gd_scene load_steps=20 format=3 uid="uid://v3uujc2tqga2"]
 
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="1_e0jjt"]
 [ext_resource type="Shader" uid="uid://3e65c31y8p43" path="res://Assets/Shaders/Line_scan.tres" id="2_8wp8a"]
+[ext_resource type="Script" path="res://Maps/Main_Menu/Space/light_flicker.gd" id="3_ev1x5"]
 
 [sub_resource type="Animation" id="Animation_e8d03"]
 resource_name = "Button_color_light_change"
@@ -547,6 +548,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cb4oo")
 
 [node name="Cube_004" parent="Space_ship" index="28"]
 surface_material_override/0 = SubResource("ShaderMaterial_p0cux")
+
+[node name="ShipSpot2" type="SpotLight3D" parent="Space_ship"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.19342, 4.82614, -2.55486)
+light_color = Color(0.76, 0.9, 1, 1)
+light_energy = 4.0
+spot_angle = 70.27
+script = ExtResource("3_ev1x5")
+
+[node name="ShipSpot1" type="SpotLight3D" parent="Space_ship"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.19342, 4.82614, 3.95095)
+light_color = Color(0.76, 0.9, 1, 1)
+light_energy = 4.068
+spot_angle = 56.09
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {

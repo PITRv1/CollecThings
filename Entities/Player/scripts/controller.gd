@@ -13,6 +13,10 @@ extends CharacterBody3D
 
 @onready var camera : Camera3D = %Camera3D
 
+
+#Needed for no UI in mid level cutscenes
+@onready var ui: Node3D = $Head/CameraSmooth/Camera3D/Ui
+
 ########################################################
 #Saved inputs and directions
 var input_dir := Vector2.ZERO
@@ -56,7 +60,10 @@ var jump_buffer_running := false
 var look_sensitivity := 0.003
 
 ########################################################
+var paused = false
 func _input(event):
+	if paused: return
+	
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * look_sensitivity)
 		%Camera3D.rotate_x(-event.relative.y * look_sensitivity)

@@ -32,8 +32,52 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"meshes": {
+"map1_Landscape_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": ""
+}
+},
 "nodes": {
 "PATH:Landscape_001": {
+"generate/physics": true
+},
+"PATH:Landscape_002": {
+"generate/physics": true
+},
+"PATH:Landscape_003": {
+"generate/physics": true
+},
+"PATH:Landscape_004": {
+"generate/physics": true
+},
+"PATH:Landscape_024": {
+"generate/physics": true
+},
+"PATH:Landscape_025": {
+"generate/physics": true
+},
+"PATH:Landscape_026": {
+"generate/physics": true
+},
+"PATH:Landscape_027": {
+"generate/physics": true
+},
+"PATH:Landscape_030": {
+"generate/physics": true
+},
+"PATH:Landscape_032": {
+"generate/physics": true
+},
+"PATH:Landscape_033": {
+"generate/physics": true
+},
+"PATH:Landscape_035": {
 "generate/physics": true
 }
 }

@@ -59,7 +59,6 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_sk6e5"]
 resource_name = "knockback"
 length = 0.4219
-loop_mode = 1
 step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -200,7 +199,6 @@ weapon_settings = ExtResource("2_tu58d")
 animation_player = NodePath("AnimationPlayer")
 projectile_origin = NodePath("Marker3D")
 cooldown_timer = NodePath("Cooldown timer")
-PROJECTILE = null
 rope_gen = ExtResource("3_nup7a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -2644,19 +2644,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5303, 114.184, 70.948)
 [node name="PickUps" type="Node3D" parent="."]
 
 [node name="HealthPack" parent="PickUps" instance=ExtResource("15_bauje")]
-transform = Transform3D(-4.65166e-06, -1.28499, 0, 1.28499, -4.65166e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -33.9251)
+transform = Transform3D(-4.65165e-06, -1.28499, 0, 1.28499, -4.65165e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -33.9251)
 
 [node name="HealthPack3" parent="PickUps" instance=ExtResource("15_bauje")]
-transform = Transform3D(-4.65166e-06, -1.28499, 0, 1.28499, -4.65166e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -29.8563)
+transform = Transform3D(-4.65165e-06, -1.28499, 0, 1.28499, -4.65165e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -29.8563)
 
 [node name="HealthPack4" parent="PickUps" instance=ExtResource("15_bauje")]
-transform = Transform3D(-4.65166e-06, -1.28499, 0, 1.28499, -4.65166e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -25.5477)
+transform = Transform3D(-4.65165e-06, -1.28499, 0, 1.28499, -4.65165e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -25.5477)
 
 [node name="HealthPack5" parent="PickUps" instance=ExtResource("15_bauje")]
-transform = Transform3D(-4.65166e-06, -1.28499, 0, 1.28499, -4.65166e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -21.6897)
+transform = Transform3D(-4.65165e-06, -1.28499, 0, 1.28499, -4.65165e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -21.6897)
 
 [node name="HealthPack6" parent="PickUps" instance=ExtResource("15_bauje")]
-transform = Transform3D(-4.65166e-06, -1.28499, 0, 1.28499, -4.65166e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -17.2206)
+transform = Transform3D(-4.65165e-06, -1.28499, 0, 1.28499, -4.65165e-06, 0, 0, 0, 1.28499, -27.8845, 92.2232, -17.2206)
 
 [node name="Space_ship" parent="." instance=ExtResource("2_liksq")]
 transform = Transform3D(0.481662, 0, -0.876357, 0, 1, 0, 0.876357, 0, 0.481662, -10.8402, 94.07, 128.975)
@@ -2758,7 +2758,7 @@ shape = SubResource("SphereShape3D_xxq6m")
 transform = Transform3D(-0.775353, 0, -0.631528, 0, 1, 0, 0.631528, 0, -0.775353, -10.8402, 97.7789, 128.975)
 
 [node name="TakeOffCam" type="Camera3D" parent="CamPivot"]
-transform = Transform3D(0.482222, -0.154166, 0.862377, 0, 0.984394, 0.175978, -0.876049, -0.0848607, 0.474697, 19.6427, -0.000579834, 10.8124)
+transform = Transform3D(0.482224, -0.154165, 0.862376, 0, 0.984394, 0.175978, -0.876048, -0.0848609, 0.474698, 19.6427, -0.000579834, 10.8124)
 fov = 70.0
 script = ExtResource("17_wew2r")
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://d12gb7rkwkgsc"]
+[gd_scene load_steps=38 format=3 uid="uid://d12gb7rkwkgsc"]
 
 [ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="1_k6m5i"]
-[ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="1_wra5c"]
 [ext_resource type="ArrayMesh" uid="uid://c51dvej6qtbpx" path="res://Assets/Models/Environment Models/Foilage/Grass/grass_mesh.res" id="2_4w5rp"]
 [ext_resource type="PackedScene" uid="uid://drnu6rf6y046g" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/Darkgreen Tree.tscn" id="5_fmm72"]
 [ext_resource type="PackedScene" uid="uid://df5yl158kacws" path="res://Assets/Models/Vehicles/ship_crashed.tscn" id="6_075xm"]
@@ -175,15 +174,15 @@ rings = 4
 
 [node name="HubMap" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_wra5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -296.212, 89.8515, -259.781)
-
 [node name="hub_map" parent="." instance=ExtResource("1_k6m5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148, 0, -312)
 
 [node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="hub_map/Plane_008" index="0"]
 transform = Transform3D(0.111111, 0, 0, 0, 0.111111, 0, 0, 0, 0.111111, -17.7778, -2.44444, 18.5556)
 multimesh = SubResource("MultiMesh_rsjvd")
+
+[node name="Wrench" parent="hub_map" instance=ExtResource("9_35xjy")]
+transform = Transform3D(-0.297903, 0.33361, 1.28558, 0.821025, 1.0819, -0.0905001, -1.044, 0.75563, -0.438008, -474.142, 84.7754, 29.92)
 
 [node name="Scraps" type="MeshInstance3D" parent="hub_map"]
 transform = Transform3D(1.80721, 0, -1.53789, 0, 2.373, 0, 1.53789, 0, 1.80721, -332.172, 81.586, 5.37601)
@@ -403,9 +402,6 @@ explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_u4a25")
 draw_pass_1 = SubResource("SphereMesh_8ctjb")
-
-[node name="Wrench" parent="." instance=ExtResource("9_35xjy")]
-transform = Transform3D(-0.297903, 0.33361, 1.28558, 0.821025, 1.0819, -0.0905001, -1.044, 0.75563, -0.438008, -326.142, 84.7754, -282.08)
 
 [editable path="hub_map"]
 [editable path="hub_map/ShipCrashed"]

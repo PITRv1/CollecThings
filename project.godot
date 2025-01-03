@@ -14,6 +14,7 @@ config/name="CollecThings"
 run/main_scene="res://Cinematics/2D intros/Game intro/game_intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+config/icon="res://Assets/Images/logo_icon.png"
 
 [autoload]
 

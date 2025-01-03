@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://drfldo41m5nr3"]
-
-[ext_resource type="PackedScene" uid="uid://c8rbeajkquw68" path="res://Assets/Models/Environment Models/Foilage/Trees/Spruce Tree/spruce_tree.glb" id="1_gmjr0"]
-
-[node name="SpruceTree" type="Node3D"]
-
-[node name="spruce_tree" parent="." instance=ExtResource("1_gmjr0")]

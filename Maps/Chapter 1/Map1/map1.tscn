@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=24 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bqbbqix6fn652" path="res://Assets/Models/Environment Models/Foilage/Forests/Lightgreen Forest/lightgreen_forest.tscn" id="4_gsnas"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="5_yjgmn"]
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="7_ji8tk"]
-[ext_resource type="PackedScene" uid="uid://bf4rbmnocdbof" path="res://Assets/Models/Environment Models/Foilage/Grass/grass.tscn" id="8_poxjt"]
 [ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="9_fpyna"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gnm1k"]
@@ -416,56 +415,6 @@ transform = Transform3D(-2.31131, 0, 1.2971, 0, 2.65041, 0, -1.2971, 0, -2.31131
 
 [node name="mushroom4" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
 transform = Transform3D(-0.0847776, 0, 3.60274, 0, 3.60374, 0, -3.60274, 0, -0.0847776, 1092.39, 49.5476, 911.894)
-
-[node name="Grass" type="Node3D" parent="map1"]
-
-[node name="Grass" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3119, 50.7717, 901.248)
-
-[node name="Grass2" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 166.587, 50.7717, 932.61)
-
-[node name="Grass3" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 232.834, 50.7717, 898.782)
-
-[node name="Grass4" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 187.73, 45.5408, 856.849)
-
-[node name="Grass5" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 164.825, 45.1544, 800.821)
-
-[node name="Grass6" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 81.6642, 48.1934, 800.821)
-
-[node name="Grass7" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 63.6929, 49.4721, 809.63)
-
-[node name="Grass8" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 89.7689, 50.7717, 849.449)
-
-[node name="Grass9" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 116.902, 50.7717, 873.411)
-
-[node name="Grass10" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 12.9506, 50.7717, 877.991)
-
-[node name="Grass11" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -20.8777, 50.7717, 843.106)
-
-[node name="Grass12" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -17.0015, 50.7717, 851.211)
-
-[node name="Grass13" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -17.0015, 50.7717, 777.564)
-
-[node name="Grass14" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, -9.60159, 50.7717, 781.088)
-
-[node name="Grass15" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 17.1791, 50.7717, 805.754)
-
-[node name="Grass16" parent="map1/Grass" instance=ExtResource("8_poxjt")]
-transform = Transform3D(1.07607, 0, 0, 0, 1.07607, 0, 0, 0, 1.07607, 51.3598, 50.7717, 873.058)
 
 [node name="Lock_trees" type="Node3D" parent="map1"]
 

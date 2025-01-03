@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2roegt7dh5n2"]
-
-[ext_resource type="PackedScene" uid="uid://bp2y5xsiduil6" path="res://Assets/Models/Environment Models/Foilage/Trees/Red Tree/tree_red.glb" id="1_uyb4c"]
-
-[node name="RedTree" type="Node3D"]
-
-[node name="tree_red" parent="." instance=ExtResource("1_uyb4c")]

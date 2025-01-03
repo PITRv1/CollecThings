@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 			velocity = lerp(velocity, Vector3(0.0, 0.0, 0.0), .25)
 			var direction = global_position.direction_to(player.global_position)
 			rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 20 * delta)
-			player.velocity += global_position.direction_to(player.global_position) * 100
+			#player.velocity += global_position.direction_to(player.global_position) * 100
 	
 	#Conditions
 	anim_tree.get("parameters/playback")

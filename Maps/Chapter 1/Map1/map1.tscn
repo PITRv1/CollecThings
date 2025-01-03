@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=30 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
+[ext_resource type="Script" path="res://Maps/Chapter 1/Map1/world_environment.gd" id="1_uhr31"]
+[ext_resource type="Environment" uid="uid://c3r3iovidra47" path="res://Assets/Environments/map1_environment_orange_brown.tres" id="1_y5dvv"]
 [ext_resource type="PackedScene" uid="uid://2ppcs07j5k6d" path="res://Assets/Models/Environment Models/Foilage/Forests/Darkgreen Forest/darkgreen_forest.tscn" id="2_jrg62"]
 [ext_resource type="PackedScene" uid="uid://dtivihjbyspj7" path="res://Assets/Models/Environment Models/Foilage/Forests/Mix/darkgreen__lightgreen_forest.tscn" id="3_jdagu"]
 [ext_resource type="ArrayMesh" uid="uid://c51dvej6qtbpx" path="res://Assets/Models/Environment Models/Foilage/Grass/grass_mesh.res" id="4_et6a0"]
@@ -10,22 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="7_ji8tk"]
 [ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="9_fpyna"]
 [ext_resource type="PackedScene" uid="uid://c0xpb8d04kxai" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green.glb" id="10_c4ki2"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gnm1k"]
-sky_top_color = Color(0.664628, 0.357845, 0.000201668, 1)
-sky_horizon_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Sky" id="Sky_1xwb8"]
-sky_material = SubResource("ProceduralSkyMaterial_gnm1k")
-
-[sub_resource type="Environment" id="Environment_bjuhe"]
-background_mode = 2
-sky = SubResource("Sky_1xwb8")
-tonemap_mode = 2
-glow_enabled = true
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
-volumetric_fog_emission = Color(1, 1, 1, 1)
+[ext_resource type="PackedScene" uid="uid://d12gb7rkwkgsc" path="res://Maps/Hub/hub_map.tscn" id="11_a3b4n"]
+[ext_resource type="PackedScene" uid="uid://c4hs0tl2eo38t" path="res://Assets/Models/Environment Models/Foilage/Bridge/bridge.tscn" id="12_we5q1"]
 
 [sub_resource type="Compositor" id="Compositor_amfkx"]
 
@@ -43,6 +31,9 @@ shader_parameter/Ripple_Speed = 0.005
 shader_parameter/FloatParameter = 1.0
 shader_parameter/Metalic = 0.7
 shader_parameter/Roughness = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqesk"]
+size = Vector3(205.641, 54.8552, 10)
 
 [sub_resource type="MultiMesh" id="MultiMesh_hewd3"]
 transform_format = 1
@@ -121,19 +112,28 @@ points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 [node name="Map1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bjuhe")
+environment = ExtResource("1_y5dvv")
 compositor = SubResource("Compositor_amfkx")
+script = ExtResource("1_uhr31")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("5_yjgmn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.867, 59.4598, 649.767)
+transform = Transform3D(0.873492, 0, 0.486839, 0, 1, 0, -0.486839, 0, 0.873492, -302.82, 52.578, 521.601)
 
 [node name="Water_level" type="MeshInstance3D" parent="."]
 transform = Transform3D(4218.82, 0, 0, 0, 4218.82, 0, 0, 0, 4218.82, 170.949, 17.2712, -48.6081)
 mesh = SubResource("PlaneMesh_4yixr")
 skeleton = NodePath("../map1")
 surface_material_override/0 = SubResource("ShaderMaterial_tm3q6")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.581, 59.0238, 468.879)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1578.49, 14.9276, -193.124)
+shape = SubResource("BoxShape3D_pqesk")
 
 [node name="map1" parent="." instance=ExtResource("1_d6hg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -308.609)
@@ -480,3 +480,12 @@ transform = Transform3D(-3.47701e-06, -148.605, 0, 79.5447, -6.49574e-06, 0, 0, 
 visible = false
 use_collision = true
 mesh = SubResource("CapsuleMesh_pvapu")
+
+[node name="HubMap" parent="." instance=ExtResource("11_a3b4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.8842, -30.7733, 835.447)
+
+[node name="Bridge" parent="." instance=ExtResource("12_we5q1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -207.625, 44.5596, 464.359)
+
+[connection signal="body_entered" from="Area3D" to="WorldEnvironment" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="WorldEnvironment" method="_on_area_3d_body_exited"]

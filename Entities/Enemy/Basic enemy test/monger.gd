@@ -25,17 +25,6 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	state_machine = anim_tree.get("parameters/playback")
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		pass
-		#velocity.y += 5.0
-		#player.velocity.y += 5.0
-	elif Input.is_action_pressed("sprint"):
-		velocity.y -= 50.0
-		#player.velocity.y -= 50
-	
-
 func _physics_process(delta: float) -> void:
 	
 	match state_machine.get_current_node():

@@ -40,8 +40,6 @@ func primary_fire():
 						spawn_bullet()
 					mag_size -= 1
 
-					if animation_player.has_animation("knockback"):
-						animation_player.play("knockback")
 					cooldown_timer.start(weapon_settings.cooldown)
 					if mag_size <= 0:
 						reload()
@@ -55,6 +53,8 @@ func primary_fire():
 					cooldown_timer.start(weapon_settings.cooldown)
 					mag_size -= 1
 					what(ray)
+				if animation_player.has_animation("knockback"):
+					animation_player.play("knockback")
 		else:
 			reload()
 		

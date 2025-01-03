@@ -1,9 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=31 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
 [ext_resource type="Script" path="res://Maps/Chapter 1/Map1/world_environment.gd" id="1_uhr31"]
-[ext_resource type="Environment" uid="uid://c3r3iovidra47" path="res://Assets/Environments/map1_environment_orange_brown.tres" id="1_y5dvv"]
+[ext_resource type="Environment" uid="uid://c3r3iovidra47" path="res://Assets/Environments/map1_environment.tres" id="1_y5dvv"]
 [ext_resource type="PackedScene" uid="uid://2ppcs07j5k6d" path="res://Assets/Models/Environment Models/Foilage/Forests/Darkgreen Forest/darkgreen_forest.tscn" id="2_jrg62"]
 [ext_resource type="PackedScene" uid="uid://dtivihjbyspj7" path="res://Assets/Models/Environment Models/Foilage/Forests/Mix/darkgreen__lightgreen_forest.tscn" id="3_jdagu"]
 [ext_resource type="ArrayMesh" uid="uid://c51dvej6qtbpx" path="res://Assets/Models/Environment Models/Foilage/Grass/grass_mesh.res" id="4_et6a0"]
@@ -33,7 +33,10 @@ shader_parameter/Metalic = 0.7
 shader_parameter/Roughness = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqesk"]
-size = Vector3(205.641, 54.8552, 10)
+size = Vector3(283.002, 54.8552, 502.076)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqtci"]
+size = Vector3(765.532, 140.298, 442.926)
 
 [sub_resource type="MultiMesh" id="MultiMesh_hewd3"]
 transform_format = 1
@@ -132,8 +135,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.581, 59.0238, 468.879)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1578.49, 14.9276, -193.124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1617.17, 14.9276, 52.914)
 shape = SubResource("BoxShape3D_pqesk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.869279, 0, 0.494321, 0, 1, 0, -0.494321, 0, 0.869279, 1273.64, 26.3153, 166.783)
+shape = SubResource("BoxShape3D_gqtci")
 
 [node name="map1" parent="." instance=ExtResource("1_d6hg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -308.609)

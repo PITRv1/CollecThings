@@ -2177,12 +2177,6 @@ transform = Transform3D(0.90699, -0.300132, 0, 0.84753, 0.321188, 0, 0, 0, 0.788
 [node name="rock2" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("7_mrrps")]
 transform = Transform3D(-0.895526, -0.436493, 0, 7.50231, -0.0521027, 0, 0, 0, 0.788208, 0.789743, 63.8584, -3.86302)
 
-[node name="DarkRock" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("8_3bbg4")]
-transform = Transform3D(-0.389361, -0.98165, 0, 2.0044, -0.190689, 0, 0, 0, 1, -22.8599, 97.4095, -0.865911)
-
-[node name="DarkRock2" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("8_3bbg4")]
-transform = Transform3D(0.526614, -0.966169, 0, 1.97279, 0.257909, 0, 0, 0, 1, -18.6165, 96.4556, 5.67462)
-
 [node name="DarkRock3" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("8_3bbg4")]
 transform = Transform3D(0.550379, -1.19059, -0.5335, 0.014841, 0.854205, -0.825802, 1.67299, 0.384101, 0.182836, -13.4796, 98.2577, 9.49367)
 
@@ -2215,6 +2209,12 @@ transform = Transform3D(0.783542, -0.99066, 0.557406, 0, -3.23739, -0.441819, 0.
 
 [node name="rock6" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("7_mrrps")]
 transform = Transform3D(-0.26601, 0.479045, 1.1392, -3.36635e-08, 0.983275, -0.567156, 1.79838, 0.0708589, 0.168508, -2.33035, 48.7374, -43.1694)
+
+[node name="MineralRock" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("12_jasvi")]
+transform = Transform3D(1.10008, 0, 1.25087, 0, 7.81099, 0, -0.399027, 0, 3.44853, -17.9797, 91.111, 3.10295)
+
+[node name="MineralRock2" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("12_jasvi")]
+transform = Transform3D(0.818722, 0, 2.26761, 0, 4.43999, 0, -1.05469, 0, 1.76027, -21.2699, 93.1541, -1.55492)
 
 [node name="BrokenDoor_Room" type="Node3D" parent="NavigationRegion3D/Environment"]
 

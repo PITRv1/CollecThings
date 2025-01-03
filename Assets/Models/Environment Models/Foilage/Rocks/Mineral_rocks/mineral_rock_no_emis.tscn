@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcdsvav0ufnpe"]
+[gd_scene load_steps=4 format=3 uid="uid://bcdsvav0ufnpe"]
 
 [ext_resource type="PackedScene" uid="uid://ctbse5jxcw8ca" path="res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock_NO_EMIS.glb" id="1_0u1ib"]
 
-[node name="mineral_rock_NO_EMIS" instance=ExtResource("1_0u1ib")]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_llkup"]
+rough = true
+absorbent = true
 
-[node name="Icosphere" parent="." index="0"]
-collision_layer = 0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4qjxj"]
+radius = 0.80839
+height = 2.55643
+
+[node name="Mineral_Rock_No_Emis" type="RigidBody3D"]
+collision_layer = 32
+mass = 70.0
+physics_material_override = SubResource("PhysicsMaterial_llkup")
+
+[node name="mineral_rock_NO_EMIS" parent="." instance=ExtResource("1_0u1ib")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.930947, -0.365153, 0, 0.332904, 0.848729, 0.410894, -0.150039, -0.382521, 0.911683, 4.76837e-07, 0.317398, 0.0469356)
+shape = SubResource("CapsuleShape3D_4qjxj")

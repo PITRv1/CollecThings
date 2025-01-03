@@ -7,7 +7,7 @@ var shader : RID
 var pipeline : RID
 
 
-@export_range(0.0,16.0,2.0) var down_scaling : float = 2.0
+@export_range(0.0,16.0,2.0) var down_scaling : float = 0.0
 
 func _init() -> void:
 	RenderingServer.call_on_render_thread(initialize_computer_shader)

@@ -2,11 +2,11 @@ extends Node3D
 
 @onready var stat_tablet = Global.stat_tablet
 @onready var basic_enemy : PackedScene = preload("res://Entities/Enemy/Basic enemy test/monger.tscn")
-@onready var collision_shape_3d: CollisionShape3D = $NavigationRegion3D/Environment/StaticBody3D/CollisionShape3D
+@onready var break_away_enemies_rock: Node3D = $NavigationRegion3D/Environment/EnemyFight_Room/BreakAwayEnemies_Rock
 @onready var player : Player = get_tree().get_first_node_in_group("player")
 @onready var little_rock : PackedScene = preload("res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock_no_emis.tscn")
 
-@onready var rock_pos : Vector3 = $NavigationRegion3D/Environment/rock1.global_position
+@onready var rock_pos : Vector3 = $NavigationRegion3D/Environment/BrokenDoor_Room/BreakableRock.global_position
 
 var spawned_rocks : bool = false
 
@@ -14,20 +14,48 @@ var spawned_rocks : bool = false
 @onready var tako_off_animation_p: AnimationPlayer = %TakoOffAnimationP
 @onready var space_ship: Node3D = $Space_ship/Space_ship
 
+#List of to be deleted rocks
+@onready var fallen_rock_piece: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece
+@onready var fallen_rock_piece_2: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece2
+@onready var fallen_rock_piece_3: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece3
+@onready var fallen_rock_piece_4: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece4
+@onready var fallen_rock_piece_5: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece5
+@onready var fallen_rock_piece_6: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece6
+@onready var fallen_rock_piece_7: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece7
+@onready var fallen_rock_piece_8: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece8
+@onready var fallen_rock_piece_9: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece9
+@onready var fallen_rock_piece_10: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece10
+@onready var fallen_rock_piece_11: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece11
+@onready var fallen_rock_piece_12: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece12
+
+var rocklist := []
 func _ready() -> void:
-	stat_tablet.purge_message("Move with WASD")
+	rocklist = [fallen_rock_piece,fallen_rock_piece_2,fallen_rock_piece_3,fallen_rock_piece_4,fallen_rock_piece_5,fallen_rock_piece_6,fallen_rock_piece_7,fallen_rock_piece_8,fallen_rock_piece_9,fallen_rock_piece_10,fallen_rock_piece_11,fallen_rock_piece_12]
+	freeze_falling_rocks(true)
 	
+	stat_tablet.purge_message("Move with WASD")
 	
 	tako_off_animation_p.play("RESET")
 	player.health_component.health = 75
-	
 	#spawn_basic_enemy(5 , Vector3(1, 0, 0)) #first are is for amount second is offset from global pos
 	#if we spawn on ready might as well use the editor.
 
-
+var door_broken := false
 func _on_enemy_trigger_body_entered(body: Player) -> void:
-	collision_shape_3d.disabled = true
+	if not door_broken:
+		freeze_falling_rocks(false)
+		break_away_enemies_rock.queue_free()
+		delete_falling_rocks()
+		door_broken = true
 
+func freeze_falling_rocks(freeze_value:bool):
+	for rock in rocklist:
+		rock.freeze = freeze_value
+
+func delete_falling_rocks():
+	await get_tree().create_timer(6).timeout
+	for rock in rocklist:
+		rock.queue_free()
 
 func _on_grappler_body_entered(body: Player) -> void:
 	stat_tablet.purge_message(
@@ -51,9 +79,6 @@ func _on_leave_body_entered(body: Player) -> void:
 
 func _on_temp_load_next_level_body_entered(body: Node3D) -> void:
 	Global.change_scene_to("res://Cinematics/3D Cinematics/Crash/crash_animation.tscn")
-
-
-
 
 func _on_end_scene_trigger_body_entered(body: Node3D) -> void:
 	var from = player.camera
@@ -110,6 +135,6 @@ func _on_health_component_died() -> void:
 
 
 func _on_crystall_fall_body_entered(body: Player) -> void:
-	if $Crystals/Crystal8:
-		$Crystals/Crystal8.freeze = false
-		get_tree().create_timer(5).timeout.connect(func(): if $Crystals/Crystal8: $Crystals/Crystal8.queue_free())
+	if $NavigationRegion3D/Environment/LargeCave_Room/Crystal8:
+		$NavigationRegion3D/Environment/LargeCave_Room/Crystal8.freeze = false
+		get_tree().create_timer(5).timeout.connect(func(): if $NavigationRegion3D/Environment/LargeCave_Room/Crystal8: $NavigationRegion3D/Environment/LargeCave_Room/Crystal8.queue_free())

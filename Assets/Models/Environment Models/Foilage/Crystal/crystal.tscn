@@ -10,4 +10,12 @@ shader = ExtResource("2_nx1u8")
 [node name="Crystal" instance=ExtResource("1_vvybf")]
 
 [node name="Icosphere_004" parent="." index="0"]
+transform = Transform3D(0.339628, -0.0897225, -0.670229, -0.540388, -0.486876, -0.208655, -0.406495, 0.572281, -0.282595, 0.121645, 3.88419, 0.93156)
 material_override = SubResource("ShaderMaterial_iga2a")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44532, 4.57605, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 1.991
+omni_range = 14.0
+omni_attenuation = 0.469

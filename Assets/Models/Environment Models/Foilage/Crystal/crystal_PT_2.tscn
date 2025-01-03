@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqigc3i5obxvm"]
+
+[ext_resource type="PackedScene" uid="uid://b3vaqxfk6iomv" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal2.glb" id="1_7m5cu"]
+[ext_resource type="Texture2D" uid="uid://d4fhw0wt3deyy" path="res://Assets/Models/Environment Models/Map Models/caveV2_vulcanic_rock_normals.png" id="2_022r1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmuev"]
+albedo_color = Color(0.750882, 0.000718111, 0.801921, 1)
+metallic = 0.76
+metallic_specular = 0.44
+roughness = 0.18
+emission_enabled = true
+emission = Color(0.371599, 0.00141004, 0.853373, 1)
+emission_energy_multiplier = 4.11
+normal_enabled = true
+normal_scale = 0.39
+normal_texture = ExtResource("2_022r1")
+rim_tint = 0.42
+
+[node name="crystal2" instance=ExtResource("1_7m5cu")]
+
+[node name="Circle_003" parent="." index="0"]
+transform = Transform3D(1.06815, -0.264661, 0.496877, 0.0733087, 1.12199, 0.440034, -0.558173, -0.359108, 1.00864, 0.355432, -1.5068, 0.482273)
+surface_material_override/0 = SubResource("StandardMaterial3D_xmuev")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(0.88465, -0.219195, 0.411519, 0.060715, 0.929245, 0.364441, -0.462285, -0.297417, 0.835365, -2.39948, 3.52152, -0.354282)
+light_color = Color(0.917647, 0.0196078, 1, 1)
+light_energy = 1.991
+omni_range = 14.0
+omni_attenuation = 0.469

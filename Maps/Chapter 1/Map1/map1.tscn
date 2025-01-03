@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=28 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -9,8 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="5_yjgmn"]
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="7_ji8tk"]
 [ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="9_fpyna"]
+[ext_resource type="PackedScene" uid="uid://c0xpb8d04kxai" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green.glb" id="10_c4ki2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gnm1k"]
+sky_top_color = Color(0.664628, 0.357845, 0.000201668, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Sky" id="Sky_1xwb8"]
 sky_material = SubResource("ProceduralSkyMaterial_gnm1k")
@@ -112,6 +115,8 @@ shader_parameter/Roughness = 0.2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lxou4"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pvapu"]
 
 [node name="Map1" type="Node3D"]
 
@@ -446,3 +451,32 @@ transform = Transform3D(0.836878, -0.525978, -0.151596, 0.0469635, 0.344915, -0.
 
 [node name="tree_lightgreen4" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
 transform = Transform3D(0.304962, 0.946893, 0.101942, -0.951852, 0.306559, 0, -0.0312512, -0.0970335, 0.99479, 1075.59, 50.6295, 262.31)
+
+[node name="Lock_bushes" type="Node3D" parent="map1"]
+
+[node name="bush_green" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
+transform = Transform3D(0.109351, 0.279031, 0.42799, -0.486464, 0.190643, 0, -0.156164, -0.398483, 0.299693, 1124.34, 54.4632, 258.82)
+
+[node name="bush_green2" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
+transform = Transform3D(-0.50528, -0.082953, -0.103937, 0.132803, -0.335946, -0.377485, -0.00689757, -0.391472, 0.345967, 1126.37, 48.535, 257.97)
+
+[node name="bush_green3" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
+transform = Transform3D(-0.331716, 0.23648, -0.327159, 0.132803, -0.335946, -0.377485, -0.381208, -0.322814, 0.153178, 1088.67, 43.7801, 257.865)
+
+[node name="bush_green4" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
+transform = Transform3D(-0.331716, 0.23648, -0.327159, 0.132803, -0.335946, -0.377485, -0.381208, -0.322814, 0.153178, 1059.73, 43.7801, 257.865)
+
+[node name="bush_green5" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
+transform = Transform3D(-0.331716, 0.23648, -0.327159, -0.0765687, -0.452618, -0.249531, -0.39635, -0.110479, 0.322014, 1054.21, 47.7625, 261.358)
+
+[node name="bush_green6" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
+transform = Transform3D(-0.504966, 0.119285, -0.0614193, -0.0765688, -0.452618, -0.249531, -0.110175, -0.232163, 0.454922, 1019.69, 47.7625, 260.853)
+
+[node name="bush_green7" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
+transform = Transform3D(-0.479268, 0.207831, -0.0100076, -0.176509, -0.419402, -0.256784, -0.110175, -0.232163, 0.454922, 1018.2, 49.6544, 264.717)
+
+[node name="Invisible_wall" type="CSGMesh3D" parent="map1"]
+transform = Transform3D(-3.47701e-06, -148.605, 0, 79.5447, -6.49574e-06, 0, 0, 0, 24.3855, 1087.86, 55.1814, 248.353)
+visible = false
+use_collision = true
+mesh = SubResource("CapsuleMesh_pvapu")

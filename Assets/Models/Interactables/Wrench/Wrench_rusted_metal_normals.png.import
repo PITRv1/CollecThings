@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dtqajf04xns26"
+path.s3tc="res://.godot/imported/Wrench_rusted_metal_normals.png-1f5b1ffc3084b1f54cf4ff22e45f8ee0.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e157db468c77080297d3f4de15916027"
+}
+
+[deps]
+
+source_file="res://Assets/Models/Interactables/Wrench/Wrench_rusted_metal_normals.png"
+dest_files=["res://.godot/imported/Wrench_rusted_metal_normals.png-1f5b1ffc3084b1f54cf4ff22e45f8ee0.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/Models/Interactables/Wrench_rusted_metal_normals.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

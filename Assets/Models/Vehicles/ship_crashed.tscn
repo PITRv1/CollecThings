@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://df5yl158kacws"]
+
+[ext_resource type="PackedScene" uid="uid://cr02plcmn2lnw" path="res://Assets/Models/Vehicles/Ship_crashed.glb" id="1_ih0hj"]
+
+[node name="ShipCrashed" type="Node3D"]
+
+[node name="Ship_crashed" parent="." instance=ExtResource("1_ih0hj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681458, 0, -3.16436)
+
+[node name="Cone_002" parent="Ship_crashed" index="0"]
+transform = Transform3D(1.19608, 0, 0, 0, 1.19608, 0, 0, 0, 1.19608, -6.66945, 5.12259, -0.0553982)
+
+[node name="Cone_001" parent="Ship_crashed" index="1"]
+transform = Transform3D(1.05197, 0.494908, -0.281158, -0.285484, 0.969887, 0.639088, 0.492425, -0.494976, 0.97115, 3.96192, 2.29836, 1.98546)
+
+[node name="Cone_003" parent="Ship_crashed" index="2"]
+transform = Transform3D(0.576676, 0.532583, -0.90245, -0.805483, 0.884173, 0.0070834, 0.670266, 0.604325, 0.784952, -0.153681, 7.0098, 1.59351)
+
+[node name="Cone_004" parent="Ship_crashed" index="3"]
+transform = Transform3D(-0.118074, 0.974716, 0.683083, -0.734331, -0.599878, 0.729054, 0.936713, -0.347406, 0.657642, 2.68868, 0.376857, -3.85052)
+
+[editable path="Ship_crashed"]

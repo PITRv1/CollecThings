@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6hfhpa83eakh"]
+
+[ext_resource type="PackedScene" uid="uid://jbscgljelt68" path="res://Assets/Models/Enemy Models/Enemy1.glb" id="1_hnlfp"]
+
+[node name="Enemy1" type="Node3D"]
+
+[node name="Enemy1" parent="." instance=ExtResource("1_hnlfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170133, 0, 1.69414)

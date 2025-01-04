@@ -1,0 +1,62 @@
+[gd_scene load_steps=13 format=3 uid="uid://7v8m6hxv133i"]
+
+[ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="1_qx05q"]
+[ext_resource type="PackedScene" uid="uid://dyij52tvc0gnv" path="res://Assets/Models/Environment Models/Foilage/Bamboo/bam_busz.glb" id="2_qa73f"]
+[ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="3_sag4f"]
+[ext_resource type="PackedScene" uid="uid://b5a2aq0k2alvo" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom_float.tscn" id="4_vus10"]
+[ext_resource type="PackedScene" uid="uid://dgjwea0yphsog" path="res://Assets/Models/Environment Models/Foilage/Space_flower/space_flower.tscn" id="5_vwwwg"]
+[ext_resource type="PackedScene" uid="uid://c8rbeajkquw68" path="res://Assets/Models/Environment Models/Foilage/Trees/Spruce Tree/spruce_tree.glb" id="6_qc0se"]
+[ext_resource type="PackedScene" uid="uid://bp2y5xsiduil6" path="res://Assets/Models/Environment Models/Foilage/Trees/Red Tree/tree_red.glb" id="7_fx135"]
+[ext_resource type="PackedScene" uid="uid://bx5b5g5geudih" path="res://Assets/Models/Environment Models/Foilage/Trees/Yellow Tree/tree_yellow.glb" id="8_l4w37"]
+[ext_resource type="PackedScene" uid="uid://cm085xkege6hw" path="res://Assets/Models/Scraps/Scrap_parts.tscn" id="9_7j0xt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7dxo"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_3cy48"]
+material = SubResource("StandardMaterial3D_e7dxo")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p3y4x"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="AssetsMuseum" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_qx05q")]
+transform = Transform3D(-0.702749, 0, -0.711438, 0, 1, 0, 0.711438, 0, -0.702749, -0.198393, 0.762879, -0.583813)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(250, 0, 0, 0, 0.205, 0, 0, 0, 250, 0, 0, 0)
+mesh = SubResource("BoxMesh_3cy48")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_p3y4x")
+
+[node name="bam_busz" parent="." instance=ExtResource("2_qa73f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6752, -34.1425, 124.807)
+
+[node name="mushroom" parent="." instance=ExtResource("3_sag4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.463, 0.102501, 22.6424)
+
+[node name="MushroomFloat" parent="." instance=ExtResource("4_vus10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5068, -0.893108, 72.847)
+
+[node name="SpaceFlower" parent="." instance=ExtResource("5_vwwwg")]
+transform = Transform3D(2.38923, 0, 0, 0, 2.38923, 0, 0, 0, 2.38923, -0.39, 0.84, 1.765)
+
+[node name="spruce_tree" parent="." instance=ExtResource("6_qc0se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.111, -29.8087, 65.9225)
+
+[node name="tree_red" parent="." instance=ExtResource("7_fx135")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2065, -27.9762, 97.3275)
+
+[node name="tree_yellow" parent="." instance=ExtResource("8_l4w37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0428, -27.8441, 128.41)
+
+[node name="ScrapParts" parent="." instance=ExtResource("9_7j0xt")]
+transform = Transform3D(3.48224, 0, 0, 0, 3.48224, 0, 0, 0, 3.48224, -79.7645, 2.54073, 27.214)

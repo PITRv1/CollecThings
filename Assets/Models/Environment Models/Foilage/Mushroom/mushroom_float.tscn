@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b5a2aq0k2alvo"]
+[gd_scene load_steps=20 format=4 uid="uid://b5a2aq0k2alvo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysflf"]
 resource_name = "Material.002"
@@ -179,6 +179,13 @@ material = SubResource("StandardMaterial3D_f8h31")
 inner_radius = 0.797
 outer_radius = 0.856
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_levow"]
+bounce = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3i8r6"]
+radius = 6.85503
+height = 15.197
+
 [node name="MushroomFloat" type="Node3D"]
 
 [node name="Sphere2" type="MeshInstance3D" parent="."]
@@ -217,5 +224,20 @@ shape = SubResource("ConcavePolygonShape3D_bfa7f")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480493, 8.44984, -0.412647)
 randomness = 1.0
+collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_wxx7m")
 draw_pass_1 = SubResource("TorusMesh_ac3iu")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="GPUParticles3D"]
+collision_layer = 2
+mass = 0.309
+physics_material_override = SubResource("PhysicsMaterial_levow")
+gravity_scale = 2.191
+linear_velocity = Vector3(2, 2, 2)
+angular_velocity = Vector3(0.0349066, 0.0349066, 0.0349066)
+constant_force = Vector3(1, 1, 1)
+constant_torque = Vector3(1, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GPUParticles3D/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.22489, 0)
+shape = SubResource("CapsuleShape3D_3i8r6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=94 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="5_yjgmn"]
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="7_ji8tk"]
 [ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="9_fpyna"]
+[ext_resource type="Script" path="res://Maps/Chapter 1/Map1/assets_museum.gd" id="10_6quhl"]
 [ext_resource type="PackedScene" uid="uid://c0xpb8d04kxai" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green.glb" id="10_c4ki2"]
 [ext_resource type="PackedScene" uid="uid://do2ildfe6x7jp" path="res://Assets/Models/Environment Models/Map Models/waterfall_surface.glb" id="13_igx4c"]
 [ext_resource type="Script" path="res://Maps/Chapter 1/Map1/waterfall_hurt.gd" id="14_a5kju"]
@@ -81,11 +82,14 @@ shader_parameter/FloatParameter = 1.0
 shader_parameter/Metalic = 0.0
 shader_parameter/Roughness = 0.2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cx3d"]
+size = Vector3(34.8422, 18.9997, 24.1228)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqesk"]
-size = Vector3(283.002, 54.8552, 502.076)
+size = Vector3(162.789, 83.4955, 372.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqtci"]
-size = Vector3(765.532, 140.298, 442.926)
+size = Vector3(338.941, 145.192, 320.161)
 
 [sub_resource type="MultiMesh" id="MultiMesh_lsbcy"]
 transform_format = 1
@@ -702,20 +706,40 @@ mesh = SubResource("PlaneMesh_4yixr")
 skeleton = NodePath("../map1")
 surface_material_override/0 = SubResource("ShaderMaterial_tm3q6")
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.581, 59.0238, 468.879)
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1617.17, 14.9276, 52.914)
-shape = SubResource("BoxShape3D_pqesk")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.869279, 0, 0.494321, 0, 1, 0, -0.494321, 0, 0.869279, 1273.64, 26.3153, 166.783)
-shape = SubResource("BoxShape3D_gqtci")
-
 [node name="map1" parent="." instance=ExtResource("1_d6hg6")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 6.35735, -308.609)
+
+[node name="Museum" type="Node3D" parent="map1"]
+
+[node name="Assets_museum" type="Area3D" parent="map1/Museum"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1013.06, 0, 889.89)
+collision_mask = 2
+script = ExtResource("10_6quhl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map1/Museum/Assets_museum"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.6823, 58.7118, 152.47)
+shape = SubResource("BoxShape3D_1cx3d")
+
+[node name="Label3D" type="Label3D" parent="map1/Museum"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 954.726, 62.3276, 1036.22)
+pixel_size = 0.2
+billboard = 1
+text = "Enter to Assets_museum"
+font_size = 27
+outline_size = 57
+
+[node name="Environment_switch" type="Area3D" parent="map1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -353.162, 105.333, 726.59)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map1/Environment_switch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 871.967, 0.607468, 134.689)
+shape = SubResource("BoxShape3D_pqesk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="map1/Environment_switch"]
+transform = Transform3D(0.966506, 0, 0.256643, 0, 1, 0, -0.256643, 0, 0.966506, 700.46, -36.8671, 148.919)
+shape = SubResource("BoxShape3D_gqtci")
 
 [node name="Grass" type="MultiMeshInstance3D" parent="map1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.98023e-08, 0, 1, -0.00012207, 0, 0)
@@ -1047,7 +1071,8 @@ distance_fade_begin = 45.05
 omni_range = 1.324
 omni_attenuation = 4.191
 
-[connection signal="body_entered" from="Area3D" to="WorldEnvironment" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="WorldEnvironment" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="map1/Museum/Assets_museum" to="map1/Museum/Assets_museum" method="_on_body_entered"]
+[connection signal="body_entered" from="map1/Environment_switch" to="WorldEnvironment" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="map1/Environment_switch" to="WorldEnvironment" method="_on_area_3d_body_exited"]
 
 [editable path="map1/waterfall_surface"]

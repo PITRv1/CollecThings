@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=82 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="7_ji8tk"]
 [ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="9_fpyna"]
 [ext_resource type="PackedScene" uid="uid://c0xpb8d04kxai" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green.glb" id="10_c4ki2"]
-[ext_resource type="PackedScene" uid="uid://d12gb7rkwkgsc" path="res://Maps/Hub/hub_map.tscn" id="11_a3b4n"]
 [ext_resource type="PackedScene" uid="uid://c4hs0tl2eo38t" path="res://Assets/Models/Environment Models/Foilage/Bridge/bridge.tscn" id="12_we5q1"]
 [ext_resource type="PackedScene" uid="uid://do2ildfe6x7jp" path="res://Assets/Models/Environment Models/Map Models/waterfall_surface.glb" id="13_igx4c"]
 [ext_resource type="PackedScene" uid="uid://cc7dbxlg6bg1b" path="res://Assets/Models/Scraps/flashlight.tscn" id="15_1a5r4"]
@@ -957,9 +956,6 @@ mesh = SubResource("CapsuleMesh_pvapu")
 [node name="Plane" parent="map1/waterfall_surface" index="0"]
 transform = Transform3D(1.0004, 0, 0, 0, 1.0004, 0, 0, 0, 1.0004, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_uqway")
-
-[node name="HubMap" parent="." instance=ExtResource("11_a3b4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.8842, -30.7733, 835.447)
 
 [node name="Bridge" parent="." instance=ExtResource("12_we5q1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -207.625, 44.5596, 464.359)

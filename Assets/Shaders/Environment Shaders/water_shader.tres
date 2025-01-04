@@ -214,7 +214,7 @@ default_value = 0.2
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
 
 uniform float Ripple_Height_Speed = -0.00899999961257;
 uniform sampler2D tex_vtx_4;
@@ -464,6 +464,7 @@ void fragment() {
 
 }
 "
+modes/cull = 2
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_0uyws")
 nodes/vertex/2/position = Vector2(-1180, 180)
 nodes/vertex/3/node = SubResource("VisualShaderNodeUVFunc_ila6m")

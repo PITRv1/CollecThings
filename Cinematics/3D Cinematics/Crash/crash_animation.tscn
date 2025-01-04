@@ -125,7 +125,7 @@ tracks/2/path = NodePath("Camera_High:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 5, 8.86667, 20),
+"times": PackedFloat32Array(0.2, 5, 8.86667, 20),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-50.955, 150, 529.074), Vector3(-50.955, 150, 450), Vector3(43.364, 150, 327.839), Vector3(27.322, 77.748, 169.567)]
@@ -137,7 +137,7 @@ tracks/3/path = NodePath("Camera_High:rotation")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.533333, 4.4, 8.93333, 20, 20.0042),
+"times": PackedFloat32Array(0.566667, 4.4, 8.93333, 20, 20.0042),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, -2.44069, 0), Vector3(0, -1.39626, 0), Vector3(-0.436332, 0.174533, 0), Vector3(-0.774926, 0.58294, 0), Vector3(-0.774926, 0.58294, 0)]
@@ -209,7 +209,7 @@ tracks/9/path = NodePath("Camera_High:fov")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 8.93333, 17.8333, 20, 20.0042),
+"times": PackedFloat32Array(0.2, 8.93333, 17.8333, 20, 20.0042),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [60.0, 60.0, 60.0, 22.5, 40.0]

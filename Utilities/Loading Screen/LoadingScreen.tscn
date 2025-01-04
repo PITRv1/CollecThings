@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://gigek8ekd33w"]
+[gd_scene load_steps=10 format=3 uid="uid://gigek8ekd33w"]
 
 [ext_resource type="Script" path="res://Utilities/Loading Screen/loading_screen.gd" id="1_hroj5"]
-[ext_resource type="Texture2D" uid="uid://d1a5nnwndod3a" path="res://Assets/Images/old_cave.png" id="2_2c4gc"]
+[ext_resource type="PackedScene" uid="uid://d02gbt8whgnjc" path="res://Assets/Images/Loading_Screens/screen1.tscn" id="2_lwvv1"]
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="3_e4aev"]
+[ext_resource type="PackedScene" uid="uid://pbml5o72mw31" path="res://Assets/Images/Loading_Screens/screen2.tscn" id="3_m7p7v"]
 [ext_resource type="Theme" uid="uid://bppmy05s882g4" path="res://Assets/UI/Resources/Themes/blue_progressbar.tres" id="4_miiom"]
+[ext_resource type="PackedScene" uid="uid://bmvblh4dk4vbg" path="res://Assets/Images/Loading_Screens/screen3.tscn" id="4_rukdo"]
+[ext_resource type="PackedScene" uid="uid://g72pot7cd64o" path="res://Assets/Images/Loading_Screens/screen4.tscn" id="5_gcsgc"]
+[ext_resource type="PackedScene" uid="uid://cd6rkbmseqjua" path="res://Assets/Images/Loading_Screens/screen5.tscn" id="6_8dhlh"]
+[ext_resource type="PackedScene" uid="uid://b1d0he0uamgc3" path="res://Assets/Images/Loading_Screens/screen6.tscn" id="7_tttdm"]
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -13,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hroj5")
+images = Array[PackedScene]([ExtResource("2_lwvv1"), ExtResource("3_m7p7v"), ExtResource("4_rukdo"), ExtResource("5_gcsgc"), ExtResource("6_8dhlh"), ExtResource("7_tttdm")])
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -23,12 +29,6 @@ grow_horizontal = 2
 grow_vertical = 2
 ratio = 1.78
 stretch_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer"]
-layout_mode = 2
-texture = ExtResource("2_2c4gc")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
 layout_mode = 2

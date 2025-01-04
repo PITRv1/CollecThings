@@ -63,6 +63,7 @@ func _on_load_pressed() -> void:
 
 func _on_save_pressed() -> void:
 	$GameSaverLoader.save_current_map_data()
+	_show_or_hide_quit_menu()
 
 
 func _on_back_pressed() -> void:
@@ -75,3 +76,4 @@ func _on_back_load_button_pressed() -> void:
 
 func _on_load_button_pressed() -> void:
 	$GameSaverLoader.load_saved_map_data()
+	_show_or_hide_load_menu()

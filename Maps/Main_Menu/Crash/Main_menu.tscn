@@ -345,16 +345,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 0, -2.525)
 [node name="Cube_065" parent="Node3D/Space_ship/Space_ship" index="3"]
 transform = Transform3D(0.0128974, 4.74184e-05, 2.65782e-05, -1.32897e-05, 0.00886529, -0.00936766, -5.27093e-05, 0.00936755, 0.00886527, 0.776382, 4.5989, -5.38597)
 
-[node name="Screens" type="Node3D" parent="Node3D/Space_ship"]
-transform = Transform3D(1, 1.49012e-08, -1.49012e-08, -2.98023e-08, 1, 0, 0, 0, 1, -1.085, 0, 2.525)
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.889182, -0.101309, 0.446198, 0.113203, 0.993571, 0, -0.44333, 0.050511, 0.894935, 1.211, 3.496, -4.41)
+fov = 80.5
 
-[node name="Console_error_screen" parent="Node3D/Space_ship/Screens" instance=ExtResource("7_c03b3")]
+[node name="Screens" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 1.49012e-08, -2.98023e-08, -7.45058e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Console_error_screen" parent="Node3D/Screens" instance=ExtResource("7_c03b3")]
 transform = Transform3D(0.44, -3.72529e-09, -2.98023e-08, -2.23517e-08, 0.523259, -0.707107, 0, 0.523259, 0.707107, -0.74684, 4.58969, -5.41042)
 material_override = SubResource("StandardMaterial3D_5g578")
 material_overlay = SubResource("ShaderMaterial_md6bw")
 skeleton = NodePath("")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/Console_error_screen"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Screens/Console_error_screen"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 9.17466e-09, -0.126252)
 light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
 light_energy = 0.123
@@ -364,13 +368,13 @@ spot_attenuation = 6.44
 spot_angle = 88.05
 spot_angle_attenuation = 0.277393
 
-[node name="display" parent="Node3D/Space_ship/Screens" instance=ExtResource("10_ypq24")]
+[node name="display" parent="Node3D/Screens" instance=ExtResource("10_ypq24")]
 transform = Transform3D(0.931614, 0.175857, -0.0847189, -5.96046e-08, 0.696509, 0.0474062, 0.844737, -0.193943, 0.0934319, 1.533, 2.8, -6.005)
 material_override = SubResource("StandardMaterial3D_udki4")
 material_overlay = SubResource("ShaderMaterial_eu5rx")
 skeleton = NodePath("")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/display"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Screens/display"]
 transform = Transform3D(0.795184, -5.96046e-08, 4.39584e-07, 5.96046e-08, -1.34393, 5.06639e-07, -2.38419e-07, -7.15256e-07, -7.42185, -2.38419e-07, 0, -0.126253)
 light_energy = 0.123
 shadow_enabled = true
@@ -379,13 +383,13 @@ spot_attenuation = 6.44
 spot_angle = 88.05
 spot_angle_attenuation = 0.277393
 
-[node name="Core" parent="Node3D/Space_ship/Screens" instance=ExtResource("11_m28nl")]
+[node name="Core" parent="Node3D/Screens" instance=ExtResource("11_m28nl")]
 transform = Transform3D(0.923783, -0.180563, 0.0792251, 0, 0.715149, 0.044332, -0.837636, -0.199133, 0.0873731, -1.61989, 2.79616, -6.00641)
 material_override = SubResource("StandardMaterial3D_6yx2h")
 material_overlay = SubResource("ShaderMaterial_53w41")
 skeleton = NodePath("")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/Core"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Screens/Core"]
 transform = Transform3D(0.801925, -1.19209e-07, -3.1665e-07, 5.96046e-08, -1.3089, 2.01166e-07, -3.12924e-07, -2.38419e-07, -7.93651, 2.38419e-07, 4.76837e-07, -0.112495)
 light_color = Color(1, 0, 0, 1)
 light_energy = 0.123
@@ -395,16 +399,16 @@ spot_attenuation = 6.44
 spot_angle = 88.05
 spot_angle_attenuation = 0.217638
 
-[node name="Main menu" parent="Node3D/Space_ship/Screens" instance=ExtResource("14_mqkme")]
+[node name="Main menu" parent="Node3D/Screens" instance=ExtResource("14_mqkme")]
 transform = Transform3D(2.117, 0, 0, 0, 1.562, 0, 2.98023e-08, 5.96046e-08, 1.77, 1.19209e-07, 3.333, -6.205)
 
-[node name="Thrusters" parent="Node3D/Space_ship/Screens" instance=ExtResource("13_33hov")]
+[node name="Thrusters" parent="Node3D/Screens" instance=ExtResource("13_33hov")]
 transform = Transform3D(1, -0.000135028, -0.000173062, -3.12924e-07, 0.551162, -0.707595, 0.000244737, 0.551924, 0.706618, 0.054, 4.633, -5.372)
 material_override = SubResource("StandardMaterial3D_iep3j")
 material_overlay = SubResource("ShaderMaterial_rojqs")
 skeleton = NodePath("")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Space_ship/Screens/Thrusters"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Screens/Thrusters"]
 transform = Transform3D(1, 1.51806e-07, 5.06639e-07, 1.11759e-07, -1.28205, -6.14673e-07, 1.19209e-07, -1.67638e-07, -1, 3.57628e-07, 4.76837e-07, -0.0112395)
 light_color = Color(1.73271e-06, 0.86898, 0.987292, 1)
 shadow_enabled = true
@@ -413,51 +417,47 @@ spot_attenuation = 6.44
 spot_angle = 89.99
 spot_angle_attenuation = 0.784584
 
-[node name="NoVid" parent="Node3D/Space_ship/Screens" instance=ExtResource("14_eviat")]
+[node name="NoVid" parent="Node3D/Screens" instance=ExtResource("14_eviat")]
 transform = Transform3D(1.1, 0, 0, 0, 0.318999, 0.91706, 0, -0.733648, 0.398749, 0.0158999, 2.03047, -5.77427)
 material_override = SubResource("StandardMaterial3D_gvtdm")
 material_overlay = SubResource("ShaderMaterial_m7e30")
 skeleton = NodePath("")
 
-[node name="Touchpad_screen" parent="Node3D/Space_ship/Screens" instance=ExtResource("17_0l3td")]
+[node name="Touchpad_screen" parent="Node3D/Screens" instance=ExtResource("17_0l3td")]
 transform = Transform3D(0.3, 0, 7.45058e-09, 0, 0.338937, 0.91706, 7.45058e-09, -0.779501, 0.398749, -0.85261, 2.03492, -5.74458)
 material_override = SubResource("StandardMaterial3D_q0d77")
 material_overlay = SubResource("ShaderMaterial_r0bpg")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../Space_ship")
 
-[node name="ShipSpot2" type="SpotLight3D" parent="Node3D/Space_ship" node_paths=PackedStringArray("timer")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.28768, 4.82614, -8.46706e-08)
+[node name="ShipSpot2" type="SpotLight3D" parent="Node3D" node_paths=PackedStringArray("timer")]
+transform = Transform3D(1, 4.02331e-07, 1.78814e-07, 0, -5.96046e-08, 1, -1.49012e-08, -1, -2.98023e-08, -0.20268, 4.82614, -2.525)
 light_color = Color(0.76, 0.9, 1, 1)
 light_energy = 4.0
 spot_angle = 70.27
 script = ExtResource("18_y5sbh")
-timer = NodePath("../../../Timer")
+timer = NodePath("../../Timer")
 
-[node name="ShipSpot1" type="SpotLight3D" parent="Node3D/Space_ship"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.28768, 4.82614, 6.50581)
+[node name="ShipSpot1" type="SpotLight3D" parent="Node3D"]
+transform = Transform3D(1, 4.02331e-07, 1.78814e-07, 0, -5.96046e-08, 1, -1.49012e-08, -1, -2.98023e-08, -0.20268, 4.82614, 3.98081)
 light_color = Color(0.76, 0.9, 1, 1)
 light_energy = 4.068
 spot_angle = 56.09
 
-[node name="OrangeSmal" type="OmniLight3D" parent="Node3D/Space_ship"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08768, 2.39949, -3.83591)
+[node name="OrangeSmal" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 1.63913e-07, -4.02331e-07, 0, 1, 2.98023e-08, -1.49012e-08, 0, 1, -0.00268003, 2.39949, -6.36091)
 light_color = Color(1, 0.643137, 0, 1)
 light_energy = 0.11
 shadow_enabled = true
 omni_range = 0.588358
 omni_attenuation = -0.233
 
-[node name="MainDisplayLight" type="OmniLight3D" parent="Node3D/Space_ship"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08768, 3.41621, -3.83591)
+[node name="MainDisplayLight" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 1.63913e-07, -4.02331e-07, 0, 1, 2.98023e-08, -1.49012e-08, 0, 1, -0.00268003, 3.41621, -6.36091)
 light_color = Color(1, 0.643137, 0, 1)
 light_energy = 0.11
 shadow_enabled = true
 omni_range = 1.94972
 omni_attenuation = -0.233
-
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.889182, -0.101309, 0.446198, 0.113203, 0.993571, 0, -0.44333, 0.050511, 0.894935, 1.211, 3.496, -4.41)
-fov = 80.5
 
 [node name="flames" type="Node3D" parent="."]
 transform = Transform3D(0.942641, -0.333807, 0, 0.217675, 0.614695, 0.758134, -0.25307, -0.714649, 0.652098, 1.02277, 0.321889, -1.92113)
@@ -497,7 +497,7 @@ transform = Transform3D(0.886478, 0, -0.46277, 0, 1, 0, 0.46277, 0, 0.886478, 5.
 [node name="Bush4" parent="." instance=ExtResource("22_g18ig")]
 transform = Transform3D(-0.524739, 0.43018, -0.734571, 0.250051, 0.902743, 0.350042, 0.81371, 0, -0.581271, 4.11781, -1.26516, -5.86029)
 
-[connection signal="timeout" from="Timer" to="Node3D/Space_ship/ShipSpot2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Node3D/ShipSpot2" method="_on_timer_timeout"]
 
 [editable path="Node3D/Space_ship"]
 [editable path="Node3D/Space_ship/Space_ship"]

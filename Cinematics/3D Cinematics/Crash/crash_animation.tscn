@@ -508,7 +508,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-111.97]
+"values": [600.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -1128,7 +1128,7 @@ alpha_curve = SubResource("CurveTexture_t41v8")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o62kn"]
 render_priority = 0
 shader = ExtResource("8_f65px")
-shader_parameter/Base_Color = Color(0.415466, 0.437122, 0.679763, 1)
+shader_parameter/Base_Color = Color(0.087538, 0.0930979, 0.18472, 1)
 shader_parameter/Line_Amount = 2.0
 shader_parameter/Time_Multiply = 4.0
 shader_parameter/Scan_lines_center_weight = 0.02
@@ -1143,12 +1143,12 @@ material = SubResource("ShaderMaterial_o62kn")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mvl5p"]
 render_priority = 0
 shader = ExtResource("9_m4ook")
-shader_parameter/base_color = Color(0.192157, 0.12549, 0.45098, 0.784314)
-shader_parameter/Disolve_Height = -111.97
+shader_parameter/base_color = Color(0.113157, 0.203883, 0.146407, 1)
+shader_parameter/Disolve_Height = 600.0
 shader_parameter/Noise_scale = 532.765
 shader_parameter/noise_size = 0.01
 shader_parameter/Glow_ticcc = 18.86
-shader_parameter/Edge_Color = Color(0.754947, 0.837007, 1, 1)
+shader_parameter/Edge_Color = Color(0.25098, 0.266667, 0.101961, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ufi8i"]
 material = SubResource("ShaderMaterial_mvl5p")

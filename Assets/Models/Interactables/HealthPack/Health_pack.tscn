@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3fi7jn4d476k"]
+[gd_scene load_steps=10 format=3 uid="uid://c3fi7jn4d476k"]
 
 [ext_resource type="Script" path="res://Assets/Models/Interactables/HealthPack/health_pack.gd" id="1_a2kne"]
 [ext_resource type="PackedScene" uid="uid://cr75vdmspma2m" path="res://Assets/Models/Interactables/HealthPack/HealthPack.glb" id="1_e1akd"]
+[ext_resource type="Script" path="res://Components/HitboxComponent.gd" id="3_na3b5"]
+[ext_resource type="Script" path="res://Components/HealthComponent.gd" id="4_i5aft"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nmqjc"]
 size = Vector3(0.959229, 0.292358, 0.972656)
@@ -68,6 +70,8 @@ _data = {
 "RESET": SubResource("Animation_vudud")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_sgkml"]
+
 [node name="HealthPack" type="Node3D"]
 transform = Transform3D(-3.61999e-06, -1, 0, 1, -3.61999e-06, 0, 0, 0, 1, 0, 0, 0.000935614)
 script = ExtResource("1_a2kne")
@@ -88,5 +92,18 @@ libraries = {
 }
 autoplay = "Bob_and_rotate"
 speed_scale = 1.285
+
+[node name="HitboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_na3b5")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+shape = SubResource("BoxShape3D_sgkml")
+
+[node name="HealthComponent" type="Node3D" parent="." groups=["health_components"]]
+script = ExtResource("4_i5aft")
+MAX_HEALTH = 1.0
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

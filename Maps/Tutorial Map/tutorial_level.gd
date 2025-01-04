@@ -84,6 +84,7 @@ func _on_end_scene_trigger_body_entered(body: Node3D) -> void:
 	var from = player.camera
 	var to = take_off_cam
 	
+	player.velocity = Vector3.ZERO
 	player.paused = true
 	player.ui.visible = false
 	player.weapon_controller.visible = false

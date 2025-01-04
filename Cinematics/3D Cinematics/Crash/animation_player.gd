@@ -6,6 +6,8 @@ extends AnimationPlayer
 @onready var timer: Timer = $"../Timer"
 
 
+# Prev colors: c1d5ff and 312073c8
+
 var current_camera = camera_high
 
 
@@ -24,8 +26,6 @@ func switch_camera():
 			current_camera.current = false
 			current_camera = camera_high
 			current_camera.current = true
-
-
 	
 
 func _process(delta: float) -> void:
@@ -36,5 +36,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		change_map()
 
+
 func change_map() -> void:
-	Global.change_scene_to("res://Maps/Test Maps/Env_Asset_Test_map/env_asset_test_map.tscn")
+	Global.change_scene_to("res://Maps/Hub/hub_map.tscn")

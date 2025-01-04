@@ -58,9 +58,10 @@ var _last_frame_was_on_floor = -INF
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running := false
 var look_sensitivity := 0.003
+var paused : bool = false
 
 ########################################################
-var paused = false
+
 func _input(event):
 	if paused: return
 	
@@ -68,6 +69,20 @@ func _input(event):
 		rotate_y(-event.relative.x * look_sensitivity)
 		%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
 		%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
+	
+	if Input.is_action_just_pressed("hide_ui"):
+		if ui.visible:
+			ui.visible = false
+			crosshair.visible = false
+			weapon_controller.visible = false
+		else:
+			ui.visible = true
+			crosshair.visible = true
+			weapon_controller.visible = true
+			
+			
+	
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -244,6 +259,8 @@ func update_gravity(delta):
 	self.velocity.y -= gravity * delta 
 
 func update_input(delta):
+	if paused: return
+	
 	input_dir = Input.get_vector("left", "right", "up", "down").normalized()
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0., input_dir.y)
 	

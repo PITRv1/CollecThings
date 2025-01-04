@@ -33,22 +33,24 @@ func _load_components() -> void:
 	var health_components : Array[Node] = get_tree().get_nodes_in_group("health_components")
 	for health_component: HealthComponent in health_components:
 		health_data[health_component.get_path()] = health_component.health
-		health_component.damaged.connect(func(): _handle_health_component_damage(health_component))
+		health_component.damaged.connect(func(): _handle_health_component_value_change(health_component))
+		health_component.healed.connect(func(): _handle_health_component_value_change(health_component))
 		
 	
 	var shield_components : Array[Node] = get_tree().get_nodes_in_group("shield_components")
 	for shield_component: ShieldComponent in shield_components:
 		shield_data[shield_component.get_path()] = shield_component.shield
-		shield_component.damaged.connect(func(): _handle_shield_component_damage(shield_component))
+		shield_component.damaged.connect(func(): _handle_shield_component_value_change(shield_component))
+		shield_component.healed.connect(func(): _handle_shield_component_value_change(shield_component))
 		
 	
 
-func _handle_health_component_damage(health_component: HealthComponent) -> void:
+func _handle_health_component_value_change(health_component: HealthComponent) -> void:
 	var id : NodePath = health_component.get_path()
 	health_data[id] = health_component.health
 	
 
-func _handle_shield_component_damage(shield_component: ShieldComponent) -> void:
+func _handle_shield_component_value_change(shield_component: ShieldComponent) -> void:
 	var id : NodePath = shield_component.get_path()
 	shield_data[id] = shield_component.shield
 	
@@ -73,7 +75,6 @@ func save_current_map_data() -> void:
 	map_data.player_velocity = player.velocity
 	
 	ResourceSaver.save(map_data, Global.MAP_SAVE_FILE)
-	
 	Global.update_main_menu()
 	
 

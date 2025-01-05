@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crgixkimxibcf"
 path.s3tc="res://.godot/imported/lomb3.jpg-0617b0e24ffbd3422d80d433404d0257.s3tc.ctex"
+path.etc2="res://.godot/imported/lomb3.jpg-0617b0e24ffbd3422d80d433404d0257.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/Test Maps/Ch1 Map1 design/lomb3.jpg"
-dest_files=["res://.godot/imported/lomb3.jpg-0617b0e24ffbd3422d80d433404d0257.s3tc.ctex"]
+dest_files=["res://.godot/imported/lomb3.jpg-0617b0e24ffbd3422d80d433404d0257.s3tc.ctex", "res://.godot/imported/lomb3.jpg-0617b0e24ffbd3422d80d433404d0257.etc2.ctex"]
 
 [params]
 

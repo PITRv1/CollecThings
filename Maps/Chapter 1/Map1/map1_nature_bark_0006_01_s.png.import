@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dei6fbfy2orx8"
 path.s3tc="res://.godot/imported/map1_nature_bark_0006_01_s.png-4f02f66e072c1198004140c0df1b5bb7.s3tc.ctex"
+path.etc2="res://.godot/imported/map1_nature_bark_0006_01_s.png-4f02f66e072c1198004140c0df1b5bb7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Maps/Chapter 1/Map1/map1_nature_bark_0006_01_s.png"
-dest_files=["res://.godot/imported/map1_nature_bark_0006_01_s.png-4f02f66e072c1198004140c0df1b5bb7.s3tc.ctex"]
+dest_files=["res://.godot/imported/map1_nature_bark_0006_01_s.png-4f02f66e072c1198004140c0df1b5bb7.s3tc.ctex", "res://.godot/imported/map1_nature_bark_0006_01_s.png-4f02f66e072c1198004140c0df1b5bb7.etc2.ctex"]
 
 [params]
 

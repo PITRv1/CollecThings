@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqn8sy23mgu5h"
 path.s3tc="res://.godot/imported/bush_green_bush.jpg-fd5afe6ff3a8d94e739bd1022a51d594.s3tc.ctex"
+path.etc2="res://.godot/imported/bush_green_bush.jpg-fd5afe6ff3a8d94e739bd1022a51d594.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green_bush.jpg"
-dest_files=["res://.godot/imported/bush_green_bush.jpg-fd5afe6ff3a8d94e739bd1022a51d594.s3tc.ctex"]
+dest_files=["res://.godot/imported/bush_green_bush.jpg-fd5afe6ff3a8d94e739bd1022a51d594.s3tc.ctex", "res://.godot/imported/bush_green_bush.jpg-fd5afe6ff3a8d94e739bd1022a51d594.etc2.ctex"]
 
 [params]
 

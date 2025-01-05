@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3brf2y6jyic4"
 path.s3tc="res://.godot/imported/Petha_1m x 1m Gray.png-2443b4ac4442f2203e1d073d9ceee415.s3tc.ctex"
+path.etc2="res://.godot/imported/Petha_1m x 1m Gray.png-2443b4ac4442f2203e1d073d9ceee415.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Test assets/Test Textures/Petha_1m x 1m Gray.png"
-dest_files=["res://.godot/imported/Petha_1m x 1m Gray.png-2443b4ac4442f2203e1d073d9ceee415.s3tc.ctex"]
+dest_files=["res://.godot/imported/Petha_1m x 1m Gray.png-2443b4ac4442f2203e1d073d9ceee415.s3tc.ctex", "res://.godot/imported/Petha_1m x 1m Gray.png-2443b4ac4442f2203e1d073d9ceee415.etc2.ctex"]
 
 [params]
 

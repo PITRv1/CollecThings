@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5hfu0lmpo24q"
 path.s3tc="res://.godot/imported/sphere_tree_Lomb.png-be33823c51aad0448322c352a005f3a0.s3tc.ctex"
+path.etc2="res://.godot/imported/sphere_tree_Lomb.png-be33823c51aad0448322c352a005f3a0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/Test Maps/Ch1 Map1 design/sphere_tree_Lomb.png"
-dest_files=["res://.godot/imported/sphere_tree_Lomb.png-be33823c51aad0448322c352a005f3a0.s3tc.ctex"]
+dest_files=["res://.godot/imported/sphere_tree_Lomb.png-be33823c51aad0448322c352a005f3a0.s3tc.ctex", "res://.godot/imported/sphere_tree_Lomb.png-be33823c51aad0448322c352a005f3a0.etc2.ctex"]
 
 [params]
 

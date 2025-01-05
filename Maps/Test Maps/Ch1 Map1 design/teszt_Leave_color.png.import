@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctfb5hm8wcwmq"
 path.s3tc="res://.godot/imported/teszt_Leave_color.png-51e7431253563c7280ec3a318225cf01.s3tc.ctex"
+path.etc2="res://.godot/imported/teszt_Leave_color.png-51e7431253563c7280ec3a318225cf01.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/Test Maps/Ch1 Map1 design/teszt_Leave_color.png"
-dest_files=["res://.godot/imported/teszt_Leave_color.png-51e7431253563c7280ec3a318225cf01.s3tc.ctex"]
+dest_files=["res://.godot/imported/teszt_Leave_color.png-51e7431253563c7280ec3a318225cf01.s3tc.ctex", "res://.godot/imported/teszt_Leave_color.png-51e7431253563c7280ec3a318225cf01.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://1wb8sv1c67r2"
 path.s3tc="res://.godot/imported/sphere_tree_nature_bark2.jpg-cd5898d19cb43801a22e34526dc71e4b.s3tc.ctex"
+path.etc2="res://.godot/imported/sphere_tree_nature_bark2.jpg-cd5898d19cb43801a22e34526dc71e4b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/Test Maps/Ch1 Map1 design/sphere_tree_nature_bark2.jpg"
-dest_files=["res://.godot/imported/sphere_tree_nature_bark2.jpg-cd5898d19cb43801a22e34526dc71e4b.s3tc.ctex"]
+dest_files=["res://.godot/imported/sphere_tree_nature_bark2.jpg-cd5898d19cb43801a22e34526dc71e4b.s3tc.ctex", "res://.godot/imported/sphere_tree_nature_bark2.jpg-cd5898d19cb43801a22e34526dc71e4b.etc2.ctex"]
 
 [params]
 

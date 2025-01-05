@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dee3kggjavdua"
 path.s3tc="res://.godot/imported/Petha_1m x 1m Dark Gary.png-b00dfd78c99375b8687e189b9c236080.s3tc.ctex"
+path.etc2="res://.godot/imported/Petha_1m x 1m Dark Gary.png-b00dfd78c99375b8687e189b9c236080.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Test assets/Test Textures/Petha_1m x 1m Dark Gary.png"
-dest_files=["res://.godot/imported/Petha_1m x 1m Dark Gary.png-b00dfd78c99375b8687e189b9c236080.s3tc.ctex"]
+dest_files=["res://.godot/imported/Petha_1m x 1m Dark Gary.png-b00dfd78c99375b8687e189b9c236080.s3tc.ctex", "res://.godot/imported/Petha_1m x 1m Dark Gary.png-b00dfd78c99375b8687e189b9c236080.etc2.ctex"]
 
 [params]
 

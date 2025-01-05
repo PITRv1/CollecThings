@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpyidvcq01vda"
 path.s3tc="res://.godot/imported/Scrap_parts_rust.jpg-ed04a4a537c10fa5999c220204485f07.s3tc.ctex"
+path.etc2="res://.godot/imported/Scrap_parts_rust.jpg-ed04a4a537c10fa5999c220204485f07.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Scraps/Scrap_parts_rust.jpg"
-dest_files=["res://.godot/imported/Scrap_parts_rust.jpg-ed04a4a537c10fa5999c220204485f07.s3tc.ctex"]
+dest_files=["res://.godot/imported/Scrap_parts_rust.jpg-ed04a4a537c10fa5999c220204485f07.s3tc.ctex", "res://.godot/imported/Scrap_parts_rust.jpg-ed04a4a537c10fa5999c220204485f07.etc2.ctex"]
 
 [params]
 

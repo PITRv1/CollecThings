@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqadecmhb5u12"
 path.s3tc="res://.godot/imported/Enemy1_crocodile-leather-animal-skin-texture-background-illustration-with-generative-ai-photo.jpg-c8fa223744cee02fe980c362dbbbbd52.s3tc.ctex"
+path.etc2="res://.godot/imported/Enemy1_crocodile-leather-animal-skin-texture-background-illustration-with-generative-ai-photo.jpg-c8fa223744cee02fe980c362dbbbbd52.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Enemy Models/Enemy1_crocodile-leather-animal-skin-texture-background-illustration-with-generative-ai-photo.jpg"
-dest_files=["res://.godot/imported/Enemy1_crocodile-leather-animal-skin-texture-background-illustration-with-generative-ai-photo.jpg-c8fa223744cee02fe980c362dbbbbd52.s3tc.ctex"]
+dest_files=["res://.godot/imported/Enemy1_crocodile-leather-animal-skin-texture-background-illustration-with-generative-ai-photo.jpg-c8fa223744cee02fe980c362dbbbbd52.s3tc.ctex", "res://.godot/imported/Enemy1_crocodile-leather-animal-skin-texture-background-illustration-with-generative-ai-photo.jpg-c8fa223744cee02fe980c362dbbbbd52.etc2.ctex"]
 
 [params]
 

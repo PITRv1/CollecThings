@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://db4y3n7tay4w8"
 path.s3tc="res://.godot/imported/Gear_Tree_moon.jpg-a014ff6549c9865314423b6b6a85dced.s3tc.ctex"
+path.etc2="res://.godot/imported/Gear_Tree_moon.jpg-a014ff6549c9865314423b6b6a85dced.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Trees/Gear_Tree/Gear_Tree_moon.jpg"
-dest_files=["res://.godot/imported/Gear_Tree_moon.jpg-a014ff6549c9865314423b6b6a85dced.s3tc.ctex"]
+dest_files=["res://.godot/imported/Gear_Tree_moon.jpg-a014ff6549c9865314423b6b6a85dced.s3tc.ctex", "res://.godot/imported/Gear_Tree_moon.jpg-a014ff6549c9865314423b6b6a85dced.etc2.ctex"]
 
 [params]
 

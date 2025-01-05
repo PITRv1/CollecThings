@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5aqvnnishkeb"
 path.s3tc="res://.godot/imported/HealthPack_rusted_metal_normals.png-754c74262c7d0d3286dba6f2ff2d415f.s3tc.ctex"
+path.etc2="res://.godot/imported/HealthPack_rusted_metal_normals.png-754c74262c7d0d3286dba6f2ff2d415f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Interactables/HealthPack/HealthPack_rusted_metal_normals.png"
-dest_files=["res://.godot/imported/HealthPack_rusted_metal_normals.png-754c74262c7d0d3286dba6f2ff2d415f.s3tc.ctex"]
+dest_files=["res://.godot/imported/HealthPack_rusted_metal_normals.png-754c74262c7d0d3286dba6f2ff2d415f.s3tc.ctex", "res://.godot/imported/HealthPack_rusted_metal_normals.png-754c74262c7d0d3286dba6f2ff2d415f.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyynn734eiua7"
 path.s3tc="res://.godot/imported/nature_bark3.jpg-bcfaf5948c652d5e13ae7b3757c6059b.s3tc.ctex"
+path.etc2="res://.godot/imported/nature_bark3.jpg-bcfaf5948c652d5e13ae7b3757c6059b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/Test Maps/Ch1 Map1 design/nature_bark3.jpg"
-dest_files=["res://.godot/imported/nature_bark3.jpg-bcfaf5948c652d5e13ae7b3757c6059b.s3tc.ctex"]
+dest_files=["res://.godot/imported/nature_bark3.jpg-bcfaf5948c652d5e13ae7b3757c6059b.s3tc.ctex", "res://.godot/imported/nature_bark3.jpg-bcfaf5948c652d5e13ae7b3757c6059b.etc2.ctex"]
 
 [params]
 

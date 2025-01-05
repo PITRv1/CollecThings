@@ -82,7 +82,7 @@ text = "LOAD SAVEFILE"
 layout_mode = 2
 alignment = 1
 
-[node name="TutorialButton" type="Button" parent="Margin/VBox/Play"]
+[node name="PlayButton" type="Button" parent="Margin/VBox/Play"]
 texture_filter = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -104,6 +104,19 @@ theme = ExtResource("1_pjc62")
 theme_override_font_sizes/font_size = 36
 text = "Test map"
 
+[node name="Asset Museum" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="MuseumButton" type="Button" parent="Margin/VBox/Asset Museum"]
+texture_filter = 1
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_pjc62")
+theme_override_font_sizes/font_size = 36
+text = "Museum"
+
 [node name="Quit" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
 alignment = 1
@@ -118,6 +131,7 @@ theme_override_font_sizes/font_size = 36
 text = "QUIT"
 
 [connection signal="pressed" from="Margin/VBox/Load/LoadButton" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="Margin/VBox/Play/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="Margin/VBox/Test Map/EnvButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Margin/VBox/Play/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Margin/VBox/Test Map/EnvButton" to="." method="_on_env_button_pressed"]
+[connection signal="pressed" from="Margin/VBox/Asset Museum/MuseumButton" to="." method="_on_museum_button_pressed"]
 [connection signal="pressed" from="Margin/VBox/Quit/QuitButton" to="." method="_on_quit_button_pressed"]

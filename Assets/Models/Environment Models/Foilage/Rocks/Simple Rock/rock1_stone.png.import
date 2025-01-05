@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6iu3mbda6ey6"
 path.s3tc="res://.godot/imported/rock1_stone.png-081c180041ced1b7f138790f095e1647.s3tc.ctex"
+path.etc2="res://.godot/imported/rock1_stone.png-081c180041ced1b7f138790f095e1647.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1_stone.png"
-dest_files=["res://.godot/imported/rock1_stone.png-081c180041ced1b7f138790f095e1647.s3tc.ctex"]
+dest_files=["res://.godot/imported/rock1_stone.png-081c180041ced1b7f138790f095e1647.s3tc.ctex", "res://.godot/imported/rock1_stone.png-081c180041ced1b7f138790f095e1647.etc2.ctex"]
 
 [params]
 

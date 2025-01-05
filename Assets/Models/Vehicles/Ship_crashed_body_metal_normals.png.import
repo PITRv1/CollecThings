@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvimrh3c32hug"
 path.s3tc="res://.godot/imported/Ship_crashed_body_metal_normals.png-115e7ddc378370d95c695949230812b9.s3tc.ctex"
+path.etc2="res://.godot/imported/Ship_crashed_body_metal_normals.png-115e7ddc378370d95c695949230812b9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Vehicles/Ship_crashed_body_metal_normals.png"
-dest_files=["res://.godot/imported/Ship_crashed_body_metal_normals.png-115e7ddc378370d95c695949230812b9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ship_crashed_body_metal_normals.png-115e7ddc378370d95c695949230812b9.s3tc.ctex", "res://.godot/imported/Ship_crashed_body_metal_normals.png-115e7ddc378370d95c695949230812b9.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://brdjoolf8e5i7"
 path.s3tc="res://.godot/imported/hub_map_grass.jpg-411e238ee08a635c371491a4f20d161e.s3tc.ctex"
+path.etc2="res://.godot/imported/hub_map_grass.jpg-411e238ee08a635c371491a4f20d161e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Maps/Hub/hub_map_grass.jpg"
-dest_files=["res://.godot/imported/hub_map_grass.jpg-411e238ee08a635c371491a4f20d161e.s3tc.ctex"]
+dest_files=["res://.godot/imported/hub_map_grass.jpg-411e238ee08a635c371491a4f20d161e.s3tc.ctex", "res://.godot/imported/hub_map_grass.jpg-411e238ee08a635c371491a4f20d161e.etc2.ctex"]
 
 [params]
 

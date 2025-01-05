@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg1dd75ecn5xo"]
+
+[ext_resource type="PackedScene" uid="uid://bw035vgry3gnu" path="res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock_NO_EMIS_static.glb" id="1_a1v0d"]
+[ext_resource type="PackedScene" uid="uid://cgveeh3hj2u7i" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 1/bush.tscn" id="2_bmhi0"]
+[ext_resource type="PackedScene" uid="uid://ht34e3cmdk0g" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green.tscn" id="3_5en1m"]
+
+[node name="RockWithBush" type="Node3D"]
+
+[node name="mineral_rock_NO_EMIS_static" parent="." instance=ExtResource("1_a1v0d")]
+transform = Transform3D(1, 0, 0, 0, 0.0785982, 0.996906, 0, -0.996906, 0.0785982, -0.632222, 0.215746, 0.588486)
+
+[node name="mineral_rock_NO_EMIS_static2" parent="." instance=ExtResource("1_a1v0d")]
+transform = Transform3D(1.30572, 0, 0, 0, 0.0516768, 0.479835, 0, -0.655446, 0.0378312, -2.87205, 2.98023e-08, -0.620203)
+
+[node name="Bush" parent="." instance=ExtResource("2_bmhi0")]
+transform = Transform3D(0.527366, 0, 0, 0, 0.320324, 0, 0, 0, 0.420083, 0.416684, 0, -0.917806)
+
+[node name="BushGreen" parent="." instance=ExtResource("3_5en1m")]
+transform = Transform3D(0.13341, 0.0200225, 0.0130418, -0.0349174, 0.0765006, -0.00341342, -0.0312172, 0, 0.0595536, -1.79423, 0.796508, -1.43787)

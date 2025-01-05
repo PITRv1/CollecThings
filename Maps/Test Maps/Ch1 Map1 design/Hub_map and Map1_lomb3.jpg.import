@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://oqfehxakaa8d"
 path.s3tc="res://.godot/imported/Hub_map and Map1_lomb3.jpg-8f0c13fb9341823ac022aff9dfa5c798.s3tc.ctex"
+path.etc2="res://.godot/imported/Hub_map and Map1_lomb3.jpg-8f0c13fb9341823ac022aff9dfa5c798.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Maps/Test Maps/Ch1 Map1 design/Hub_map and Map1_lomb3.jpg"
-dest_files=["res://.godot/imported/Hub_map and Map1_lomb3.jpg-8f0c13fb9341823ac022aff9dfa5c798.s3tc.ctex"]
+dest_files=["res://.godot/imported/Hub_map and Map1_lomb3.jpg-8f0c13fb9341823ac022aff9dfa5c798.s3tc.ctex", "res://.godot/imported/Hub_map and Map1_lomb3.jpg-8f0c13fb9341823ac022aff9dfa5c798.etc2.ctex"]
 
 [params]
 

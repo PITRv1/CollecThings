@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnjb803rw4ey8"]
+
+[ext_resource type="PackedScene" uid="uid://bvo3xke2n3jn3" path="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/Rock.tscn" id="1_up4aa"]
+[ext_resource type="PackedScene" uid="uid://qdk0xp2w5y3p" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.glb" id="2_mkx4t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3y5c"]
+albedo_color = Color(0.654902, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu15s"]
+albedo_color = Color(0.827451, 0.819608, 0.462745, 1)
+
+[node name="RocksWithShrooms" type="Node3D"]
+
+[node name="rock1" parent="." instance=ExtResource("1_up4aa")]
+transform = Transform3D(0.17, 0, 0, 0, 0.053, 0, 0, 0, 0.243, 0, 0.368091, 0)
+
+[node name="rock2" parent="." instance=ExtResource("1_up4aa")]
+transform = Transform3D(0.110628, 0.00567813, 0.230547, 0.00514094, 0.0259968, -0.0768854, -0.166538, 0.00457439, 0.150774, 0.669998, 0.335964, 0.818421)
+
+[node name="mushroom" parent="." instance=ExtResource("2_mkx4t")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0.833621, 0)
+
+[node name="mushroom2" parent="." instance=ExtResource("2_mkx4t")]
+transform = Transform3D(0.028626, 0.00853728, -0.00276932, -0.0089752, 0.0272292, -0.0088326, 2.23517e-10, 0.00925656, 0.0285362, 0.677078, 0.533798, 0.850523)
+
+[node name="Cylinder" parent="mushroom2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_s3y5c")
+
+[node name="mushroom3" parent="." instance=ExtResource("2_mkx4t")]
+transform = Transform3D(0.0249596, -0.00139957, 0.000241014, 0.00134578, 0.0246643, 0.00385509, -0.000453596, -0.00383589, 0.0246998, -0.0249171, 0.768578, -0.301723)
+
+[node name="Cylinder" parent="mushroom3" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fu15s")
+
+[editable path="mushroom"]
+[editable path="mushroom2"]
+[editable path="mushroom3"]

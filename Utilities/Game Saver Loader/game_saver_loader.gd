@@ -32,6 +32,7 @@ func _ready() -> void:
 func _load_components() -> void:
 	var health_components : Array[Node] = get_tree().get_nodes_in_group("health_components")
 	for health_component: HealthComponent in health_components:
+		if health_data.has(health_component.get_path()): return
 		health_data[health_component.get_path()] = health_component.health
 		health_component.damaged.connect(func(): _handle_health_component_value_change(health_component))
 		health_component.healed.connect(func(): _handle_health_component_value_change(health_component))
@@ -39,6 +40,7 @@ func _load_components() -> void:
 	
 	var shield_components : Array[Node] = get_tree().get_nodes_in_group("shield_components")
 	for shield_component: ShieldComponent in shield_components:
+		if shield_data.has(shield_component.get_path()): return
 		shield_data[shield_component.get_path()] = shield_component.shield
 		shield_component.damaged.connect(func(): _handle_shield_component_value_change(shield_component))
 		shield_component.healed.connect(func(): _handle_shield_component_value_change(shield_component))
@@ -63,6 +65,7 @@ func _save_position_data() -> void:
 
 
 func save_current_map_data() -> void:
+	_load_components()
 	_save_position_data()
 	
 	var map_data : MapData = MapData.new()

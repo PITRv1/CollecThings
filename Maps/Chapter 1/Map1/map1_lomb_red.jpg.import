@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bavp3k2xwfj2n"
 path.s3tc="res://.godot/imported/map1_lomb_red.jpg-e4b4d341f6b9f0c53c416c104243cd65.s3tc.ctex"
+path.etc2="res://.godot/imported/map1_lomb_red.jpg-e4b4d341f6b9f0c53c416c104243cd65.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Maps/Chapter 1/Map1/map1_lomb_red.jpg"
-dest_files=["res://.godot/imported/map1_lomb_red.jpg-e4b4d341f6b9f0c53c416c104243cd65.s3tc.ctex"]
+dest_files=["res://.godot/imported/map1_lomb_red.jpg-e4b4d341f6b9f0c53c416c104243cd65.s3tc.ctex", "res://.godot/imported/map1_lomb_red.jpg-e4b4d341f6b9f0c53c416c104243cd65.etc2.ctex"]
 
 [params]
 

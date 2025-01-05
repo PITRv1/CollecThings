@@ -159,5 +159,5 @@ func instantiate_projectile(target) -> void:
 	if proj:
 		proj.global_position = projectile_origin.global_position
 		proj.enter(weapon_settings)
-		get_tree().root.add_child(proj)
+		get_tree().current_scene.add_child(proj)
 		proj.look_at(target, Vector3.UP)

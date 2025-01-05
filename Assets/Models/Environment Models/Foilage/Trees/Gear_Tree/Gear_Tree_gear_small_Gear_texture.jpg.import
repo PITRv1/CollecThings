@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhifavj8ekcct"
 path.s3tc="res://.godot/imported/Gear_Tree_gear_small_Gear_texture.jpg-a10370a4ae4c0266165f1355a6b187fe.s3tc.ctex"
+path.etc2="res://.godot/imported/Gear_Tree_gear_small_Gear_texture.jpg-a10370a4ae4c0266165f1355a6b187fe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Trees/Gear_Tree/Gear_Tree_gear_small_Gear_texture.jpg"
-dest_files=["res://.godot/imported/Gear_Tree_gear_small_Gear_texture.jpg-a10370a4ae4c0266165f1355a6b187fe.s3tc.ctex"]
+dest_files=["res://.godot/imported/Gear_Tree_gear_small_Gear_texture.jpg-a10370a4ae4c0266165f1355a6b187fe.s3tc.ctex", "res://.godot/imported/Gear_Tree_gear_small_Gear_texture.jpg-a10370a4ae4c0266165f1355a6b187fe.etc2.ctex"]
 
 [params]
 

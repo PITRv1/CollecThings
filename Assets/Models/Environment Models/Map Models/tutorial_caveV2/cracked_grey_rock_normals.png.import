@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqq2720kyuifk"
 path.s3tc="res://.godot/imported/cracked_grey_rock_normals.png-126a8f4ce13e8c42a3b66ba64d4bf12a.s3tc.ctex"
+path.etc2="res://.godot/imported/cracked_grey_rock_normals.png-126a8f4ce13e8c42a3b66ba64d4bf12a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/cracked_grey_rock_normals.png"
-dest_files=["res://.godot/imported/cracked_grey_rock_normals.png-126a8f4ce13e8c42a3b66ba64d4bf12a.s3tc.ctex"]
+dest_files=["res://.godot/imported/cracked_grey_rock_normals.png-126a8f4ce13e8c42a3b66ba64d4bf12a.s3tc.ctex", "res://.godot/imported/cracked_grey_rock_normals.png-126a8f4ce13e8c42a3b66ba64d4bf12a.etc2.ctex"]
 
 [params]
 

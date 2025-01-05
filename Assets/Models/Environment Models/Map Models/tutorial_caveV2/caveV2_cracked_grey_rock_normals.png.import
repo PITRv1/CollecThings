@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5h680lp1hnds"
 path.s3tc="res://.godot/imported/caveV2_cracked_grey_rock_normals.png-e9bae92a593dfa4703a3b5688b6ecb4f.s3tc.ctex"
+path.etc2="res://.godot/imported/caveV2_cracked_grey_rock_normals.png-e9bae92a593dfa4703a3b5688b6ecb4f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Map Models/tutorial_caveV2/caveV2_cracked_grey_rock_normals.png"
-dest_files=["res://.godot/imported/caveV2_cracked_grey_rock_normals.png-e9bae92a593dfa4703a3b5688b6ecb4f.s3tc.ctex"]
+dest_files=["res://.godot/imported/caveV2_cracked_grey_rock_normals.png-e9bae92a593dfa4703a3b5688b6ecb4f.s3tc.ctex", "res://.godot/imported/caveV2_cracked_grey_rock_normals.png-e9bae92a593dfa4703a3b5688b6ecb4f.etc2.ctex"]
 
 [params]
 

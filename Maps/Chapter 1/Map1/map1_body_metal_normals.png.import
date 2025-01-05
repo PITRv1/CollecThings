@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8sshmn06pk8a"
 path.s3tc="res://.godot/imported/map1_body_metal_normals.png-cfaa291e9967b866bde7f70be89bd457.s3tc.ctex"
+path.etc2="res://.godot/imported/map1_body_metal_normals.png-cfaa291e9967b866bde7f70be89bd457.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Maps/Chapter 1/Map1/map1_body_metal_normals.png"
-dest_files=["res://.godot/imported/map1_body_metal_normals.png-cfaa291e9967b866bde7f70be89bd457.s3tc.ctex"]
+dest_files=["res://.godot/imported/map1_body_metal_normals.png-cfaa291e9967b866bde7f70be89bd457.s3tc.ctex", "res://.godot/imported/map1_body_metal_normals.png-cfaa291e9967b866bde7f70be89bd457.etc2.ctex"]
 
 [params]
 

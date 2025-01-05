@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xay11p57qpgc"
 path.s3tc="res://.godot/imported/Gear_Tree_Pipe_Metal_material.jpg-2eefe096ba4734d92be73f30b1739d68.s3tc.ctex"
+path.etc2="res://.godot/imported/Gear_Tree_Pipe_Metal_material.jpg-2eefe096ba4734d92be73f30b1739d68.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Trees/Gear_Tree/Gear_Tree_Pipe_Metal_material.jpg"
-dest_files=["res://.godot/imported/Gear_Tree_Pipe_Metal_material.jpg-2eefe096ba4734d92be73f30b1739d68.s3tc.ctex"]
+dest_files=["res://.godot/imported/Gear_Tree_Pipe_Metal_material.jpg-2eefe096ba4734d92be73f30b1739d68.s3tc.ctex", "res://.godot/imported/Gear_Tree_Pipe_Metal_material.jpg-2eefe096ba4734d92be73f30b1739d68.etc2.ctex"]
 
 [params]
 

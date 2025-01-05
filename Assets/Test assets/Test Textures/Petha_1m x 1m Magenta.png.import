@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://3g6jegslx4th"
 path.s3tc="res://.godot/imported/Petha_1m x 1m Magenta.png-0f9ab57ae45166e6cc6b04d5bb7becc9.s3tc.ctex"
+path.etc2="res://.godot/imported/Petha_1m x 1m Magenta.png-0f9ab57ae45166e6cc6b04d5bb7becc9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Test assets/Test Textures/Petha_1m x 1m Magenta.png"
-dest_files=["res://.godot/imported/Petha_1m x 1m Magenta.png-0f9ab57ae45166e6cc6b04d5bb7becc9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Petha_1m x 1m Magenta.png-0f9ab57ae45166e6cc6b04d5bb7becc9.s3tc.ctex", "res://.godot/imported/Petha_1m x 1m Magenta.png-0f9ab57ae45166e6cc6b04d5bb7becc9.etc2.ctex"]
 
 [params]
 

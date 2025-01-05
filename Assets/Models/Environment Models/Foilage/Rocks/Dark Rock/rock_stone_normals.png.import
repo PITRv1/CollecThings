@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://g6h67xeqfjlj"
 path.s3tc="res://.godot/imported/rock_stone_normals.png-c03b33b45b753682c34e3538840b8e44.s3tc.ctex"
+path.etc2="res://.godot/imported/rock_stone_normals.png-c03b33b45b753682c34e3538840b8e44.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Dark Rock/rock_stone_normals.png"
-dest_files=["res://.godot/imported/rock_stone_normals.png-c03b33b45b753682c34e3538840b8e44.s3tc.ctex"]
+dest_files=["res://.godot/imported/rock_stone_normals.png-c03b33b45b753682c34e3538840b8e44.s3tc.ctex", "res://.godot/imported/rock_stone_normals.png-c03b33b45b753682c34e3538840b8e44.etc2.ctex"]
 
 [params]
 

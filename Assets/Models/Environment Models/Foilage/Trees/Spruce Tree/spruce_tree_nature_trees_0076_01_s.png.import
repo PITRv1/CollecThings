@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cne1fpc3n5dlr"
 path.s3tc="res://.godot/imported/spruce_tree_nature_trees_0076_01_s.png-eed19988144b23d287ec2df63e5d6845.s3tc.ctex"
+path.etc2="res://.godot/imported/spruce_tree_nature_trees_0076_01_s.png-eed19988144b23d287ec2df63e5d6845.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Trees/Spruce Tree/spruce_tree_nature_trees_0076_01_s.png"
-dest_files=["res://.godot/imported/spruce_tree_nature_trees_0076_01_s.png-eed19988144b23d287ec2df63e5d6845.s3tc.ctex"]
+dest_files=["res://.godot/imported/spruce_tree_nature_trees_0076_01_s.png-eed19988144b23d287ec2df63e5d6845.s3tc.ctex", "res://.godot/imported/spruce_tree_nature_trees_0076_01_s.png-eed19988144b23d287ec2df63e5d6845.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqa7eivhjomqg"
 path.s3tc="res://.godot/imported/trees_lomb_red.jpg-166d102e75f2210a461bd0e289f33155.s3tc.ctex"
+path.etc2="res://.godot/imported/trees_lomb_red.jpg-166d102e75f2210a461bd0e289f33155.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Maps/Test Maps/Ch1 Map1 design/trees_lomb_red.jpg"
-dest_files=["res://.godot/imported/trees_lomb_red.jpg-166d102e75f2210a461bd0e289f33155.s3tc.ctex"]
+dest_files=["res://.godot/imported/trees_lomb_red.jpg-166d102e75f2210a461bd0e289f33155.s3tc.ctex", "res://.godot/imported/trees_lomb_red.jpg-166d102e75f2210a461bd0e289f33155.etc2.ctex"]
 
 [params]
 

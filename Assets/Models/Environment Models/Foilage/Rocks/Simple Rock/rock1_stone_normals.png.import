@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq57korqvaffl"
 path.s3tc="res://.godot/imported/rock1_stone_normals.png-b9af1a39306451adbe1f763719a054be.s3tc.ctex"
+path.etc2="res://.godot/imported/rock1_stone_normals.png-b9af1a39306451adbe1f763719a054be.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1_stone_normals.png"
-dest_files=["res://.godot/imported/rock1_stone_normals.png-b9af1a39306451adbe1f763719a054be.s3tc.ctex"]
+dest_files=["res://.godot/imported/rock1_stone_normals.png-b9af1a39306451adbe1f763719a054be.s3tc.ctex", "res://.godot/imported/rock1_stone_normals.png-b9af1a39306451adbe1f763719a054be.etc2.ctex"]
 
 [params]
 

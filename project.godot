@@ -132,7 +132,16 @@ hide_ui={
 3d_physics/layer_4="enemies"
 3d_physics/layer_6="Props"
 
+[navigation]
+
+3d/default_cell_size=0.5
+3d/default_cell_height=0.5
+
 [physics]
 
 3d/physics_engine="JoltPhysics3D"
 common/physics_interpolation=true
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

@@ -249,7 +249,7 @@ _data = {
 
 [node name="abel_mans" type="CharacterBody3D" groups=["Enemy", "enemy"]]
 collision_layer = 4
-collision_mask = 9
+collision_mask = 15
 script = ExtResource("1_4y12o")
 damage = 50.0
 
@@ -268,13 +268,14 @@ shape = SubResource("ConvexPolygonShape3D_mwvb0")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Sphere_004" type="MeshInstance3D" parent="body/enemy"]
-transform = Transform3D(0.787471, 2.75578e-08, -5.8868e-08, 1.18905e-07, -0.182507, 3.57182e-21, -1.18905e-07, -4.16111e-15, -0.389865, 1.16503, 1.09838, 0)
+transform = Transform3D(0.787471, 2.75578e-08, -5.8868e-08, 1.18905e-07, -0.182507, -3.7989e-20, -1.18905e-07, -4.16109e-15, -0.389865, 1.16503, 1.09838, 0)
 mesh = SubResource("ArrayMesh_j1oo6")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="body/enemy"]
 transform = Transform3D(1.07284e-07, 1.50996e-07, 1, -6.60024e-15, -1, 1.50996e-07, 1, -2.27997e-14, -1.07284e-07, 1.16503, 0.844094, -0.241208)
-collision_mask = 3
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="body/enemy/Area3D"]
 transform = Transform3D(-3.44215e-08, 0, -0.389865, 0, 0.182507, 0, 0.787471, 0, -1.70415e-08, 0.241208, -0.254291, 0)

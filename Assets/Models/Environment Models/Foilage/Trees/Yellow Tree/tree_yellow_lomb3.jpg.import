@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4jp8rnsf071q"
 path.s3tc="res://.godot/imported/tree_yellow_lomb3.jpg-186f0407ebde324936a1d3ddb08f4af8.s3tc.ctex"
+path.etc2="res://.godot/imported/tree_yellow_lomb3.jpg-186f0407ebde324936a1d3ddb08f4af8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/Environment Models/Foilage/Trees/Yellow Tree/tree_yellow_lomb3.jpg"
-dest_files=["res://.godot/imported/tree_yellow_lomb3.jpg-186f0407ebde324936a1d3ddb08f4af8.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree_yellow_lomb3.jpg-186f0407ebde324936a1d3ddb08f4af8.s3tc.ctex", "res://.godot/imported/tree_yellow_lomb3.jpg-186f0407ebde324936a1d3ddb08f4af8.etc2.ctex"]
 
 [params]
 

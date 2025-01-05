@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://blflwwhqhncq6"]
+
+[ext_resource type="PackedScene" uid="uid://cr4egby1gojie" path="res://Assets/Models/Enemy Models/Rigged enemy.glb" id="1_0qsyo"]
+
+[node name="Enemy" type="Node3D"]
+
+[node name="Rigged enemy" parent="." instance=ExtResource("1_0qsyo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5019, 0, -2.03567)
+
+[node name="Skeleton3D" parent="Rigged enemy/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.0147368, 9.99886e-05, -0.012795, 0.99981)
+bones/1/rotation = Quaternion(-0.265075, 0.00789016, 0.00532273, 0.964181)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.0589674, 0.000984204, -0.00722116, 0.998233)
+bones/3/rotation = Quaternion(0.100536, 0.00801352, -0.0539436, 0.993438)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.0958217, 0.00230377, -0.0518834, 0.994043)
+bones/5/rotation = Quaternion(0.0162845, 0.00236642, -0.0610625, 0.997998)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.489207, 0.524795, -0.521545, -0.461798)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0205005, -0.000268479, -0.013659, 0.999696)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.278302, -0.00595622, 0.0541532, 0.958947)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.184106, -0.0237878, 0.0457781, 0.981552)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.0123443, -0.00233255, 0.629693, 0.776742)
+bones/12/rotation = Quaternion(-0.0205005, -0.00026848, -0.013659, 0.999696)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.278302, -0.00595622, 0.0541532, 0.958947)
+bones/14/rotation = Quaternion(0.184107, -0.0237878, 0.0457781, 0.981551)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-0.0123443, -0.00233254, 0.629693, 0.776742)
+
+[editable path="Rigged enemy"]

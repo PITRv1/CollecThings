@@ -31,10 +31,8 @@ transform = Transform3D(250, 0, 0, 0, 0.205, 0, 0, 0, 250, 0, 0, 0)
 mesh = SubResource("BoxMesh_3cy48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_p3y4x")
 
 [node name="bam_busz" parent="." instance=ExtResource("2_qa73f")]

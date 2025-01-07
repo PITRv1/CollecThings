@@ -180,15 +180,20 @@ func save_settings() -> void:
 	
 
 func load_settings() -> void:
+	var config_data : ConfigData = null
+	
 	if ResourceLoader.exists(Global.USER_SAVE_FILE):
-		var config_data : ConfigData = ResourceLoader.load(Global.USER_SAVE_FILE)
+		config_data = ResourceLoader.load(Global.USER_SAVE_FILE)
+	else:
+		config_data = ConfigData.new()
+	
+	
+	if config_data:
+		set_main_volume(config_data.main_volume)
+		set_music_volume(config_data.music_volume)
+		set_window_mode(config_data.window_mode)
+		set_game_resolution(config_data.resolution)
+		set_safe_mode(config_data.compatibility_mode)
+		set_pixelization_amount(config_data.pixelization)
 		
-		if config_data:
-			set_main_volume(config_data.main_volume)
-			set_music_volume(config_data.music_volume)
-			set_window_mode(config_data.window_mode)
-			set_game_resolution(config_data.resolution)
-			set_safe_mode(config_data.compatibility_mode)
-			set_pixelization_amount(config_data.pixelization)
-		
-		
+	

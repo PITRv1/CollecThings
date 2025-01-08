@@ -402,7 +402,7 @@ shadow_enabled = true
 transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 148, 0, -312)
 
 [node name="Flashlight" parent="hub_map" instance=ExtResource("7_fxq0c")]
-transform = Transform3D(0.38002, -0.108759, 0.330123, 0.102079, 0.502491, 0.0480388, -0.33225, 0.0299861, 0.392347, -374.173, 85.1064, 45.7054)
+transform = Transform3D(-0.6883, 0.171615, 0.483191, 0.267538, 0.81018, 0.0933517, -0.437434, 0.225474, -0.703203, -377.656, 83.7216, 51.9233)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="hub_map/Flashlight"]
 transform = Transform3D(1, 1.49012e-08, 0, -1.11759e-08, 1, -7.45058e-09, 0, 3.72529e-09, 1, 0, 0, 0)

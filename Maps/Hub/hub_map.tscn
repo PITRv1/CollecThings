@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://d12gb7rkwkgsc"]
+[gd_scene load_steps=74 format=3 uid="uid://d12gb7rkwkgsc"]
 
 [ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="1_k6m5i"]
 [ext_resource type="Script" path="res://Maps/Hub/hub_map.gd" id="1_ofqif"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dtl5ck0nl4etu" path="res://Assets/Models/Vehicles/Space_ship_body_metal.png" id="6_immfr"]
 [ext_resource type="PackedScene" uid="uid://cc7dbxlg6bg1b" path="res://Assets/Models/Scraps/flashlight.tscn" id="7_fxq0c"]
 [ext_resource type="PackedScene" uid="uid://b2w1i0lhbf17l" path="res://Assets/Models/Environment Models/Foilage/Rocks/Rock Group/rocks.tscn" id="7_h0tc7"]
+[ext_resource type="PackedScene" uid="uid://0rypmfy5a05a" path="res://Assets/Models/Scraps/Workbench_with blueprints.glb" id="8_71rsh"]
 [ext_resource type="PackedScene" uid="uid://wbcirt4d6h8a" path="res://Assets/Models/Environment Models/Foilage/Rocks/Dark Rock/dark_rock.tscn" id="8_hufoi"]
 [ext_resource type="PackedScene" uid="uid://dfjlg1rkdrjww" path="res://Assets/Models/Interactables/Wrench/Wrench.glb" id="9_35xjy"]
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="10_wu3xl"]
@@ -71,6 +72,12 @@ gamma = 0.9
 
 [sub_resource type="Compositor" id="Compositor_gbq37"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_hk7n5"), SubResource("CompositorEffect_xhddd"), SubResource("CompositorEffect_8lm6u"), SubResource("CompositorEffect_q2bv2")])
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_671gs"]
+size = Vector3(1.16553, 6, 10.6312)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ilky5"]
+size = Vector3(10.7042, 4.07092, 8.09692)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h6m0s"]
 radius = 1.75678
@@ -400,6 +407,19 @@ shadow_enabled = true
 
 [node name="hub_map" parent="." instance=ExtResource("1_k6m5i")]
 transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 148, 0, -312)
+
+[node name="Workbench_with blueprints" parent="hub_map" instance=ExtResource("8_71rsh")]
+transform = Transform3D(-0.610064, 0, -1.07793, -0.265282, 1.2005, 0.150138, 1.04478, 0.304821, -0.5913, -504.975, 83.6715, 55.8954)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="hub_map/Workbench_with blueprints"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="hub_map/Workbench_with blueprints/StaticBody3D"]
+transform = Transform3D(-0.99785, 0.065339, 0.00524253, 0.0655479, 0.995014, 0.0751466, -0.000306815, 0.0753313, -0.997158, 3.03123, 3.6013, -0.838219)
+shape = SubResource("BoxShape3D_671gs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hub_map/Workbench_with blueprints/StaticBody3D"]
+transform = Transform3D(-0.0249689, -0.0897053, -0.995654, 0.00509366, 0.99594, -0.0898616, 0.999676, -0.00731558, -0.0244102, -0.192238, 0.682213, -0.742203)
+shape = SubResource("BoxShape3D_ilky5")
 
 [node name="Flashlight" parent="hub_map" instance=ExtResource("7_fxq0c")]
 transform = Transform3D(-0.6883, 0.171615, 0.483191, 0.267538, 0.81018, 0.0933517, -0.437434, 0.225474, -0.703203, -377.656, 83.7216, 51.9233)

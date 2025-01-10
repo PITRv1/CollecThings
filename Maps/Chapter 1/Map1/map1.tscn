@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=107 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -695,13 +695,31 @@ buffer = PackedFloat32Array(0.494535, -0.00696618, 0.227415, 874.469, 0.0279003,
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7wm4"]
 size = Vector3(3, 100, 250)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3prxl"]
+size = Vector3(223.834, 35, 10.3776)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52w8u"]
+size = Vector3(244.304, 35, 10.3776)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yp4s7"]
+size = Vector3(122.807, 35, 30.5383)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uccan"]
+size = Vector3(58.7729, 35, 10.3776)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yc80p"]
+size = Vector3(52.832, 35, 10.3776)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4t01"]
+size = Vector3(52.832, 35, 10.3776)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kyt48"]
+size = Vector3(112.595, 35, 10.3776)
+
 [node name="Map1" type="Node3D" node_paths=PackedStringArray("parent_node")]
 script = ExtResource("1_j80qh")
 parent_node = NodePath("map1/Forest")
-spawned_obj_per_parent = 8
 obj_to_spawn = Array[PackedScene]([ExtResource("22_4sep1"), ExtResource("21_grf25")])
-pos_randomness = 10.0
-scale_randomness = 2.7
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_y5dvv")
@@ -837,13 +855,13 @@ transform = Transform3D(0.432794, 0, 0.901493, 0, 0.784127, 0, -0.901493, 0, 0.4
 transform = Transform3D(0.576233, 0, 0.817286, 0, 0.784127, 0, -0.817286, 0, 0.576233, 498.671, 47.1763, 367.019)
 
 [node name="LightgreenForest40" parent="map1/Forest" instance=ExtResource("4_gsnas")]
-transform = Transform3D(0.995858, 0, -0.0909282, 0, 0.784127, 0, 0.0909282, 0, 0.995858, 538.809, 47.1763, 324.496)
+transform = Transform3D(0.995858, 0, -0.0909282, 0, 0.784127, 0, 0.0909282, 0, 0.995858, 504.503, 47.1763, 324.496)
 
 [node name="LightgreenForest9" parent="map1/Forest" instance=ExtResource("4_gsnas")]
 transform = Transform3D(0.979582, 0, -0.201044, 0, 0.784127, 0, 0.201044, 0, 0.979582, 464.71, 47.1763, 214.122)
 
 [node name="LightgreenForest16" parent="map1/Forest" instance=ExtResource("4_gsnas")]
-transform = Transform3D(0.90003, 0, -0.435828, 0, 0.784127, 0, 0.435828, 0, 0.90003, 497.104, 47.1763, 242.219)
+transform = Transform3D(0.709841, 0, -0.704362, 0, 0.784127, 0, 0.704362, 0, 0.709841, 471.368, 47.1763, 242.219)
 
 [node name="LightgreenForest10" parent="map1/Forest" instance=ExtResource("4_gsnas")]
 transform = Transform3D(0.662398, 0, 0.749152, 0, 0.784127, 0, -0.749152, 0, 0.662398, 753.05, 50.5378, 165.714)
@@ -972,7 +990,6 @@ shape = SubResource("ConcavePolygonShape3D_4bnq0")
 
 [node name="Invisible_wall" type="CSGMesh3D" parent="map1"]
 transform = Transform3D(-3.47701e-06, -148.605, 0, 79.5447, -6.49574e-06, 0, 0, 0, 24.3855, 1087.86, 55.1814, 248.353)
-visible = false
 use_collision = true
 mesh = SubResource("CapsuleMesh_pvapu")
 
@@ -1125,9 +1142,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1347.9, 51.0644, 449.676)
 [node name="Fight Area" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 6.35735, -308.609)
 
-[node name="Enemy spawner" type="Marker3D" parent="Fight Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 469.694, 56.8971, 611.747)
-
 [node name="Area3D" type="Area3D" parent="Fight Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 277.545, 61.5609, 629.745)
 collision_layer = 0
@@ -1137,11 +1151,45 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.9136, -3.25253)
 shape = SubResource("BoxShape3D_j7wm4")
 
+[node name="Enemy spawner" type="Marker3D" parent="Fight Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 469.694, 56.8971, 611.747)
+
 [node name="Leave" type="Marker3D" parent="Fight Area"]
-transform = Transform3D(0.362991, 0, -0.931792, 0, 0.784127, 0, 0.931792, 0, 0.362991, 526.313, 47.1763, 591.334)
+transform = Transform3D(0.362991, 0, -0.931792, 0, 0.784127, 0, 0.931792, 0, 0.362991, 526.154, 47.1763, 583.94)
 
 [node name="Enter" type="Marker3D" parent="Fight Area"]
-transform = Transform3D(-0.13473, 0, -0.990882, 0, 0.784127, 0, 0.990882, 0, -0.13473, 231.566, 45.7899, 624.895)
+transform = Transform3D(1, 0, 0, 0, 0.784127, 0, 0, 0, 1, 202.041, 45.7899, 624.895)
+
+[node name="invis_wall" type="StaticBody3D" parent="Fight Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 386.622, 59.4874, 525.967)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fight Area/invis_wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4325, 2.29524, -1.45477)
+shape = SubResource("BoxShape3D_3prxl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Fight Area/invis_wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3844, 2.29524, 194.498)
+shape = SubResource("BoxShape3D_52w8u")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Fight Area/invis_wall"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 103.291, 2.29524, 143.401)
+shape = SubResource("BoxShape3D_yp4s7")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Fight Area/invis_wall"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 93.2109, 2.29524, 22.3848)
+shape = SubResource("BoxShape3D_uccan")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Fight Area/invis_wall"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -139.219, 2.29524, 173.081)
+shape = SubResource("BoxShape3D_yc80p")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Fight Area/invis_wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.171, 2.29524, 146.452)
+shape = SubResource("BoxShape3D_f4t01")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Fight Area/invis_wall"]
+transform = Transform3D(0.506515, 0, 0.862231, 0, 1, 0, -0.862231, 0, 0.506515, -140.034, 2.29524, 41.414)
+shape = SubResource("BoxShape3D_kyt48")
 
 [connection signal="body_entered" from="map1/Museum/Assets_museum" to="map1/Museum/Assets_museum" method="_on_body_entered"]
 [connection signal="body_entered" from="map1/Environment_switch" to="WorldEnvironment" method="_on_area_3d_body_entered"]

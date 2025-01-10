@@ -247,10 +247,11 @@ _data = {
 "wander": SubResource("Animation_t4kdj")
 }
 
-[node name="abel_mans" type="CharacterBody3D" groups=["Enemy", "enemy"]]
+[node name="abel_mans" type="CharacterBody3D" node_paths=PackedStringArray("hitbox_component") groups=["Enemy", "enemy"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_4y12o")
+hitbox_component = NodePath("HitboxComponent")
 SPEED = 15.0
 damage = 50.0
 
@@ -269,7 +270,7 @@ shape = SubResource("ConvexPolygonShape3D_mwvb0")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Sphere_004" type="MeshInstance3D" parent="body/enemy"]
-transform = Transform3D(0.787471, 2.75578e-08, -5.8868e-08, 1.18905e-07, -0.182507, -1.67754e-19, -1.18905e-07, -4.16103e-15, -0.389865, 1.16503, 1.09838, 0)
+transform = Transform3D(0.787471, 2.75578e-08, -5.8868e-08, 1.18905e-07, -0.182507, -2.09315e-19, -1.18905e-07, -4.16101e-15, -0.389865, 1.16503, 1.09838, 0)
 mesh = SubResource("ArrayMesh_j1oo6")
 skeleton = NodePath("")
 

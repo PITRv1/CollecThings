@@ -1,0 +1,186 @@
+[gd_scene load_steps=14 format=3 uid="uid://he377sv7g53l"]
+
+[ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="1_p5ksx"]
+[ext_resource type="Script" path="res://Maps/Test Maps/Easter egg/egg.gd" id="1_xwrd8"]
+[ext_resource type="AudioStream" uid="uid://b16ggo72l3adb" path="res://Maps/Test Maps/Easter egg/music.wav" id="3_rnpfw"]
+[ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="4_yl6aj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r11cs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_um2qp"]
+shading_mode = 0
+
+[sub_resource type="Animation" id="Animation_kg41m"]
+resource_name = "anim"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 0.966667, 1.2),
+"transitions": PackedFloat32Array(0.68302, 0.34151, 2.46229, 0.406126, 2.46229),
+"update": 0,
+"values": [Vector3(0.12, 0.12, 0.12), Vector3(0.165, 0.08, 0.12), Vector3(0.12, 0.12, 0.12), Vector3(0.105, 0.2, 0.12), Vector3(0.12, 0.12, 0.12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.716667, 0.816667, 0.916667, 1.01667, 1.11667, 1.21667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 1, 1), Color(0, 1, 0.572549, 1), Color(1, 1, 0.611765, 1), Color(0.901961, 0.592157, 0.65098, 1), Color(0.701961, 0.423529, 0.278431, 1), Color(0.8, 0.341176, 0.690196, 1), Color(1, 0, 0.317647, 1), Color(0, 1, 1, 1), Color(0, 1, 0.572549, 1), Color(1, 1, 0.611765, 1), Color(0.901961, 0.592157, 0.65098, 1), Color(0.701961, 0.423529, 0.278431, 1), Color(0.8, 0.341176, 0.690196, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y23up"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.12, 0.12, 0.12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Space_ship:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.07177),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rn770"]
+resource_name = "look"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Space_ship:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 2.46667, 3),
+"transitions": PackedFloat32Array(0.392292, 1.7411, 1.7411, 61.8199),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(0.127409, -2.50629, 0), Vector3(0.127409, -2.50629, 0), Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vubii"]
+_data = {
+"RESET": SubResource("Animation_y23up"),
+"anim": SubResource("Animation_kg41m"),
+"look": SubResource("Animation_rn770")
+}
+
+[sub_resource type="Animation" id="Animation_wdamr"]
+resource_name = "spin"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Space_ship:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.66667, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(0, 0.0349066, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i4rda"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Space_ship:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(0, 0, 0), Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ri3lg"]
+_data = {
+"RESET": SubResource("Animation_i4rda"),
+"spin": SubResource("Animation_wdamr")
+}
+
+[node name="Egg" type="Node3D"]
+script = ExtResource("1_xwrd8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.36432, 0, 0, 0, -4.37114e-08, -2.53519, 0, 1, -1.10817e-07, 0, 2.36967, -1.71515)
+mesh = SubResource("PlaneMesh_r11cs")
+surface_material_override/0 = SubResource("StandardMaterial3D_um2qp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.47059e-07, 1, -1.10817e-07, 0, -4.37114e-08, -2.53519, -3.36432, -4.37114e-08, 4.84395e-15, -3.24599, 2.36967, -1.71515)
+mesh = SubResource("PlaneMesh_r11cs")
+surface_material_override/0 = SubResource("StandardMaterial3D_um2qp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.30915, 0, 0, 0, 1, 0, 0, 0, 1.65887, 0, 0, 0)
+mesh = SubResource("PlaneMesh_r11cs")
+surface_material_override/0 = SubResource("StandardMaterial3D_um2qp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.815471, -0.376628, 0.439497, 0, 0.759328, 0.650708, -0.578797, -0.530634, 0.61921, 0, 2.00899, 1.83859)
+
+[node name="Space_ship" parent="." instance=ExtResource("1_p5ksx")]
+transform = Transform3D(-0.12, 0, -1.81195e-08, 0, 0.12, 0, 1.81195e-08, 0, -0.12, 0.223, 0, -0.005)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.858888, -2.23517e-08, 0.512163, -0.0914263, 0.983938, 0.15332, -0.503936, -0.17851, 0.845093, 1.046, 0.903, 1.35)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera3D"]
+stream = ExtResource("3_rnpfw")
+volume_db = 5.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vubii")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_ri3lg")
+}
+
+[node name="GameSaverLoader" type="Node" parent="."]
+script = ExtResource("4_yl6aj")

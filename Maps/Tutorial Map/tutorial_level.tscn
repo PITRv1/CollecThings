@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://cvsbulx0h8dn7"]
+[gd_scene load_steps=152 format=3 uid="uid://cvsbulx0h8dn7"]
 
 [ext_resource type="Script" path="res://Maps/Tutorial Map/tutorial_level.gd" id="1_na3iy"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="2_iubha"]
@@ -173,54 +173,14 @@ bake_internal = 64
 __follow_timeline = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rasrc"]
-size = Vector3(161.264, 53.8001, 27.6906)
-
-[sub_resource type="Animation" id="Animation_fj2cf"]
-resource_name = "rock_fall"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RockDoor/ShakerEmitter3D:emit")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.23333, 1.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RockDoor:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.33333),
-"transitions": PackedFloat32Array(2.73208, 0.0473662),
-"update": 0,
-"values": [Vector3(-2.18536e-08, 1.72468, 0.0198444), Vector3(-3.97893e-09, 1.72468, -1.62961)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RockDoor:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.33333),
-"transitions": PackedFloat32Array(2.21914, 0.0583146),
-"update": 0,
-"values": [Vector3(-14.4781, 93.1844, 79.9347), Vector3(-14.663, 91.5876, 78.7426)]
-}
+size = Vector3(158.285, 53.8001, 27.6906)
 
 [sub_resource type="Animation" id="Animation_f3ynp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RockDoor/ShakerEmitter3D:emit")
+tracks/0/path = NodePath("ShakerEmitter3D:emit")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -252,6 +212,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-14.4781, 93.1844, 79.9347)]
+}
+
+[sub_resource type="Animation" id="Animation_fj2cf"]
+resource_name = "rock_fall"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShakerEmitter3D:emit")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.23333, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RockDoor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.33333),
+"transitions": PackedFloat32Array(2.73208, 0.0473662),
+"update": 0,
+"values": [Vector3(-2.18536e-08, 1.72468, 0.0198444), Vector3(-3.97893e-09, 1.72468, -1.62961)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RockDoor:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.33333),
+"transitions": PackedFloat32Array(2.21914, 0.0583146),
+"update": 0,
+"values": [Vector3(-14.4781, 93.1844, 79.9347), Vector3(-14.663, 91.5876, 78.7426)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7qlhd"]
@@ -926,6 +926,9 @@ size = Vector3(9.56042, 6.76123, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bm6k4"]
 size = Vector3(15.185, 9.3341, 6.30429)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lmvbu"]
+size = Vector3(5, 5, 2)
 
 [sub_resource type="Gradient" id="Gradient_xvhq8"]
 offsets = PackedFloat32Array(0, 0.157303, 0.727528)
@@ -2259,6 +2262,10 @@ transform = Transform3D(-0.0770148, 0.99703, 0, -0.99703, -0.0770148, 0, 0, 0, 1
 [node name="crystal7" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("27_d7c3t")]
 transform = Transform3D(1, 0, 0, 0, 0.416868, -0.908967, 0, 0.908967, 0.416868, 47.4029, 94.5305, -39.1862)
 
+[node name="StaticBody3D" parent="NavigationRegion3D/Environment/LargeCave_Room/crystal7/Circle_005" index="0"]
+collision_layer = 0
+collision_mask = 0
+
 [node name="crystal8" parent="NavigationRegion3D/Environment/LargeCave_Room" instance=ExtResource("31_tvoe4")]
 transform = Transform3D(0.81373, -0.532824, 0.232254, 0.581243, 0.745945, -0.325151, 0, 0.399581, 0.916698, 41.8229, 94.4863, -36.6599)
 
@@ -2437,25 +2444,25 @@ transform = Transform3D(-0.454382, -0.298008, -0.273427, 0.333609, -0.508664, 0,
 [node name="FallenRockPiece12" parent="NavigationRegion3D/Environment/EnemyFight_Room" instance=ExtResource("13_1xrpq")]
 transform = Transform3D(-0.454382, -0.298008, -0.273427, 0.333609, -0.508664, 0, -0.22864, -0.149954, 0.543389, -13.4701, 118.933, 73.5873)
 
-[node name="RockDoor" parent="NavigationRegion3D/Environment/EnemyFight_Room" instance=ExtResource("7_ve86l")]
-transform = Transform3D(-0.0336302, 0.0012262, 0.92359, 0.00435453, 0.403076, 2.04251e-08, -0.216812, 0.00790532, -0.14326, -14.4781, 93.1844, 79.9347)
-
-[node name="ShakerEmitter3D" type="Node3D" parent="NavigationRegion3D/Environment/EnemyFight_Room/RockDoor"]
+[node name="ShakerEmitter3D" type="Node3D" parent="NavigationRegion3D/Environment/EnemyFight_Room"]
+transform = Transform3D(-0.0336297, 0.00122618, 0.92359, 0.00435453, 0.403076, 3.18316e-08, -0.216812, 0.00790533, -0.143258, -14.4781, 93.1844, 79.9347)
 script = ExtResource("17_47n6l")
-max_distance = 6.0
-distance_attenuation = 0.0647041
+max_distance = 10.0
 intensity = 5.0
 fade_in = 0.108819
 fade_out = 6.72717
 shakerPreset = SubResource("Resource_poho3")
 
-[node name="Area3D" type="Area3D" parent="NavigationRegion3D/Environment/EnemyFight_Room/RockDoor/ShakerEmitter3D"]
+[node name="Area3D" type="Area3D" parent="NavigationRegion3D/Environment/EnemyFight_Room/ShakerEmitter3D"]
 collision_layer = 512
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/EnemyFight_Room/RockDoor/ShakerEmitter3D/Area3D"]
-transform = Transform3D(1.00002, -5.28991e-07, -7.15256e-07, 1.15484e-07, 1.00004, -7.21775e-08, 0, 4.79049e-07, 1, 32.0396, 21.9002, -2.25434)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Environment/EnemyFight_Room/ShakerEmitter3D/Area3D"]
+transform = Transform3D(1, -9.68575e-08, 4.17233e-07, 1.1269e-07, 1, -4.79165e-07, 3.72529e-09, 4.78234e-07, 1, 16.7217, 0.828796, 0.876961)
 shape = SubResource("BoxShape3D_rasrc")
+
+[node name="RockDoor" parent="NavigationRegion3D/Environment/EnemyFight_Room" instance=ExtResource("7_ve86l")]
+transform = Transform3D(-0.0336297, 0.00122618, 0.92359, 0.00435453, 0.403076, 2.04251e-08, -0.216812, 0.00790532, -0.143258, -14.4781, 93.1844, 79.9347)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NavigationRegion3D/Environment/EnemyFight_Room"]
 libraries = {
@@ -2740,10 +2747,31 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33795, -0.569077)
 shape = SubResource("BoxShape3D_bm6k4")
 
+[node name="Easter_egg" type="Area3D" parent="Events"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8974, 95.412, -45.5324)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Events/Easter_egg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9435, 0, 5.42861)
+shape = SubResource("BoxShape3D_lmvbu")
+
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Basic_enemy" parent="Enemies" instance=ExtResource("16_7puyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82517, 114.184, 70.948)
+
+[node name="Basic_enemy2" parent="Enemies" instance=ExtResource("16_7puyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3942, 114.184, 70.948)
+
+[node name="Basic_enemy3" parent="Enemies" instance=ExtResource("16_7puyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3769, 114.184, 70.948)
+
+[node name="Basic_enemy4" parent="Enemies" instance=ExtResource("16_7puyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2349, 114.184, 70.948)
+
+[node name="Basic_enemy5" parent="Enemies" instance=ExtResource("16_7puyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1448, 114.184, 70.948)
 
 [node name="PickUps" type="Node3D" parent="."]
 
@@ -2911,8 +2939,10 @@ draw_pass_1 = SubResource("QuadMesh_t7tpv")
 [connection signal="body_entered" from="Events/Tutorial Messages/Break" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Events/Tutorial Messages/Leave" to="." method="_on_leave_body_entered"]
 [connection signal="body_entered" from="Events/EndSceneTrigger" to="." method="_on_end_scene_trigger_body_entered"]
+[connection signal="body_entered" from="Events/Easter_egg" to="." method="_on_easter_egg_body_entered"]
 
 [editable path="NavigationRegion3D/Environment/caveV3_BLOCKOUT"]
+[editable path="NavigationRegion3D/Environment/LargeCave_Room/crystal7"]
 [editable path="NavigationRegion3D/Environment/EnemyFight_Room/RockDoor"]
 [editable path="Space_ship"]
 [editable path="Space_ship/Space_ship"]

@@ -5,6 +5,7 @@ var state_machine
 
 @export var player_path : NodePath
 @export var idle : bool
+@export var hitbox_component : HitboxComponent
 
 var stun_time := 0.0
 

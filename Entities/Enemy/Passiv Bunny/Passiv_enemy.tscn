@@ -85,7 +85,7 @@ shape = SubResource("SphereShape3D_1yi4f")
 
 [node name="States and animation" type="Node" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="States and animation" groups=["enemy"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="States and animation"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_ql8j7")

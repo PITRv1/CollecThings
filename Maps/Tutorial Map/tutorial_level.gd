@@ -154,3 +154,7 @@ func _on_crystall_fall_body_entered(body: Player) -> void:
 	if $NavigationRegion3D/Environment/LargeCave_Room/Crystal8:
 		$NavigationRegion3D/Environment/LargeCave_Room/Crystal8.freeze = false
 		get_tree().create_timer(5).timeout.connect(func(): if $NavigationRegion3D/Environment/LargeCave_Room/Crystal8: $NavigationRegion3D/Environment/LargeCave_Room/Crystal8.queue_free())
+
+
+func _on_easter_egg_body_entered(body: Node3D) -> void:
+	Global.change_scene_to("res://Maps/Test Maps/Easter egg/egg.tscn")

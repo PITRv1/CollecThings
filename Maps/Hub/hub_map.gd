@@ -29,7 +29,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _give_back_controls() -> void:
 	player.paused = false
-	player.ui.visible = true
 	player.weapon_controller.visible = true
+	player.ui.visible = true
 	player.crosshair.visible = true
 	

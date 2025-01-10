@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=101 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bg1dd75ecn5xo" path="res://Assets/Models/Environment Models/Foilage/Rocks/Rock with Bush/RockWithBush.tscn" id="22_4sep1"]
 [ext_resource type="PackedScene" uid="uid://drnu6rf6y046g" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/Darkgreen Tree.tscn" id="22_lqtb5"]
 [ext_resource type="PackedScene" uid="uid://50br11hn5j8c" path="res://Entities/Enemy/abel_teszt/abel.tscn" id="24_qc1xc"]
+[ext_resource type="PackedScene" uid="uid://bdq017npoy5sl" path="res://Entities/Enemy/Passiv Bunny/Passiv_enemy.tscn" id="26_mmxc5"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_vupgw"]
 resource_local_to_scene = false
@@ -1085,6 +1086,39 @@ transform = Transform3D(-0.0847776, 0, 3.60274, 0, 3.60374, 0, -3.60274, 0, -0.0
 
 [node name="abel_mans" parent="map1" instance=ExtResource("24_qc1xc")]
 transform = Transform3D(-0.0990244, 0, -1.99755, 0, 2, 0, 1.99755, 0, -0.0990244, 418.337, 56.4088, 568.195)
+
+[node name="PassivEnemy" parent="map1" groups=["Enemy", "enemy"] instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 128.713, 56.78, 880.535)
+
+[node name="PassivEnemy2" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 159.956, 54.4835, 866.726)
+
+[node name="PassivEnemy3" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 137.181, 56.2156, 878.031)
+
+[node name="PassivEnemy4" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 170.554, 53.3719, 853.286)
+
+[node name="PassivEnemy5" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 104.424, 58.3746, 887.199)
+
+[node name="PassivEnemy6" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 155.732, 54.8223, 869.197)
+
+[node name="PassivEnemy7" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 159.785, 56.3759, 906.933)
+
+[node name="PassivEnemy8" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 172.056, 54.6297, 883.486)
+
+[node name="PassivEnemy9" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 149.215, 56.3455, 894.369)
+
+[node name="PassivEnemy10" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 163.292, 53.9257, 858.577)
+
+[node name="PassivEnemy11" parent="map1" instance=ExtResource("26_mmxc5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 155.753, 55.9697, 893.716)
 
 [node name="Fight Area" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 6.35735, -308.609)

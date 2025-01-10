@@ -35,7 +35,8 @@ func _physics_process(delta: float) -> void:
 		"wander":
 			# Navigation
 			if wander_timer.is_stopped():
-				nav_agent.set_target_position(global_position + Vector3(randf_range(-4, 4), 0.0, randf_range(-4, 4)))
+				print("whong")
+				nav_agent.set_target_position(global_position + Vector3(randf_range(-16, 16), 0.0, randf_range(-16, 16)))
 				wander_timer.start()
 
 			# Rotation
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			# Movement
 			if nav_agent.distance_to_target() > 0.5:
 				var destination = nav_agent.get_next_path_position()
-				var new_velocity = (destination -global_position).normalized() * 2.5
+				var new_velocity = (destination - global_position).normalized() * 2.5
 				velocity = velocity.move_toward(new_velocity, .25)
 			else:
 				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
@@ -79,7 +80,6 @@ func _process(delta: float) -> void:
 	if stun_time >= 1:
 		velocity = velocity / stun_time
 		stun_time -= delta
-		print(stun_time)
 	
 func _hit_finished():
 	pass

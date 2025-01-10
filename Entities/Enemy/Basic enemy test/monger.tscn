@@ -199,7 +199,7 @@ advance_expression = "_target_in_range()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_81qyy"]
 advance_mode = 2
-advance_condition = &"fall_wand"
+advance_expression = "is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vh11f"]
 break_loop_at_end = true
@@ -336,7 +336,6 @@ tree_root = SubResource("AnimationNodeStateMachine_jh0iq")
 advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
-parameters/conditions/fall_wand = false
 parameters/conditions/falling = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_1swf8")]

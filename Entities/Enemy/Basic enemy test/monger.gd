@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var player : CharacterBody3D = null
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 var state_machine
 
 @export var player_path : NodePath
@@ -18,12 +18,14 @@ const ATTACK_RANGE = 2.5
 @onready var ray: RayCast3D = $RayCasts/sight
 @onready var chase_timer: Timer = $Timers/chaseTimer
 @onready var wander_timer: Timer = $Timers/wanderTimer
+@export var hitbox_component : HitboxComponent
+
 var chase_dis = 50.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
 	state_machine = anim_tree.get("parameters/playback")
+	
 
 func _physics_process(delta: float) -> void:
 	

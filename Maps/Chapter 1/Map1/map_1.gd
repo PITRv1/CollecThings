@@ -28,10 +28,30 @@ func _ready() -> void:
 	
 
 
-@onready var basic_enemy2 : PackedScene = preload("res://Entities/Enemy/abel_teszt/abel.tscn")
-@onready var basic_enemy1 : PackedScene = preload("res://Entities/Enemy/Basic enemy test/monger.tscn")
-
-#Figh starter
+@onready var basic_enemy1 : PackedScene = preload("res://Entities/Enemy/abel_teszt/abel.tscn")
+@onready var basic_enemy2 : PackedScene = preload("res://Entities/Enemy/Basic enemy test/monger.tscn")
+@onready var forest : PackedScene = preload("res://Assets/Models/Environment Models/Foilage/Forests/Lightgreen Forest/lightgreen_forest.tscn")
+#FIGHT
 func _on_area_3d_body_entered(_body: Player) -> void:
-	print("Fight started!!!!")
+	$"Fight Area/Area3D".queue_free()
+	
+	for marker : Marker3D in [$"Fight Area/Leave", $"Fight Area/Enter"]:
+		var trees : Node3D = forest.instantiate()
+		
+		trees.global_position = marker.global_position
+		trees.scale = Vector3(0.5,0.5,0.5)
+		
+		get_tree().current_scene.add_child(trees)
+	
+	for i in range(0,6):
+		get_tree().create_timer(1*i).timeout.connect(spawn_enemy)
+		
+	
+
+
+func spawn_enemy():
+	var enemy : CharacterBody3D = basic_enemy1.instantiate()
+	get_tree().current_scene.add_child(enemy)
+	enemy.global_position = $"Fight Area/Enemy spawner".global_position
+	
 	

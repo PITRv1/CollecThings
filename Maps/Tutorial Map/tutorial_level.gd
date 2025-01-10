@@ -28,7 +28,10 @@ var spawned_rocks : bool = false
 @onready var fallen_rock_piece_11: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece11
 @onready var fallen_rock_piece_12: RigidBody3D = $NavigationRegion3D/Environment/EnemyFight_Room/FallenRockPiece12
 
+
 var rocklist := []
+
+
 func _ready() -> void:
 	rocklist = [fallen_rock_piece,fallen_rock_piece_2,fallen_rock_piece_3,fallen_rock_piece_4,fallen_rock_piece_5,fallen_rock_piece_6,fallen_rock_piece_7,fallen_rock_piece_8,fallen_rock_piece_9,fallen_rock_piece_10,fallen_rock_piece_11,fallen_rock_piece_12]
 	freeze_falling_rocks(true)
@@ -37,8 +40,16 @@ func _ready() -> void:
 	
 	tako_off_animation_p.play("RESET")
 	player.health_component.health = 75
-	#spawn_basic_enemy(5 , Vector3(1, 0, 0)) #first are is for amount second is offset from global pos
-	#if we spawn on ready might as well use the editor.
+	
+	for enemy in $Enemies.get_children():
+		enemy.hitbox_component.health_component.died.connect(_check_if_all_enemy_died)
+	
+
+
+func _check_if_all_enemy_died() -> void:
+	if $Enemies.get_children().size() == 1: #why 1????? -Dani
+		$NavigationRegion3D/Environment/EnemyFight_Room/AnimationPlayer.play("rock_fall")
+	
 
 var door_broken := false
 func _on_enemy_trigger_body_entered(body: Player) -> void:
@@ -47,15 +58,20 @@ func _on_enemy_trigger_body_entered(body: Player) -> void:
 		break_away_enemies_rock.queue_free()
 		delete_falling_rocks()
 		door_broken = true
+		
+	
+
 
 func freeze_falling_rocks(freeze_value:bool):
 	for rock in rocklist:
 		rock.freeze = freeze_value
 
+
 func delete_falling_rocks():
 	await get_tree().create_timer(6).timeout
 	for rock in rocklist:
 		rock.queue_free()
+
 
 func _on_grappler_body_entered(body: Player) -> void:
 	stat_tablet.purge_message(
@@ -118,7 +134,6 @@ func _on_end_scene_trigger_body_entered(body: Node3D) -> void:
 	player.ui.visible = true
 	player.crosshair.visible = true
 	Global.change_scene_to("res://Cinematics/3D Cinematics/Crash/crash_animation.tscn")
-
 
 
 # ROCK dies and spawns little rock (Jr Rocks)

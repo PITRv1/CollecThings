@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://sb8uh7riuoum" path="res://Assets/Models/Environment Models/Foilage/Bridge/bridge.glb" id="1_i81qg"]
 
 [node name="Bridge" type="Node3D"]
+transform = Transform3D(0.480879, 0, 0, 0, 0.480879, 0, 0, 0, 0.586194, 0, 0, 0)
 
 [node name="bridge" parent="." instance=ExtResource("1_i81qg")]
-transform = Transform3D(-1.10612e-07, 0, 1.31264, 0, 1.31264, 0, -2.53051, 0, -5.73772e-08, 2.58834, 1.19209e-07, -264.384)
+transform = Transform3D(2.53051, 0, 0, 0, 1.31264, 0, 0, 0, 1.31264, 2.58834, 1.19209e-07, 4.5658)

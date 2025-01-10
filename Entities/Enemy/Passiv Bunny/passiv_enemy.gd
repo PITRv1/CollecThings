@@ -56,47 +56,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-func _target_in_range():
-	return global_position.distance_to(player.global_position) < ATTACK_RANGE
-	
-func _target_in_sight():
-	if global_position.distance_to(player.global_position) < 1.5:
-		chase_timer.start()
-		return true
-	
-	elif global_position.distance_to(player.global_position) < 25.0:
-		ray.target_position.z = -global_position.distance_to(player.global_position)
-		ray.look_at(player.global_position, Vector3.UP)
-		ray.force_raycast_update()
-		var direction = global_position.direction_to(player.global_position)
-		var facing = global_transform.basis.tdotz(direction)
-		var fov = cos(deg_to_rad(30))
-		if facing > fov and not ray.is_colliding():
-			chase_timer.start()
-			return true
-			
-func _process(delta: float) -> void:
-	if stun_time >= 1:
-		velocity = velocity / stun_time
-		stun_time -= delta
-	
-func _hit_finished():
-	pass
-	
 func _is_reachable():
 	if !nav_agent.is_target_reachable():
 		return true
+
 func _randomize_wander():
 	nav_agent.set_target_position(global_position + Vector3(randf_range(-4, 4), 0.0, randf_range(-4, 4)))
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body == player:
-		var dir = global_position.direction_to(player.global_position)
-		#player.velocity += dir * 40.0
-
-func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
-	if area is HitboxComponent:
-		var attack = WeaponSettings.new()
-		attack.damage = damage
-		
-		area.damage(attack)

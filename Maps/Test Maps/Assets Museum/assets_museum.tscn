@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7v8m6hxv133i"]
+[gd_scene load_steps=26 format=3 uid="uid://7v8m6hxv133i"]
 
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="1_qx05q"]
 [ext_resource type="PackedScene" uid="uid://dyij52tvc0gnv" path="res://Assets/Models/Environment Models/Foilage/Bamboo/bam_busz.glb" id="2_qa73f"]
@@ -9,6 +9,38 @@
 [ext_resource type="PackedScene" uid="uid://bp2y5xsiduil6" path="res://Assets/Models/Environment Models/Foilage/Trees/Red Tree/tree_red.glb" id="7_fx135"]
 [ext_resource type="PackedScene" uid="uid://bx5b5g5geudih" path="res://Assets/Models/Environment Models/Foilage/Trees/Yellow Tree/tree_yellow.glb" id="8_l4w37"]
 [ext_resource type="PackedScene" uid="uid://cm085xkege6hw" path="res://Assets/Models/Scraps/Scrap_parts.tscn" id="9_7j0xt"]
+[ext_resource type="PackedScene" uid="uid://dvw8j27aay8mm" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal.tscn" id="10_82use"]
+[ext_resource type="PackedScene" uid="uid://mevv0mbbnfg7" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal_PT_1.tscn" id="11_rxu68"]
+[ext_resource type="PackedScene" uid="uid://dqigc3i5obxvm" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal_PT_2.tscn" id="12_7i8p0"]
+[ext_resource type="PackedScene" uid="uid://wbcirt4d6h8a" path="res://Assets/Models/Environment Models/Foilage/Rocks/Dark Rock/dark_rock.tscn" id="13_amy4i"]
+[ext_resource type="PackedScene" uid="uid://det4wt8qkba8l" path="res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock.tscn" id="14_ybgs5"]
+[ext_resource type="PackedScene" uid="uid://du5oq6377nsa2" path="res://Assets/Models/Environment Models/Foilage/Rocks/Mineral_rocks/mineral_rock_emis.tscn" id="15_qk60g"]
+[ext_resource type="PackedScene" uid="uid://c3fi7jn4d476k" path="res://Assets/Models/Interactables/HealthPack/Health_pack.tscn" id="16_236oy"]
+[ext_resource type="PackedScene" uid="uid://v3uujc2tqga2" path="res://Assets/Models/Vehicles/space_ship.tscn" id="17_uaskm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ev8sv"]
+sky_top_color = Color(0.134281, 0.16838, 0.215799, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_energy_multiplier = 1.78
+ground_bottom_color = Color(0.0820647, 0.19893, 0.257149, 1)
+ground_horizon_color = Color(0.000660687, 0.000697632, 0.000758353, 1)
+
+[sub_resource type="Sky" id="Sky_f3ae1"]
+sky_material = SubResource("ProceduralSkyMaterial_ev8sv")
+
+[sub_resource type="Environment" id="Environment_ylktk"]
+background_mode = 2
+background_energy_multiplier = 4.6
+sky = SubResource("Sky_f3ae1")
+reflected_light_source = 1
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.133543, 0.148947, 0.173164, 1)
+fog_light_energy = 0.19
+fog_sky_affect = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_anisotropy = -0.73
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7dxo"]
 vertex_color_use_as_albedo = true
@@ -21,13 +53,39 @@ material = SubResource("StandardMaterial3D_e7dxo")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p3y4x"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auglc"]
+transparency = 1
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(0.23278, 0.0280502, 0.00926075, 1)
+emission_energy_multiplier = 1.73
+rim = 0.0
+rim_tint = 0.0
+grow_amount = 16.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_873bc"]
+material = SubResource("StandardMaterial3D_auglc")
+
 [node name="AssetsMuseum" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ylktk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 114.802, 0)
+light_color = Color(0.749582, 0.861017, 0.863002, 1)
+light_energy = 10.0
+sky_mode = 1
+
 [node name="Player" parent="." instance=ExtResource("1_qx05q")]
-transform = Transform3D(-0.702749, 0, -0.711438, 0, 1, 0, 0.711438, 0, -0.702749, -0.198393, 0.762879, -0.583813)
+transform = Transform3D(-0.702749, 0, -0.711438, 0, 1, 0, 0.711438, 0, -0.702749, 120.069, 3.0193, -82.784)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(250, 0, 0, 0, 0.205, 0, 0, 0, 250, 0, 0, 0)
+transform = Transform3D(250, 0, 0, 0, 0.945, 0, 0, 0, 264.615, 0, -0.335464, 0)
 mesh = SubResource("BoxMesh_3cy48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -36,25 +94,67 @@ mesh = SubResource("BoxMesh_3cy48")
 shape = SubResource("ConvexPolygonShape3D_p3y4x")
 
 [node name="bam_busz" parent="." instance=ExtResource("2_qa73f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6752, -34.1425, 124.807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6752, -34.1425, 109.691)
 
 [node name="mushroom" parent="." instance=ExtResource("3_sag4f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.463, 0.102501, 22.6424)
+transform = Transform3D(1.97586, 0, 0, 0, 1.97586, 0, 0, 0, 1.97586, 22.4753, 0.226111, 17.31)
+
+[node name="mushroom2" parent="." instance=ExtResource("3_sag4f")]
+transform = Transform3D(-1.78033, 0, 0.857006, 0, 1.97586, 0, -0.857006, 0, -1.78033, 22.4753, 0.226111, 71.7397)
+do_damage = true
 
 [node name="MushroomFloat" parent="." instance=ExtResource("4_vus10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5068, -0.893108, 72.847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6325, -0.893108, 87.8185)
 
 [node name="SpaceFlower" parent="." instance=ExtResource("5_vwwwg")]
 transform = Transform3D(2.38923, 0, 0, 0, 2.38923, 0, 0, 0, 2.38923, -0.39, 0.84, 1.765)
 
 [node name="spruce_tree" parent="." instance=ExtResource("6_qc0se")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.111, -29.8087, 65.9225)
+transform = Transform3D(1.5273, 0, 0, 0, 1.5273, 0, 0, 0, 1.5273, 3.0741, -43.7696, 127.378)
 
 [node name="tree_red" parent="." instance=ExtResource("7_fx135")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2065, -27.9762, 97.3275)
+transform = Transform3D(-3.5112e-08, 0, 0.803268, 0, 0.803268, 0, -0.803268, 0, -3.5112e-08, 47.1119, -22.8892, -142.831)
 
 [node name="tree_yellow" parent="." instance=ExtResource("8_l4w37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0428, -27.8441, 128.41)
+transform = Transform3D(-3.4625e-08, 0, 0.792127, 0, 0.792127, 0, -0.792127, 0, -3.4625e-08, 92.1375, -22.7845, -161.013)
 
 [node name="ScrapParts" parent="." instance=ExtResource("9_7j0xt")]
 transform = Transform3D(3.48224, 0, 0, 0, 3.48224, 0, 0, 0, 3.48224, -79.7645, 2.54073, 27.214)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37, 0)
+light_color = Color(0.570768, 0.462883, 1.92523e-07, 1)
+light_energy = 15.593
+omni_range = 197.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(55.29, 0, 0, 0, 0.04, 0, 0, 0, 170.15, -33.7999, 0.201304, -21.0825)
+mesh = SubResource("BoxMesh_873bc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.4168e-06, 0, 170.15, 0, 0.04, 0, -55.29, 0, -7.43749e-06, 24.6163, 0.201304, -79.9838)
+mesh = SubResource("BoxMesh_873bc")
+
+[node name="Crystal" parent="." instance=ExtResource("10_82use")]
+transform = Transform3D(2.29807, 0, 0, 0, 2.29807, 0, 0, 0, 2.29807, 106.799, 0.48556, -43.1124)
+
+[node name="crystal1" parent="." instance=ExtResource("11_rxu68")]
+transform = Transform3D(2.30488, 0, 0, 0, 2.30488, 0, 0, 0, 2.30488, 74.9011, -0.843117, -43.5296)
+
+[node name="crystal2" parent="." instance=ExtResource("12_7i8p0")]
+transform = Transform3D(2.23875, 0, 0, 0, 2.23875, 0, 0, 0, 2.23875, 90.6268, 1.45338, -43.2689)
+
+[node name="DarkRock" parent="." instance=ExtResource("13_amy4i")]
+transform = Transform3D(1.40191, 0, 0, 0, 1.40191, 0, 0, 0, 1.40191, 102.793, 2.37916, -112.633)
+
+[node name="MineralRock" parent="." instance=ExtResource("14_ybgs5")]
+transform = Transform3D(2.82753, 0, 0, 0, 2.82753, 0, 0, 0, 2.82753, 117.206, 0.137035, -111.986)
+
+[node name="mineral_rock_EMIS" parent="." instance=ExtResource("15_qk60g")]
+transform = Transform3D(2.98935, 1.11298, 0, -1.11298, 2.98935, 0, 0, 0, 3.18982, 88.6439, 2.00709, -112.274)
+
+[node name="HealthPack" parent="." instance=ExtResource("16_236oy")]
+transform = Transform3D(-2.723e-05, -7.52211, 0, 7.52211, -2.723e-05, 0, 0, 0, 7.52211, 55.482, 5.65448, -115.889)
+
+[node name="Space_ship" parent="." instance=ExtResource("17_uaskm")]
+transform = Transform3D(0.13501, 0, -2.2765, 0, 2.2805, 0, 2.2765, 0, 0.13501, -22.5973, 0.137039, -116.524)

@@ -14,7 +14,7 @@ var current_camera = camera_high
 
 func _ready():
 	current_camera = camera_high
-	get_tree().create_timer(5).timeout.connect(func(): AudioPlayer._play_music(RIADO, 80))
+	get_tree().create_timer(5).timeout.connect(func(): AudioPlayer._play_music(RIADO, 10))
 	
 	
 

@@ -1084,9 +1084,6 @@ transform = Transform3D(-0.0847776, 0, 3.60274, 0, 3.60374, 0, -3.60274, 0, -0.0
 
 [node name="Enemies" type="Node3D" parent="map1"]
 
-[node name="PassivEnemy" parent="map1" instance=ExtResource("25_luhup")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 218.618, 48.9317, 928.097)
-
 [node name="abel_mans" parent="map1" instance=ExtResource("24_qc1xc")]
 transform = Transform3D(-0.0990244, 0, -1.99755, 0, 2, 0, 1.99755, 0, -0.0990244, 418.337, 56.4088, 568.195)
 

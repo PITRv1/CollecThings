@@ -5,6 +5,7 @@ extends AnimationPlayer
 @onready var camera_low = $"../Camera_Low"
 @onready var timer: Timer = $"../Timer"
 
+const RIADO = preload("res://Assets/Musics/riado.mp3")
 
 # Prev colors: c1d5ff and 312073c8
 
@@ -13,7 +14,8 @@ var current_camera = camera_high
 
 func _ready():
 	current_camera = camera_high
-	AudioPlayer.stop()
+	get_tree().create_timer(5).timeout.connect(func(): AudioPlayer._play_music(RIADO, 80))
+	
 	
 
 func switch_camera():

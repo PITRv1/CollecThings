@@ -8,7 +8,7 @@ var state_machine
 
 var stun_time := 0.0
 
-@export var SPEED = 80.0
+@export var SPEED = 10.0
 const ATTACK_RANGE = 2.5
 
 @export var damage := 20.0

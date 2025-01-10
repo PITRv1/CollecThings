@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 		"wander":
 			# Navigation
 			if wander_timer.is_stopped():
-				print("whong")
 				nav_agent.set_target_position(global_position + Vector3(randf_range(-16, 16), 0.0, randf_range(-16, 16)))
 				wander_timer.start()
 

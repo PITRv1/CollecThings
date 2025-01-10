@@ -34,24 +34,36 @@ func _ready() -> void:
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
 	if not animation_player.is_playing() and is_primary_enabled and mag_size > 0 and cooldown_timer.is_stopped():
+		
 		if weapon_settings.hitscan == 1:
+			
 			projectile_primary()
+			
 		else:
+			
 			hitscan_primary()
+			
 		play_animations()
 		
 	elif not mag_size > 0:
 		reload()
 
 func hitscan_primary():
+	
 	var ray = run_ray_test(true, [])
 	var hit_objects := []
+	
 	for i in range(weapon_settings.pierce):
+		
 		ray = run_ray_test(true, hit_objects)
+		
 		if ray.size() > 0:
+			
 			if ray["collider"] is HitboxComponent:
+				
 				ray["collider"].damage(weapon_settings)
 				hit_objects.append(ray["collider"])
+				
 			else:
 				break
 		else:
@@ -89,8 +101,11 @@ func draw_line(ray):
 			get_tree().root.add_child(line)
 			
 func projectile_primary():
+	
 	for i in range(weapon_settings.num_of_bullets):
+		
 		spawn_bullet()
+		
 	mag_size -= 1
 
 	cooldown_timer.start(weapon_settings.cooldown)
@@ -115,14 +130,18 @@ func spawn_bullet():
 	
 	# This is a Dictionary, just select what you need from it, for example: position, collider, ect.	
 	var result = run_ray_test(true, [])
+	
 	player.velocity += get_viewport().get_camera_3d().global_transform.basis.z * weapon_settings.knockback_force/4
+	
 	if result.size() == 0:
+		
 		query = PhysicsRayQueryParameters3D.create(from, to)
 		query.collide_with_bodies = true
 		
 		result = space_state.intersect_ray(query)
 		
-		if result.size() == 0: 
+		if result.size() == 0:
+			
 			instantiate_projectile(to)
 			return
 		
@@ -155,8 +174,6 @@ func run_ray_test(area_check, hit_objects) -> Dictionary:
 	from = camera.project_ray_origin(mousepos)
 	var bloom = calculate_spread()
 	to = from + camera.project_ray_normal(mousepos + bloom) * length
-	
-	print(hit_objects)
 
 	query = PhysicsRayQueryParameters3D.create(from, to)
 	query.exclude = hit_objects

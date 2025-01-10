@@ -91,6 +91,7 @@ func _physics_process(delta: float) -> void:
 		pos = camera.global_position + camera.global_transform.basis.z * -GRAPPLE_RAY_MAX * charge / 5
 		var pos_ray = run_hook_ray(GRAPPLE_RAY_MAX * charge / 5)
 		if pos_ray.size() > 0:
+			
 			pos = pos_ray["position"]
 		
 		# If the charge is less than 1, basically do nothing
@@ -145,6 +146,7 @@ func _physics_process(delta: float) -> void:
 		# Update grappler position, also update the target position of the raycast to compensate for the speed of the grappler
 		hook.global_position += hook.global_basis * Vector3.FORWARD * hook_speed * delta
 		hook_raycast.target_position = Vector3.FORWARD * hook_speed * delta * 5.0
+		#hook.global_position = lerp(hook.global_position, pos, hook_speed * delta)
 		
 		# Rotate the handle to 0.0
 		handle.rotation.x = lerp(handle.rotation.x, 0.0, hook_speed * delta/hook.global_position.distance_to(pos))
@@ -229,6 +231,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Grappling to a non enemy
 	if is_grappling:
+		
 		hook.top_level = true
 		rope_go = false
 		rope_go_back = false
@@ -287,6 +290,7 @@ func _physics_process(delta: float) -> void:
 		var force = Vector3.ZERO
 		
 		if displacement > 0:
+			
 			var spring_force_magnitude = stiffness * displacement
 			var spring_force = target_dir * spring_force_magnitude
 			var vel_dot = player.velocity.dot(target_dir)

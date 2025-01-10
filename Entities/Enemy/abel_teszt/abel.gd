@@ -8,7 +8,7 @@ var state_machine
 
 var stun_time := 0.0
 
-const SPEED = 80.0
+@export var SPEED = 80.0
 const ATTACK_RANGE = 2.5
 
 @export var damage := 20.0
@@ -56,8 +56,8 @@ func _physics_process(delta: float) -> void:
 			# Movement
 			if nav_agent.distance_to_target() > 0.5:
 				var destination = nav_agent.get_next_path_position()
-				var new_velocity = (destination -global_position).normalized() * 2.5
-				velocity = velocity.move_toward(new_velocity, .25)
+				var new_velocity = (destination - global_position).normalized() * 2.5
+				velocity = velocity.move_toward(new_velocity, 0.25)
 			else:
 				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
 				
@@ -69,8 +69,8 @@ func _physics_process(delta: float) -> void:
 			# Movement
 			nav_agent.set_target_position(player.global_position)
 			var destination = nav_agent.get_next_path_position()
-			var new_velocity = (destination -global_position).normalized() * SPEED
-			velocity = velocity.move_toward(new_velocity, .25)
+			var new_velocity = (destination - global_position).normalized() * SPEED
+			velocity = velocity.move_toward(new_velocity, 5)
 			
 		"attack":
 			velocity = lerp(velocity, Vector3(0.0, 0.0, 0.0), .25)

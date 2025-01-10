@@ -73,6 +73,7 @@ func _physics_process(delta: float) -> void:
 		# Adds 2 charge every second, change the 2, to make it faster or slower
 		# haha I've found a grammer mistake you dumbass
 		charge += delta * 2
+		is_primary_enabled = false
 		
 		# Handle rotates while holding the alt fire
 		handle.rotation.x += -5 * delta
@@ -80,12 +81,11 @@ func _physics_process(delta: float) -> void:
 		# Some stupid ahh UI thing, It's really smart tho
 		# I swear to god I will transform your balls into nothing
 		gun_utility.set_texture_offset(Vector2(5-(charge*2), 0))
-		
-	
 	
 	# If alt fire is released the grappler is sent back to the starting point
 	# The animation thing there is to make sure we ain't reloading
 	elif Input.is_action_just_released("secondary_fire") and not animation_player.is_playing():
+		
 		# pos is the end position, this is where the grappler will go, and look at, if nothing is in the way
 		var camera = get_viewport().get_camera_3d()
 		pos = camera.global_position + camera.global_transform.basis.z * -GRAPPLE_RAY_MAX * charge / 5
@@ -116,6 +116,7 @@ func _physics_process(delta: float) -> void:
 			hook_rope_gen.SetGrappleHookPosition(hook.global_position)
 			hook_rope_gen.StartDrawing()
 			
+			is_primary_enabled = true
 			rope_go = true
 			
 		else:

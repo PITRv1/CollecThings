@@ -7,6 +7,9 @@ class_name BaseWeapon
 @export var cooldown_timer: Timer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
+var is_primary_enabled = true
+var is_secondary_enabled = true
+
 var player : Player
 var length := 100.0
 
@@ -30,36 +33,39 @@ func _ready() -> void:
 
 # Primary fire function, can be overridden in derived weapons
 func primary_fire():
-	if not animation_player.is_playing():
-		if mag_size > 0:
-			if cooldown_timer.is_stopped():
-				if weapon_settings.hitscan == 1:
-					for i in range(weapon_settings.num_of_bullets):
-						#audio_stream_player_3d.stream = load("res://Assets/Sounds/dash_itself_v1.mp3")
-						#audio_stream_player_3d.play()
-						spawn_bullet()
-					mag_size -= 1
-
-					cooldown_timer.start(weapon_settings.cooldown)
-					if mag_size <= 0:
-						reload()
-				else:
-					var ray = run_ray_test(true)
-					
-					if ray.size() > 0:
-						if ray["collider"] is HitboxComponent:
-							ray["collider"].damage(weapon_settings)
-							
-					cooldown_timer.start(weapon_settings.cooldown)
-					mag_size -= 1
-					what(ray)
-				if animation_player.has_animation("knockback"):
-					animation_player.play("knockback")
+	if not animation_player.is_playing() and is_primary_enabled and mag_size > 0 and cooldown_timer.is_stopped():
+		if weapon_settings.hitscan == 1:
+			projectile_primary()
 		else:
-			reload()
+			hitscan_primary()
+		play_animations()
 		
+	elif not mag_size > 0:
+		reload()
+
+func hitscan_primary():
+	var ray = run_ray_test(true, [])
+	var hit_objects := []
+	for i in range(weapon_settings.pierce):
+		ray = run_ray_test(true, hit_objects)
+		if ray.size() > 0:
+			if ray["collider"] is HitboxComponent:
+				ray["collider"].damage(weapon_settings)
+				hit_objects.append(ray["collider"])
+			else:
+				break
+		else:
+			break
+			
+	cooldown_timer.start(weapon_settings.cooldown)
+	mag_size -= 1
+	draw_line(ray)
+
+func play_animations():
+	if animation_player.has_animation("knockback"):
+		animation_player.play("knockback")
 	
-func what(ray):
+func draw_line(ray):
 	var line = rope_gen.instantiate()
 	if ray.size() > 0:
 		line.SetPlayerPosition(projectile_origin.global_position)
@@ -68,7 +74,7 @@ func what(ray):
 		line.visible = true
 		get_tree().root.add_child(line)
 	else:
-		ray = run_ray_test(false)
+		ray = run_ray_test(false, [])
 		if ray.size() > 0:
 			line.SetPlayerPosition(projectile_origin.global_position)
 			line.SetGrappleHookPosition(ray["position"])
@@ -81,6 +87,13 @@ func what(ray):
 			line.StartDrawing()
 			line.visible = true
 			get_tree().root.add_child(line)
+			
+func projectile_primary():
+	for i in range(weapon_settings.num_of_bullets):
+		spawn_bullet()
+	mag_size -= 1
+
+	cooldown_timer.start(weapon_settings.cooldown)
 
 # Secondary fire function, can be overridden in derived weapons
 func secondary_fire():
@@ -101,7 +114,7 @@ func spawn_bullet():
 	mousepos = get_viewport().get_mouse_position()
 	
 	# This is a Dictionary, just select what you need from it, for example: position, collider, ect.	
-	var result = run_ray_test(true)
+	var result = run_ray_test(true, [])
 	player.velocity += get_viewport().get_camera_3d().global_transform.basis.z * weapon_settings.knockback_force/4
 	if result.size() == 0:
 		query = PhysicsRayQueryParameters3D.create(from, to)
@@ -132,7 +145,7 @@ func calculate_spread() -> Vector2:
 		
 	return spread
 
-func run_ray_test(area_check) -> Dictionary:
+func run_ray_test(area_check, hit_objects) -> Dictionary:
 	# Project ray
 	camera = get_viewport().get_camera_3d()
 	space_state = get_world_3d().direct_space_state
@@ -143,7 +156,10 @@ func run_ray_test(area_check) -> Dictionary:
 	var bloom = calculate_spread()
 	to = from + camera.project_ray_normal(mousepos + bloom) * length
 	
+	print(hit_objects)
+
 	query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = hit_objects
 	
 	if area_check:
 		query.collide_with_areas = true

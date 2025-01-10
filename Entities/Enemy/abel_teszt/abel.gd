@@ -8,7 +8,7 @@ var state_machine
 
 var stun_time := 0.0
 
-const SPEED = 10.0
+const SPEED = 80.0
 const ATTACK_RANGE = 2.5
 
 @export var damage := 20.0
@@ -23,7 +23,7 @@ var chase_dis = 50.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	state_machine = anim_tree.get("parameters/playback")
-	
+
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#if event is InputEventMouseButton:

@@ -268,7 +268,7 @@ shape = SubResource("ConvexPolygonShape3D_mwvb0")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Sphere_004" type="MeshInstance3D" parent="body/enemy"]
-transform = Transform3D(0.787471, 2.75578e-08, -5.8868e-08, 1.18905e-07, -0.182507, -3.7989e-20, -1.18905e-07, -4.16109e-15, -0.389865, 1.16503, 1.09838, 0)
+transform = Transform3D(0.787471, 2.75578e-08, -5.8868e-08, 1.18905e-07, -0.182507, -6.00399e-20, -1.18905e-07, -4.16108e-15, -0.389865, 1.16503, 1.09838, 0)
 mesh = SubResource("ArrayMesh_j1oo6")
 skeleton = NodePath("")
 

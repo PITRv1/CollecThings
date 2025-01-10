@@ -29,7 +29,7 @@ func _ready() -> void:
 	
 	charging_particles.emitting = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 
 	# If alt_fire is held down increase charge, btw delta is basically the amount of time that passed so 1 delta is 1 sec
 
@@ -38,6 +38,8 @@ func _process(delta: float) -> void:
 		# Only increase charge if the gun has enough bullets
 		
 		if floor(charge) < mag_size:
+			
+			is_primary_enabled = false
 			
 			charging_particles.emitting = true
 			charging_particles.amount = floor(charge)
@@ -53,6 +55,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("secondary_fire") and charge > 0:
 		
 		charging_particles.emitting = false
+		is_primary_enabled = true
 		_secondary_fire()
 
 
@@ -70,12 +73,12 @@ func _secondary_fire():
 	
 	# Shoot with these settings
 	
-	var ray = run_ray_test(true)
+	var ray = run_ray_test(true, [])
 	shooting_particles.emitting = true
 	if ray.size() > 0:
 		if ray["collider"] is HitboxComponent:
 			ray["collider"].damage(weapon_settings)
-	what(ray)
+	draw_line(ray)
 	
 	# Decrease back to normal
 	

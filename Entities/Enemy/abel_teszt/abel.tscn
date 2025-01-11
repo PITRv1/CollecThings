@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=4 uid="uid://50br11hn5j8c"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/abel_teszt/abel.gd" id="1_4y12o"]
-[ext_resource type="PackedScene" uid="uid://cw0tclge151u1" path="res://Entities/Enemy/abel_teszt/enemy.glb" id="2_v6mv7"]
+[ext_resource type="PackedScene" uid="uid://jbscgljelt68" path="res://Assets/Models/Enemy Models/Enemy1.glb" id="2_kdgs0"]
 [ext_resource type="PackedScene" uid="uid://bxo3gstx1krox" path="res://Components/health_component.tscn" id="2_xb286"]
 [ext_resource type="PackedScene" uid="uid://4lg7g1d8f6ju" path="res://Components/shield_component.tscn" id="3_1qo12"]
 [ext_resource type="PackedScene" uid="uid://d2uys1rlpx60x" path="res://Components/hitbox_component.tscn" id="4_m1f60"]
@@ -151,38 +151,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../body/enemy/Sphere_004:scale")
+tracks/0/path = NodePath("../body/Enemy1/Area3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.787471, 0.182507, 0.389865)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../body/enemy/Area3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector3(1.16503, 0.844094, -0.241208)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../body/enemy/Sphere_004:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.16503, 1.09838, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_d4lm5"]
@@ -191,7 +167,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../body/enemy/Sphere_004:scale")
+tracks/0/path = NodePath("../body/Enemy1/Sphere_004:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -203,7 +179,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../body/enemy/Area3D:position")
+tracks/1/path = NodePath("../body/Enemy1/Area3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -211,18 +187,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(1.16503, 0.844094, -0.241208), Vector3(1.165, 0.844, 0.55), Vector3(1.16503, 0.844094, -0.241208)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../body/enemy/Sphere_004:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
 }
 
 [sub_resource type="Animation" id="Animation_cbily"]
@@ -266,21 +230,21 @@ shape = SubResource("ConvexPolygonShape3D_mwvb0")
 
 [node name="body" type="Node3D" parent="."]
 
-[node name="enemy" parent="body" instance=ExtResource("2_v6mv7")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+[node name="Enemy1" parent="body" instance=ExtResource("2_kdgs0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172248, 0.817861, 1.22692)
 
-[node name="Sphere_004" type="MeshInstance3D" parent="body/enemy"]
-transform = Transform3D(0.787471, 2.75578e-08, -5.8868e-08, 1.18905e-07, -0.182507, -2.09315e-19, -1.18905e-07, -4.16101e-15, -0.389865, 1.16503, 1.09838, 0)
+[node name="Sphere_004" type="MeshInstance3D" parent="body/Enemy1"]
+transform = Transform3D(1.77872e-07, 4.49267e-15, 0.389899, 1.64852e-07, -0.182631, -2.31923e-19, 1.09177, 2.75765e-08, -6.35226e-08, 0.105085, 0.480637, -0.464207)
 mesh = SubResource("ArrayMesh_j1oo6")
 skeleton = NodePath("")
 
-[node name="Area3D" type="Area3D" parent="body/enemy"]
-transform = Transform3D(1.07284e-07, 1.50996e-07, 1, -6.60024e-15, -1, 1.50996e-07, 1, -2.27997e-14, -1.07284e-07, 1.16503, 0.844094, -0.241208)
+[node name="Area3D" type="Area3D" parent="body/Enemy1"]
+transform = Transform3D(-1, 1.61995e-14, 6.35726e-08, -6.60024e-15, -1, 1.50996e-07, 6.35726e-08, 1.50996e-07, 1, 1.16503, 0.844094, -0.241208)
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="body/enemy/Area3D"]
-transform = Transform3D(-3.44215e-08, 0, -0.389865, 0, 0.182507, 0, 0.787471, 0, -1.70415e-08, 0.241208, -0.254291, 0)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="body/Enemy1/Area3D"]
+transform = Transform3D(-3.44215e-08, 0, -0.389865, 0, 0.182507, 0, 0.787471, 0, -1.70415e-08, 0.971277, 0.368909, 3.19123e-08)
 shape = SubResource("ConvexPolygonShape3D_27jke")
 
 [node name="Timers" type="Node" parent="."]
@@ -336,4 +300,4 @@ shield_component = NodePath("../ShieldComponent")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.54974, 0)
 shape = SubResource("ConvexPolygonShape3D_mwvb0")
 
-[connection signal="area_shape_entered" from="body/enemy/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="body/Enemy1/Area3D" to="." method="_on_area_3d_area_shape_entered"]

@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_mp5ld"]
 resource_name = "fade_in_out"
-length = 5.0
+length = 13.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +30,7 @@ tracks/0/path = NodePath("fg:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4, 3.46667, 4.9),
+"times": PackedFloat32Array(0, 1.4, 10.2667, 13.0667),
 "transitions": PackedFloat32Array(5.85634, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]

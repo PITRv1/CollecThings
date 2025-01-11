@@ -1,11 +1,12 @@
 extends Control
 
 @onready var pause_menu : Node3D = get_tree().get_first_node_in_group("Pause_menu")
-@onready var player_safe_mode = get_tree().get_first_node_in_group("player").safe_mode
+@onready var  player_safe_mode = get_tree().get_first_node_in_group("player").safe_mode 
+
 
 func _ready() -> void:
 	get_tree().paused = false
-	
+
 
 func _show_or_hide_settings() -> void:
 	if $SettingsMargin.visible:
@@ -77,3 +78,4 @@ func _on_back_load_button_pressed() -> void:
 func _on_load_button_pressed() -> void:
 	$GameSaverLoader.load_saved_map_data()
 	_show_or_hide_load_menu()
+ 

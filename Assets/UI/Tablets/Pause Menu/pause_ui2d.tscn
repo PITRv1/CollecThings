@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dee1xjnbe0hxf"]
+[gd_scene load_steps=11 format=3 uid="uid://dee1xjnbe0hxf"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_6uop4"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/pause_buttons_2d.gd" id="1_xwhgh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/pixelization.gd" id="7_e2won"]
 [ext_resource type="Script" path="res://Assets/UI/Tablets/Pause Menu/Settings/comapitibility_mode.gd" id="7_wcmqt"]
 [ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="9_wpegb"]
+[ext_resource type="Script" path="res://Assets/UI/Resources/hover_sfx.gd" id="10_nt62q"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -544,6 +545,12 @@ text = "Load savefile
 
 [node name="GameSaverLoader" type="Node" parent="."]
 script = ExtResource("9_wpegb")
+
+[node name="HoverSFXSetter" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_nt62q")
 
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UIMargin/UI/Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl6g5cco42d0p"]
+[gd_scene load_steps=5 format=3 uid="uid://dl6g5cco42d0p"]
 
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="1_pjc62"]
 [ext_resource type="Script" path="res://Assets/UI/Projected Screens/Main Menu/mainmenu_ui.gd" id="1_rljj7"]
 [ext_resource type="Script" path="res://Utilities/Game Saver Loader/game_saver_loader.gd" id="3_pqbml"]
+[ext_resource type="Script" path="res://Assets/UI/Resources/hover_sfx.gd" id="4_hcbl8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -129,6 +130,12 @@ focus_mode = 0
 theme = ExtResource("1_pjc62")
 theme_override_font_sizes/font_size = 36
 text = "QUIT"
+
+[node name="HoverSFXSetter" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_hcbl8")
 
 [connection signal="pressed" from="Margin/VBox/Load/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="Margin/VBox/Play/PlayButton" to="." method="_on_play_button_pressed"]

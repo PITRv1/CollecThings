@@ -6,6 +6,7 @@ extends AnimationPlayer
 @onready var timer: Timer = $"../Timer"
 
 const RIADO = preload("res://Assets/Musics/riado.mp3")
+const INTRO_MUSIC2 = preload("res://Assets/Musics/intro2.mp3")
 
 # Prev colors: c1d5ff and 312073c8
 
@@ -14,7 +15,7 @@ var current_camera = camera_high
 
 func _ready():
 	current_camera = camera_high
-	get_tree().create_timer(5).timeout.connect(func(): AudioPlayer._play_music(RIADO, 10))
+	get_tree().create_timer(5.6).timeout.connect(func(): AudioPlayer._play_music(RIADO, 10))
 	
 	
 
@@ -40,4 +41,5 @@ func _process(delta: float) -> void:
 
 
 func change_map() -> void:
+	AudioPlayer.stop()
 	Global.change_scene_to("res://Maps/Hub/hub_map.tscn")

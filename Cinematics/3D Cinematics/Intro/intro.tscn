@@ -1,10 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://b0jubqqbdp1yb"]
+[gd_scene load_steps=32 format=3 uid="uid://b0jubqqbdp1yb"]
 
 [ext_resource type="Texture2D" uid="uid://de0oehpl441jh" path="res://Assets/Images/panorama_image.png" id="1_4ngx7"]
 [ext_resource type="Script" path="res://Cinematics/3D Cinematics/Intro/intro.gd" id="1_t1jb2"]
 [ext_resource type="PackedScene" uid="uid://ec4hf36qltwp" path="res://Assets/Models/Vehicles/Space_ship.glb" id="2_8h5s1"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="3_deokf"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="4_7om7v"]
 [ext_resource type="PackedScene" uid="uid://c646huwpvwop6" path="res://Assets/Models/Cinematic Models/Planet.tscn" id="4_ntj0n"]
 [ext_resource type="PackedScene" uid="uid://m2wrgbx358is" path="res://Assets/Models/Environment Models/Map Models/glowing_island.glb" id="4_uwd0t"]
+[ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="5_engf2"]
 [ext_resource type="Script" path="res://Utilities/Safe Mode Utility/safemode.gd" id="7_vbtif"]
 [ext_resource type="PackedScene" uid="uid://bmw1voxopojjg" path="res://Assets/Models/Cinematic Models/Planet2.tscn" id="8_ebhvt"]
 
@@ -18,6 +21,40 @@ sky_material = SubResource("PanoramaSkyMaterial_lq1fv")
 [sub_resource type="Environment" id="Environment_sbsc1"]
 background_mode = 2
 sky = SubResource("Sky_j36r3")
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_7up37"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("3_deokf")
+frequency = 10.0
+line_brightness = 0.5
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_5pgiu"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("4_7om7v")
+down_scaling = 2.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_sg0pt"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_engf2")
+color_amount = 128.0
+
+[sub_resource type="Compositor" id="Compositor_tkatk"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7up37"), SubResource("CompositorEffect_5pgiu"), SubResource("CompositorEffect_sg0pt")])
 
 [sub_resource type="Animation" id="Animation_4mr0t"]
 length = 0.001
@@ -295,6 +332,7 @@ directional_shadow_max_distance = 1969.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sbsc1")
+compositor = SubResource("Compositor_tkatk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -318,6 +356,30 @@ transform = Transform3D(0.999771, 2.89418e-05, -0.00185155, -2.72786e-12, 0.9996
 
 [node name="Space_ship" parent="Path3D/PathFollow3D" instance=ExtResource("2_8h5s1")]
 transform = Transform3D(0.999952, 1.86252e-09, 0.0106766, -1.86265e-09, 1, 1.73473e-18, -0.0106766, -1.98864e-11, 0.999952, 0.152138, 5.00002, 25.1137)
+
+[node name="Catenary_011" parent="Path3D/PathFollow3D/Space_ship" index="18"]
+transform = Transform3D(1.19608, 0, 0, 0, 1.19608, 0, 0, 0, 1.19608, -1.82379, 2.17986, -2.22506)
+
+[node name="Catenary_012" parent="Path3D/PathFollow3D/Space_ship" index="19"]
+transform = Transform3D(1.19608, 0, 0, 0, 1.19608, 0, 0, 0, 1.19608, -1.84715, 2.35567, 2.74603)
+
+[node name="Catenary_013" parent="Path3D/PathFollow3D/Space_ship" index="20"]
+transform = Transform3D(1.19608, 0, 0, 0, 1.19608, 0, 0, 0, 1.19608, 1.74376, 2.61523, -2.35084)
+
+[node name="Catenary_014" parent="Path3D/PathFollow3D/Space_ship" index="21"]
+transform = Transform3D(1.19608, 0, 0, 0, 1.19608, 0, 0, 0, 1.19608, 1.77242, 2.3052, 2.75682)
+
+[node name="Cube_009" parent="Path3D/PathFollow3D/Space_ship" index="22"]
+transform = Transform3D(0.90338, 0.783913, 0, -0.783913, 0.90338, 0, 0, 0, 1.19608, -1.86243, 1.58771, 4.28418)
+
+[node name="Cube_012" parent="Path3D/PathFollow3D/Space_ship" index="24"]
+transform = Transform3D(0.894698, 0.793776, -0.00707028, -0.793805, 0.894634, -0.0108809, -0.00193273, 0.0128315, 1.19601, -1.84845, 1.58194, -3.87329)
+
+[node name="Cylinder_008" parent="Path3D/PathFollow3D/Space_ship" index="25"]
+transform = Transform3D(0.806645, -0.883142, 0, 0.883142, 0.806645, 0, 0, 0, 1.19608, 1.79785, 1.6264, -3.89633)
+
+[node name="Cylinder_009" parent="Path3D/PathFollow3D/Space_ship" index="26"]
+transform = Transform3D(0.806645, -0.883142, 0, 0.883142, 0.806645, 0, 0, 0, 1.19608, 1.79785, 1.6264, 4.2764)
 
 [node name="engine_flame_left" type="GPUParticles3D" parent="Path3D/PathFollow3D/Space_ship"]
 transform = Transform3D(1, 4.65661e-09, 8.3819e-09, 1.02445e-08, -4.3583e-08, -1, -7.45058e-09, 1, -4.37285e-08, -5.46076, 5.08626, 0.66806)
@@ -384,3 +446,5 @@ transform = Transform3D(-0.438446, 0.0986188, 0.893331, 0.366235, 0.927299, 0.07
 
 [node name="SafeMode" type="Node3D" parent="."]
 script = ExtResource("7_vbtif")
+
+[editable path="Path3D/PathFollow3D/Space_ship"]

@@ -12,6 +12,7 @@ const SPEED = 10.0
 const ATTACK_RANGE = 2.5
 
 @export var damage := 20.0
+@onready var rays: RayCast3D = $RayCast3D
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree: AnimationTree = $"States and animation/AnimationTree"
@@ -50,6 +51,9 @@ func _physics_process(delta: float) -> void:
 				velocity = velocity.move_toward(new_velocity, .25)
 			else:
 				velocity = lerp(velocity, Vector3(0.0, velocity.y, 0.0), .25)
+			
+			if rays.is_colliding():
+				velocity = Vector3.ZERO
 			
 	#Conditions
 	anim_tree.get("parameters/playback")

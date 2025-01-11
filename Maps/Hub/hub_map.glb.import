@@ -48,6 +48,7 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Plane_008": {
+"generate/navmesh": 1,
 "generate/physics": true
 },
 "PATH:Plane_010": {

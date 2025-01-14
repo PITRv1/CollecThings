@@ -21,7 +21,6 @@ var index_array : Array
 @export var resolution : int = 4
 @export var rope_width : float = 0.02
 @export var iterations : int = 5
-#@export var majon : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

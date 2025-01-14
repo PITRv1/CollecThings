@@ -7,8 +7,8 @@ class_name BaseWeapon
 @export var cooldown_timer: Timer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-var is_primary_enabled = true
-var is_secondary_enabled = true
+var is_primary_enabled: bool = true
+var is_secondary_enabled: bool = true
 
 var player : Player
 var length := 100.0

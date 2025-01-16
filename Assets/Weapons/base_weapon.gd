@@ -10,10 +10,10 @@ class_name BaseWeapon
 var is_primary_enabled: bool = true
 var is_secondary_enabled: bool = true
 
-var player : Player
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 var length := 100.0
 
-var camera : Camera3D
+@onready var camera : Camera3D = get_viewport().get_camera_3d()
 var mousepos : Vector2
 var space_state : PhysicsDirectSpaceState3D
 var from : Vector3
@@ -26,13 +26,12 @@ var max_mag_size : int
 @export var rope_gen : PackedScene
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
 	mag_size = weapon_settings.mag_size
 	max_mag_size = weapon_settings.mag_size
-	camera = get_viewport().get_camera_3d()
+	
 
 # Primary fire function, can be overridden in derived weapons
-func primary_fire():
+func primary_fire() -> void:
 	if not animation_player.is_playing() and is_primary_enabled and mag_size > 0 and cooldown_timer.is_stopped():
 		
 		if weapon_settings.hitscan == 1:
@@ -48,7 +47,7 @@ func primary_fire():
 	elif not mag_size > 0:
 		reload()
 
-func hitscan_primary():
+func hitscan_primary() -> void:
 	
 	var ray = run_ray_test(true, [])
 	var hit_objects := []
@@ -73,11 +72,11 @@ func hitscan_primary():
 	mag_size -= 1
 	draw_line(ray)
 
-func play_animations():
+func play_animations() -> void:
 	if animation_player.has_animation("knockback"):
 		animation_player.play("knockback")
 	
-func draw_line(ray):
+func draw_line(ray) -> void:
 	var line = rope_gen.instantiate()
 	if ray.size() > 0:
 		line.SetPlayerPosition(projectile_origin.global_position)
@@ -100,7 +99,7 @@ func draw_line(ray):
 			line.visible = true
 			get_tree().root.add_child(line)
 			
-func projectile_primary():
+func projectile_primary() -> void:
 	
 	for i in range(weapon_settings.num_of_bullets):
 		
@@ -111,18 +110,19 @@ func projectile_primary():
 	cooldown_timer.start(weapon_settings.cooldown)
 
 # Secondary fire function, can be overridden in derived weapons
-func secondary_fire():
+func secondary_fire() -> void:
 	pass
 	
-func reload():
+
+func reload() -> void:
 	if mag_size != max_mag_size:
 		if animation_player.has_animation("reload"):
 			animation_player.play("reload")
 	
-func _reload():
+func _reload() -> void:
 	mag_size = weapon_settings.mag_size
 	
-func spawn_bullet():
+func spawn_bullet() -> void:
 	# Get space, camera, mousepos
 	camera = get_viewport().get_camera_3d()
 	space_state = get_world_3d().direct_space_state

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmpf6hkbo0ga5"]
 
 [ext_resource type="Texture2D" uid="uid://hh8fvyjngh2" path="res://Assets/UI/Resources/Icons/Weapons/grappler.png" id="1_am3t5"]
-[ext_resource type="Script" path="res://Assets/UI/Projected Screens/Gun/gun.gd" id="1_yns3c"]
+[ext_resource type="Script" path="res://Assets/UI/Projected Screens/Gun/texture_rect.gd" id="2_mn7p8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,7 +11,6 @@ offset_right = -0.32
 offset_bottom = -0.192001
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yns3c")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -20,3 +19,4 @@ offset_right = 40.0
 offset_bottom = 51.0
 texture = ExtResource("1_am3t5")
 expand_mode = 1
+script = ExtResource("2_mn7p8")

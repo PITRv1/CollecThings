@@ -5,6 +5,7 @@ extends Node3D
 func _ready() -> void:
 	animation_player.play("RESET")
 	
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().paused:
@@ -12,11 +13,13 @@ func _process(_delta: float) -> void:
 		else:
 			pause()
 
+
 func pause() -> void:
 	animation_player.play("open")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
 	
+
 
 func resume() -> void:
 	animation_player.play_backwards("open")

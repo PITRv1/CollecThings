@@ -18,7 +18,7 @@ func _choose_random_background() -> void:
 
 
 func _process(_delta: float) -> void:
-	var progress = []
+	var progress : Array[float] = []
 	
 	ResourceLoader.load_threaded_get_status(scene_to_load, progress)
 	$AspectRatioContainer/MarginContainer/VBoxContainer/ProgressBar.value = progress[0]*100

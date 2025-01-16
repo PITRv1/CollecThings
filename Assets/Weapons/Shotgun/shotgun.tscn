@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Assets/Weapons/Shotgun/shotgun_main.gd" id="1_jsstv"]
 [ext_resource type="Resource" uid="uid://ckt8ohxdhnj2e" path="res://Assets/Weapons/Shotgun/shotgun_settings.tres" id="2_54bu2"]
 [ext_resource type="PackedScene" uid="uid://cktorru4v63el" path="res://Assets/Weapons/Shotgun/Shotgun.glb" id="3_wwjff"]
-[ext_resource type="PackedScene" uid="uid://b2ccpk0qlpd67" path="res://line_gen.tscn" id="4_giuy1"]
+[ext_resource type="PackedScene" uid="uid://b2ccpk0qlpd67" path="res://Assets/Weapons/Shotgun/line_gen.tscn" id="4_giuy1"]
 [ext_resource type="PackedScene" uid="uid://jrmifcwavt4y" path="res://Assets/Weapons/Shotgun/hook.tscn" id="4_jwd3h"]
 
 [sub_resource type="Animation" id="Animation_p58k5"]

@@ -2,11 +2,11 @@ extends Control
 
 @onready var click_sfx : AudioStreamMP3 = preload("res://Assets/Sounds/click.mp3")
 
-
 func _ready() -> void:
 	set_click_sfx_for_buttons(get_parent())
+	
 
-func set_click_sfx_for_buttons(node):
+func set_click_sfx_for_buttons(node) -> void:
 	var children : Array = node.get_children()
 	
 	if children:
@@ -19,6 +19,6 @@ func set_click_sfx_for_buttons(node):
 		
 
 
-func play_hover_sfx():
+func play_hover_sfx() -> void:
 	AudioPlayer.create_new_audio_player(click_sfx)
 	

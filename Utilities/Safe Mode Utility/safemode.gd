@@ -3,6 +3,7 @@ class_name SafeMode
 
 @export_enum("Automatic", "Disabled", "Performance", "Safe") var mode : int = 0
 
+#Advanced Micro Devices, Inc.
 var unsupported_vendors : Array = ["Intel Corporation", ""]
 var gpu : String = str(OS.get_video_adapter_driver_info()[0])
 var resources_status : bool = true

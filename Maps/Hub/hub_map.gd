@@ -2,11 +2,11 @@ extends Node3D
 
 @onready var player : Player = get_tree().get_first_node_in_group("player")
 @export var play_animation : bool = false
-const MUSIC = preload("res://Assets/Musics/music.mp3")
 
 func _ready() -> void:
-	#AudioPlayer.stop()
-	AudioPlayer._play_music(MUSIC)
+	AudioPlayer.stop()
+	AudioPlayer.play_music(AudioPlayer.MUSIC_LIBRARY["Untitled"])
+	
 	if play_animation:
 		player.paused = true
 		player.ui.visible = false

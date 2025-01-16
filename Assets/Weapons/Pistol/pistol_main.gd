@@ -5,23 +5,14 @@ extends BaseWeapon
 @onready var shooting_particles: GPUParticles3D = $shooting
 @onready var charging_particles: GPUParticles3D = $charging
 @export var b_decal : PackedScene = preload("res://Assets/Models/Bullet/BulletDecal.tscn")
-@onready var gun_utility = get_tree().get_first_node_in_group("gun_utility")
+@onready var gun_utility : Polygon2D = get_tree().get_first_node_in_group("gun_utility")
 
 # weapon stats
-
 var charge := 0.0
 var knock_force : float
 var damage : float
 
 func _ready() -> void:
-	
-	# Set up the player and the UI
-	
-	player = get_tree().get_first_node_in_group("player")
-	#gun_utility.set_texture_offset(Vector2(-5, 0))
-	
-	# Save the base weapon settings for later use
-	
 	knock_force = weapon_settings.knockback_force
 	mag_size = weapon_settings.mag_size
 	max_mag_size = weapon_settings.mag_size
@@ -59,21 +50,19 @@ func _physics_process(delta: float) -> void:
 		_secondary_fire()
 
 
-func _secondary_fire():
+func _secondary_fire() -> void:
 	
 	# Set UI
-	
 	gun_utility.set_texture_offset(Vector2(-5, 0))
-	
+
 	# Change the weapon setting from the normal
-	
 	weapon_settings.knockback_force += charge * 30
 	weapon_settings.damage += charge * 20
 	weapon_settings.stun_time = charge / 2
 	
 	# Shoot with these settings
 	
-	var ray = run_ray_test(true, [])
+	var ray : Dictionary = run_ray_test(true, [])
 	shooting_particles.emitting = true
 	if ray.size() > 0:
 		if ray["collider"] is HitboxComponent:

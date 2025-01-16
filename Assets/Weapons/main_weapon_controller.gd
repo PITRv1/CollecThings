@@ -28,7 +28,7 @@ var weapon_bob_amount : Vector2 = Vector2(0,0)
 var last_weapon : String
 
 
-func _ready():
+func _ready() -> void:
 	weapon_list = {
 	"TPistol": "res://Assets/Weapons/Pistol/pistol.tscn",
 	"TShotgun": "res://Assets/Weapons/Shotgun/shotgun.tscn",
@@ -38,7 +38,7 @@ func _ready():
 	await owner.ready
 	load_weapon(weapon_list["TShotgun"])
 	
-func _input(event):
+func _input(event)  -> void:
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 		
@@ -85,7 +85,7 @@ func load_weapon(weapon_scene_path: String) -> void:
 		print("Failed to load weapon scene: ", weapon_scene_path)
 	
 
-func apply_weapon_settings(weapon_settings):
+func apply_weapon_settings(weapon_settings) -> void:
 	position = weapon_settings.position
 	rotation_degrees = weapon_settings.rotation
 	scale = weapon_settings.scale
@@ -124,7 +124,7 @@ func sway_weapon(delta, isIdle : bool)->void:
 		rotation_degrees.y = lerp(rotation_degrees.y, current_weapon_settings.rotation.y + (mouse_movement.x * current_weapon_settings.sway_amount_rotation) * delta, current_weapon_settings.sway_speed_rotation)
 		rotation_degrees.x = lerp(rotation_degrees.x, current_weapon_settings.rotation.x - (mouse_movement.y * current_weapon_settings.sway_amount_rotation) * delta, current_weapon_settings.sway_speed_rotation)
 
-func get_sway_noise()-> float:
+func get_sway_noise() -> float:
 	var player_position : Vector3 = Vector3(0,0,0)
 	
 	if not Engine.is_editor_hint():
@@ -133,7 +133,7 @@ func get_sway_noise()-> float:
 	var noise_location: float = sway_noise.noise.get_noise_2d(player_position.x, player_position.y)
 	return noise_location
 
-func weapon_bob(delta, bob_speed: float, hbob_amount: float, vbob_amount: float)->void:
+func weapon_bob(delta, bob_speed: float, hbob_amount: float, vbob_amount: float) ->void:
 	time += delta
 	
 	weapon_bob_amount.x = sin(time * bob_speed) * hbob_amount

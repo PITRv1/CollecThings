@@ -17,13 +17,14 @@ func _process(_delta: float) -> void:
 	adjust_reticle_lines()
 	queue_redraw()
 	
-	
-	for line in reticle_lines:
-		line.default_color = dot_color
-
 
 func _draw() -> void:
 	draw_circle(Vector2(0,0), dot_radius, dot_color)
+
+
+func change_crosshair_color(color: Color):
+	for line in reticle_lines:
+		line.default_color = dot_color
 
 
 func adjust_reticle_lines() -> void:

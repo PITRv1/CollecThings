@@ -11,21 +11,11 @@ extends BaseWeapon
 @onready var hook_raycast: RayCast3D = $Shotgun/hook/RayCast3D
 @onready var helper_cast: RayCast3D = $HelperCast
 @onready var hook_rope_gen: MeshInstance3D = $RopeGen
-
-# Hell itself, literally I have no clue about this thing
 @onready var remote_transform := RemoteTransform3D.new()
-
-# Choose between a normal grappler that pulls the player towards it or
-
-# a constant distance grappler
 @export_enum("Pulls player", "Constant distance") var grapple_type: int = 0
-
-# Grappler pulling force and max_distance
 @export var GRAPPLE_RAY_MAX : float = 30.0
 @export var GRAPPLE_FORCE_MAX : float = 20.0
-
-# Speed of the grappler
-@export var hook_speed := 30.0
+@export var hook_speed : float = 30.0
 
 # States
 var is_enemy_grapple := false
@@ -54,7 +44,6 @@ var charge := 0.0
 @onready var gun_utility : Polygon2D = get_tree().get_first_node_in_group("gun_utility")
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
 	gun_utility.set_texture_offset(Vector2(10, 0))
 	hook_rope_gen.visible = false
 	hook.global_position = hook_start_position.global_position
@@ -87,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("secondary_fire") and not animation_player.is_playing():
 		
 		# pos is the end position, this is where the grappler will go, and look at, if nothing is in the way
-		var camera = get_viewport().get_camera_3d()
+		var camera : Camera3D = get_viewport().get_camera_3d()
 		pos = camera.global_position + camera.global_transform.basis.z * -GRAPPLE_RAY_MAX * charge / 5
 		var pos_ray = run_hook_ray(GRAPPLE_RAY_MAX * charge / 5)
 		if pos_ray.size() > 0:
@@ -258,7 +247,7 @@ func _physics_process(delta: float) -> void:
 	# Rope going back to starting point state
 	if rope_go_back:
 		helper_cast.target_position.z = 0
-		player.crosshair.dot_color = Color.WHITE
+		player.crosshair.change_crosshair_color(Color.WHITE)
 		hook.top_level = true
 		hook_rope_gen.visible = true
 		
@@ -307,9 +296,9 @@ func check_for_colliding():
 	if charge < 1: return
 	
 	if run_hook_ray(GRAPPLE_RAY_MAX * charge).size() > 0:
-		player.crosshair.dot_color = Color.YELLOW
+		player.crosshair.change_crosshair_color(Color.YELLOW)
 	else:
-		player.crosshair.dot_color = Color.WHITE
+		player.crosshair.change_crosshair_color(Color.WHITE)
 		
 func run_hook_ray(length):
 	# Project ray

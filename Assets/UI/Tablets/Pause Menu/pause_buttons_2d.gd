@@ -1,7 +1,7 @@
 extends Control
 
 @onready var pause_menu : Node3D = get_tree().get_first_node_in_group("Pause_menu")
-@onready var  player_safe_mode = get_tree().get_first_node_in_group("player").safe_mode 
+@onready var player_safe_mode : SafeMode = get_tree().get_first_node_in_group("player").safe_mode 
 
 
 func _ready() -> void:

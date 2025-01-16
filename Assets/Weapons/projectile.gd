@@ -1,20 +1,19 @@
 extends RayCast3D
 
-var player : Player
-var b_decal
-var weapon_settings
-var proj_speed
-var pierce : int
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 @onready var timer: Timer = $Timer
+@onready var b_decal : PackedScene =  preload("res://Assets/Models/Bullet/BulletDecal.tscn")
+
+var weapon_settings : WeaponSettings
+var proj_speed : int
+var pierce : int
 var damage : float
-var stun_time
+var stun_time : float
 var colliders : Array
 var proj : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
-	b_decal = preload("res://Assets/Models/Bullet/BulletDecal.tscn")
 	proj_speed = weapon_settings.proj_speed
 	pierce = weapon_settings.pierce
 	damage = weapon_settings.damage

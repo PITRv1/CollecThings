@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var timer: Timer = $Timer
 
-@onready var remote_transform := RemoteTransform3D.new()
+@onready var remote_transform : RemoteTransform3D = RemoteTransform3D.new()
 
 func _ready() -> void:
 	call_deferred("_setup_remote_transform")

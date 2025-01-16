@@ -15,7 +15,8 @@ func _ready() -> void:
 	
 	health_bar.max_value = player.health_component.MAX_HEALTH
 	health_bar.value = player.health_component.health
-			  
+	
+
 
 func _process(_delta: float) -> void:
 	health_bar.value = player.health_component.health
@@ -24,9 +25,12 @@ func _process(_delta: float) -> void:
 	
 	for message in message_list:
 		_show_message(message, 4.0)
+	
+
 
 func purge_message(message: String):
 	message_list.append(message)
+
 
 func _show_message(message: String, time: float):
 	if !is_showing_message:
@@ -35,6 +39,7 @@ func _show_message(message: String, time: float):
 		animation_player.play("message_animation")
 		get_tree().create_timer(time).timeout.connect(_hide_message.bind())
 	
+
 
 func _hide_message():
 	animation_player.play_backwards("message_animation")

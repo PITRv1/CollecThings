@@ -5,7 +5,7 @@ var pixelization_shader = null
 func _ready() -> void:
 	get_tree().create_timer(1, true, true, 0).timeout.connect(set_pixelization_amount)
 
-func set_pixelization_amount():
+func set_pixelization_amount() -> void:
 	pixelization_shader = Global.get_environment_shader_by_property("down_scaling")
 	
 	if pixelization_shader == null:

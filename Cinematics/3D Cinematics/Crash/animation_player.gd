@@ -5,26 +5,22 @@ extends AnimationPlayer
 @onready var camera_low = $"../Camera_Low"
 @onready var timer: Timer = $"../Timer"
 
-const RIADO = preload("res://Assets/Musics/riado.mp3")
-const INTRO_MUSIC2 = preload("res://Assets/Musics/intro2.mp3")
-
-# Prev colors: c1d5ff and 312073c8
-
 var current_camera = camera_high
 
-
-func _ready():
+func _ready() -> void:
 	current_camera = camera_high
-	get_tree().create_timer(5.6).timeout.connect(func(): AudioPlayer._play_music(RIADO, 10))
+	
+	await get_tree().create_timer(5.6).timeout
+	AudioPlayer.play_music(AudioPlayer.MUSIC_LIBRARY["Crash_alarm"])
 	
 	
 
-func switch_camera():
+func switch_camera() -> void:
 		if current_camera == camera_high:
 			current_camera.current = false
 			current_camera = camera_low
 			current_camera.current = true
-				
+			
 		else:
 			current_camera.current = false
 			current_camera = camera_high
@@ -33,8 +29,8 @@ func switch_camera():
 
 func _process(delta: float) -> void:
 	if not animation_player.is_playing():
-		
-		get_tree().create_timer(3.0).timeout.connect(func(): change_map())
+		await get_tree().create_timer(3.0).timeout
+		change_map()
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		change_map()

@@ -16,15 +16,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	health_percent = health/MAX_HEALTH
 
-func damage(attack: WeaponSettings = null, damage : float = 0.0):
-	if attack:
-		health -= attack.damage
+func damage(damage_amount : float = 0.0):
+	if damage_amount:
+		health -= damage_amount
+		damaged.emit()
+		
 		#get_parent().velocity += attack.global_pos.direction_to(get_parent().global_position) * attack.knockback_force
-	
-	elif damage:
-		health -= damage
-	
-	damaged.emit()
+		
 	
 	if health <= 0:
 		if get_parent() is not Player:
@@ -34,6 +32,7 @@ func damage(attack: WeaponSettings = null, damage : float = 0.0):
 
 func heal(amount: int) -> void:
 	health += amount
+	
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
 	

@@ -1,10 +1,9 @@
 extends Node3D
 class_name SafeMode
 
-@export_enum("Automatic", "Disabled", "Performance", "Safe") var mode : int = 0
 
-#Advanced Micro Devices, Inc.
-var unsupported_vendors : Array = ["Intel Corporation", ""]
+@export_enum("Automatic", "Disabled", "Performance", "Safe") var mode : int = 0
+var supported_vendors : Array = ["NVIDIA", "Advanced Micro Devices, Inc."]
 var gpu : String = str(OS.get_video_adapter_driver_info()[0])
 var resources_status : bool = true
 var prev_mode : int = 0
@@ -21,13 +20,19 @@ func _ready() -> void:
 	reload()
 	
 
+#func _process(_delta: float) -> void:
+	##ISNT REALLY WORKING or idk
+	#if prev_mode != mode:
+		#reload()
+		#prev_mode = mode
 
-func _process(_delta: float) -> void:
-	#ISNT REALLY WORKING
-	if prev_mode != mode:
-		reload()
-		prev_mode = mode
-	
+func _check_graphics_card() -> void:
+	if gpu not in supported_vendors:
+		mode = 3
+		resources_status = false
+	else:
+		mode = 1
+		resources_status = true
 
 
 func reload():
@@ -49,15 +54,6 @@ func reload():
 		_change_shaders_status()
 	
 	Global.safe_mode_status = resources_status
-
-
-func _check_graphics_card() -> void:
-	if gpu in unsupported_vendors:
-		mode = 3
-		resources_status = false
-	else:
-		mode = 1
-		resources_status = true
 
 
 func _change_shaders_status() -> void:

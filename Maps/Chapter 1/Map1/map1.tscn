@@ -1104,12 +1104,12 @@ transform = Transform3D(-0.0847776, 0, 3.60274, 0, 3.60374, 0, -3.60274, 0, -0.0
 [node name="Fight Area" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 6.35735, -308.609)
 
-[node name="Area3D" type="Area3D" parent="Fight Area"]
+[node name="FightArea3D" type="Area3D" parent="Fight Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 277.545, 61.5609, 629.745)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fight Area/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fight Area/FightArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.9136, -3.25253)
 shape = SubResource("BoxShape3D_j7wm4")
 
@@ -1156,7 +1156,7 @@ shape = SubResource("BoxShape3D_kyt48")
 [connection signal="body_entered" from="map1/Museum/Assets_museum" to="map1/Museum/Assets_museum" method="_on_body_entered"]
 [connection signal="body_entered" from="map1/Environment_switch" to="WorldEnvironment" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="map1/Environment_switch" to="WorldEnvironment" method="_on_area_3d_body_exited"]
-[connection signal="body_entered" from="Fight Area/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Fight Area/FightArea3D" to="." method="_on_fight_area_3d_body_entered"]
 
 [editable path="map1"]
 [editable path="map1/Waterfall/waterfall_surface"]

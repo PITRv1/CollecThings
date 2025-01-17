@@ -1,5 +1,6 @@
 extends Node
 
+
 @onready var main_menu : PackedScene = null
 @onready var space_main_menu : PackedScene = preload("res://Maps/Main_Menu/Space/Main_menu.tscn")
 @onready var crashed_main_menu : PackedScene = preload("res://Maps/Main_Menu/Crash/Main_menu.tscn")
@@ -9,12 +10,14 @@ extends Node
 const USER_SAVE_FILE : String = "user://game_settings.tres"
 const MAP_SAVE_FILE : String = "user://mapdata_save.tres"
 
+
 var weapon_speacial : TextureRect
 var stat_tablet : Control
 var player : Player
 var next_scene: String
 var safe_mode_status : bool
 var load_saved_map_data : bool = false
+
 
 func _ready() -> void:
 	update_main_menu()
@@ -48,10 +51,17 @@ func get_current_world_environment_node() -> WorldEnvironment:
 
 
 func get_environment_shader_by_property(property: String) -> CompositorEffect:
-	var world_env = get_current_world_environment_node()
+	var world_env = get_current_world_environment_node() as WorldEnvironment
 	if world_env and world_env.compositor:
 		for effect in world_env.compositor.compositor_effects:
 			if effect.get(property):
 				return effect
 	return null
+	
+
+func create_weapon_setting_to_damage(damage : float) -> WeaponSettings:
+	var Weaponsetting := WeaponSettings.new()
+	Weaponsetting.damage = damage
+	
+	return Weaponsetting
 	

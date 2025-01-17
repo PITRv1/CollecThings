@@ -24,7 +24,7 @@ func _draw() -> void:
 
 func change_crosshair_color(color: Color):
 	for line in reticle_lines:
-		line.default_color = dot_color
+		line.default_color = color
 
 
 func adjust_reticle_lines() -> void:

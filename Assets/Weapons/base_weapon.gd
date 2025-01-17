@@ -169,10 +169,13 @@ func run_ray_test(area_check, hit_objects) -> Dictionary:
 	camera = get_viewport().get_camera_3d()
 	space_state = get_world_3d().direct_space_state
 	mousepos = get_viewport().get_mouse_position()
-	var dot_pos = player.crosshair.position
+	
+	var dot_pos : Vector2 = player.crosshair.position
 	mousepos = dot_pos
 	from = camera.project_ray_origin(mousepos)
-	var bloom = calculate_spread()
+	
+	var bloom : Vector2 = calculate_spread()
+	
 	to = from + camera.project_ray_normal(mousepos + bloom) * length
 
 	query = PhysicsRayQueryParameters3D.create(from, to)

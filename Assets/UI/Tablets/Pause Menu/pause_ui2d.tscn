@@ -366,9 +366,10 @@ text = "Disable"
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
-text = "Safe"
+text = "Enable"
 
 [node name="Performance" type="Button" parent="SettingsMargin/VBoxContainer/Settings/Comapitibility Mode/ButtonBox"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")

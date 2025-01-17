@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dj2oa4llt7j54"]
 
-[ext_resource type="Script" path="res://Assets/UI/Tablets/MongerGun/mong.gd" id="1_10vsk"]
+[ext_resource type="Script" path="res://Assets/Weapons/MongerGun/mong.gd" id="1_10vsk"]
 [ext_resource type="Script" path="res://Assets/Weapons/weapon_settings.gd" id="2_bp7b1"]
 
 [sub_resource type="Resource" id="Resource_4ya18"]

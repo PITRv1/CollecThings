@@ -82,7 +82,7 @@ func UpdatePoints(delta):
 
 func ConstraintConnections():
 	for i in range(point_count - 1):
-		var centre : Vector3 = (points[i+1] + points[i]) / 2.0
+		#var centre : Vector3 = (points[i+1] + points[i]) / 2.0
 		var offset : Vector3 = (points[i+1] - points[i])
 		var length : float = offset.length()
 		var dir : Vector3 = offset.normalized()
@@ -160,8 +160,7 @@ func GenerateMesh():
 func CalculateNormals():
 	normal_array.clear()
 	tangent_array.clear()
-	
-	var helper
+	 
 	
 	for i in range(point_count):
 		var tangent := Vector3(0.0, 0.0, 0.0)

@@ -1,8 +1,10 @@
 extends RayCast3D
 
+
 @onready var player : Player = get_tree().get_first_node_in_group("player")
 @onready var timer: Timer = $Timer
 @onready var b_decal : PackedScene =  preload("res://Assets/Models/Bullet/BulletDecal.tscn")
+
 
 var weapon_settings : WeaponSettings
 var proj_speed : int
@@ -11,6 +13,7 @@ var damage : float
 var stun_time : float
 var colliders : Array
 var proj : PackedScene
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,8 +26,9 @@ func _ready() -> void:
 	self.add_child(pald)
 	
 
-func enter(weapon_setting):
+func enter(weapon_setting : WeaponSettings) -> void:
 	weapon_settings = weapon_setting
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

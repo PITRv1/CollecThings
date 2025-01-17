@@ -20,16 +20,12 @@ func _process(_delta: float) -> void:
 	shield_percent = shield/MAX_SHIELD
 
 
-func damage(attack: WeaponSettings = null, damage : float = 0.0):
-	if attack:
-		shield -= attack.damage
+func damage(damage_amount : float = 0.0):
+	if damage_amount:
+		shield -= damage_amount
+		damaged.emit()
 		
 	
-	elif damage:
-		shield -= damage
-		
-	
-	damaged.emit()
 	
 	if shield <= 0:
 		if get_parent() is Player:

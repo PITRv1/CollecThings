@@ -5,7 +5,6 @@ extends Control
 @onready var energy_bar : ProgressBar = $Margin/UI/PlayerStats/EnergyPanel/Margin/VBox/ProgressBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: Label = $MessagePanel/Margin/VBox/Label
-@onready var fps_yes: Label = $Margin/UI/PlayerStats/HealthPanel/Margin/VBox/Label
 
 var is_showing_message : bool = false
 var message_list : Array = []
@@ -20,8 +19,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	health_bar.value = player.health_component.health
-
-	fps_yes.text = str(Engine.get_frames_per_second()).pad_decimals(2)
 	
 	for message in message_list:
 		_show_message(message, 4.0)

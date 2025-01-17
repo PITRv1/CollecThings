@@ -109,7 +109,7 @@ func load_saved_map_data() -> void:
 					var parent := health_component.get_parent()
 					
 					if health_data.has(id):
-						health_component.damage(null, health_component.health-health_data[id])
+						health_component.damage(health_component.health-health_data[id])
 					
 					if position_data.has(parent.get_path()):
 						instance_from_id(parent.get_instance_id()).global_position = position_data[parent.get_path()]
@@ -119,7 +119,7 @@ func load_saved_map_data() -> void:
 					var id : NodePath = shield_component.get_path()
 					
 					if shield_data.has(id):
-						shield_component.damage(null, shield_component.shield-shield_data[id])
+						shield_component.damage(shield_component.shield-shield_data[id])
 				
 				
 				if player and player.camera:

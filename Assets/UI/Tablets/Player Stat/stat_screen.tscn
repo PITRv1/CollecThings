@@ -1,12 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7b25yobm7o6q"]
+[gd_scene load_steps=8 format=3 uid="uid://c7b25yobm7o6q"]
 
+[ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="1_16d8p"]
 [ext_resource type="PackedScene" uid="uid://7ps155gax7qy" path="res://Assets/UI/Tablets/Player Stat/playerstat_ui2d.tscn" id="2_3ioot"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n4skr"]
 viewport_path = NodePath("playerstat_viewport")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l5g5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_16d8p")
+shader_parameter/line_amount = 242.0
+shader_parameter/time_scale = 0.054
+shader_parameter/line_brightness = 0.913
+shader_parameter/line_opacity = 0.114
+shader_parameter/emission_power = 0.003
+shader_parameter/line_color = Color(1, 0.643137, 0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebjg2"]
 resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_8l5g5")
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_n4skr")
 texture_filter = 0

@@ -12,7 +12,6 @@ signal healed
 var shield : float
 var shield_percent : float
 
-
 func _ready() -> void:
 	shield = MAX_SHIELD
 	

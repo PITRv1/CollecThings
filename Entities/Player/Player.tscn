@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://d2b8n34aweq4h"]
+[gd_scene load_steps=39 format=3 uid="uid://d2b8n34aweq4h"]
 
 [ext_resource type="Script" path="res://Entities/Player/scripts/controller.gd" id="1_d8ygf"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/player_state_machine.gd" id="2_d1gut"]
+[ext_resource type="Shader" path="res://Assets/Shaders/PlayerEffects/Hurt&Damage_shader.gdshader" id="2_daw7a"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/PlayerStates/IdlePlayerState.gd" id="3_10uix"]
 [ext_resource type="PackedScene" uid="uid://ct2ntha4kwb88" path="res://Assets/UI/Projected Screens/Gun/gun_screen.tscn" id="3_pes8g"]
 [ext_resource type="PackedScene" uid="uid://bneryy78blva3" path="res://Assets/UI/Tablets/Pause Menu/pause_tablet.tscn" id="4_4dxjy"]
@@ -66,6 +67,13 @@ texture_filter = 0
 height = 7.87751
 radius = 18.3116
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1gim"]
+shader = ExtResource("2_daw7a")
+shader_parameter/intensity = 0.0
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ixope"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtw6f"]
 height = 2.2
 
@@ -80,6 +88,9 @@ health_component = NodePath("HealthComponent")
 shield_component = NodePath("ShieldComponent")
 safe_mode = NodePath("SafeMode")
 crosshair = NodePath("Head/CameraSmooth/Camera3D/Ui/PlayerUI/CenterContainer")
+hp_damaged_color = Color(1, 0, 0, 1)
+hp_healed_color = Color(0.201167, 0.71, 0, 1)
+shield_damaged_color = Color(5.77569e-07, 0.641589, 0.888191, 1)
 
 [node name="PlayerWorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p3r5x")
@@ -165,6 +176,15 @@ collision_mask = 512
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/CameraSmooth/Camera3D/ShakerComponent3D/ShakerReceiver3D/Area3D"]
 shape = SubResource("CylinderShape3D_ogkxp")
+
+[node name="Damage_Heal_effect" type="TextureRect" parent="Head/CameraSmooth/Camera3D"]
+material = SubResource("ShaderMaterial_m1gim")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_ixope")
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 unique_name_in_owner = true

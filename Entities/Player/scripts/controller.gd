@@ -55,6 +55,9 @@ var _last_frame_was_on_floor = -INF
 @export var safe_mode : SafeMode
 @export var crosshair : CenterContainer
 
+@onready var damage_heal_effect: TextureRect = $Head/CameraSmooth/Camera3D/Damage_Heal_effect
+
+
 #Jump buffer && (maybe coyoteTime) variables
 var jump_buffer_running := false
 var look_sensitivity := 0.003
@@ -88,6 +91,12 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.player = self
 	dashes_left = %DashingPlayerState.dashes_left
+	
+	health_component.healed.connect(on_healed)
+	health_component.damaged.connect(on_damaged)
+	shield_component.damaged.connect(on_shield_damaged)
+	
+	
 	
 
 ########################################################
@@ -245,6 +254,21 @@ func _handle_air_physics(delta: float) -> void:
 
 ####################################################
 
+var screen_effect_intensity : float
+var screen_effect_color : Color
+
+var target_screen_effect_intensity : float
+
+func _process(delta: float) -> void:
+	#screen_effect_intensity = target_screen_effect_intensity
+	if health_component.health <= health_component.MAX_HEALTH / 4.0:
+		screen_effect_intensity = lerp(screen_effect_intensity, 0.5, delta)
+	else:
+		screen_effect_intensity = lerp(screen_effect_intensity, 0.0, delta)
+		
+	
+	damage_heal_effect.material.set_shader_parameter("intensity", screen_effect_intensity)
+	damage_heal_effect.material.set_shader_parameter("vignette_color", screen_effect_color)
 
 #Updating always on functions
 func _physics_process(delta):
@@ -279,3 +303,24 @@ func update_velocity(delta):
 
 func _on_jump_buffer_timer_timeout() -> void:
 	jump_buffer_running = false
+
+
+@export_group("Damage & Healed stage Colors")
+@export_color_no_alpha var hp_damaged_color : Color
+@export_color_no_alpha var hp_healed_color : Color
+@export_color_no_alpha var shield_damaged_color : Color
+func on_healed():
+	screen_effect_intensity = 1.0
+	screen_effect_color = hp_healed_color
+
+func on_damaged():
+	screen_effect_intensity = 1.0
+	screen_effect_color = hp_damaged_color
+
+
+	damage_heal_effect.material.set_shader_parameter("vignette_color", Vector3(255,0,0))
+
+
+func on_shield_damaged():
+	screen_effect_intensity = 1.0
+	screen_effect_color = shield_damaged_color

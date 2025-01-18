@@ -31,6 +31,7 @@ func damage(damage_amount : float = 0.0):
 		died.emit()
 
 func heal(amount: int) -> void:
+
 	health += amount
 	
 	if health > MAX_HEALTH:

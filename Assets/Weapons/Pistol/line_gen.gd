@@ -1,5 +1,3 @@
-@tool
-
 extends MeshInstance3D
 @onready var burger: Node3D = $burger
 @onready var end: Node3D = $end
@@ -32,7 +30,7 @@ func _ready() -> void:
 	t.tween_property(self, "transparency", 1, 1)
 	await t.finished
 	queue_free()
-	pass
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 		

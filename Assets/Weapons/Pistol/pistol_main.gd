@@ -20,57 +20,50 @@ func _ready() -> void:
 	
 	charging_particles.emitting = false
 
-func _physics_process(delta: float) -> void:
-
+func _process(delta: float) -> void:
 	# If alt_fire is held down increase charge, btw delta is basically the amount of time that passed so 1 delta is 1 sec
-
+	
 	if Input.is_action_pressed("secondary_fire"):
 		
 		# Only increase charge if the gun has enough bullets
-		
 		if floor(charge) < mag_size:
-			
 			is_primary_enabled = false
 			
 			charging_particles.emitting = true
-			charging_particles.amount = floor(charge)
+			charging_particles.amount = floor(charge)*2
 			
 			charge += delta * 2
 			
 			# UI
-			
 			gun_utility.set_texture_offset(Vector2(5-(charge*2), 0))
 	
 	# If not pressing it down, and charge is more than 0 do an alt fire
-	
 	if Input.is_action_just_released("secondary_fire") and charge > 0:
-		
 		charging_particles.emitting = false
 		is_primary_enabled = true
 		_secondary_fire()
+	
 
 
 func _secondary_fire() -> void:
-	
 	# Set UI
 	gun_utility.set_texture_offset(Vector2(-5, 0))
-
+	
 	# Change the weapon setting from the normal
 	weapon_settings.knockback_force += charge * 30
-	weapon_settings.damage += charge * 20
-	weapon_settings.stun_time = charge / 2
+	weapon_settings.damage = damage * 1.5
+	weapon_settings.stun_time = charge
 	
 	# Shoot with these settings
-	
 	var ray : Dictionary = run_ray_test(true, [])
 	shooting_particles.emitting = true
+	
 	if ray.size() > 0:
 		if ray["collider"] is HitboxComponent:
 			ray["collider"].damage(weapon_settings)
 	draw_line(ray)
 	
 	# Decrease back to normal
-	
 	mag_size = mag_size - floor(charge)
 	charge = 0.0
 	weapon_settings.stun_time = 0.0

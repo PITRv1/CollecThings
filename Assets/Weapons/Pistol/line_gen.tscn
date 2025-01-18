@@ -1,8 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://isdp68qdk8s2"]
+[gd_scene load_steps=6 format=3 uid="uid://isdp68qdk8s2"]
 
+[ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_3wbsg"]
 [ext_resource type="Script" path="res://Assets/Weapons/Pistol/line_gen.gd" id="1_6wgfk"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6umbd"]
+render_priority = 0
+shader = ExtResource("1_3wbsg")
+shader_parameter/Ripple_Height_Speed = 0.0
+shader_parameter/Ripple_Height = 0.1
+shader_parameter/Water_Color = Color(0.229799, 0.754113, 1, 1)
+shader_parameter/ColorParameter = Color(0.240428, 0.731106, 0.813044, 1)
+shader_parameter/DeepColor_cutoff = 0.0
+shader_parameter/Ripple_Speed = -0.1
+shader_parameter/FloatParameter = 0.0
+shader_parameter/Metalic = 0.0
+shader_parameter/Roughness = 0.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kujsy"]
+next_pass = SubResource("ShaderMaterial_6umbd")
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0.592157, 1, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_k2hb3"]
 resource_local_to_scene = true

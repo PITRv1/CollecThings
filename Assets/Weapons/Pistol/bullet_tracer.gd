@@ -27,7 +27,7 @@ func _ready() -> void:
 	SetGrappleHookPosition(end.global_position)
 	SetPlayerPosition(burger.global_position)
 	PreparePoints()
-	pass
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

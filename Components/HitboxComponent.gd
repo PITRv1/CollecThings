@@ -11,13 +11,12 @@ func damage(attack: WeaponSettings = null):
 				if "stun_time" in get_parent():
 					get_parent().stun_time = attack.stun_time
 			
-			if shield_component:
+			if shield_component != null:
 				if shield_component.shield > attack.damage:
 					shield_component.damage(attack.damage)
 				
 				elif shield_component.shield < attack.damage:
 					var diff : int = int(attack.damage) - int(shield_component.shield)
-					
 					shield_component.damage(shield_component.shield)
 					health_component.damage(diff)
 				else:

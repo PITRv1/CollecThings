@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://7q7nfq1g0q00"
+path.s3tc="res://.godot/imported/Company_building_metal_texture.jpg-42c937da1406d54ba6fa36eb752e5e0c.s3tc.ctex"
+path.etc2="res://.godot/imported/Company_building_metal_texture.jpg-42c937da1406d54ba6fa36eb752e5e0c.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "8614bbb9c5954be796760ed77ba021fb"
+}
+
+[deps]
+
+source_file="res://Maps/Chapter 1/Company_building_metal_texture.jpg"
+dest_files=["res://.godot/imported/Company_building_metal_texture.jpg-42c937da1406d54ba6fa36eb752e5e0c.s3tc.ctex", "res://.godot/imported/Company_building_metal_texture.jpg-42c937da1406d54ba6fa36eb752e5e0c.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

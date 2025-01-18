@@ -1,0 +1,179 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8o6u6roolrdm"]
+
+[ext_resource type="PackedScene" uid="uid://cld030gnlrafx" path="res://Maps/Chapter 1/Company_building.glb" id="1_bqee4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7xe8c"]
+radius = 1.86255
+height = 23.071
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0pch6"]
+size = Vector3(5.09445, 7.46411, 5.85565)
+
+[sub_resource type="Animation" id="Animation_qhn8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Company_building/Circle_003:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.247366, -0.285085, 0.606014)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Company_building/Line_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.54851, 3.04507, -3.10245)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Company_building/Line_002:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.54851, 3.04507, -3.10245)]
+}
+
+[sub_resource type="Animation" id="Animation_55gdp"]
+resource_name = "radar_and_rotors"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Company_building/Circle_003:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.247366, -0.285085, 0.606014), Vector3(0.247837, 6.10865, 0.605629)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Company_building/Line_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.54851, 3.04507, -3.10245), Vector3(1.54811, 9.32878, -3.1032)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Company_building/Line_002:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.54851, 3.04507, -3.10245), Vector3(1.54811, 9.32878, -3.1032)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dh7q"]
+_data = {
+"RESET": SubResource("Animation_qhn8p"),
+"radar_and_rotors": SubResource("Animation_55gdp")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gtbib"]
+emission_shape_scale = Vector3(1, 6.83, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 2.14
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+angle_min = 1.07288e-05
+angle_max = 318.9
+spread = 115.435
+flatness = 1.0
+initial_velocity_max = 3.0
+orbit_velocity_min = -0.135
+orbit_velocity_max = 0.107
+gravity = Vector3(0, 10, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 6.71
+radial_accel_min = -2.23517e-06
+radial_accel_max = 17.45
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 10.74
+damping_min = 9.459
+damping_max = 18.121
+scale_max = 1.4
+turbulence_noise_strength = 6.42
+turbulence_noise_scale = 0.0
+turbulence_influence_max = 0.41
+turbulence_initial_displacement_min = -18.3
+turbulence_initial_displacement_max = 8.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vc4p8"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.393086, 0.393086, 0.393085, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jfgug"]
+material = SubResource("StandardMaterial3D_vc4p8")
+radius = 1.167
+height = 1.666
+radial_segments = 49
+rings = 24
+
+[node name="CompanyBuilding1" type="Node3D"]
+
+[node name="Company_building" parent="." instance=ExtResource("1_bqee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6456, -2.04149, 11.6867)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -14.8364, 6.49103, -6.04219)
+shape = SubResource("CapsuleShape3D_7xe8c")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.0752, 18.0223, -22.3573)
+shape = SubResource("BoxShape3D_0pch6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5dh7q")
+}
+autoplay = "radar_and_rotors"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4786, 41.1945, -9.4713)
+amount = 500
+lifetime = 1.9
+explosiveness = 0.04
+randomness = 0.08
+trail_lifetime = 5.42
+process_material = SubResource("ParticleProcessMaterial_gtbib")
+draw_pass_1 = SubResource("SphereMesh_jfgug")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4786, 28.8962, 13.9352)
+amount = 150
+lifetime = 1.9
+explosiveness = 0.04
+randomness = 0.08
+trail_lifetime = 5.42
+process_material = SubResource("ParticleProcessMaterial_gtbib")
+draw_pass_1 = SubResource("SphereMesh_jfgug")

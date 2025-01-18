@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=107 format=3 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bhxwdpsf5grfj" path="res://Utilities/Killbox/killbox.tscn" id="11_qvfd8"]
 [ext_resource type="PackedScene" uid="uid://do2ildfe6x7jp" path="res://Assets/Models/Environment Models/Map Models/waterfall_surface.glb" id="13_igx4c"]
 [ext_resource type="Script" path="res://Maps/Chapter 1/Map1/waterfall_hurt.gd" id="14_a5kju"]
+[ext_resource type="PackedScene" uid="uid://b8o6u6roolrdm" path="res://Maps/Chapter 1/company_building1.tscn" id="22_6pr8t"]
 [ext_resource type="PackedScene" uid="uid://drnu6rf6y046g" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/Darkgreen Tree.tscn" id="22_lqtb5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3xu4y"]
@@ -1027,6 +1028,7 @@ mesh = SubResource("PlaneMesh_dotot")
 
 [node name="Invisible_wall" type="CSGMesh3D" parent="map1"]
 transform = Transform3D(-3.47701e-06, -148.605, 0, 79.5447, -6.49574e-06, 0, 0, 0, 24.3855, 1087.86, 79.5347, 248.353)
+visible = false
 use_collision = true
 mesh = SubResource("CapsuleMesh_pvapu")
 
@@ -1194,6 +1196,9 @@ shape = SubResource("BoxShape3D_f4t01")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Fight Area/invis_wall"]
 transform = Transform3D(0.506515, 0, 0.862231, 0, 1, 0, -0.862231, 0, 0.506515, -140.034, 2.29524, 41.414)
 shape = SubResource("BoxShape3D_kyt48")
+
+[node name="CompanyBuilding1" parent="." instance=ExtResource("22_6pr8t")]
+transform = Transform3D(-0.219298, 0, 1.9902, 0, 2.00224, 0, -1.9902, 0, -0.219298, 666.827, 33.8037, -314.219)
 
 [connection signal="body_entered" from="map1/Museum/Assets_museum" to="map1/Museum/Assets_museum" method="_on_body_entered"]
 [connection signal="body_entered" from="map1/Environment_switch" to="WorldEnvironment" method="_on_area_3d_body_entered"]

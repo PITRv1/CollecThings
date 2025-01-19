@@ -41,29 +41,14 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/path": ""
-},
-"map1_Landscape_009": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": false,
-"save_to_file/path": "res://Maps/Chapter 1/Map1/map_grass_mesh.res"
 }
 },
 "nodes": {
 "PATH:Landscape_001": {
+"generate/navmesh": 1,
 "generate/physics": true
 },
 "PATH:Landscape_002": {
-"generate/physics": true
-},
-"PATH:Landscape_004": {
-"generate/physics": true
-},
-"PATH:Landscape_026": {
-"generate/navmesh": 1,
 "generate/physics": true
 },
 "PATH:Landscape_033": {

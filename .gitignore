@@ -2,3 +2,4 @@
 .godot/
 /android/
 godot-jolt/windows/~godot-jolt_windows-x64_editor.dll
+.vscode/

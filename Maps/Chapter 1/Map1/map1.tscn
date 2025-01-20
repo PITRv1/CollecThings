@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=4 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=135 format=4 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -17,21 +17,17 @@
 [ext_resource type="PackedScene" uid="uid://do2ildfe6x7jp" path="res://Assets/Models/Environment Models/Map Models/waterfall_surface.glb" id="13_igx4c"]
 [ext_resource type="Texture2D" uid="uid://bcca3eqcm6nfp" path="res://Assets/Models/Environment Models/Foilage/Grass/Grass_grass2.png" id="14_6al8b"]
 [ext_resource type="Script" path="res://Maps/Chapter 1/Map1/waterfall_hurt.gd" id="14_a5kju"]
-
-[ext_resource type="PackedScene" uid="uid://b8o6u6roolrdm" path="res://Maps/Chapter 1/company_building1.tscn" id="22_6pr8t"]
-[ext_resource type="PackedScene" uid="uid://drnu6rf6y046g" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/Darkgreen Tree.tscn" id="22_lqtb5"]
-
 [ext_resource type="PackedScene" uid="uid://ds21y1h4q5imk" path="res://Assets/Models/Environment Models/Foilage/Grass/Grass.glb" id="15_f6w1f"]
 [ext_resource type="Texture2D" uid="uid://eqqiswdyia0m" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/tree_darkgreen_nature_bark4.jpg" id="18_4ka41"]
 [ext_resource type="Texture2D" uid="uid://dknme7202v2pt" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/tree_darkgreen_Lomb.png" id="19_ru6v2"]
 [ext_resource type="PackedScene" uid="uid://chbdnqitpscf0" path="res://Assets/Models/Environment Models/Foilage/Trees/Darkgreen Tree/tree_darkgreen.glb" id="20_5d7ix"]
 [ext_resource type="Texture2D" uid="uid://dqn8sy23mgu5h" path="res://Assets/Models/Environment Models/Foilage/Bushes/Green Bush/Type 2/bush_green_bush.jpg" id="21_pldcm"]
+[ext_resource type="PackedScene" uid="uid://b8o6u6roolrdm" path="res://Maps/Chapter 1/company_building1.tscn" id="22_6pr8t"]
 [ext_resource type="Texture2D" uid="uid://dxvklhna4cm23" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen_nature_bark_0006_01_s.png" id="22_ph7if"]
 [ext_resource type="Texture2D" uid="uid://bdnl85s326uv7" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen_Lomb.png" id="23_eoh0d"]
 [ext_resource type="Texture2D" uid="uid://b6iu3mbda6ey6" path="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1_stone.png" id="24_0seep"]
 [ext_resource type="Texture2D" uid="uid://cq57korqvaffl" path="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1_stone_normals.png" id="25_6f2m2"]
 [ext_resource type="PackedScene" uid="uid://bdvfy8n5igwlx" path="res://Assets/Models/Environment Models/Foilage/Rocks/Simple Rock/rock1.glb" id="26_kk2aj"]
-
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3xu4y"]
 sky_top_color = Color(0.313042, 0.497043, 0.380713, 1)
@@ -1302,9 +1298,6 @@ multimesh = SubResource("MultiMesh_5e5eb")
 
 [node name="tree_lightgreen" parent="map1/TreePopulator" instance=ExtResource("9_fpyna")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.534, -116.014, 930.118)
-
-[node name="Cube_001" parent="map1/TreePopulator/tree_lightgreen" index="0"]
-lod_bias = 0.2
 
 [node name="RockPopulator" type="MultiMeshInstance3D" parent="map1"]
 lod_bias = 0.395

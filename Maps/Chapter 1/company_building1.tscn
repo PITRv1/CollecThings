@@ -55,7 +55,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Company_building/Circle_003:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -140,6 +140,32 @@ rings = 24
 [node name="Company_building" parent="." instance=ExtResource("1_bqee4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6456, -2.04149, 11.6867)
 
+[node name="Line_001" parent="Company_building" index="68"]
+transform = Transform3D(1.66192, -0.226818, 0.00360227, -0.00146272, -0.0373498, -1.67691, 0.226842, 1.6615, -0.0372044, 15.2393, 16.6957, 2.73033)
+
+[node name="Line_002" parent="Company_building" index="69"]
+transform = Transform3D(2.34784, -0.320432, 0.00508903, -0.00206643, -0.0527651, -2.36902, 0.320466, 2.34725, -0.0525598, 13.9383, 16.6837, -21.4173)
+
+[node name="Circle_003" parent="Company_building" index="71"]
+transform = Transform3D(0.0832933, -0.0670329, -0.0303021, 0.0613712, 0.0885585, -0.0272097, 0.040561, 0.00365985, 0.103396, 2.09085, 27.7064, -2.82188)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Company_building/Circle_003" index="1"]
+transform = Transform3D(-1.74308, 8.82711, -0.138899, 0.293804, -0.0834996, -8.99346, -8.82332, -1.74661, -0.27203, 6.12823, 33.4816, -3.44519)
+visible = false
+light_color = Color(0.537183, 0.455029, 4.81307e-07, 1)
+light_energy = 4.429
+spot_range = 1.04082
+spot_angle = 8.78465
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Company_building/Circle_003" index="2"]
+transform = Transform3D(8.99864, 5.96046e-08, -7.15256e-07, -1.19209e-07, 8.99864, 2.98023e-07, 9.53674e-07, 5.96046e-08, 8.99864, 5.75511, 34.0374, -5.2462)
+light_color = Color(0.514797, 0.0292166, 0.123227, 1)
+light_energy = 32.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+omni_range = 13.5285
+omni_attenuation = 1.66
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -177,3 +203,5 @@ randomness = 0.08
 trail_lifetime = 5.42
 process_material = SubResource("ParticleProcessMaterial_gtbib")
 draw_pass_1 = SubResource("SphereMesh_jfgug")
+
+[editable path="Company_building"]

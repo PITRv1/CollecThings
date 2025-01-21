@@ -52,7 +52,7 @@ func _secondary_fire() -> void:
 	# Change the weapon setting from the normal
 	weapon_settings.knockback_force += charge * 30
 	weapon_settings.damage = damage * 1.5
-	weapon_settings.stun_time = charge
+	weapon_settings.stun_time = charge*weapon_settings.stun_time
 	
 	# Shoot with these settings
 	var ray : Dictionary = run_ray_test(true, [])

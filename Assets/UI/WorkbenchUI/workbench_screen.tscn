@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://dd0c44ge7lv11"]
+
+[ext_resource type="Script" path="res://Assets/UI/Resources/touch_screen.gd" id="1_1nn8w"]
+[ext_resource type="PackedScene" uid="uid://biyn3e7jj2xd2" path="res://Assets/UI/WorkbenchUI/workbench_ui2d.tscn" id="1_2flcr"]
+[ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="3_81mw7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_no1yb"]
+viewport_path = NodePath("viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky3cc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_81mw7")
+shader_parameter/line_amount = 250.0
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 1.0
+shader_parameter/line_opacity = 0.175
+shader_parameter/emission_power = 0.098
+shader_parameter/line_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emva7"]
+resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_ky3cc")
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_no1yb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_1fjye"]
+size = Vector2(8.75, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5nd05"]
+size = Vector3(8.7207, 2.50781, 0.0586203)
+
+[node name="workbench_screen" type="Node3D" node_paths=PackedStringArray("display", "area")]
+process_mode = 3
+script = ExtResource("1_1nn8w")
+display = NodePath("display")
+area = NodePath("area")
+
+[node name="viewport" type="SubViewport" parent="." groups=["viewport"]]
+handle_input_locally = false
+size = Vector2i(1677, 353)
+
+[node name="WorkbenchUi2d" parent="viewport" instance=ExtResource("1_2flcr")]
+
+[node name="display" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_emva7")
+mesh = SubResource("QuadMesh_1fjye")
+
+[node name="area" type="Area3D" parent="."]
+process_mode = 3
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0193674)
+shape = SubResource("BoxShape3D_5nd05")

@@ -98,7 +98,6 @@ func _process(delta: float) -> void:
 	if stun_time >= 1:
 		velocity = velocity / stun_time
 		stun_time -= delta
-		print(stun_time)
 	
 func _hit_finished():
 	pass

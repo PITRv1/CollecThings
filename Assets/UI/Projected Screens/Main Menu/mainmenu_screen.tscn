@@ -18,8 +18,10 @@ disable_receive_shadows = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nd05"]
 size = Vector3(1, 1, 0.0586203)
 
-[node name="Screen" type="Node3D"]
+[node name="Screen" type="Node3D" node_paths=PackedStringArray("display", "area")]
 script = ExtResource("1_4pgd7")
+display = NodePath("display")
+area = NodePath("area")
 
 [node name="viewport" type="SubViewport" parent="."]
 transparent_bg = true

@@ -21,6 +21,7 @@ func play_music(music: AudioStreamMP3, volume: float = default_volume) -> void:
 
 func stop_music():
 	stop()
+	stream = null
 
 
 func create_new_audio_player(sound, volume: float = default_volume) -> void:

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc7dbxlg6bg1b"]
+
+[ext_resource type="PackedScene" uid="uid://bd870b8irbq7x" path="res://Assets/Models/Environment Models/Foilage/Flashlight/Flashlight.glb" id="1_oxpfo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0v8d"]
+emission_enabled = true
+emission = Color(1, 0.922699, 0.534118, 1)
+emission_energy_multiplier = 16.0
+rim_enabled = true
+rim_tint = 1.0
+clearcoat_enabled = true
+clearcoat_roughness = 1.0
+proximity_fade_distance = 0.01
+distance_fade_mode = 3
+distance_fade_max_distance = 23.81
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4isq"]
+transparency = 1
+blend_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.703708, 0.762862, 0.157717, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl3wa"]
+
+[node name="Flashlight" type="Node3D"]
+
+[node name="Flashlight" parent="." instance=ExtResource("1_oxpfo")]
+
+[node name="Cylinder_002" parent="Flashlight" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j0v8d")
+
+[node name="Cylinder_003" parent="Flashlight" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j0v8d")
+
+[node name="Cylinder_004" parent="Flashlight" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j0v8d")
+
+[node name="Cylinder_005" parent="Flashlight" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j0v8d")
+
+[node name="Cylinder_006" parent="Flashlight" index="6"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -0.0406666, 0, 0)
+material_override = SubResource("StandardMaterial3D_d4isq")
+transparency = 0.85
+surface_material_override/0 = SubResource("StandardMaterial3D_gl3wa")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.87297, 0, 0)
+light_color = Color(1, 1, 0, 1)
+light_energy = 9.176
+light_indirect_energy = 5.22
+light_volumetric_fog_energy = 6.011
+shadow_enabled = true
+spot_range = 3.70296
+spot_angle = 12.2775
+
+[editable path="Flashlight"]

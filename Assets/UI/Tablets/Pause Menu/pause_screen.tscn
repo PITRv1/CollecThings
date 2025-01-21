@@ -16,11 +16,14 @@ albedo_texture = SubResource("ViewportTexture_n4skr")
 [sub_resource type="BoxShape3D" id="BoxShape3D_5nd05"]
 size = Vector3(1, 1, 0.0586203)
 
-[node name="pause_screen" type="Node3D"]
+[node name="pause_screen" type="Node3D" node_paths=PackedStringArray("display", "area")]
 process_mode = 3
 script = ExtResource("1_pacrd")
+display = NodePath("display")
+area = NodePath("area")
 
 [node name="viewport" type="SubViewport" parent="." groups=["viewport"]]
+handle_input_locally = false
 size = Vector2i(1152, 648)
 
 [node name="Control" parent="viewport" instance=ExtResource("1_sheha")]

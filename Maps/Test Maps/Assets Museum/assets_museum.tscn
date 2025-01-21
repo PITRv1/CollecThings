@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c8rbeajkquw68" path="res://Assets/Models/Environment Models/Foilage/Trees/Spruce Tree/spruce_tree.glb" id="6_qc0se"]
 [ext_resource type="PackedScene" uid="uid://bp2y5xsiduil6" path="res://Assets/Models/Environment Models/Foilage/Trees/Red Tree/tree_red.glb" id="7_fx135"]
 [ext_resource type="PackedScene" uid="uid://bx5b5g5geudih" path="res://Assets/Models/Environment Models/Foilage/Trees/Yellow Tree/tree_yellow.glb" id="8_l4w37"]
-[ext_resource type="PackedScene" uid="uid://cm085xkege6hw" path="res://Assets/Models/Scraps/Scrap_parts.tscn" id="9_7j0xt"]
+[ext_resource type="PackedScene" uid="uid://cm085xkege6hw" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts.tscn" id="9_7j0xt"]
 [ext_resource type="PackedScene" uid="uid://dvw8j27aay8mm" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal.tscn" id="10_82use"]
 [ext_resource type="PackedScene" uid="uid://mevv0mbbnfg7" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal_PT_1.tscn" id="11_rxu68"]
 [ext_resource type="PackedScene" uid="uid://dqigc3i5obxvm" path="res://Assets/Models/Environment Models/Foilage/Crystal/crystal_PT_2.tscn" id="12_7i8p0"]

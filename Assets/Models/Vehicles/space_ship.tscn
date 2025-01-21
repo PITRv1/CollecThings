@@ -379,7 +379,9 @@ emission = Color(1, 0.643137, 0, 1)
 emission_energy_multiplier = 9.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wvmpp"]
+lightmap_size_hint = Vector2i(17, 9)
 material = SubResource("StandardMaterial3D_m8xok")
+add_uv2 = true
 height = 0.001
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aei20"]

@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://djfkflfktb2id"]
+
+[ext_resource type="FontFile" uid="uid://bnsrlju0em4q0" path="res://Assets/UI/Resources/PressStart2P.ttf" id="1_vgo1d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mykh"]
+bg_color = Color(0, 0.737255, 0.478431, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 10
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxtc7"]
+bg_color = Color(0, 0.537255, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 10
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_616yc"]
+bg_color = Color(6.93083e-06, 0.687364, 0.728151, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 10
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 10
+
+[resource]
+Button/fonts/font = ExtResource("1_vgo1d")
+Button/styles/normal = SubResource("StyleBoxFlat_8mykh")
+Label/fonts/font = ExtResource("1_vgo1d")
+ProgressBar/fonts/font = ExtResource("1_vgo1d")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lxtc7")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_616yc")

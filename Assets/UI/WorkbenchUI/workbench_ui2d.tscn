@@ -1,7 +1,166 @@
-[gd_scene load_steps=3 format=3 uid="uid://biyn3e7jj2xd2"]
+[gd_scene load_steps=8 format=3 uid="uid://biyn3e7jj2xd2"]
 
 [ext_resource type="Script" path="res://Assets/UI/WorkbenchUI/workbench_ui.gd" id="1_r6ln7"]
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="2_8entn"]
+[ext_resource type="Theme" uid="uid://djfkflfktb2id" path="res://Assets/UI/Resources/Themes/extra_earth.tres" id="3_t08pc"]
+[ext_resource type="Texture2D" uid="uid://c14xfhy3rvv3j" path="res://Assets/Images/logo_icon.png" id="4_iy4ds"]
+
+[sub_resource type="Animation" id="Animation_7l8xj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.537255, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/HBoxContainer/Label2:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 0.478431, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/VBoxContainer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/VBoxContainer/ProgressBar:value")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../VBoxContainer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_x3bsv"]
+resource_name = "load"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.537255, 1, 0), Color(0, 0.537255, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/HBoxContainer/Label2:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.16667, 1.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 1, 0.478431, 0), Color(0, 1, 0.478431, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/VBoxContainer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 2.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/VBoxContainer/ProgressBar:value")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3.1, 3.56667, 3.9, 4.89167, 5.225, 5.725, 6.23333),
+"transitions": PackedFloat32Array(1, 1, 19.6983, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 9.0, 19.0, 35.0, 80.0, 97.0, 100.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6.76667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../VBoxContainer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q70qa"]
+_data = {
+"RESET": SubResource("Animation_7l8xj"),
+"load": SubResource("Animation_x3bsv")
+}
 
 [node name="WorkbenchUi2d" type="Control"]
 layout_mode = 3
@@ -13,6 +172,12 @@ grow_vertical = 2
 script = ExtResource("1_r6ln7")
 metadata/_edit_use_anchors_ = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CenterContainer")
+libraries = {
+"": SubResource("AnimationLibrary_q70qa")
+}
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -22,43 +187,44 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.231373, 0.282353, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_8entn")
-theme_override_colors/font_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.537255, 1, 0)
 theme_override_font_sizes/font_size = 50
 text = "Extra"
 
-[node name="Label2" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_8entn")
-theme_override_colors/font_color = Color(0, 1, 0.478431, 1)
+theme_override_colors/font_color = Color(0, 1, 0.478431, 0)
 theme_override_font_sizes/font_size = 50
 text = "Earth"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_8entn")
@@ -66,9 +232,738 @@ theme_override_font_sizes/font_size = 30
 text = "Craftbench"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme = ExtResource("3_t08pc")
 theme_override_font_sizes/font_size = 36
 text = "Leave bench"
 
-[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 30
+step = 1.0
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(1150, 30)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/CenterContainer/Control"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 30.0
+color = Color(0, 0.65098, 0.670588, 1)
+
+[node name="Menu" type="HBoxContainer" parent="VBoxContainer/CenterContainer/Control"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 30.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/Control/Menu"]
+texture_filter = 1
+custom_minimum_size = Vector2(1030, 0)
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "You have no stuff lol xd"
+
+[node name="Button" type="Button" parent="VBoxContainer/CenterContainer/Control/Menu"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "Exit"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Item1" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item1/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item2" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item2/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item3" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item3/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item4" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item4/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item5" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item5/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item6" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item6/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item7" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item7/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item8" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item8/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item9" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item9/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item10" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item10/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[node name="Item11" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11/Margin"]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_iy4ds")
+stretch_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11/Margin/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[node name="Margin2" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11/Margin2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+theme_override_font_sizes/font_size = 31
+text = "Collected "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11/Margin2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 6.64)
+layout_mode = 2
+color = Color(0.176471, 0.764706, 0.560784, 1)
+
+[node name="Desc" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/Item11/Margin2/VBox"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_t08pc")
+text = "1x Peti
+2x Dani
+1x Ábel
+1x Máté"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/Control/Menu/Button" to="." method="_on_button_pressed"]

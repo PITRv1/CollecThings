@@ -1,7 +1,7 @@
 extends Area3D
 
 @onready var player : Player = get_tree().get_first_node_in_group("player")
-@onready var marker_3d: Marker3D = $"../../Marker3D"
+@onready var marker_3d: Marker3D = $"../Marker3D"
 
 var look_at_workbench : bool = false
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		overwrite_player_interaction(false);
 		)
-
+	
 
 func _on_body_entered(body: Player) -> void:
 	overwrite_player_interaction(true)
@@ -46,7 +46,6 @@ func move_player_to_workbench() -> void:
 	look_at_workbench = false
 	play_workbench_start.emit()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
 
 
 func _process(_delta: float) -> void:

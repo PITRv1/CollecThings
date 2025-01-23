@@ -13,3 +13,4 @@ func _on_start_workbench_anim_play_workbench_start() -> void:
 	audio_player.stream = computer_running_sfx
 	audio_player.play()
 	
+	get_node("workbench_screen/viewport/WorkbenchUi2d/AnimationPlayer").play("load")

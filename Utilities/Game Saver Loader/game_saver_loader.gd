@@ -1,5 +1,8 @@
 class_name GameSaverLoader extends Node
 
+
+@onready var player : Player = get_tree().get_first_node_in_group("player")
+
 var main_volume : float
 var music_volume : float
 var window_mode : Window.Mode
@@ -7,26 +10,54 @@ var game_resolution : Vector2i
 var safe_mode : int
 var pixelization_amount : int
 var pixelization_shader = null
+
 var health_data : Dictionary = {}
 var position_data : Dictionary = {}
 var shield_data : Dictionary = {}
 
-@onready var player : Player = get_tree().get_first_node_in_group("player")
-
+var picked_up_scraps : Array[NodePath]
 
 func _ready() -> void:
-	health_data = {}
-	position_data = {}
-	shield_data = {}
+	if ResourceLoader.exists(Global.INV_SAVE_FILE):
+		var inventory : Inventory = ResourceLoader.load(Global.INV_SAVE_FILE)
+		if inventory:
+			picked_up_scraps = inventory.picked_up_scraps
+			if player:
+				player.inventory = inventory.inventory
+			
 	
 	pixelization_shader = Global.get_environment_shader_by_property("down_scaling")
 	
 	load_settings()
+	_handle_scrap_interaction()
 	get_tree().create_timer(2, true, true, false).timeout.connect(_load_components)
 	
 	if Global.load_saved_map_data:
 		get_tree().create_timer(0.2, true, true, false).timeout.connect(load_saved_map_data)
 		Global.load_saved_map_data = false
+	
+
+func save_inventory() -> void:
+	var inventory : Inventory = Inventory.new()
+	inventory.picked_up_scraps = picked_up_scraps
+	inventory.inventory = player.inventory
+	
+	ResourceSaver.save(inventory, Global.INV_SAVE_FILE)
+	
+
+func _handle_scrap_interaction() -> void:
+	var scraps : Array[Node] = get_tree().get_nodes_in_group("scraps")
+	
+	for scrap : Scrap in scraps:
+		if picked_up_scraps.has(scrap.get_path()): scrap.health_component.damage(1)
+		
+		scrap.health_component.died.connect(func(): _save_scrap(scrap.get_path()))
+	
+
+func _save_scrap(scrap_path : NodePath):
+	if picked_up_scraps.has(scrap_path): return
+	else: picked_up_scraps.append(scrap_path)
+	save_inventory()
 	
 
 func _load_components() -> void:
@@ -63,7 +94,6 @@ func _save_position_data() -> void:
 		position_data[health_component.get_parent().get_path()] = health_component.get_parent().global_position
 		
 
-
 func save_current_map_data() -> void:
 	_load_components()
 	_save_position_data()
@@ -76,6 +106,7 @@ func save_current_map_data() -> void:
 	map_data.player_position = player.global_position
 	map_data.player_rotation = Vector2(player.camera.rotation.x, player.rotation.y)
 	map_data.player_velocity = player.velocity
+	map_data.inventory = player.inventory
 	
 	ResourceSaver.save(map_data, Global.MAP_SAVE_FILE)
 	Global.update_main_menu()
@@ -127,6 +158,7 @@ func load_saved_map_data() -> void:
 					player.camera.rotation.x = map_data.player_rotation[0]
 					player.global_rotation.y = map_data.player_rotation[1]
 					player.velocity = map_data.player_velocity
+					player.inventory = map_data.inventory
 					
 				
 

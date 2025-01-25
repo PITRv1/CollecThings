@@ -36,3 +36,12 @@ func _give_back_controls() -> void:
 	player.ui.visible = true
 	player.crosshair.visible = true
 	
+
+func _on_area_3d_body_entered(body: Player) -> void:
+	$hub_map/Bridge/Area3D.queue_free()
+	Global.stat_tablet.purge_message("You should look for useful items before you leave")
+
+
+func _on_scrap_picked_up() -> void:
+	$hub_map/Bridge/StaticBody3D.queue_free()
+	

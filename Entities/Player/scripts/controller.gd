@@ -48,14 +48,16 @@ var headbob_time := 0.0
 const MAX_STEP_HEIGHT := 0.5
 var _snapped_to_stairs_last_frame := false
 var _last_frame_was_on_floor = -INF
+
 @onready var stairs_ahead_raycast: RayCast3D = $StairsAheadRayCast
 @onready var stairs_below_raycast: RayCast3D = $StairsBelowRayCast
 
 @onready var hitbox_component : HitboxComponent = $HitboxComponent
+@onready var damage_heal_effect: TextureRect = $Head/CameraSmooth/Camera3D/Damage_Heal_effect
+
 @export var safe_mode : SafeMode
 @export var crosshair : CenterContainer
-
-@onready var damage_heal_effect: TextureRect = $Head/CameraSmooth/Camera3D/Damage_Heal_effect
+@export var inventory : Dictionary = {}
 
 
 #Jump buffer && (maybe coyoteTime) variables

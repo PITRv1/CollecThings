@@ -1506,7 +1506,7 @@ transform = Transform3D(-0.0902849, -0.995916, 0, 0.995916, -0.0902849, 0, 0, 0,
 lod_bias = 0.2
 
 [node name="CompanyBuilding1" parent="map1" instance=ExtResource("22_6pr8t")]
-transform = Transform3D(-0.438596, 0, 3.9804, 0, 4.00448, 0, -3.9804, 0, -0.438596, 1333.65, 54.8927, -11.22)
+transform = Transform3D(-0.438596, 0, 3.9804, 0, 4.00448, 0, -3.9804, 0, -0.438596, 1333.65, 52.5345, -11.22)
 
 [connection signal="body_entered" from="Fight Area/FightArea3D" to="." method="_on_fight_area_3d_body_entered"]
 [connection signal="body_entered" from="map1/Museum/Assets_museum" to="map1/Museum/Assets_museum" method="_on_body_entered"]

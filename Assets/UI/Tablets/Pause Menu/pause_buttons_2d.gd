@@ -1,12 +1,18 @@
 extends Control
 
 @onready var pause_menu : Node3D = get_tree().get_first_node_in_group("Pause_menu")
-@onready var player_safe_mode : SafeMode = get_tree().get_first_node_in_group("player").safe_mode 
+@onready var player : Player = get_tree().get_first_node_in_group("player")
+@onready var player_safe_mode : SafeMode = player.safe_mode 
 
 
 func _ready() -> void:
 	get_tree().paused = false
+	
 
+func _process(_delta: float) -> void:
+	if player.inventory.has("scraps"):
+		$UIMargin/UI/TitleContainer/ScrapContainer/Scraps.text = "Scraps: "+str(player.inventory["scraps"])
+	
 
 func _show_or_hide_settings() -> void:
 	if $SettingsMargin.visible:

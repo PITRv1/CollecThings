@@ -45,12 +45,30 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Title" type="Label" parent="UIMargin/UI"]
+[node name="TitleContainer" type="HBoxContainer" parent="UIMargin/UI"]
+layout_mode = 2
+
+[node name="Title" type="HBoxContainer" parent="UIMargin/UI/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="UIMargin/UI/TitleContainer/Title"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_6uop4")
 theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
 text = "Pause Menu"
+
+[node name="ScrapContainer" type="HBoxContainer" parent="UIMargin/UI/TitleContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Scraps" type="Label" parent="UIMargin/UI/TitleContainer/ScrapContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_6uop4")
+theme_override_colors/font_color = Color(1, 0.643137, 0, 1)
+text = "Scraps: 0"
 
 [node name="Line" type="ColorRect" parent="UIMargin/UI"]
 custom_minimum_size = Vector2(0, 4)

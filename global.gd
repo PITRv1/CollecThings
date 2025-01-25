@@ -9,15 +9,15 @@ extends Node
 
 const USER_SAVE_FILE : String = "user://game_settings.tres"
 const MAP_SAVE_FILE : String = "user://mapdata_save.tres"
+const INV_SAVE_FILE : String = "user://scrap_save.tres"
 
 
 var weapon_speacial : TextureRect
-var stat_tablet : Control
+var stat_tablet : StatTablet
 var player : Player
 var next_scene: String
 var safe_mode_status : bool
 var load_saved_map_data : bool = false
-
 
 func _ready() -> void:
 	update_main_menu()

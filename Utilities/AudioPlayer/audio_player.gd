@@ -1,10 +1,19 @@
 extends AudioStreamPlayer
 
 @export var default_volume : float = -8.0
+
 const MUSIC_LIBRARY : Dictionary = {
 	"Untitled" : preload("res://Assets/Musics/Untitled.mp3"),
 	"Lost_in_fields_of_nothing" : preload("res://Assets/Musics/Lost in Fields of Nothing.mp3"),
 	"Crash_alarm" :  preload("res://Assets/Musics/Alarm.mp3")
+}
+
+const SFX_LIBRARY : Dictionary = {
+	"ui_notification" : preload("res://Assets/Sounds/notification.wav"),
+	"ui_click" : preload("res://Assets/Sounds/click.mp3"),
+	"computer_power_on" : preload("res://Assets/Sounds/computer_power_on.mp3"),
+	"computer_running" : preload("res://Assets/Sounds/computer_running.mp3"),
+	"computer_shutdown" : preload("res://Assets/Sounds/computer_shutdown.mp3")
 }
 
 var num_of_audios : int = 0

@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://dci5c6utl5a4v"]
+
+[ext_resource type="PackedScene" uid="uid://b1tf52ijycxp1" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_ladder.glb" id="1_5ljp0"]
+[ext_resource type="PackedScene" uid="uid://dckjwnh04rbm5" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_bottle.glb" id="2_jmmii"]
+[ext_resource type="PackedScene" uid="uid://bgf25af86lyta" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_plate.glb" id="3_giegp"]
+[ext_resource type="PackedScene" uid="uid://cr3eo02d85mww" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_scrap1.0.glb" id="4_nqooe"]
+[ext_resource type="PackedScene" uid="uid://cc4t7c7cbs1wr" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_scrap2.0.glb" id="5_vcdwi"]
+[ext_resource type="PackedScene" uid="uid://c2fwt53y0myvq" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_scrap3.0.glb" id="6_su0m1"]
+[ext_resource type="PackedScene" uid="uid://djwc7bed0e47k" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_scrap4.0.glb" id="7_g7v1g"]
+[ext_resource type="PackedScene" uid="uid://dhvg80sryxy5v" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_pipe.glb" id="8_5nbjo"]
+[ext_resource type="PackedScene" uid="uid://dm08lbn4fcg8b" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_wheel.glb" id="9_s7ti7"]
+
+[node name="ScrapGroup" type="Node3D"]
+
+[node name="Scrap_parts_metal_ladder" parent="." instance=ExtResource("1_5ljp0")]
+transform = Transform3D(0.626319, 0, 0.264336, 0, 0.679815, 0, -0.264336, 0, 0.626319, -0.404602, 0.063331, 0.0523539)
+
+[node name="Scrap_parts_metal_bottle" parent="." instance=ExtResource("2_jmmii")]
+transform = Transform3D(0.679815, 0, 0, 0, 0.679815, 0, 0, 0, 0.679815, -0.2229, 0.953909, -0.702102)
+
+[node name="Scrap_parts_metal_plate" parent="." instance=ExtResource("3_giegp")]
+transform = Transform3D(0.499295, 0.244343, 0.391344, -0.298822, 0.610618, 0, -0.35151, -0.17202, 0.555877, 0.67385, -0.066957, 0.0628448)
+
+[node name="Scrap_parts_metal_scrap1_0" parent="." instance=ExtResource("4_nqooe")]
+transform = Transform3D(0.542803, 0, -0.409284, 0, 0.679815, 0, 0.409284, 0, 0.542803, 0.742303, 0.063331, 1.06521)
+
+[node name="Scrap_parts_metal_scrap2_0" parent="." instance=ExtResource("5_vcdwi")]
+transform = Transform3D(0.679815, 0, 0, 0, 0.679815, 0, 0, 0, 0.679815, -0.116979, 0.063331, 0.612961)
+
+[node name="Scrap_parts_metal_scrap3_0" parent="." instance=ExtResource("6_su0m1")]
+transform = Transform3D(0.480172, -0.239593, 0.417348, 0.303523, 0.608295, 0, -0.37344, 0.186337, 0.536628, -1.04929, 0.0633309, 0.960431)
+
+[node name="Scrap_parts_metal_scrap4_0" parent="." instance=ExtResource("7_g7v1g")]
+transform = Transform3D(0.679815, 0, 0, 0, 0.679815, 0, 0, 0, 0.679815, 0.860375, 0.179193, 0.100702)
+
+[node name="Scrap_parts_pipe" parent="." instance=ExtResource("8_5nbjo")]
+transform = Transform3D(0.379098, 0.292893, 0.482336, -0.180991, 0.613484, -0.230279, -0.534487, 0, 0.420086, -0.0225266, 0.397358, 1.2439)
+
+[node name="Scrap_parts_wheel" parent="." instance=ExtResource("9_s7ti7")]
+transform = Transform3D(0.679815, 0, 0, 0, 0.679815, 0, 0, 0, 0.679815, -0.402748, 0.063331, 1.22511)

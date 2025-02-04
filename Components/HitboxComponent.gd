@@ -5,6 +5,7 @@ class_name HitboxComponent
 @export var shield_component : ShieldComponent
 
 func damage(attack: WeaponSettings = null):
+	print(attack.damage)
 	if health_component:
 		if attack:
 			if attack.stun_time > 0:

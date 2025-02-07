@@ -1,15 +1,14 @@
-[gd_scene load_steps=167 format=4 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=159 format=4 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
 [ext_resource type="Script" path="res://Maps/Chapter 1/Map1/map_1.gd" id="1_j80qh"]
+[ext_resource type="Script" path="res://Maps/Chapter 1/Map1/world_environment.gd" id="1_uhr31"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="2_uo7hv"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="3_8qo4w"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="4_5kiew"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/ColorCorrection.gd" id="5_2f2o8"]
-[ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenWarping.gd" id="5_727ae"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="5_yjgmn"]
-[ext_resource type="Script" path="res://Assets/Compositor Effects/ScreenLineScan.gd" id="6_cc3ov"]
 [ext_resource type="PackedScene" uid="uid://bov4xs1544xcp" path="res://Assets/Models/Environment Models/Foilage/Mushroom/mushroom.tscn" id="7_ji8tk"]
 [ext_resource type="PackedScene" uid="uid://bm5rel43nn3py" path="res://Assets/Models/Environment Models/Foilage/Trees/Lightgreen Tree/tree_lightgreen.glb" id="9_fpyna"]
 [ext_resource type="Script" path="res://Maps/Test Maps/Assets Museum/assets_museum.gd" id="10_6quhl"]
@@ -31,49 +30,47 @@
 [ext_resource type="Script" path="res://Maps/Chapter 1/Map1/company_cinematic.gd" id="28_5hpvm"]
 [ext_resource type="PackedScene" uid="uid://cvi1c7koxter2" path="res://Assets/Models/Environment Models/Foilage/Tower/tower.glb" id="28_sas8c"]
 
-[sub_resource type="Gradient" id="Gradient_t8bln"]
-offsets = PackedFloat32Array(0, 0.585034, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.496599, 0.496599, 0.496599, 1, 1, 1, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tl03s"]
+sky_top_color = Color(0.313042, 0.497043, 0.380713, 1)
+sky_horizon_color = Color(0.250754, 0.266666, 0.101428, 1)
+sky_curve = 0.344609
+sky_energy_multiplier = 0.5
+sky_cover_modulate = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0.191831, 0.179039, 0.0485106, 1)
+ground_curve = 0.00012259
+sun_angle_max = 19.03
+sun_curve = 0.439225
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jhe83"]
-seed = 85
-frequency = 0.0225
-fractal_lacunarity = 1.745
-fractal_gain = 0.665
+[sub_resource type="Sky" id="Sky_w60wv"]
+sky_material = SubResource("ProceduralSkyMaterial_tl03s")
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sqyb1"]
-seamless = true
-color_ramp = SubResource("Gradient_t8bln")
-noise = SubResource("FastNoiseLite_jhe83")
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_glfew"]
-sky_top_color = Color(0.0188757, 0.447067, 0.925636, 1)
-sky_horizon_color = Color(0.483006, 0.747435, 0.982709, 1)
-sky_curve = 0.0304596
-sky_cover = SubResource("NoiseTexture2D_sqyb1")
-sky_cover_modulate = Color(0.815686, 1, 1, 1)
-ground_bottom_color = Color(0.1995, 0.612275, 0.95, 1)
-ground_horizon_color = Color(0.2, 0.611765, 0.94902, 1)
-ground_curve = 0.171484
-
-[sub_resource type="Sky" id="Sky_ha1sa"]
-sky_material = SubResource("ProceduralSkyMaterial_glfew")
-
-[sub_resource type="Environment" id="Environment_0d6k5"]
+[sub_resource type="Environment" id="Environment_65ak1"]
 background_mode = 2
-sky = SubResource("Sky_ha1sa")
-tonemap_mode = 2
+sky = SubResource("Sky_w60wv")
+ambient_light_source = 2
+ambient_light_color = Color(0.286309, 0.441126, 0.307506, 1)
+reflected_light_source = 1
+tonemap_exposure = 0.82
+tonemap_white = 1.9
+ssao_enabled = true
+ssao_power = 7.91706
+ssil_enabled = true
+ssil_radius = 13.52
+ssil_intensity = 1.16
 glow_enabled = true
-glow_intensity = 0.16
+fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.557693, 0.59221, 0.646449, 1)
+fog_light_color = Color(0.42355, 0.585709, 0.585427, 1)
+fog_light_energy = 0.39
+fog_sun_scatter = 0.03
 fog_density = 1.0
-fog_sky_affect = 0.584
-fog_height_density = -0.5664
+fog_sky_affect = 0.523
+fog_depth_curve = 1.7411
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
+volumetric_fog_emission = Color(1, 1, 1, 1)
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_pd3n8"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_vupgw"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -81,9 +78,9 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("2_uo7hv")
-color_amount = 32.0
+color_amount = 128.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_dqtkv"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_hlwq6"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -93,7 +90,7 @@ needs_normal_roughness = false
 script = ExtResource("3_8qo4w")
 down_scaling = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_d0wjr"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_q7fch"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -101,30 +98,9 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_5kiew")
-dithering_intesity = 0.056
+dithering_intesity = 0.157
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_0nked"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("5_727ae")
-curvature = 14.645
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_um86m"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = false
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("6_cc3ov")
-frequency = 2000.0
-line_brightness = 0.5
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_kxuga"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_pw8bj"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -132,13 +108,13 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("5_2f2o8")
-contrast = 1.01
+contrast = 1.0
 brightness = 0.0
-saturation = 1.1
-gamma = 0.9
+saturation = 2.0
+gamma = 1.1
 
-[sub_resource type="Compositor" id="Compositor_njll8"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_pd3n8"), SubResource("CompositorEffect_dqtkv"), SubResource("CompositorEffect_d0wjr"), SubResource("CompositorEffect_0nked"), SubResource("CompositorEffect_um86m"), SubResource("CompositorEffect_kxuga")])
+[sub_resource type="Compositor" id="Compositor_w17mx"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_vupgw"), SubResource("CompositorEffect_hlwq6"), SubResource("CompositorEffect_q7fch"), SubResource("CompositorEffect_pw8bj")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4yixr"]
 
@@ -831,6 +807,12 @@ size = Vector2(700, 500)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cx3d"]
 size = Vector3(34.8422, 18.9997, 24.1228)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqesk"]
+size = Vector3(162.789, 83.4955, 220.337)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqtci"]
+size = Vector3(338.941, 145.192, 222.819)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cqplo"]
 load_path = "res://.godot/imported/Grass_grass2.png-245f0c55892eef9cebf7908aae8bc350.s3tc.ctex"
 
@@ -1144,132 +1126,21 @@ buffer = PackedFloat32Array(17.7931, -11.7074, 44.8784, 892.875, 11.2743, 47.717
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnbuo"]
 size = Vector3(5.82983, 6.1792, 7.0976)
 
-[sub_resource type="Animation" id="Animation_ioclj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-23.4369, 3.55215, 8.35822)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.51077, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:fov")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [75.0]
-}
-
-[sub_resource type="Animation" id="Animation_eo1qa"]
-resource_name = "light"
-length = 3.0
-loop_mode = 1
-
 [sub_resource type="Animation" id="Animation_6his0"]
 resource_name = "zoom in and out"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3.5, 5.96667, 8.03333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-23.4369, 3.55215, 8.35822), Vector3(-23.437, 45.062, 8.358), Vector3(-23.437, 60.597, 8.358), Vector3(-23.437, 60.537, 8.358), Vector3(-23.437, 60.537, 8.358)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 3.5, 5.96667, 8.03333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -1.51077, 0), Vector3(-0.55676, -1.51146, 0), Vector3(0, -1.73137, 0), Vector3(0.445059, -1.62141, 0), Vector3(0.445059, -1.67552, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area3D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 8.8),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"cam_switch"
-}, {
-"args": [],
-"method": &"cam_switch2"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:fov")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 3.5, 5.96667, 8.03333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [75.0, 34.9, 23.8, 8.2]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s3vv1"]
 _data = {
-"RESET": SubResource("Animation_ioclj"),
-"light": SubResource("Animation_eo1qa"),
 "zoom in and out": SubResource("Animation_6his0")
 }
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mjnx"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0, 0, 1)
-emission_enabled = true
-emission = Color(0.223103, 0.223103, 0.223103, 1)
-emission_energy_multiplier = 4.4
-rim_enabled = true
-rim_tint = 1.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_km61t"]
-material = SubResource("StandardMaterial3D_5mjnx")
 
 [node name="Map1" type="Node3D"]
 script = ExtResource("1_j80qh")
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_0d6k5")
-compositor = SubResource("Compositor_njll8")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_65ak1")
+compositor = SubResource("Compositor_w17mx")
+script = ExtResource("1_uhr31")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
@@ -1502,6 +1373,19 @@ text = "Enter to Assets_museum"
 font_size = 27
 outline_size = 57
 
+[node name="Environment_switch" type="Area3D" parent="map1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -353.162, 105.333, 726.59)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map1/Environment_switch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 871.967, 0.607468, 58.8326)
+shape = SubResource("BoxShape3D_pqesk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="map1/Environment_switch"]
+transform = Transform3D(0.966506, 0, 0.256643, 0, 1, 0, -0.256643, 0, 0.966506, 687.969, -36.8671, 101.878)
+shape = SubResource("BoxShape3D_gqtci")
+
 [node name="Lock_trees" type="Node3D" parent="map1"]
 
 [node name="tree_lightgreen" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
@@ -1651,31 +1535,16 @@ shape = SubResource("BoxShape3D_tnbuo")
 libraries = {
 "": SubResource("AnimationLibrary_s3vv1")
 }
-autoplay = "light"
-speed_scale = 0.3
 
 [node name="Camera3D" type="Camera3D" parent="map1/CompanyBuilding1"]
-transform = Transform3D(0.0299615, 0, -0.49854, 0, 0.499441, 0, 0.49854, 0, 0.0299615, -23.4369, 3.55215, 8.35822)
-
-[node name="Label3D" type="Label3D" parent="map1/CompanyBuilding1"]
-transform = Transform3D(-1.49012e-08, 0, -0.409627, 0, 0.409627, 0, 0.409627, 0, -1.49012e-08, -20.2593, 3.06633, 8.8038)
-pixel_size = 0.07
-billboard = 2
-shaded = true
-modulate = Color(0, 0.564859, 0.499126, 1)
-text = "Turn of the Tower"
+transform = Transform3D(0.0299593, 0, -0.49854, 0, 0.499441, 0, 0.49854, 0, 0.0299593, -23.4369, 3.55215, 8.35822)
 
 [node name="tower" parent="." instance=ExtResource("28_sas8c")]
-transform = Transform3D(-6.11959e-07, 0, 14, 0, 14, 0, -14, 0, -6.11959e-07, 580.375, 316.777, -2823.55)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="tower"]
-transform = Transform3D(1, 0, 0, 0, 21.755, 0, 0, 0, 1, 3.76158, 102.678, 6.26435)
-mesh = SubResource("CylinderMesh_km61t")
+transform = Transform3D(-6.11959e-07, 0, 14, 0, 14, 0, -14, 0, -6.11959e-07, 580.375, 214.318, -2823.55)
 
 [connection signal="body_entered" from="Fight Area/FightArea3D" to="." method="_on_fight_area_3d_body_entered"]
 [connection signal="body_entered" from="map1/Museum/Assets_museum" to="map1/Museum/Assets_museum" method="_on_body_entered"]
 [connection signal="body_entered" from="map1/CompanyBuilding1/Area3D" to="map1/CompanyBuilding1/Area3D" method="_on_body_entered"]
-[connection signal="body_exited" from="map1/CompanyBuilding1/Area3D" to="map1/CompanyBuilding1/Area3D" method="_on_body_exited"]
 
 [editable path="map1"]
 [editable path="map1/Waterfall/waterfall_surface"]

@@ -34,7 +34,7 @@ frequency = 0.0225
 fractal_lacunarity = 1.745
 fractal_gain = 0.665
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sqyb1"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_22j38"]
 seamless = true
 color_ramp = SubResource("Gradient_qiymf")
 noise = SubResource("FastNoiseLite_cve68")
@@ -43,18 +43,18 @@ noise = SubResource("FastNoiseLite_cve68")
 sky_top_color = Color(0.0188757, 0.447067, 0.925636, 1)
 sky_horizon_color = Color(0.483006, 0.747435, 0.982709, 1)
 sky_curve = 0.0304596
-sky_cover = SubResource("NoiseTexture2D_sqyb1")
+sky_cover = SubResource("NoiseTexture2D_22j38")
 sky_cover_modulate = Color(0.815686, 1, 1, 1)
 ground_bottom_color = Color(0.1995, 0.612275, 0.95, 1)
 ground_horizon_color = Color(0.2, 0.611765, 0.94902, 1)
 ground_curve = 0.171484
 
-[sub_resource type="Sky" id="Sky_ha1sa"]
+[sub_resource type="Sky" id="Sky_himce"]
 sky_material = SubResource("ProceduralSkyMaterial_ss61i")
 
 [sub_resource type="Environment" id="Environment_fqgkm"]
 background_mode = 2
-sky = SubResource("Sky_ha1sa")
+sky = SubResource("Sky_himce")
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 0.16

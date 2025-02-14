@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
 uniform float line_amount : hint_range(1.0, 2000.0) = 256.918; // Frequency of scan lines
-uniform float time_scale : hint_range(0.0, 10.0, 0.05) = 0.05; // Speed of scan line motion
+uniform float time_scale : hint_range(0.0, 10.0) = 0.05; // Speed of scan line motion
 uniform float line_brightness : hint_range(0.0, 1.0) = 0.728; // Brightness of the scan lines
 uniform float line_opacity : hint_range(0.0, 1.0) = 0.457; // Opacity of the scan lines
 uniform float emission_power : hint_range(0.0, 1.0) = 0.182;

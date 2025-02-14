@@ -11,8 +11,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if player.inventory.has("scraps"):
-		$UIMargin/UI/TitleContainer/ScrapContainer/Scraps.text = "Scraps: "+str(player.inventory["scraps"])
-	
+		$UIMargin/UI/TitleContainer/ItemContainer/Scraps.text = "Scraps: "+str(player.inventory["scraps"])
+	if player.inventory.has("gunpowders"):
+		$UIMargin/UI/TitleContainer/ItemContainer/Gunpowders.text = "Gunpowders: "+str(player.inventory["gunpowders"])
 
 func _show_or_hide_settings() -> void:
 	if $SettingsMargin.visible:

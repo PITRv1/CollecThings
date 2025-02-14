@@ -1,9 +1,8 @@
-[gd_scene load_steps=82 format=4 uid="uid://d12gb7rkwkgsc"]
+[gd_scene load_steps=90 format=4 uid="uid://d12gb7rkwkgsc"]
 
 [ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="1_k6m5i"]
 [ext_resource type="Script" path="res://Maps/Hub/hub_map.gd" id="1_ofqif"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Quantization.gd" id="2_uxbfg"]
-[ext_resource type="Environment" uid="uid://c3r3iovidra47" path="res://Assets/Environments/map1_environment.tres" id="2_y74jy"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Pixelization.gd" id="3_h3338"]
 [ext_resource type="PackedScene" uid="uid://d2b8n34aweq4h" path="res://Entities/Player/Player.tscn" id="3_nyxre"]
 [ext_resource type="Script" path="res://Assets/Compositor Effects/Dithering.gd" id="4_oq7cg"]
@@ -30,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bdq017npoy5sl" path="res://Entities/Enemy/Passiv Bunny/Passiv_enemy.tscn" id="27_4u0x2"]
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="27_u5hyo"]
 [ext_resource type="PackedScene" uid="uid://bgy4fl61v7oiw" path="res://Assets/Models/Interactables/Scrap/scrap_pickup.tscn" id="29_5ckk3"]
+[ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="30_0canj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6wqcg"]
 render_priority = 0
@@ -52,6 +52,48 @@ subdivide_depth = 100
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nr2ip"]
 size = Vector3(10000, 10, 10000)
+
+[sub_resource type="Gradient" id="Gradient_gca4u"]
+offsets = PackedFloat32Array(0, 0.585034, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.496599, 0.496599, 0.496599, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kjbsm"]
+seed = 85
+frequency = 0.0225
+fractal_lacunarity = 1.745
+fractal_gain = 0.665
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xvlyl"]
+seamless = true
+color_ramp = SubResource("Gradient_gca4u")
+noise = SubResource("FastNoiseLite_kjbsm")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uhcxp"]
+sky_top_color = Color(0.0188757, 0.447067, 0.925636, 1)
+sky_horizon_color = Color(0.483006, 0.747435, 0.982709, 1)
+sky_curve = 0.0304596
+sky_cover = SubResource("NoiseTexture2D_xvlyl")
+sky_cover_modulate = Color(0.815686, 1, 1, 1)
+ground_bottom_color = Color(0.1995, 0.612275, 0.95, 1)
+ground_horizon_color = Color(0.2, 0.611765, 0.94902, 1)
+ground_curve = 0.171484
+
+[sub_resource type="Sky" id="Sky_tgh5i"]
+sky_material = SubResource("ProceduralSkyMaterial_uhcxp")
+
+[sub_resource type="Environment" id="Environment_dgpnc"]
+background_mode = 2
+sky = SubResource("Sky_tgh5i")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.16
+fog_mode = 1
+fog_light_color = Color(0.557693, 0.59221, 0.646449, 1)
+fog_density = 1.0
+fog_sky_affect = 0.584
+fog_height_density = -0.5664
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_hk7n5"]
 resource_local_to_scene = false
@@ -473,6 +515,19 @@ _data = {
 "wake_up": SubResource("Animation_muqpb")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_06frt"]
+render_priority = 0
+shader = ExtResource("30_0canj")
+shader_parameter/line_amount = 969.605
+shader_parameter/time_scale = 0.01
+shader_parameter/line_brightness = 1.0
+shader_parameter/line_opacity = 0.248
+shader_parameter/emission_power = 0.0
+shader_parameter/line_color = Color(4.81308e-06, 0.991187, 0.991294, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_w3f5a"]
+material = SubResource("ShaderMaterial_06frt")
+
 [node name="HubMap" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.0824, 333.202)
 script = ExtResource("1_ofqif")
@@ -489,7 +544,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.9187, 0)
 shape = SubResource("BoxShape3D_nr2ip")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_y74jy")
+environment = SubResource("Environment_dgpnc")
 compositor = SubResource("Compositor_gbq37")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -935,6 +990,10 @@ theme = ExtResource("27_u5hyo")
 theme_override_font_sizes/font_size = 16
 text = "Press space to skip"
 horizontal_alignment = 1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(7224.91, 0, 0, 0, 7862.25, 0, 0, 0, 7283.47, 0, 79.715, 0)
+mesh = SubResource("SphereMesh_w3f5a")
 
 [connection signal="body_entered" from="hub_map/Bridge/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="died" from="hub_map/ScrapPickup/HealthComponent" to="." method="_on_scrap_picked_up"]

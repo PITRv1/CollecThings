@@ -1137,7 +1137,7 @@ scale_curve = SubResource("CurveTexture_e8xm0")
 color = Color(0.18359, 0.18359, 0.18359, 1)
 alpha_curve = SubResource("CurveTexture_t41v8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o62kn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wgx3n"]
 render_priority = 0
 shader = ExtResource("8_f65px")
 shader_parameter/Base_Color = Color(0.087538, 0.0930979, 0.18472, 1)
@@ -1150,7 +1150,7 @@ shader_parameter/ProximityFade_Alpha = 0.2
 shader_parameter/EmissionBrightness = 10.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_i1ntd"]
-material = SubResource("ShaderMaterial_o62kn")
+material = SubResource("ShaderMaterial_wgx3n")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mvl5p"]
 render_priority = 0

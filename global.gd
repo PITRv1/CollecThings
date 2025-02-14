@@ -9,7 +9,7 @@ extends Node
 
 const USER_SAVE_FILE : String = "user://game_settings.tres"
 const MAP_SAVE_FILE : String = "user://mapdata_save.tres"
-const INV_SAVE_FILE : String = "user://scrap_save.tres"
+const INV_SAVE_FILE : String = "user://item_save.tres"
 
 
 var weapon_speacial : TextureRect

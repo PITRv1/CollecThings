@@ -39,7 +39,7 @@ func _give_back_controls() -> void:
 
 func _on_area_3d_body_entered(body: Player) -> void:
 	$hub_map/Bridge/Area3D.queue_free()
-	Global.stat_tablet.purge_message("You should look for useful items before you leave")
+	Global.stat_tablet.purge_message("You should explore this island before you leave")
 
 
 func _on_scrap_picked_up() -> void:

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0x6a26e6rcag"]
+
+[ext_resource type="PackedScene" uid="uid://cgn7sys31i6pc" path="res://Assets/Models/Environment Models/Foilage/Explosiveness/gunpowder.glb" id="1_7wvuu"]
+[ext_resource type="Script" path="res://Assets/Models/Interactables/Gunpowder/gunpowder.gd" id="1_d0brl"]
+[ext_resource type="Script" path="res://Components/HealthComponent.gd" id="2_33222"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v08od"]
+size = Vector3(1.94598, 1.58582, 1.84744)
+
+[node name="Gunpowder" type="Node3D" node_paths=PackedStringArray("health_component", "hitbox") groups=["gunpowders"]]
+script = ExtResource("1_d0brl")
+health_component = NodePath("HealthComponent")
+hitbox = NodePath("Area3D")
+
+[node name="gunpowder" parent="." instance=ExtResource("1_7wvuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176777, 0, 0.0358889)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13327, 0.292908, 0.0561066)
+shape = SubResource("BoxShape3D_v08od")
+
+[node name="HealthComponent" type="Node3D" parent="."]
+script = ExtResource("2_33222")
+MAX_HEALTH = 1.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

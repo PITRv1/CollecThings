@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://d12gb7rkwkgsc"]
+[gd_scene load_steps=82 format=4 uid="uid://d12gb7rkwkgsc"]
 
 [ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="1_k6m5i"]
 [ext_resource type="Script" path="res://Maps/Hub/hub_map.gd" id="1_ofqif"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://p4owvh3bvthd" path="res://Utilities/Scene Changer Box/scene_changer_box.tscn" id="18_h41ri"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Environment Shaders/grass.gdshader" id="18_plrag"]
 [ext_resource type="PackedScene" uid="uid://wf2dccblku3c" path="res://Maps/Chapter 1/Map1/map1.tscn" id="19_t33pr"]
+[ext_resource type="PackedScene" uid="uid://d0x6a26e6rcag" path="res://Assets/Models/Interactables/Gunpowder/Gunpowder.tscn" id="22_1oeys"]
 [ext_resource type="PackedScene" uid="uid://bdq017npoy5sl" path="res://Entities/Enemy/Passiv Bunny/Passiv_enemy.tscn" id="27_4u0x2"]
 [ext_resource type="Theme" uid="uid://nkt57yku5n0s" path="res://Assets/UI/Resources/Themes/tablet_theme.tres" id="27_u5hyo"]
 [ext_resource type="PackedScene" uid="uid://bgy4fl61v7oiw" path="res://Assets/Models/Interactables/Scrap/scrap_pickup.tscn" id="29_5ckk3"]
@@ -738,10 +739,10 @@ multimesh = SubResource("MultiMesh_kggom")
 transform = Transform3D(-0.000425212, -0.0635876, 2.72793, 0.0121743, 1.82091, 0.0952615, -1.74487, 0.0127203, -1.19242e-07, -414.764, 73.8824, -287.958)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="hub_map/Bridge"]
-transform = Transform3D(1, -4.65661e-10, -2.96083e-11, 4.65661e-10, 1, -7.90746e-09, 4.87965e-12, -2.02764e-10, 1, -63.7398, 0.426155, -1.90735e-06)
+transform = Transform3D(1, -1.39698e-09, -5.9778e-11, 9.31323e-10, 1, -1.53582e-08, 4.87965e-12, -2.02764e-10, 1, -61.5057, 0.411217, -1.90735e-06)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hub_map/Bridge/StaticBody3D"]
-transform = Transform3D(1, -1.39698e-08, 1.43814e-10, 9.31323e-10, 1, -4.58038e-10, -1.26399e-09, 1.66001e-09, 1, -6.98909, 0.68033, -0.927647)
+transform = Transform3D(1, -1.53668e-08, 8.10232e-11, 9.31323e-10, 1, -4.58007e-10, -1.27569e-09, 1.65988e-09, 1, 4.06623, 0.606415, -0.927649)
 shape = SubResource("BoxShape3D_ebkgw")
 
 [node name="Area3D" type="Area3D" parent="hub_map/Bridge"]
@@ -771,6 +772,9 @@ transform = Transform3D(2.43902, 0, 0, 0, 2.43902, 0, 0, 0, 2.43902, -476, 85.12
 
 [node name="ScrapPickup" parent="hub_map" instance=ExtResource("29_5ckk3")]
 transform = Transform3D(2.43902, 0, 0, 0, 2.43902, 0, 0, 0, 2.43902, -476, 85.1227, 44.1262)
+
+[node name="Gunpowder" parent="hub_map" instance=ExtResource("22_1oeys")]
+transform = Transform3D(2.43902, 0, 0, 0, 2.43902, 0, 0, 0, 2.43902, -468.682, 85.2437, 38.0396)
 
 [node name="map1" parent="." instance=ExtResource("11_gfaiw")]
 transform = Transform3D(-0.282341, 0, 0.959314, 0, 1, 0, -0.959314, 0, -0.282341, -423.948, -9.22464, -1328.62)

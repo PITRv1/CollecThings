@@ -15,13 +15,13 @@ var health_data : Dictionary = {}
 var position_data : Dictionary = {}
 var shield_data : Dictionary = {}
 
-var picked_up_scraps : Array[NodePath]
+var picked_up_items : Array[NodePath]
 
 func _ready() -> void:
 	if ResourceLoader.exists(Global.INV_SAVE_FILE):
 		var inventory : Inventory = ResourceLoader.load(Global.INV_SAVE_FILE)
 		if inventory:
-			picked_up_scraps = inventory.picked_up_scraps
+			picked_up_items = inventory.picked_up_items
 			if player:
 				player.inventory = inventory.inventory
 			
@@ -29,7 +29,7 @@ func _ready() -> void:
 	pixelization_shader = Global.get_environment_shader_by_property("down_scaling")
 	
 	load_settings()
-	_handle_scrap_interaction()
+	_handle_pickup_interaction()
 	get_tree().create_timer(2, true, true, false).timeout.connect(_load_components)
 	
 	if Global.load_saved_map_data:
@@ -39,24 +39,29 @@ func _ready() -> void:
 
 func save_inventory() -> void:
 	var inventory : Inventory = Inventory.new()
-	inventory.picked_up_scraps = picked_up_scraps
+	inventory.picked_up_items = picked_up_items
 	inventory.inventory = player.inventory
 	
 	ResourceSaver.save(inventory, Global.INV_SAVE_FILE)
 	
 
-func _handle_scrap_interaction() -> void:
+func _handle_pickup_interaction() -> void:
 	var scraps : Array[Node] = get_tree().get_nodes_in_group("scraps")
 	
 	for scrap : Scrap in scraps:
-		if picked_up_scraps.has(scrap.get_path()): scrap.health_component.damage(1)
+		if picked_up_items.has(scrap.get_path()): scrap.health_component.damage(1)
+		scrap.health_component.died.connect(func(): _save_item(scrap.get_path()))
 		
-		scrap.health_component.died.connect(func(): _save_scrap(scrap.get_path()))
+	var gunpowders : Array[Node] = get_tree().get_nodes_in_group("gunpowders")
+	
+	for gunpowder : Gunpowder in gunpowders:
+		if picked_up_items.has(gunpowder.get_path()):gunpowder.health_component.damage(1)
+		gunpowder.health_component.died.connect(func(): _save_item(gunpowder.get_path()))
 	
 
-func _save_scrap(scrap_path : NodePath):
-	if picked_up_scraps.has(scrap_path): return
-	else: picked_up_scraps.append(scrap_path)
+func _save_item(path : NodePath):
+	if picked_up_items.has(path): return
+	else: picked_up_items.append(path)
 	save_inventory()
 	
 

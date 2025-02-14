@@ -49,6 +49,7 @@ gun_utility=""
 health_components=""
 shield_components=""
 scraps=""
+gunpowders=""
 
 [input]
 

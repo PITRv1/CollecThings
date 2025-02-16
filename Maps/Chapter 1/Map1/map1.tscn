@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=4 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=194 format=4 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -1183,6 +1183,114 @@ tracks/2/keys = {
 "update": 0,
 "values": [75.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../tower/Smoke:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../tower/Boom:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../tower/Electricity:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../tower/MeshInstance3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../MeshInstance3D2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../tower/Plane_006:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(9.78385e-08, 0.867519, 1.5708)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../tower/Plane_006:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.97872, 31.2162, 8.50305)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../tower/Plane_006:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../tower/Flame4:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_eo1qa"]
 resource_name = "light"
@@ -1199,10 +1307,10 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3.5, 5.96667, 8.03333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2.03333, 3, 4.03333, 4.83333, 6.43333, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-23.4369, 3.55215, 8.35822), Vector3(-23.437, 45.062, 8.358), Vector3(-23.437, 60.597, 8.358), Vector3(-23.437, 60.537, 8.358), Vector3(-23.437, 60.537, 8.358)]
+"values": [Vector3(-19.6513, 3.55215, 8.38605), Vector3(-19.6513, 32.5633, 8.38602), Vector3(-19.6513, 46.9812, 8.38599), Vector3(-19.6513, 46.9812, 8.38599), Vector3(-19.651, 56.906, 8.386), Vector3(-19.651, 56.906, 8.386), Vector3(-19.651, 56.906, 8.386), Vector3(-19.651, 22.451, 8.386)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1211,10 +1319,10 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 3.5, 5.96667, 8.03333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2.03333, 3, 4.03333, 4.83333, 6.43333, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -1.51077, 0), Vector3(-0.55676, -1.51146, 0), Vector3(0, -1.73137, 0), Vector3(0.445059, -1.62141, 0), Vector3(0.445059, -1.67552, 0)]
+"values": [Vector3(0, -1.51077, 0), Vector3(0, -1.51077, 0), Vector3(-0.223402, -1.62141, 0), Vector3(0.109956, -1.62141, 0), Vector3(0.333358, -1.71915, 0), Vector3(0.5044, -1.69297, 0), Vector3(0.251327, -1.69297, 0), Vector3(0.251327, -1.69297, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -1223,7 +1331,7 @@ tracks/2/path = NodePath("Area3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 8.8),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -1240,10 +1348,118 @@ tracks/3/path = NodePath("Camera3D:fov")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3.5, 5.96667, 8.03333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2.03333, 3, 4.03333, 4.83333, 6.43333, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [75.0, 34.9, 23.8, 8.2]
+"values": [75.0, 75.0, 75.0, 20.5, 39.4, 8.3, 30.6, 68.4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../tower/Smoke:emitting")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.13333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../tower/Boom:emitting")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.13333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../tower/Electricity:emitting")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.16667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../tower/MeshInstance3D:visible")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 4.7, 4.83333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../MeshInstance3D2:visible")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.075, 5.20833, 5.34167, 5.475, 5.60833, 5.73333, 5.86667, 6, 6.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true, false, false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../tower/Plane_006:rotation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(6.43333, 7.6, 8.23333, 8.83333, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(9.78385e-08, 0.867519, 1.5708), Vector3(1.11177, 1.1973, 1.90066), Vector3(1.89019, 1.1973, 1.90066), Vector3(2.11359, 1.1973, 1.90066), Vector3(2.11359, 1.1973, 1.90066)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../tower/Plane_006:position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(6.43333, 7.6, 8.23333, 8.83333, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.97872, 31.2162, 8.50305), Vector3(23.394, 10.836, 33.088), Vector3(23.844, -14.584, 38.308), Vector3(23.874, -22.139, 38.308), Vector3(23.874, -42.904, 38.308)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../tower/Plane_006:visible")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 9.13333, 9.26667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../../tower/Flame4:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s3vv1"]
@@ -1277,6 +1493,141 @@ radial_segments = 5
 rings = 0
 cap_top = false
 cap_bottom = false
+
+[sub_resource type="Curve" id="Curve_3ts5n"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.64918, 0.812089), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nu6ce"]
+curve = SubResource("Curve_3ts5n")
+
+[sub_resource type="Curve" id="Curve_2i68r"]
+_data = [Vector2(0.00983606, 0.000657082), 0.0, 0.0, 0, 0, Vector2(0.262295, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wx62b"]
+curve = SubResource("Curve_2i68r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4mdot"]
+emission_shape = 1
+emission_sphere_radius = 15.84
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_wx62b")
+color = Color(0.18359, 0.18359, 0.18359, 1)
+alpha_curve = SubResource("CurveTexture_nu6ce")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22qxd"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_h38jb"]
+material = SubResource("StandardMaterial3D_22qxd")
+radius = 25.166
+height = 29.0
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_t0snl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.698361, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hfvyc"]
+curve = SubResource("Curve_t0snl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8574q"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_hfvyc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7byyg"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.146258, 0.287747, 0.58619, 1)
+emission_enabled = true
+emission = Color(0.444199, 0.594072, 0.931896, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tuhqr"]
+material = SubResource("StandardMaterial3D_7byyg")
+top_radius = 7.052
+bottom_radius = 3.018
+height = 24.666
+
+[sub_resource type="Curve" id="Curve_7vvcp"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.428571, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_42kh2"]
+curve = SubResource("Curve_7vvcp")
+
+[sub_resource type="Curve" id="Curve_mubgm"]
+_data = [Vector2(0, 0.102641), 0.0, 0.0, 0, 0, Vector2(0.243161, 1), 0.0, 0.0, 0, 0, Vector2(0.984802, 0.508403), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_58x87"]
+curve = SubResource("Curve_mubgm")
+
+[sub_resource type="Curve" id="Curve_fwc48"]
+_data = [Vector2(0.00293256, 0.0500575), 0.0, 0.0, 0, 0, Vector2(0.486804, 0.364212), 0.0, 0.0, 0, 0, Vector2(0.753666, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wjlbv"]
+curve = SubResource("Curve_fwc48")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ym4p1"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+angle_curve = SubResource("CurveTexture_42kh2")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 3.99998
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.0
+radial_velocity_min = 0.999978
+radial_velocity_max = 2.99998
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 5.0
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_58x87")
+turbulence_enabled = true
+turbulence_noise_strength = 1.9
+turbulence_influence_over_life = SubResource("CurveTexture_wjlbv")
+
+[sub_resource type="Gradient" id="Gradient_drwao"]
+offsets = PackedFloat32Array(0, 0.386885, 0.934426)
+colors = PackedColorArray(0.651184, 0, 0.0461743, 1, 0.998252, 0.621656, 0.502061, 1, 0.904799, 0.473779, 9.62615e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3lj5q"]
+gradient = SubResource("Gradient_drwao")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dcir"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture1D_3lj5q")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_iffhw"]
+material = SubResource("StandardMaterial3D_4dcir")
+size = Vector2(4.14, 5.25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vb2xe"]
 render_priority = 0
@@ -1678,11 +2029,10 @@ shape = SubResource("BoxShape3D_tnbuo")
 libraries = {
 "": SubResource("AnimationLibrary_s3vv1")
 }
-autoplay = "light"
 speed_scale = 0.3
 
 [node name="Camera3D" type="Camera3D" parent="map1/CompanyBuilding1"]
-transform = Transform3D(0.0299615, 0, -0.49854, 0, 0.499441, 0, 0.49854, 0, 0.0299615, -23.4369, 3.55215, 8.35822)
+transform = Transform3D(0.0299615, 0, -0.49854, 0, 0.49944, 0, 0.49854, 0, 0.0299615, -23.4369, 3.55215, 8.35822)
 
 [node name="Label3D" type="Label3D" parent="map1/CompanyBuilding1"]
 transform = Transform3D(-1.49012e-08, 0, -0.409627, 0, 0.409627, 0, 0.409627, 0, -1.49012e-08, -20.2593, 3.06633, 8.8038)
@@ -1695,9 +2045,57 @@ text = "Turn of the Tower"
 [node name="tower" parent="." instance=ExtResource("28_sas8c")]
 transform = Transform3D(-6.11959e-07, 0, 14, 0, 14, 0, -14, 0, -6.11959e-07, 580.375, 316.777, -2823.55)
 
+[node name="Plane_006" parent="tower" index="5"]
+transform = Transform3D(8.64312e-06, -2.96477, 3.49658, 43.0981, 8.92599e-07, -4.48523e-07, -3.67343e-06, 3.49658, 2.96477, 2.97872, 31.2162, 8.50305)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="tower"]
 transform = Transform3D(1, 0, 0, 0, 14.7208, 0, 0, 0, 1, 3.76158, 118.819, 6.26435)
 mesh = SubResource("CylinderMesh_km61t")
+
+[node name="Smoke" type="GPUParticles3D" parent="tower"]
+transform = Transform3D(3.23174, -2.2571, -3.52214, -0.644359, 4.12905, -3.23726, 4.13338, 2.40844, 2.24918, 4.09369, 44.2911, 5.11973)
+amount = 60
+lifetime = 3.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_4mdot")
+draw_pass_1 = SubResource("SphereMesh_h38jb")
+
+[node name="Electricity" type="GPUParticles3D" parent="tower"]
+transform = Transform3D(1.20779, 0.729966, -1.35917, -0.0580625, 1.74643, 0.886345, 1.5417, -0.506092, 1.09817, 2.51625, -6.3405, -5.26893)
+emitting = false
+amount = 35
+lifetime = 3.58
+one_shot = true
+speed_scale = 3.81
+explosiveness = 1.0
+randomness = 0.14
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_8574q")
+draw_pass_1 = SubResource("CylinderMesh_tuhqr")
+
+[node name="Boom" type="GPUParticles3D" parent="tower"]
+transform = Transform3D(1.25665, 0.224672, -0.574183, -0.0967248, 1.35922, 0.320158, 0.60894, -0.247748, 1.23577, 2.96141, -6.50488, 7.6786)
+emitting = false
+amount = 35
+lifetime = 3.58
+one_shot = true
+speed_scale = 3.81
+explosiveness = 1.0
+randomness = 0.14
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_8574q")
+draw_pass_1 = SubResource("CylinderMesh_tuhqr")
+
+[node name="Flame4" type="GPUParticles3D" parent="tower"]
+transform = Transform3D(1.23044, 2.42981, 3.19515, -3.27624, 2.31053, -0.130648, -1.63583, -2.79993, 2.66498, -2.9662, -1.46438, -6.87399)
+emitting = false
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_ym4p1")
+draw_pass_1 = SubResource("QuadMesh_iffhw")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(7224.91, 0, 0, 0, 7862.25, 0, 0, 0, 7283.47, 0, 79.715, 0)
@@ -1715,3 +2113,4 @@ mesh = SubResource("SphereMesh_wi65f")
 [editable path="map1/BushUnderDarkTree/bush_green"]
 [editable path="map1/TreePopulator/tree_lightgreen"]
 [editable path="map1/RockPopulator/rock1"]
+[editable path="tower"]

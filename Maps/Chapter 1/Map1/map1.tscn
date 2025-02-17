@@ -1,4 +1,4 @@
-[gd_scene load_steps=194 format=4 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=215 format=4 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -31,6 +31,13 @@
 [ext_resource type="Script" path="res://Maps/Chapter 1/Map1/company_cinematic.gd" id="28_5hpvm"]
 [ext_resource type="PackedScene" uid="uid://cvi1c7koxter2" path="res://Assets/Models/Environment Models/Foilage/Tower/tower.glb" id="28_sas8c"]
 [ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="31_yspqe"]
+[ext_resource type="PackedScene" uid="uid://p4owvh3bvthd" path="res://Utilities/Scene Changer Box/scene_changer_box.tscn" id="32_rdyuh"]
+[ext_resource type="PackedScene" uid="uid://d12gb7rkwkgsc" path="res://Maps/Hub/hub_map.tscn" id="33_irgb0"]
+[ext_resource type="PackedScene" uid="uid://bgy4fl61v7oiw" path="res://Assets/Models/Interactables/Scrap/scrap_pickup.tscn" id="34_d3qkx"]
+[ext_resource type="PackedScene" uid="uid://d0x6a26e6rcag" path="res://Assets/Models/Interactables/Gunpowder/Gunpowder.tscn" id="35_p7677"]
+[ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="36_2qt2h"]
+[ext_resource type="PackedScene" uid="uid://c4hs0tl2eo38t" path="res://Assets/Models/Environment Models/Foilage/Bridge/bridge.tscn" id="37_sqiwp"]
+[ext_resource type="PackedScene" uid="uid://2ppcs07j5k6d" path="res://Assets/Models/Environment Models/Foilage/Forests/Darkgreen Forest/darkgreen_forest.tscn" id="38_kqvdh"]
 
 [sub_resource type="Gradient" id="Gradient_t8bln"]
 offsets = PackedFloat32Array(0, 0.585034, 1)
@@ -160,7 +167,7 @@ shader_parameter/Roughness = 0.2
 size = Vector3(10000, 4, 10000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b83l2"]
-size = Vector3(49.7348, 11.9493, 7.19031)
+size = Vector3(42.8634, 11.9493, 7.19031)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pms44"]
 size = Vector3(21.4659, 11.9493, 8.41293)
@@ -191,6 +198,15 @@ size = Vector3(10.5468, 11.9493, 17.2018)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v8k6e"]
 size = Vector3(10.5468, 11.9493, 75.3097)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gfu87"]
+size = Vector3(10.5468, 11.9493, 33)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ica6h"]
+size = Vector3(10.5468, 11.9493, 19.6161)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t764d"]
+size = Vector3(10.5468, 11.9493, 37.8081)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x3dvr"]
 size = Vector3(10.5468, 11.9493, 82.6508)
@@ -1234,7 +1250,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../../MeshInstance3D2:visible")
+tracks/7/path = NodePath("../MeshInstance3D2:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -1299,7 +1315,7 @@ loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_6his0"]
 resource_name = "zoom in and out"
-length = 10.0
+length = 10.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1331,7 +1347,7 @@ tracks/2/path = NodePath("Area3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 10),
+"times": PackedFloat32Array(0, 10.2333),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -1372,10 +1388,10 @@ tracks/5/path = NodePath("../../tower/Boom:emitting")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(3.13333),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(3.13333, 6.65683),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1404,7 +1420,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../MeshInstance3D2:visible")
+tracks/8/path = NodePath("../MeshInstance3D2:visible")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1468,6 +1484,22 @@ _data = {
 "light": SubResource("Animation_eo1qa"),
 "zoom in and out": SubResource("Animation_6his0")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vb2xe"]
+render_priority = 0
+shader = ExtResource("31_yspqe")
+shader_parameter/line_amount = 969.605
+shader_parameter/time_scale = 0.01
+shader_parameter/line_brightness = 1.0
+shader_parameter/line_opacity = 0.248
+shader_parameter/emission_power = 0.0
+shader_parameter/line_color = Color(4.81308e-06, 0.991187, 0.991294, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wi65f"]
+material = SubResource("ShaderMaterial_vb2xe")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2yntv"]
+size = Vector3(1, 35.5837, 28.196)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lt7bx"]
 render_priority = 0
@@ -1548,12 +1580,23 @@ scale_min = 0.5
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_hfvyc")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kmar5"]
+render_priority = 0
+shader = ExtResource("31_yspqe")
+shader_parameter/line_amount = 64.032
+shader_parameter/time_scale = 0.05
+shader_parameter/line_brightness = 0.465
+shader_parameter/line_opacity = 0.992
+shader_parameter/emission_power = 0.138
+shader_parameter/line_color = Color(0, 1, 1, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7byyg"]
+next_pass = SubResource("ShaderMaterial_kmar5")
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.146258, 0.287747, 0.58619, 1)
+albedo_color = Color(0.270588, 0.701961, 0.827451, 1)
 emission_enabled = true
 emission = Color(0.444199, 0.594072, 0.931896, 1)
-emission_energy_multiplier = 2.0
+emission_energy_multiplier = 0.78
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tuhqr"]
 material = SubResource("StandardMaterial3D_7byyg")
@@ -1629,18 +1672,51 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_4dcir")
 size = Vector2(4.14, 5.25)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vb2xe"]
-render_priority = 0
-shader = ExtResource("31_yspqe")
-shader_parameter/line_amount = 969.605
-shader_parameter/time_scale = 0.01
-shader_parameter/line_brightness = 1.0
-shader_parameter/line_opacity = 0.248
-shader_parameter/emission_power = 0.0
-shader_parameter/line_color = Color(4.81308e-06, 0.991187, 0.991294, 1)
+[sub_resource type="Gradient" id="Gradient_oypyv"]
+offsets = PackedFloat32Array(0.271186, 0.655367)
+colors = PackedColorArray(0.882353, 0.298039, 0, 1, 1, 0.913725, 0.156863, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_wi65f"]
-material = SubResource("ShaderMaterial_vb2xe")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vv4qb"]
+gradient = SubResource("Gradient_oypyv")
+
+[sub_resource type="Curve" id="Curve_vt8hv"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 1.0092), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bb87n"]
+curve = SubResource("Curve_vt8hv")
+
+[sub_resource type="Curve" id="Curve_ruq6x"]
+_data = [Vector2(0.00983606, 0.000657082), 0.0, 0.0, 0, 0, Vector2(0.262295, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kfrod"]
+curve = SubResource("Curve_ruq6x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nt3ux"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 52.49
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 140.9
+scale_curve = SubResource("CurveTexture_kfrod")
+color = Color(1, 0.556863, 0.282353, 1)
+color_ramp = SubResource("GradientTexture1D_vv4qb")
+emission_curve = SubResource("CurveTexture_bb87n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5chro"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_uvg4n"]
+material = SubResource("StandardMaterial3D_5chro")
+radial_segments = 8
+rings = 4
 
 [node name="Map1" type="Node3D"]
 script = ExtResource("1_j80qh")
@@ -1670,7 +1746,7 @@ shape = SubResource("BoxShape3D_wlvkk")
 transform = Transform3D(-0.219298, 0, 1.9902, 0, 2.00224, 0, -1.9902, 0, -0.219298, -16.0603, 33.8037, 132.65)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Invis walls"]
-transform = Transform3D(0.935376, 0, 0.353654, 0, 1, 0, -0.353654, 0, 0.935376, 9.1146, 3.0793, -3.74067)
+transform = Transform3D(0.935377, 0, 0.353654, 0, 1, 0, -0.353654, 0, 0.935377, 5.9009, 3.0793, -2.52562)
 shape = SubResource("BoxShape3D_b83l2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Invis walls"]
@@ -1718,8 +1794,16 @@ transform = Transform3D(-0.796097, 0, -0.605168, 0, 1, 0, 0.605168, 0, -0.796097
 shape = SubResource("BoxShape3D_v8k6e")
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="Invis walls"]
-transform = Transform3D(-0.996418, 0, 0.0845651, 0, 1, 0, -0.0845651, 0, -0.996418, 113.754, 3.07914, 294.426)
-shape = SubResource("BoxShape3D_x3dvr")
+transform = Transform3D(-0.996418, 0, 0.0845652, 0, 1, 0, -0.0845652, 0, -0.996418, 111.655, 3.07914, 319.162)
+shape = SubResource("BoxShape3D_gfu87")
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="Invis walls"]
+transform = Transform3D(-0.996418, 0, 0.0845652, 0, 1, 0, -0.0845652, 0, -0.996418, 114.123, 3.07914, 298.291)
+shape = SubResource("BoxShape3D_ica6h")
+
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="Invis walls"]
+transform = Transform3D(-0.996418, 0, 0.0845652, 0, 1, 0, -0.0845652, 0, -0.996418, 117.603, 3.07914, 265.727)
+shape = SubResource("BoxShape3D_t764d")
 
 [node name="CollisionShape3D14" type="CollisionShape3D" parent="Invis walls"]
 transform = Transform3D(-0.746765, 0, 0.665087, 0, 1, 0, -0.665087, 0, -0.746765, 90.0531, 3.07914, 355.717)
@@ -1880,49 +1964,6 @@ text = "Enter to Assets_museum"
 font_size = 27
 outline_size = 57
 
-[node name="Lock_trees" type="Node3D" parent="map1"]
-
-[node name="tree_lightgreen" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
-transform = Transform3D(0.856285, 0.514355, -0.0470538, -0.156262, 0.344813, 0.925574, 0.492298, -0.785202, 0.375632, 1020.94, 50.7294, 298.328)
-
-[node name="tree_lightgreen2" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
-transform = Transform3D(0.861785, -0.501601, 0.0756525, 0.397035, 0.759787, 0.514865, -0.315736, -0.413666, 0.853927, 1059.79, 48.6331, 288.311)
-
-[node name="tree_lightgreen3" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1058.95, 49.4157, 277.978)
-
-[node name="tree_lightgreen6" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
-transform = Transform3D(0.972933, -0.226912, -0.043721, 0.229013, 0.972076, 0.0511996, 0.0308824, -0.0598265, 0.997731, 1089.53, 46.7253, 277.978)
-
-[node name="tree_lightgreen5" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
-transform = Transform3D(0.836878, -0.525978, -0.151596, 0.0469635, 0.344915, -0.937458, 0.545371, 0.777419, 0.313354, 1088.51, 44.9616, 245.14)
-
-[node name="tree_lightgreen4" parent="map1/Lock_trees" instance=ExtResource("9_fpyna")]
-transform = Transform3D(0.304962, 0.946893, 0.101942, -0.951852, 0.306559, 0, -0.0312512, -0.0970335, 0.99479, 1075.59, 50.6295, 277.978)
-
-[node name="Lock_bushes" type="Node3D" parent="map1"]
-
-[node name="bush_green" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
-transform = Transform3D(0.109351, 0.279031, 0.42799, -0.486464, 0.190643, 0, -0.156164, -0.398483, 0.299693, 1124.34, 54.4632, 274.488)
-
-[node name="bush_green2" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
-transform = Transform3D(-0.50528, -0.082953, -0.103937, 0.132803, -0.335946, -0.377485, -0.00689757, -0.391472, 0.345967, 1126.37, 48.535, 273.638)
-
-[node name="bush_green3" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
-transform = Transform3D(-0.331716, 0.23648, -0.327159, 0.132803, -0.335946, -0.377485, -0.381208, -0.322814, 0.153178, 1088.67, 43.7801, 273.533)
-
-[node name="bush_green4" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
-transform = Transform3D(-0.331716, 0.23648, -0.327159, 0.132803, -0.335946, -0.377485, -0.381208, -0.322814, 0.153178, 1059.73, 43.7801, 273.533)
-
-[node name="bush_green5" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
-transform = Transform3D(-0.331716, 0.23648, -0.327159, -0.0765687, -0.452618, -0.249531, -0.39635, -0.110479, 0.322014, 1054.21, 47.7625, 277.026)
-
-[node name="bush_green6" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
-transform = Transform3D(-0.504966, 0.119285, -0.0614193, -0.0765688, -0.452618, -0.249531, -0.110175, -0.232163, 0.454922, 1019.69, 47.7625, 276.521)
-
-[node name="bush_green7" parent="map1/Lock_bushes" instance=ExtResource("10_c4ki2")]
-transform = Transform3D(-0.479268, 0.207831, -0.0100076, -0.176509, -0.419402, -0.256784, -0.110175, -0.232163, 0.454922, 1018.2, 49.6544, 280.385)
-
 [node name="Mushrooms" type="Node3D" parent="map1"]
 
 [node name="mushroom" parent="map1/Mushrooms" instance=ExtResource("7_ji8tk")]
@@ -2042,11 +2083,24 @@ shaded = true
 modulate = Color(0, 0.564859, 0.499126, 1)
 text = "Turn of the Tower"
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="map1"]
+transform = Transform3D(14449.8, 0, 0, 0, 15724.5, 0, 0, 0, 14566.9, 0, 146.715, 617.218)
+mesh = SubResource("SphereMesh_wi65f")
+skeleton = NodePath("../..")
+
+[node name="SceneChangerBox" parent="map1" instance=ExtResource("32_rdyuh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -93.4097, 58.8337, 765.708)
+next_scene = ExtResource("33_irgb0")
+
+[node name="CollisionShape3D" parent="map1/SceneChangerBox" index="0"]
+transform = Transform3D(0.784105, 0, -0.620628, 0, 1, 0, 0.620628, 0, 0.784105, -1.9903, 6.18201, -0.516693)
+shape = SubResource("BoxShape3D_2yntv")
+
 [node name="tower" parent="." instance=ExtResource("28_sas8c")]
 transform = Transform3D(-6.11959e-07, 0, 14, 0, 14, 0, -14, 0, -6.11959e-07, 580.375, 316.777, -2823.55)
 
 [node name="Plane_006" parent="tower" index="5"]
-transform = Transform3D(8.64312e-06, -2.96477, 3.49658, 43.0981, 8.92599e-07, -4.48523e-07, -3.67343e-06, 3.49658, 2.96477, 2.97872, 31.2162, 8.50305)
+transform = Transform3D(-9.76818e-05, -2.96477, 3.49658, 43.0981, -1.65952e-05, -4.48522e-07, 0.000121724, 3.49658, 2.96477, 2.97872, 31.2162, 8.50305)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="tower"]
 transform = Transform3D(1, 0, 0, 0, 14.7208, 0, 0, 0, 1, 3.76158, 118.819, 6.26435)
@@ -2054,7 +2108,7 @@ mesh = SubResource("CylinderMesh_km61t")
 
 [node name="Smoke" type="GPUParticles3D" parent="tower"]
 transform = Transform3D(3.23174, -2.2571, -3.52214, -0.644359, 4.12905, -3.23726, 4.13338, 2.40844, 2.24918, 4.09369, 44.2911, 5.11973)
-amount = 60
+amount = 200
 lifetime = 3.0
 explosiveness = 1.0
 fixed_fps = 60
@@ -2064,20 +2118,7 @@ draw_pass_1 = SubResource("SphereMesh_h38jb")
 [node name="Electricity" type="GPUParticles3D" parent="tower"]
 transform = Transform3D(1.20779, 0.729966, -1.35917, -0.0580625, 1.74643, 0.886345, 1.5417, -0.506092, 1.09817, 2.51625, -6.3405, -5.26893)
 emitting = false
-amount = 35
-lifetime = 3.58
-one_shot = true
-speed_scale = 3.81
-explosiveness = 1.0
-randomness = 0.14
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_8574q")
-draw_pass_1 = SubResource("CylinderMesh_tuhqr")
-
-[node name="Boom" type="GPUParticles3D" parent="tower"]
-transform = Transform3D(1.25665, 0.224672, -0.574183, -0.0967248, 1.35922, 0.320158, 0.60894, -0.247748, 1.23577, 2.96141, -6.50488, 7.6786)
-emitting = false
-amount = 35
+amount = 210
 lifetime = 3.58
 one_shot = true
 speed_scale = 3.81
@@ -2097,9 +2138,56 @@ draw_order = 3
 process_material = SubResource("ParticleProcessMaterial_ym4p1")
 draw_pass_1 = SubResource("QuadMesh_iffhw")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(7224.91, 0, 0, 0, 7862.25, 0, 0, 0, 7283.47, 0, 79.715, 0)
-mesh = SubResource("SphereMesh_wi65f")
+[node name="Boom" type="GPUParticles3D" parent="tower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27505, -6.95163)
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_nt3ux")
+draw_pass_1 = SubResource("SphereMesh_uvg4n")
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="ScrapPickup" parent="Interactables" instance=ExtResource("34_d3qkx")]
+transform = Transform3D(-0.0956325, 0, 0.995417, 0, 1, 0, -0.995417, 0, -0.0956325, 41.525, 30.3027, 76.6075)
+
+[node name="ScrapPickup2" parent="Interactables" instance=ExtResource("34_d3qkx")]
+transform = Transform3D(-0.0956325, 0, 0.995417, 0, 1, 0, -0.995417, 0, -0.0956325, 163.749, 31.4518, 13.872)
+
+[node name="ScrapPickup3" parent="Interactables" instance=ExtResource("34_d3qkx")]
+transform = Transform3D(-0.0956325, 0, 0.995417, 0, 1, 0, -0.995417, 0, -0.0956325, 323.618, 30.8975, 8.2284)
+
+[node name="ScrapPickup4" parent="Interactables" instance=ExtResource("34_d3qkx")]
+transform = Transform3D(-0.0956325, 0, 0.995417, 0, 1, 0, -0.995417, 0, -0.0956325, 677.94, 32.0212, -77.8014)
+
+[node name="Gunpowder" parent="Interactables" instance=ExtResource("35_p7677")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 528.446, 32.8862, -151.055)
+
+[node name="Gunpowder2" parent="Interactables" instance=ExtResource("35_p7677")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 528.446, 32.8862, -169.986)
+
+[node name="hub_map" parent="." instance=ExtResource("36_2qt2h")]
+transform = Transform3D(0.0126455, 0, -0.514845, 0, 0.515, 0, 0.514845, 0, 0.0126455, -187.606, -12.1585, 255.401)
+
+[node name="Bridge" parent="hub_map" instance=ExtResource("37_sqiwp")]
+transform = Transform3D(0.0229275, 0, 1.1379, 0, 0.933746, 0, -0.933464, 0, 0.0279488, -348.019, 76.6507, -221.59)
+
+[node name="DarkgreenForest" parent="hub_map" instance=ExtResource("38_kqvdh")]
+transform = Transform3D(0.0131116, 0, 0.53382, 0, 0.533981, 0, -0.53382, 0, 0.0131116, -329.669, 82.4055, -114.025)
+
+[node name="DarkgreenForest2" parent="hub_map" instance=ExtResource("38_kqvdh")]
+transform = Transform3D(0.0131116, 0, 0.53382, 0, 0.533981, 0, -0.53382, 0, 0.0131116, -420.955, 82.4055, -116.268)
+
+[node name="DarkgreenForest3" parent="hub_map" instance=ExtResource("38_kqvdh")]
+transform = Transform3D(0.0131116, 0, 0.53382, 0, 0.533981, 0, -0.53382, 0, 0.0131116, -424.488, 82.4055, 27.5421)
+
+[node name="DarkgreenForest4" parent="hub_map" instance=ExtResource("38_kqvdh")]
+transform = Transform3D(0.0131116, 0, 0.53382, 0, 0.533981, 0, -0.53382, 0, 0.0131116, -388.312, 82.4055, -36.6104)
+
+[node name="DarkgreenForest5" parent="hub_map" instance=ExtResource("38_kqvdh")]
+transform = Transform3D(0.0131116, 0, 0.53382, 0, 0.533981, 0, -0.53382, 0, 0.0131116, -518.018, 82.4055, -39.7962)
 
 [connection signal="body_entered" from="Fight Area/FightArea3D" to="." method="_on_fight_area_3d_body_entered"]
 [connection signal="body_entered" from="map1/Museum/Assets_museum" to="map1/Museum/Assets_museum" method="_on_body_entered"]
@@ -2113,4 +2201,5 @@ mesh = SubResource("SphereMesh_wi65f")
 [editable path="map1/BushUnderDarkTree/bush_green"]
 [editable path="map1/TreePopulator/tree_lightgreen"]
 [editable path="map1/RockPopulator/rock1"]
+[editable path="map1/SceneChangerBox"]
 [editable path="tower"]

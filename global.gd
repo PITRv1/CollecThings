@@ -18,6 +18,7 @@ var player : Player
 var next_scene: String
 var safe_mode_status : bool
 var load_saved_map_data : bool = false
+var game_saver_loader : GameSaverLoader
 
 func _ready() -> void:
 	update_main_menu()

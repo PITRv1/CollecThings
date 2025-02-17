@@ -15,9 +15,11 @@ var health_data : Dictionary = {}
 var position_data : Dictionary = {}
 var shield_data : Dictionary = {}
 
-var picked_up_items : Array[NodePath]
+var picked_up_items : Array[NodePath] = []
+var custom_map_data : Dictionary = {}
 
 func _ready() -> void:
+	Global.game_saver_loader = self
 	if ResourceLoader.exists(Global.INV_SAVE_FILE):
 		var inventory : Inventory = ResourceLoader.load(Global.INV_SAVE_FILE)
 		if inventory:
@@ -28,6 +30,7 @@ func _ready() -> void:
 	
 	pixelization_shader = Global.get_environment_shader_by_property("down_scaling")
 	
+	load_custom_map_data()
 	load_settings()
 	_handle_pickup_interaction()
 	get_tree().create_timer(2, true, true, false).timeout.connect(_load_components)
@@ -99,6 +102,11 @@ func _save_position_data() -> void:
 		position_data[health_component.get_parent().get_path()] = health_component.get_parent().global_position
 		
 
+func load_custom_map_data() -> void:
+	if ResourceLoader.exists(Global.MAP_SAVE_FILE):
+		var map_data : MapData = ResourceLoader.load(Global.MAP_SAVE_FILE)
+		custom_map_data = map_data.custom_data
+
 func save_current_map_data() -> void:
 	_load_components()
 	_save_position_data()
@@ -112,10 +120,15 @@ func save_current_map_data() -> void:
 	map_data.player_rotation = Vector2(player.camera.rotation.x, player.rotation.y)
 	map_data.player_velocity = player.velocity
 	map_data.inventory = player.inventory
+	map_data.custom_data = custom_map_data
 	
 	ResourceSaver.save(map_data, Global.MAP_SAVE_FILE)
 	Global.update_main_menu()
 	
+
+func save_custom_map_data(key: String, value) -> void:
+	custom_map_data[key] = value
+	save_current_map_data()
 
 
 func load_saved_map():
@@ -138,6 +151,7 @@ func load_saved_map_data() -> void:
 				health_data = map_data.health_data
 				position_data = map_data.position_data
 				shield_data = map_data.shield_data
+				custom_map_data = map_data.custom_data
 				
 				var health_components : Array[Node] = get_tree().get_nodes_in_group("health_components")
 				for health_component: HealthComponent in health_components:

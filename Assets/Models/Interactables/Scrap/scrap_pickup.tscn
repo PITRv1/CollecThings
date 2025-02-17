@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgy4fl61v7oiw"]
+[gd_scene load_steps=9 format=3 uid="uid://bgy4fl61v7oiw"]
 
 [ext_resource type="Script" path="res://Assets/Models/Interactables/Scrap/scrap_pickup.gd" id="1_njvk2"]
 [ext_resource type="PackedScene" uid="uid://dckjwnh04rbm5" path="res://Assets/Models/Environment Models/Foilage/Scraps/Scrap_parts_metal_bottle.glb" id="1_tdse0"]
@@ -9,21 +9,44 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_arvlh"]
 size = Vector3(2.13409, 2.54187, 2.83197)
 
+[sub_resource type="Animation" id="Animation_pbkk5"]
+resource_name = "spin"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_817q6"]
+_data = {
+"spin": SubResource("Animation_pbkk5")
+}
+
 [node name="ScrapPickup" type="Node3D" node_paths=PackedStringArray("health_component", "hitbox") groups=["scraps"]]
 script = ExtResource("1_njvk2")
 health_component = NodePath("HealthComponent")
 hitbox = NodePath("Area3D")
 
 [node name="Scrap_parts_metal_bottle" parent="." instance=ExtResource("1_tdse0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66379, 0)
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0.0291322, 1.66379, 0.332843)
 
 [node name="Scrap_parts_metal_scrap1_0" parent="." instance=ExtResource("2_5mowq")]
-transform = Transform3D(0.079597, 0.885604, 0.47951, -0.550814, 0.139051, 0.0627834, -0.00710384, -0.858646, 0.504731, 0.371336, 0.238337, -1.1698)
+transform = Transform3D(0.079597, 0.885604, 0.47951, -0.550814, 0.139051, 0.0627834, -0.00710384, -0.858646, 0.504731, 0.400468, 0.238337, -0.836957)
 
 [node name="Scrap_parts_metal_scrap4_0" parent="." instance=ExtResource("3_7a0x0")]
-transform = Transform3D(0.713872, 0.0188152, -0.700024, 0.403538, 0.805922, 0.433182, 0.572315, -0.591723, 0.567732, 0, 1.03278, -0.942549)
+transform = Transform3D(0.713872, 0.0188152, -0.700024, 0.403538, 0.805922, 0.433182, 0.572315, -0.591723, 0.567732, 0.0291322, 1.03278, -0.609706)
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0.0337294, 0, 0.385367)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -33,5 +56,11 @@ shape = SubResource("BoxShape3D_arvlh")
 [node name="HealthComponent" type="Node3D" parent="."]
 script = ExtResource("6_lpwle")
 MAX_HEALTH = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_817q6")
+}
+autoplay = "spin"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

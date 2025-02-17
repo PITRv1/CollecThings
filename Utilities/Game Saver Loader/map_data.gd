@@ -8,3 +8,4 @@ class_name MapData extends Resource
 @export var player_rotation : Vector2
 @export var player_velocity : Vector3
 @export var inventory : Dictionary = {}
+@export var custom_data : Dictionary = {}

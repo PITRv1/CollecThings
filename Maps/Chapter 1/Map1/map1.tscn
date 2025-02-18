@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=4 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=219 format=4 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://cvi1c7koxter2" path="res://Assets/Models/Environment Models/Foilage/Tower/tower.glb" id="28_sas8c"]
 [ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="31_yspqe"]
 [ext_resource type="PackedScene" uid="uid://p4owvh3bvthd" path="res://Utilities/Scene Changer Box/scene_changer_box.tscn" id="32_rdyuh"]
+[ext_resource type="PackedScene" uid="uid://d0c142p5rs4np" path="res://Assets/Models/Vehicles/space_ship_leave.tscn" id="33_2d4dl"]
 [ext_resource type="PackedScene" uid="uid://bgy4fl61v7oiw" path="res://Assets/Models/Interactables/Scrap/scrap_pickup.tscn" id="34_d3qkx"]
 [ext_resource type="PackedScene" uid="uid://d0x6a26e6rcag" path="res://Assets/Models/Interactables/Gunpowder/Gunpowder.tscn" id="35_p7677"]
 [ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="36_2qt2h"]
@@ -1500,6 +1501,435 @@ material = SubResource("ShaderMaterial_vb2xe")
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yntv"]
 size = Vector3(1, 35.5837, 28.196)
 
+[sub_resource type="Animation" id="Animation_a1gc3"]
+resource_name = "leaving"
+length = 12.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../AnimationPlayer:speed_scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.059, 0.162]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.96667, 5.36667, 5.56667, 6.3, 6.6, 7.13333, 7.96667, 10, 11.2667, 11.4333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.118532, -0.0135667, -0.00160442), Vector3(0.195477, 0.376991, 0.785398), Vector3(0.254818, 0.541052, 0.954695), Vector3(0.0698132, 0.176278, 1.01753), Vector3(0.16057, 0.0349066, 0.389208), Vector3(-0.15708, 0.0523599, 0.431096), Vector3(0.0331613, -0.0244346, -0.0296706), Vector3(0.205096, 0.0122495, 0.576251), Vector3(0.545743, -0.142354, 0.507429), Vector3(0.719176, -0.69171, 0.192394), Vector3(0.683831, -0.700585, 0.186665)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("space_ship_outro/Cube_033:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(9.4, 9.76667, 10.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0), Vector3(2.0944, 0, 0), Vector3(3.14159, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("space_ship_outro/Cube_001:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(9.4, 9.76667, 10.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0), Vector3(2.0944, 0, 0), Vector3(3.14159, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(10.4, 11.2667, 11.4333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.464, -3.95584, 1.22821), Vector3(3.1508, -15.6614, -2.91223), Vector3(3.24829, -15.8028, -2.97518)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("space_ship_outro/Cube_009:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.1333, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.373, 1.511, 4.284), Vector3(-2.373, 0.313, 4.284)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("space_ship_outro/Cube_012:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(10.1333, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.373, 1.511, -3.888), Vector3(-2.373, 0.313, -3.888)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("space_ship_outro/Cylinder_008:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(10.1333, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.351, 1.531, -3.896), Vector3(2.351, 0.331, -3.896)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("space_ship_outro/Cylinder_009:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(10.1333, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.351, 1.513, 4.276), Vector3(2.351, 0.313, 4.276)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("space_ship_outro/Cube_009:rotation")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(10.1, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.349066), Vector3(0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("space_ship_outro/Cube_012:rotation")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(10.1, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.349066), Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("space_ship_outro/Cylinder_008:rotation")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(10.1, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.349066), Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("space_ship_outro/Cylinder_009:rotation")
+tracks/13/interp = 2
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(10.1, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.349066), Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:visible")
+tracks/14/interp = 2
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("space_ship_outro/Cube_033/BlueFlame2:emitting")
+tracks/15/interp = 2
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.466667, 11.5333, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("space_ship_outro/Cube_001/BlueFlame:emitting")
+tracks/16/interp = 2
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.5, 11.5, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_wh5mx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../AnimationPlayer:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.118532, -0.0135667, -0.00160442)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("space_ship_outro/Cube_033:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("space_ship_outro/Cube_001:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.464, -3.95584, 1.22821)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("space_ship_outro/Cube_009:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.3731, 0.311043, 4.28418)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("space_ship_outro/Cube_012:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.3731, 0.311043, -3.88795)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("space_ship_outro/Cylinder_008:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.35117, 0.312594, -3.89633)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("space_ship_outro/Cylinder_009:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.35117, 0.312594, 4.2764)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("space_ship_outro/Cube_009:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("space_ship_outro/Cube_012:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("space_ship_outro/Cylinder_008:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("space_ship_outro/Cylinder_009:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("space_ship_outro/Cube_033/BlueFlame2:emitting")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("space_ship_outro/Cube_001/BlueFlame:emitting")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hdlo5"]
+_data = {
+"RESET": SubResource("Animation_wh5mx"),
+"leaving": SubResource("Animation_a1gc3")
+}
+
+[sub_resource type="Curve3D" id="Curve3D_o1vgm"]
+bake_interval = 160.83
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -44.2696, 37.9833, -78.6293, 0, 0, 0, 0, 0, 0, 201.414, -226, -594.106, 0, 0, 0, 0, 0, 0, -120.19, -432.32, -872.935, 0, 0, 0, 0, 0, 0, -222.958, -482.467, -962.035),
+"tilts": PackedFloat32Array(0.31, 0, 0, 0)
+}
+point_count = 4
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lt7bx"]
 render_priority = 0
 shader = ExtResource("31_yspqe")
@@ -2095,6 +2525,34 @@ next_scene = ExtResource("36_2qt2h")
 transform = Transform3D(0.784105, 0, -0.620628, 0, 1, 0, 0.620628, 0, 0.784105, -1.9903, 6.18201, -0.516693)
 shape = SubResource("BoxShape3D_2yntv")
 
+[node name="Camera3D" type="Camera3D" parent="map1"]
+transform = Transform3D(0.790372, -0.415949, -1.7895, -0.0320968, 1.94464, -0.466187, 1.83692, 0.212949, 0.76182, 1419.01, 68.9504, 111.983)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="map1"]
+root_node = NodePath("../Path3D/PathFollow3D/SpaceShipLeave")
+libraries = {
+"": SubResource("AnimationLibrary_hdlo5")
+}
+
+[node name="Path3D" type="Path3D" parent="map1"]
+transform = Transform3D(-0.169609, 0, 3.26799, 0, 3.27239, 0, -3.26799, 0, -0.169609, 4659.89, 1678.69, -818.956)
+curve = SubResource("Curve3D_o1vgm")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="map1/Path3D"]
+transform = Transform3D(0.700236, 0.151279, 0.697515, -0.543751, 0.746013, 0.38406, -0.462332, -0.648265, 0.604742, -184.603, -464.143, -928.781)
+
+[node name="SpaceShipLeave" parent="map1/Path3D/PathFollow3D" instance=ExtResource("33_2d4dl")]
+transform = Transform3D(0.99991, -5.93718e-09, -0.0134711, -0.00159316, 0.992983, -0.118254, 0.0133766, 0.118265, 0.992892, -3.464, -3.95584, 1.22821)
+
+[node name="Cube_033" parent="map1/Path3D/PathFollow3D/SpaceShipLeave/space_ship_outro" index="34"]
+transform = Transform3D(1.19608, 0, 0, 0, -5.22825e-08, -1.19608, 0, 1.19608, -5.22825e-08, 5.51339, 5.54084, 0.829457)
+
+[node name="Cube_001" parent="map1/Path3D/PathFollow3D/SpaceShipLeave/space_ship_outro" index="35"]
+transform = Transform3D(1.19608, 0, 0, 0, -5.22825e-08, -1.19608, 0, 1.19608, -5.22825e-08, -5.57781, 5.54084, 0.829457)
+
+[node name="Camera3D" type="Camera3D" parent="map1/Path3D/PathFollow3D/SpaceShipLeave"]
+transform = Transform3D(0.611178, -9.06946e-09, -1.22935e-07, 8.88178e-16, 0.611175, -2.732e-07, 0, 2.56184e-14, 0.611174, -1.06512, 9.22382, 20.5223)
+
 [node name="tower" parent="." instance=ExtResource("28_sas8c")]
 transform = Transform3D(-6.11959e-07, 0, 14, 0, 14, 0, -14, 0, -6.11959e-07, 580.375, 316.777, -2823.55)
 
@@ -2201,4 +2659,6 @@ transform = Transform3D(0.0131116, 0, 0.53382, 0, 0.533981, 0, -0.53382, 0, 0.01
 [editable path="map1/TreePopulator/tree_lightgreen"]
 [editable path="map1/RockPopulator/rock1"]
 [editable path="map1/SceneChangerBox"]
+[editable path="map1/Path3D/PathFollow3D/SpaceShipLeave"]
+[editable path="map1/Path3D/PathFollow3D/SpaceShipLeave/space_ship_outro"]
 [editable path="tower"]

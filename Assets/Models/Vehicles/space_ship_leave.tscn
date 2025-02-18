@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0c142p5rs4np"]
+
+[ext_resource type="PackedScene" uid="uid://c3d7gifxxmxvq" path="res://Assets/Models/Vehicles/space_ship_outro.glb" id="1_ol54m"]
+[ext_resource type="PackedScene" uid="uid://c8kdw4ohy4ga0" path="res://Assets/Particle Effects/blue_flame.tscn" id="2_nya02"]
+
+[node name="SpaceShipLeave" type="Node3D"]
+
+[node name="space_ship_outro" parent="." instance=ExtResource("1_ol54m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0323752, 0, -0.0437989)
+
+[node name="Catenary_011" parent="space_ship_outro" index="18"]
+visible = false
+
+[node name="Catenary_012" parent="space_ship_outro" index="19"]
+visible = false
+
+[node name="Catenary_013" parent="space_ship_outro" index="20"]
+visible = false
+
+[node name="Catenary_014" parent="space_ship_outro" index="21"]
+visible = false
+
+[node name="BlueFlame2" parent="space_ship_outro/Cube_033" index="0" instance=ExtResource("2_nya02")]
+transform = Transform3D(1.21563, 0, 0, 0, 1.21563, 3.81608e-07, 0, -3.81608e-07, 1.21563, -0.0103807, 0.808011, -0.0364676)
+
+[node name="BlueFlame" parent="space_ship_outro/Cube_001" index="0" instance=ExtResource("2_nya02")]
+transform = Transform3D(1.21581, 0, 0, 0, 1.21581, 3.81664e-07, 0, -3.81664e-07, 1.21581, -0.0124612, 0.769835, 0.09693)
+
+[editable path="space_ship_outro"]

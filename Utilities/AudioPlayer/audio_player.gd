@@ -5,7 +5,8 @@ extends AudioStreamPlayer
 const MUSIC_LIBRARY : Dictionary = {
 	"Untitled" : preload("res://Assets/Musics/Untitled.mp3"),
 	"Lost_in_fields_of_nothing" : preload("res://Assets/Musics/Lost in Fields of Nothing.mp3"),
-	"Crash_alarm" :  preload("res://Assets/Musics/Alarm.mp3")
+	"Crash_alarm" :  preload("res://Assets/Musics/Alarm.mp3"),
+	"No_Name" : preload("res://Assets/Musics/scynthi-no_name.mp3")
 }
 
 const SFX_LIBRARY : Dictionary = {

@@ -11,7 +11,7 @@ func _ready() -> void:
 	current_camera = camera_high
 	
 	await get_tree().create_timer(5.6).timeout
-	AudioPlayer.play_music(AudioPlayer.MUSIC_LIBRARY["Crash_alarm"])
+	AudioPlayer.play_music(AudioPlayer.MUSIC_LIBRARY["Crash_alarm"], 3)
 	
 	
 

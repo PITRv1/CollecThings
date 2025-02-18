@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://cro43x024abt0"]
+
+[ext_resource type="PackedScene" uid="uid://bpu2a0yu38j42" path="res://Assets/Models/Environment Models/Foilage/Explosiveness/explosives.glb" id="1_p32em"]
+
+[sub_resource type="Curve" id="Curve_mj8hu"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.428571, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nd8ds"]
+curve = SubResource("Curve_mj8hu")
+
+[sub_resource type="Curve" id="Curve_dkgqr"]
+_data = [Vector2(0, 0.102641), 0.0, 0.0, 0, 0, Vector2(0.243161, 1), 0.0, 0.0, 0, 0, Vector2(0.984802, 0.508403), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6g4gf"]
+curve = SubResource("Curve_dkgqr")
+
+[sub_resource type="Curve" id="Curve_xa33x"]
+_data = [Vector2(0.00293256, 0.0500575), 0.0, 0.0, 0, 0, Vector2(0.486804, 0.364212), 0.0, 0.0, 0, 0, Vector2(0.753666, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_db73i"]
+curve = SubResource("Curve_xa33x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e2q0f"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+angle_curve = SubResource("CurveTexture_nd8ds")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 3.99998
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.0
+radial_velocity_min = 0.999978
+radial_velocity_max = 2.99998
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 5.0
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_6g4gf")
+turbulence_enabled = true
+turbulence_noise_strength = 1.9
+turbulence_influence_over_life = SubResource("CurveTexture_db73i")
+
+[sub_resource type="Gradient" id="Gradient_5hio2"]
+offsets = PackedFloat32Array(0, 0.386885, 0.934426)
+colors = PackedColorArray(0.651184, 0, 0.0461743, 1, 0.998252, 0.621656, 0.502061, 1, 0.904799, 0.473779, 9.62615e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dda6t"]
+gradient = SubResource("Gradient_5hio2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2esqa"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture1D_dda6t")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_l6hx8"]
+material = SubResource("StandardMaterial3D_2esqa")
+
+[node name="explosives" instance=ExtResource("1_p32em")]
+
+[node name="Flame" type="GPUParticles3D" parent="." index="0"]
+transform = Transform3D(0.181, 0, 0, 0, 0.181, 0, 0, 0, 0.181, -0.681133, 4.60675, 0)
+amount = 1000
+randomness = 1.0
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_e2q0f")
+draw_pass_1 = SubResource("QuadMesh_l6hx8")
+
+[node name="Cylinder" parent="." index="1"]
+visible = false
+
+[node name="Cylinder_001" parent="." index="2"]
+transform = Transform3D(0.50102, 0, 0, 0, 0.50102, 0, 0, 0, 0.50102, 0.32008, 0.510586, -0.0900848)

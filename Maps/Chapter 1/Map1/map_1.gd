@@ -58,3 +58,7 @@ func check_if_all_enemy_died() -> void:
 		for marker in markers:
 			marker.queue_free()
 	
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	Global.change_scene_to("res://Maps/Hub/hub_map.tscn")

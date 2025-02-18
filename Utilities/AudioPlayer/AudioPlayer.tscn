@@ -5,3 +5,4 @@
 [node name="AudioPlayer" type="AudioStreamPlayer"]
 process_mode = 3
 script = ExtResource("1_0nyv2")
+default_volume = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=4 uid="uid://wf2dccblku3c"]
+[gd_scene load_steps=214 format=4 uid="uid://wf2dccblku3c"]
 
 [ext_resource type="Shader" uid="uid://c0m1ui7026408" path="res://Assets/Shaders/Environment Shaders/water_shader.tres" id="1_10rby"]
 [ext_resource type="PackedScene" uid="uid://5eapw71m7x7d" path="res://Maps/Chapter 1/Map1/map1.glb" id="1_d6hg6"]
@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://cvi1c7koxter2" path="res://Assets/Models/Environment Models/Foilage/Tower/tower.glb" id="28_sas8c"]
 [ext_resource type="Shader" path="res://Assets/Shaders/LineScanArtifactSpatial.gdshader" id="31_yspqe"]
 [ext_resource type="PackedScene" uid="uid://p4owvh3bvthd" path="res://Utilities/Scene Changer Box/scene_changer_box.tscn" id="32_rdyuh"]
-[ext_resource type="PackedScene" uid="uid://d12gb7rkwkgsc" path="res://Maps/Hub/hub_map.tscn" id="33_irgb0"]
 [ext_resource type="PackedScene" uid="uid://bgy4fl61v7oiw" path="res://Assets/Models/Interactables/Scrap/scrap_pickup.tscn" id="34_d3qkx"]
 [ext_resource type="PackedScene" uid="uid://d0x6a26e6rcag" path="res://Assets/Models/Interactables/Gunpowder/Gunpowder.tscn" id="35_p7677"]
 [ext_resource type="PackedScene" uid="uid://cwcmydda5jh1f" path="res://Maps/Hub/hub_map.glb" id="36_2qt2h"]
@@ -2090,7 +2089,7 @@ skeleton = NodePath("../..")
 
 [node name="SceneChangerBox" parent="map1" instance=ExtResource("32_rdyuh")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -93.4097, 58.8337, 765.708)
-next_scene = ExtResource("33_irgb0")
+next_scene = ExtResource("36_2qt2h")
 
 [node name="CollisionShape3D" parent="map1/SceneChangerBox" index="0"]
 transform = Transform3D(0.784105, 0, -0.620628, 0, 1, 0, 0.620628, 0, 0.784105, -1.9903, 6.18201, -0.516693)
@@ -2163,10 +2162,10 @@ transform = Transform3D(-0.0956325, 0, 0.995417, 0, 1, 0, -0.995417, 0, -0.09563
 transform = Transform3D(-0.0956325, 0, 0.995417, 0, 1, 0, -0.995417, 0, -0.0956325, 677.94, 32.0212, -77.8014)
 
 [node name="Gunpowder" parent="Interactables" instance=ExtResource("35_p7677")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 528.446, 32.8862, -151.055)
+transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 528.446, 32.8862, -151.055)
 
 [node name="Gunpowder2" parent="Interactables" instance=ExtResource("35_p7677")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 528.446, 32.8862, -169.986)
+transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 528.446, 32.8862, -169.986)
 
 [node name="hub_map" parent="." instance=ExtResource("36_2qt2h")]
 transform = Transform3D(0.0126455, 0, -0.514845, 0, 0.515, 0, 0.514845, 0, 0.0126455, -187.606, -12.1585, 255.401)

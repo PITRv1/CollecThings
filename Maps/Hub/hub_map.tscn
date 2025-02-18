@@ -964,7 +964,7 @@ transform = Transform3D(7224.91, 0, 0, 0, 7862.25, 0, 0, 0, 7283.47, 0, 79.715, 
 mesh = SubResource("SphereMesh_w3f5a")
 
 [node name="Gunpowder" parent="." instance=ExtResource("22_1oeys")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -55.8863, 35.0824, -287.853)
+transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, -55.8863, 35.0824, -287.853)
 
 [node name="ScrapPickup" parent="." instance=ExtResource("29_5ckk3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.808946, 34.0904, -316.424)

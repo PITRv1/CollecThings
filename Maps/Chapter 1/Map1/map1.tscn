@@ -2380,7 +2380,7 @@ rings = 4
 [node name="Map1" type="Node3D"]
 script = ExtResource("1_j80qh")
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0d6k5")
 compositor = SubResource("Compositor_njll8")
 
@@ -2772,7 +2772,7 @@ visible = false
 curve = SubResource("Curve3D_ahk8t")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="map1/CompanyBuilding1/Path3D"]
-transform = Transform3D(-0.369975, -0.914627, -0.162938, 8.94064e-08, 0.175386, -0.984467, 0.929038, -0.364236, -0.0648873, -2.95605, -5.41865, 11.5835)
+transform = Transform3D(0.726845, -0.0359646, -0.685834, 0.569316, 0.590106, 0.572381, 0.384146, -0.806506, 0.449385, 35.4928, 29.7041, -4.92273)
 progress = 67.6569
 cubic_interp = false
 loop = false

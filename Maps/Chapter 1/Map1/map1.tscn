@@ -105,7 +105,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("3_8qo4w")
-down_scaling = 0.0
+down_scaling = 2.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_d0wjr"]
 resource_local_to_scene = false
@@ -2135,6 +2135,7 @@ _data = {
 point_count = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rinxa"]
+size = Vector3(1, 50, 50)
 
 [sub_resource type="Resource" id="Resource_kro4j"]
 script = ExtResource("32_6ty04")
@@ -2808,7 +2809,7 @@ transform = Transform3D(-0.169609, 0, 3.26799, 0, 3.27239, 0, -3.26799, 0, -0.16
 curve = SubResource("Curve3D_o1vgm")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="map1/Path3D"]
-transform = Transform3D(0.804505, 0.447239, -0.390482, -0.276866, 0.864285, 0.419567, 0.525226, -0.229453, 0.819282, -44.2696, 37.9833, -78.6293)
+transform = Transform3D(0.804505, 0.447239, -0.390482, -0.276866, 0.864284, 0.419567, 0.525226, -0.229453, 0.819282, -44.2696, 37.9833, -78.6293)
 
 [node name="SpaceShipLeave" parent="map1/Path3D/PathFollow3D" instance=ExtResource("33_2d4dl")]
 transform = Transform3D(0.99991, -2.21189e-09, -0.0134711, -0.00159316, 0.992983, -0.118255, 0.0133766, 0.118265, 0.992892, -3.464, -3.95584, 1.22821)
@@ -2841,6 +2842,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="map1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.852478)
 shape = SubResource("BoxShape3D_rinxa")
 
 [node name="tower" parent="." instance=ExtResource("28_sas8c")]

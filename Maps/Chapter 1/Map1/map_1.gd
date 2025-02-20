@@ -60,5 +60,5 @@ func check_if_all_enemy_died() -> void:
 	
 
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
+func _on_area_3d_body_entered(body: Player) -> void:
 	Global.change_scene_to("res://Maps/Hub/hub_map.tscn")

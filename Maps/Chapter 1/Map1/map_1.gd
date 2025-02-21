@@ -6,7 +6,7 @@ extends Node3D
 @onready var forest : PackedScene = preload("res://Assets/Models/Environment Models/Foilage/Forests/Lightgreen Forest/lightgreen_forest.tscn")
 @onready var markers : Array[Marker3D] = [$"Fight Area/Leave", $"Fight Area/Enter"]
 
-var enemy_num : int = 6
+var enemy_num : int = 3
 
 func _ready() -> void:
 	await get_tree().create_timer(5).timeout

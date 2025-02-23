@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var man: Node3D = $man
 @onready var player : Player = get_tree().get_first_node_in_group("player")
 var state_machine
 
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 			if wander_timer.is_stopped():
 				nav_agent.set_target_position(global_position + Vector3(randf_range(-4, 4), 0.0, randf_range(-4, 4)))
 				wander_timer.start()
+				man.animation_player.play("idle")
 
 			# Rotation
 			if !nav_agent.is_target_reached():
@@ -55,6 +57,7 @@ func _physics_process(delta: float) -> void:
 				
 		"chase":
 			# Rotation
+			man.animation_player.play("run")
 			var direction = global_position.direction_to(player.global_position + velocity)
 			rotation.y = lerp_angle(rotation.y, atan2(direction.x, direction.z), 5 * delta)
 			
